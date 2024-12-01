@@ -71,7 +71,7 @@
 % dane autora
 \newcommand{\FirstNameAuthor}{Krzysztof}
 \newcommand{\SurnameAuthor}{Grądek}
-\newcommand{\IdAuthor}{$\langle$300362$\rangle$}   % numer albumu  (bez $\langle$ i $\rangle$)
+\newcommand{\IdAuthor}{300362}   % numer albumu  (bez $\langle$ i $\rangle$)
 
 % drugi autor:
 %\newcommand{\FirstNameCoauthor}{Imię}   % Jeżeli jest drugi autor, to tutaj należy podać imię.
@@ -83,12 +83,12 @@
 \newcommand{\IdCoauthor}{}  % Jeżeli praca ma tylko jednego autora, to dane drugiego autora zostają puste.
 %%%%%%%%%%
 
-\newcommand{\Supervisor}{$\langle$dr inż. Krzysztof Jaskot$\rangle$}     % dane promotora (bez $\langle$ i $\rangle$)
+\newcommand{\Supervisor}{dr inż. Krzysztof Jaskot}     % dane promotora (bez $\langle$ i $\rangle$)
 \newcommand{\Title}{Budowa mapy otoczenia z wykorzystaniem robota mobilnego}           % tytuł pracy po polsku
 \newcommand{\TitleAlt}{Construction of an Environment Map Using a Mobile Robot}                     % thesis title in English
-\newcommand{\Program}{$\langle$Automatyka i Robotyka$\rangle$}            % kierunek studiów  (bez $\langle$ i $\rangle$)
-\newcommand{\Specialisation}{$\langle$Technika Informacjii$\rangle$}     % specjalność  (bez $\langle$ i $\rangle$)
-\newcommand{\Departament}{$\langle$Katedra Automatyki i Robotyki$\rangle$}        % katedra promotora  (bez $\langle$ i $\rangle$)
+\newcommand{\Program}{Automatyka i Robotyka}            % kierunek studiów  (bez $\langle$ i $\rangle$)
+\newcommand{\Specialisation}{Technologie Informacyjne}     % specjalność  (bez $\langle$ i $\rangle$)
+\newcommand{\Departament}{Katedra Automatyki i Robotyki}        % katedra promotora  (bez $\langle$ i $\rangle$)
 
 % Jeżeli został wyznaczony promotor pomocniczy lub opiekun, proszę go/ją wpisać ...
 %\newcommand{\Consultant}{$\langle$stopień naukowy imię i nazwisko$\rangle$} % dane promotora pomocniczego, opiekuna (bez $\langle$ i $\rangle$)
@@ -480,9 +480,10 @@ escapeinside={@*}{*@},%
 % TODO
 \subsubsection*{Tytuł pracy} 
 \Title
-
 \subsubsection*{Streszczenie}  
-W ramach projektu wykonano mapowanie otoczenia z wykorzystaniem robota mobilnego stanowiącego połączenie obsługi mapowania, lokalizacji i nawigacji przy pomocy mikrokontrolera Raspberry pi 4 oraz Arduino nano do obsługi silników z enkoderami. W pracy przedstawiono sposób budowy mapy otoczenia z wykorzystaniem robota mobilnego. W pierwszym etapie pracy zrealizowano lokalizację robota w przestrzeni. W kolejnym etapie zrealizowano mapowanie otoczenia. W pracy wykorzystano platformę ROS oraz wizualizację Rviz.
+Projekt koncentruje się na implementacji systemu autonomicznej nawigacji robota mobilnego, z naciskiem na dwa kluczowe aspekty: tworzenie mapy otoczenia oraz realizację precyzyjnej nawigacji typu "punkt-punkt" w zmapowanej przestrzeni. Rozwiązanie opiera się na dwóch współpracujących ze sobą mikrokontrolerach - Raspberry Pi 4, który odpowiada za obsługę czujnika RPLidar A1 oraz wykonywanie algorytmów mapowania i nawigacji, oraz Arduino Nano zarządzającym silnikami z enkoderami, zapewniającymi precyzyjne sterowanie ruchem robota.
+
+
 \subsubsection*{Słowa kluczowe} 
 Mapowanie, robot mobilny, lokalizacja, SLAM, ROS
 \subsubsection*{Thesis title} 
@@ -492,7 +493,8 @@ Mapowanie, robot mobilny, lokalizacja, SLAM, ROS
 
 \subsubsection*{Abstract} 
 \begin{otherlanguage}{british}
-The project involved mapping the environment using a mobile robot that combines mapping, localization, and navigation using a Raspberry pi 4 microcontroller and an Arduino nano to control motors with encoders. The work presents a way to build an environment map using a mobile robot. In the first stage of the work, the robot's location in space was realized. In the next stage, environment mapping was realized. The work used the ROS platform and Rviz visualization.
+The project focuses on implementing an autonomous mobile robot navigation system, emphasizing two key aspects: environment mapping and precise point-to-point navigation in the mapped space. The solution is based on two cooperating microcontrollers - Raspberry Pi 4, which handles the RPLidar A1 sensor and executes mapping and navigation algorithms, and Arduino Nano managing motors with encoders, providing precise robot motion control.
+
 \end{otherlanguage}
 \subsubsection*{Key words}  
 \begin{otherlanguage}{british}
@@ -521,7 +523,6 @@ Mapping, mobile robot, localization, SLAM, ROS
 % TODO
 \chapter{Wstęp}
 \label{ch:wstep}
-Technologia jednoczesnej lokalizacji i mapowania - SLAM ("Simultaneous Localization and Mapping") polega na wykorzystaniu czujnika laserowego LiDAR do określenia pozycji robota w przestrzeni, a następnie zmapowanie pomieszczenia dla dalszej nawigacji robota.  
 
 Niniejsza praca skupia się na zbudowaniu prostego robota mobilnego wykorzystującego LiDAR do mapowania otoczenia. Robot wyposażony jest w mikrokontroler Raspberry Pi 4 stanowiący podstawę operacyjną robota, oraz Arduino Nano do obsługi silników z enkoderami. W szczególności, praca koncentruje się na implementacji rozwiązania umożliwiającego robotowi poruszanie się między zadanymi punktami w przestrzeni na utworzonej mapie.
 
@@ -533,10 +534,10 @@ Do realizacji założonych celów wykorzystano nowoczesne narzędzia z ekosystem
 \end{itemize}
 
 \section{Wprowadzenie do tematu}
-Roboty mobilne znajdują coraz szersze zastosowanie w różnych dziedzinach - od przemysłu przez usługi po zastosowania domowe. Kluczową umiejętnością takich robotów jest możliwość autonomicznej nawigacji w przestrzeni, co wymaga zdolności do tworzenia i wykorzystywania map otoczenia.
-
+Jednoczesna lokalizacja i mapowanie - SLAM (Simultaneous Localization and Mapping) to proces, w którym robot konstruuje mapę nieznanego środowiska podczas jednoczesnej lokalizacji w tym środowisku i śledzenia swojej trajektorii poruszania się \cite{bib:mediumslam}. Jest to podstawowa technologia umożliwiająca robotom autonomiczne poruszanie się w nowych przestrzeniach.
+\newpage
 \section{Osadzenie problemu w dziedzinie}
-Mapowanie i nawigacja robotów mobilnych stanowi fundamentalny problem w robotyce. W ostatnich latach nastąpił znaczący postęp w tej dziedzinie, głównie dzięki rozwojowi:
+Realizacja systemu SLAM i autonomicznej nawigacji wymaga integracji wielu zaawansowanych technologii. Główne wyzwania techniczne obejmują wykorzystanie i synchronizację:
 \begin{itemize}
 \item Sensorów (w tym LiDAR - Light Detection and Ranging, kamery)
 \item Algorytmów SLAM (Simultaneous Localization and Mapping)
@@ -587,8 +588,13 @@ W ramach pracy autor samodzielnie:
 \end{itemize}
 
 
+
+
+
+
 % TODO
 \chapter{Analiza tematu}
+\label{ch:Analiza Tematu}
 \section{Sformułowanie problemu}
 Problem jednoczesnej lokalizacji i mapowania (SLAM) jest fundamentalnym zagadnieniem w robotyce mobilnej. Polega on na rozwiązaniu dwóch współzależnych problemów:
 \begin{itemize}
@@ -690,7 +696,7 @@ W projekcie zdecydowano się wykorzystać połączenie SLAM Toolbox do lokalizac
 
 
 % TODO
-\chapter{[Właściwy dla kierunku -- np. Specyfikacja zewnętrzna]}
+\chapter{[Podstawy teoretyczne]}
 \label{ch:04}
 
 Jeśli „Specyfikacja zewnętrzna”:
@@ -784,7 +790,7 @@ Jeśli „Specyfikacja zewnętrzna”:
 
 
 % TODO
-\chapter{[Właściwy dla kierunku -- np. Specyfikacja wewnętrzna]}
+\chapter{[Wymagania i specyfikacja użytkowa]}
 \label{ch:05}
 
 
