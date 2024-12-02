@@ -22,50 +22,49 @@ Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: main-blx.bib
 Database file #2: biblio.bib
-Warning--I didn't find a database entry for "bib:slamtoolbox"
-Warning--I didn't find a database entry for "bib:amcl"
+Warning--I didn't find a database entry for "biblatex-control"
 Biblatex version: 3.19
 Reallocating 'wiz_functions' (item size: 4) to 9000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
-You've used 2 entries,
+You've used 6 entries,
             6399 wiz_defined-function locations,
-            1211 strings with 9118 characters,
-and the built_in function-call counts, 7267 in all, are:
-= -- 351
-> -- 427
-< -- 41
-+ -- 392
-- -- 297
-* -- 334
-:= -- 1047
+            1231 strings with 9581 characters,
+and the built_in function-call counts, 54600 in all, are:
+= -- 3819
+> -- 2254
+< -- 220
++ -- 2668
+- -- 1664
+* -- 3532
+:= -- 6915
 add.period$ -- 0
-call.type$ -- 2
-change.case$ -- 9
-chr.to.int$ -- 68
-cite$ -- 2
-duplicate$ -- 588
-empty$ -- 564
-format.name$ -- 47
-if$ -- 1312
+call.type$ -- 6
+change.case$ -- 42
+chr.to.int$ -- 144
+cite$ -- 12
+duplicate$ -- 4910
+empty$ -- 4362
+format.name$ -- 410
+if$ -- 9886
 int.to.chr$ -- 0
-int.to.str$ -- 2
+int.to.str$ -- 14
 missing$ -- 0
-newline$ -- 45
-num.names$ -- 41
-pop$ -- 379
+newline$ -- 202
+num.names$ -- 234
+pop$ -- 2184
 preamble$ -- 1
-purify$ -- 11
+purify$ -- 81
 quote$ -- 0
-skip$ -- 257
+skip$ -- 1098
 stack$ -- 0
-substring$ -- 607
-swap$ -- 150
-text.length$ -- 55
-text.prefix$ -- 1
+substring$ -- 7727
+swap$ -- 925
+text.length$ -- 203
+text.prefix$ -- 0
 top$ -- 1
-type$ -- 56
+type$ -- 204
 warning$ -- 0
-while$ -- 136
+while$ -- 686
 width$ -- 0
-write$ -- 44
-(There were 2 warnings)
+write$ -- 196
+(There was 1 warning)

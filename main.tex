@@ -475,13 +475,11 @@ escapeinside={@*}{*@},%
 \pagestyle{empty}
 
 
-%%% No to zaczynamy pisać pracę :-) %%%%
-
 % TODO
 \subsubsection*{Tytuł pracy} 
 \Title
 \subsubsection*{Streszczenie}  
-Projekt koncentruje się na implementacji systemu autonomicznej nawigacji robota mobilnego, z naciskiem na dwa kluczowe aspekty: tworzenie mapy otoczenia oraz realizację precyzyjnej nawigacji typu "punkt-punkt" w zmapowanej przestrzeni. Rozwiązanie opiera się na dwóch współpracujących ze sobą mikrokontrolerach - Raspberry Pi 4, który odpowiada za obsługę czujnika RPLidar A1 oraz wykonywanie algorytmów mapowania i nawigacji, oraz Arduino Nano zarządzającym silnikami z enkoderami, zapewniającymi precyzyjne sterowanie ruchem robota.
+Projekt koncentruje się na implementacji systemu autonomicznej nawigacji robota mobilnego, z naciskiem na dwa kluczowe aspekty: tworzenie mapy otoczenia oraz realizację precyzyjnej nawigacji typu z punktu do punktu w zmapowanej przestrzeni wykorzystując rozwiązanie typu SLAM. Rozwiązanie opiera się na dwóch współpracujących ze sobą mikrokontrolerach - Raspberry Pi 4, który odpowiada za obsługę czujnika RPLidar A1 oraz wykonywanie algorytmów mapowania i nawigacji, oraz Arduino Nano zarządzającym silnikami z enkoderami, zapewniającymi precyzyjne sterowanie ruchem robota. Wykonana konfiguracja zrealizowana została w językach C++ oraz Python, z wykorzystaniem narzędzi z ekosystemu ROS 2 (Robot Operating System 2), takich jak Nav2 (Navigation 2), SLAM Toolbox (Simultaneous Localization and Mapping Toolbox) oraz ROS2 Control (Robot Operating System 2 Control).
 
 
 \subsubsection*{Słowa kluczowe} 
@@ -493,7 +491,7 @@ Mapowanie, robot mobilny, lokalizacja, SLAM, ROS
 
 \subsubsection*{Abstract} 
 \begin{otherlanguage}{british}
-The project focuses on implementing an autonomous mobile robot navigation system, emphasizing two key aspects: environment mapping and precise point-to-point navigation in the mapped space. The solution is based on two cooperating microcontrollers - Raspberry Pi 4, which handles the RPLidar A1 sensor and executes mapping and navigation algorithms, and Arduino Nano managing motors with encoders, providing precise robot motion control.
+The project focuses on implementing an autonomous mobile robot navigation system, emphasizing two key aspects: environment mapping and precise point-to-point navigation in the mapped space using SLAM type solution. The solution is based on two cooperating microcontrollers - Raspberry Pi 4, which handles the RPLidar A1 sensor and executes mapping and navigation algorithms, and Arduino Nano managing motors with encoders, providing precise robot motion control. The implemented configuration was realized using C++ and Python languages, utilizing tools from the ROS 2 (Robot Operating System 2) ecosystem, such as Nav2 (Navigation 2), SLAM Toolbox (Simultaneous Localization and Mapping Toolbox) and ROS2 Control (Robot Operating System 2 Control).
 
 \end{otherlanguage}
 \subsubsection*{Key words}  
@@ -520,62 +518,47 @@ Mapping, mobile robot, localization, SLAM, ROS
 
 %%%%%%%%%%%%%% wlasciwa tresc pracy %%%%%%%%%%%%%%%%%
 
-% TODO
 \chapter{Wstęp}
 \label{ch:wstep}
+Poniższy projekt obejmuje implementację systemu autonomicznej nawigacji robota mobilnego, z naciskiem na dwa kluczowe aspekty: tworzenie mapy otoczenia oraz realizację precyzyjnej nawigacji z punktu do punktu w zmapowanej przestrzeni. Tego typu zadania są kluczowe w dziedzinie robotyki mobilnej, umożliwiając robotom samodzielne poruszanie się w nowych nieznanych przestrzeniach.
+W tym rozdziale przedstawiono cel pracy, jej zakres oraz strukturę.
 
-Niniejsza praca skupia się na zbudowaniu prostego robota mobilnego wykorzystującego LiDAR do mapowania otoczenia. Robot wyposażony jest w mikrokontroler Raspberry Pi 4 stanowiący podstawę operacyjną robota, oraz Arduino Nano do obsługi silników z enkoderami. W szczególności, praca koncentruje się na implementacji rozwiązania umożliwiającego robotowi poruszanie się między zadanymi punktami w przestrzeni na utworzonej mapie.
-
-Do realizacji założonych celów wykorzystano nowoczesne narzędzia z ekosystemu ROS 2 (Robot Operating System 2), w tym:
-\begin{itemize}
-\item Nav2 (Navigation 2) - do planowania, wykonywania ścieżek oraz lokalizacji na utworzonej mapie
-\item SLAM Toolbox (Simultaneous Localization and Mapping Toolbox) - do jednoczesnej lokalizacji i mapowania
-\item ROS2 Control (Robot Operating System 2 Control) - do sterowania napędem robota
-\end{itemize}
-
-\section{Wprowadzenie do tematu}
-Jednoczesna lokalizacja i mapowanie - SLAM (Simultaneous Localization and Mapping) to proces, w którym robot konstruuje mapę nieznanego środowiska podczas jednoczesnej lokalizacji w tym środowisku i śledzenia swojej trajektorii poruszania się \cite{bib:mediumslam}. Jest to podstawowa technologia umożliwiająca robotom autonomiczne poruszanie się w nowych przestrzeniach.
+\section{Wprowadzenie w problem}
+Jednoczesna lokalizacja i mapowanie - SLAM (Simultaneous Localization and Mapping) to proces, w którym robot konstruuje mapę nieznanego środowiska podczas jednoczesnej lokalizacji w tym środowisku i śledzenia swojej trajektorii poruszania się \cite{bib:mediumslam}. Jest to jedno z kluczowych zagadnień w robotyce mobilnej, umożliwiając robotom samodzielne poruszanie się w przestrzeni. W praktyce SLAM jest realizowany za pomocą zestawu sensorów, takich jak skanery laserowe, kamery RGB-D, czy IMU (Inertial Measurement Unit - Inercyjna jednostka miary), oraz algorytmów, które przetwarzają dane z tych sensorów w celu budowy mapy i lokalizacji robota.
 \newpage
 \section{Osadzenie problemu w dziedzinie}
+Ten projekt zalicza się do dziedziny robotyki mobilnej i systemów autonomicznych. Roboty mobilne są szeroko wykorzystywane w przemyśle, logistyce, czy badaniach naukowych.
 Realizacja systemu SLAM i autonomicznej nawigacji wymaga integracji wielu zaawansowanych technologii. Główne wyzwania techniczne obejmują wykorzystanie i synchronizację:
 \begin{itemize}
-\item Sensorów (w tym LiDAR - Light Detection and Ranging, kamery)
-\item Algorytmów SLAM (Simultaneous Localization and Mapping)
-\item Systemów kontroli ruchu
-\item Szkieletów programistycznych dla robotów (jak ROS - Robot Operating System)
+\item Sensorów (w tym LiDAR - Light Detection and Ranging - Detekcja i Pomiar Światła)
+\item Algorytmów SLAM (Simultaneous Localization and Mapping - Jednoczesna Lokalizacja i Mapowanie)
+\item Szkieletów programistycznych dla robotów jak ROS (Robot Operating System - System Operacyjny Robotów)
+\item Systemów nawigacji jak Nav2 (Navigation 2 - Nawigacja 2)
+\item Systemów sterowania jak ROS2 Control
+\item Systemów wizualizacji i analizy danych
+\item Systemów komunikacji i zarządzania danymi
 \end{itemize}
 
 \section{Cel pracy}
-Głównym celem pracy jest zaprojektowanie i implementacja systemu mapowania otoczenia z wykorzystaniem robota mobilnego. Cele szczegółowe obejmują:
-\begin{itemize}
-\item Budowę platformy mobilnej
-\item Implementację systemu sterowania
-\item Integrację czujników
-\item Realizację algorytmów SLAM
-\item Implementację systemu nawigacji
-\end{itemize}
+Głównym celem pracy jest zaprojektowanie i implementacja systemu mapowania otoczenia z wykorzystaniem robota mobilnego. W ramach realizacji tego zadania przewidziano budowę platformy mobilnej, implementację systemu sterowania robotem oraz integrację niezbędnych czujników i urządzeń. Kluczowym elementem jest realizacja algorytmów SLAM (Simultaneous Localization and Mapping), które umożliwiają jednoczesną lokalizację robota i tworzenie mapy otoczenia. Dodatkowo, system ma zapewniać możliwość nawigacji z punktu do punktu oraz sterowania manualnego.
 
-Zakres pracy obejmuje:
-\begin{itemize}
-\item Analizę istniejących rozwiązań w dziedzinie mapowania i nawigacji robotów mobilnych
-\item Projekt i implementację systemu sterowania robotem
-\item Integrację komponentów sprzętowych i programowych
-\item Implementację algorytmów SLAM i nawigacji
-\item Testy i walidację stworzonego rozwiązania
-\end{itemize}
+\section{Zakres pracy}
+Realizacja projektu obejmuje szereg wzajemnie powiązanych zadań. Pierwszym etapem jest dogłębna analiza istniejących rozwiązań w dziedzinie mapowania i nawigacji robotów mobilnych, która stanowi podstawę do dalszych prac. Na tej bazie opracowany zostanie projekt systemu sterowania robotem, a następnie przeprowadzona zostanie jego implementacja. Kolejnym krokiem jest integracja komponentów sprzętowych i programowych w spójny system. Szczególną uwagę poświęcono implementacji algorytmów SLAM i nawigacji, które stanowią rdzeń funkcjonalności robota. Całość prac kończy seria testów i walidacja stworzonego rozwiązania.
 
-\section{Metodyka realizacji}
-Praca została zrealizowana w następujących etapach:
-\begin{itemize}
-\item Analiza literatury i istniejących rozwiązań
-\item Projekt i budowa platformy sprzętowej
-\item Implementacja oprogramowania
-\item Integracja komponentów
-\item Testy i optymalizacja
-\end{itemize}
+Prace nad projektem zostały podzielone na kilka kluczowych etapów. Rozpoczęto od analizy literatury i dostępnych rozwiązań, co pozwoliło na określenie optymalnego kierunku rozwoju systemu. Następnie przeprowadzono projekt i budowę platformy sprzętowej, która bazuje na dwóch współpracujących mikrokontrolerach - Raspberry Pi 4 oraz Arduino Nano, wyposażonych w czujnik RPLidar A1 oraz silniki DC z enkoderami. W kolejnym etapie zrealizowano implementację oprogramowania, obejmującą sterowniki urządzeń, algorytmy SLAM oraz system nawigacji. Po integracji wszystkich komponentów przeprowadzono szereg testów i optymalizacji, mających na celu zapewnienie stabilnej nawigacji i efektywnego mapowania otoczenia.
+
 
 \section{Struktura pracy}
-Praca składa się z sześciu rozdziałów. Po niniejszym wstępie, w rozdziale drugim przedstawiono analizę tematu i przegląd literatury. Rozdział trzeci opisuje wymagania projektowe oraz wykorzystane narzędzia. W rozdziale czwartym omówiono specyfikację zewnętrzną systemu, a w piątym - jego implementację. Rozdział szósty zawiera opis przeprowadzonych testów i ich wyniki. Pracę kończy podsumowanie i wnioski.
+Praca składa się z sześciu następujących rozdziałów:
+\begin{itemize}
+\item Rozdział pierwszy zawiera wstęp, w którym przedstawiono cel pracy, jej zakres oraz strukturę.
+\item Rozdział drugi zawiera analizę tematu, w której przedstawiono problem SLAM, stan aktualny dziedziny oraz przegląd istniejących rozwiązań.
+\item Rozdział trzeci zawiera wymagania i narzędzia, w którym przedstawiono wymagania funkcjonalne i niefunkcjonalne, przypadki użycia, narzędzia oraz metodykę pracy nad projektem.
+\item Rozdział czwarty zawiera podstawy teoretyczne, w którym przedstawiono podstawowe pojęcia i definicje z dziedziny robotyki mobilnej.
+\item Rozdział piąty zawiera wymagania i specyfikację użytkową, w którym przedstawiono wymagania użytkownika oraz specyfikację funkcjonalną i niefunkcjonalną systemu.
+\item Rozdział szósty zawiera weryfikację i walidację, w którym przedstawiono testy i wyniki działania systemu.
+\item Rozdział siódmy zawiera podsumowanie, w którym przedstawiono wnioski z pracy oraz możliwości dalszego rozwoju projektu.
+\end{itemize}
 
 \section{Wkład własny autora}
 W ramach pracy autor samodzielnie:
@@ -589,81 +572,34 @@ W ramach pracy autor samodzielnie:
 
 
 
-
-
-
 % TODO
 \chapter{Analiza tematu}
-\label{ch:Analiza Tematu}
-\section{Sformułowanie problemu}
-Problem jednoczesnej lokalizacji i mapowania (SLAM) jest fundamentalnym zagadnieniem w robotyce mobilnej. Polega on na rozwiązaniu dwóch współzależnych problemów:
-\begin{itemize}
-\item Budowy mapy nieznanego otoczenia
-\item Określenia pozycji robota w tym otoczeniu
-\end{itemize}
+\label{ch:Analiza-Tematu}
+W niniejszym rozdziale przedstawiono analizę problemu jednoczesnej lokalizacji i mapowania (SLAM) oraz autonomicznej nawigacji robotów mobilnych. Omówiono aktualny stan wiedzy w tej dziedzinie, sformułowano szczegółowo problem badawczy oraz dokonano przeglądu dostępnych rozwiązań i algorytmów. Na podstawie tej analizy wybrano optymalne narzędzia i metody do realizacji projektu.
 
-Trudność polega na tym, że do stworzenia dokładnej mapy potrzebna jest precyzyjna lokalizacja robota, a do precyzyjnej lokalizacji potrzebna jest dokładna mapa. Jest to klasyczny problem "kury i jajka".
+\section{Osadzenie tematu w kontekście aktualnego stanu wiedzy}
+Problem jednoczesnej lokalizacji i mapowania (SLAM) oraz autonomicznej nawigacji robotów mobilnych stanowi jeden z kluczowych obszarów badań w dziedzinie robotyki. W ostatnich latach obserwuje się znaczący postęp w tej dziedzinie, głównie dzięki rozwojowi wydajnych algorytmów optymalizacji, poprawie jakości i dostępności sensorów (jak LiDAR czy kamery RGB-D), wzrostowi mocy obliczeniowej komputerów oraz powstaniu zaawansowanych frameworków robotycznych jak ROS 2.
 
-\section{Stan aktualny dziedziny}
-W ostatnich latach nastąpił znaczący postęp w dziedzinie SLAM, głównie dzięki rozwojowi:
-\begin{itemize}
-\item Wydajnych algorytmów optymalizacji
-\item Dokładniejszych sensorów (LiDAR, kamery RGB-D)
-\item Mocy obliczeniowej komputerów
-\end{itemize}
+\section{Szczegółowe sformułowanie problemu}
+Problem postawiony w niniejszej pracy obejmuje dwa główne aspekty. Pierwszy z nich to mapowanie otoczenia, które wymaga efektywnej akwizycji danych z czujników, przetwarzania chmur punktów, estymacji pozycji robota oraz łączenia kolejnych skanów w spójną mapę. Drugi aspekt to autonomiczna nawigacja, gdzie system musi zapewniać precyzyjną lokalizację w znanej mapie, planowanie ścieżki z uwzględnieniem przeszkód oraz dokładną kontrolę ruchu robota.
 
-Współczesne rozwiązania SLAM można podzielić na kilka głównych kategorii:
-\begin{itemize}
-\item Filtracyjne (np. Extended Kalman Filter SLAM)
-\item Optymalizacyjne (Graph SLAM)
-\item Oparte na skanach laserowych
-\item Wizyjne (Visual SLAM)
-\end{itemize}
-
-\section{Przegląd istniejących rozwiązań}
-
+\section{Studia literaturowe}
 \subsection{SLAM Toolbox}
-SLAM Toolbox to nowoczesne rozwiązanie open-source dla ROS 2, które implementuje algorytm Graph SLAM \cite{bib:slamtoolbox}. Jego główne cechy to:
-\begin{itemize}
-\item Tworzenie map 2D w czasie rzeczywistym
-\item Optymalizacja grafu pozycji robota
-\item Możliwość serializacji i deserializacji map
-\item Wsparcie dla map wielowarstwowych
-\end{itemize}
+SLAM Toolbox to zaawansowane narzędzie open-source dla ROS 2 implementujące algorytm Graph SLAM \cite{bib:slamtoolbox}. Algorytm wykorzystuje podejście oparte na grafie, gdzie węzły reprezentują pozycje robota, a krawędzie ograniczenia między tymi pozycjami wynikające z pomiarów. W czasie rzeczywistym tworzone są mapy 2D, przy czym system wykonuje ciągłą optymalizację grafu pozycji robota.
 
-SLAM Toolbox wykorzystuje skany laserowe do budowy mapy i lokalizacji. Algorytm działa w następujących krokach:
-\begin{enumerate}
-\item Akwizycja danych z czujników
-\item Dopasowanie skanów metodą Iteracyjny najbliższy punk - ICP (Iterative Closest Point)
-\item Budowa grafu pozycji robota
-\item Optymalizacja grafu metodą Levenberga-Marquardta
-\end{enumerate}
+Proces SLAM rozpoczyna się od akwizycji skanów laserowych, które są następnie dopasowywane do istniejącej mapy metodą ICP (Iterative Closest Point). Algorytm konstruuje graf pozycji robota, który jest okresowo optymalizowany w celu minimalizacji błędów. Na podstawie zoptymalizowanego grafu aktualizowana jest mapa globalna, co zapewnia spójną reprezentację otoczenia.
 
-\subsection{Adaptacyjna lokalizacja Monte Carlo - AMCL (Adaptive Monte Carlo Localization)}
-AMCL to implementacja probabilistycznej lokalizacji wykorzystująca filtry cząsteczkowe \cite{bib:amcl}. Główne cechy AMCL:
-\begin{itemize}
-\item Adaptacyjna liczba cząstek
-\item Efektywna implementacja filtra cząsteczkowego
-\item Obsługa map probabilistycznych
-\end{itemize}
+\subsection{Navigation2 (Nav2)}
+Nav2 to kompleksowy framework nawigacyjny dla ROS 2 \cite{bib:nav2}, który implementuje wielopoziomowe podejście do nawigacji autonomicznej. System wykorzystuje algorytm Dijkstry lub A* do globalnego planowania ścieżki, natomiast do lokalnego planowania ruchu stosuje algorytmy DWA (Dynamic Window Approach) lub TEB (Timed Elastic Band). Kontrola ruchu robota realizowana jest przez regulatory PID z uwzględnieniem ograniczeń kinematycznych platformy.
 
-Algorytm AMCL działa w następujących krokach:
-\begin{enumerate}
-\item Inicjalizacja chmury cząstek
-\item Predykcja ruchu cząstek na podstawie odometrii
-\item Aktualizacja wag cząstek na podstawie pomiarów
-\item Resampling cząstek
-\end{enumerate}
+\subsection{ROS2 Control i sterowanie napędami}
+System sterowania napędami bazuje na infrastrukturze ROS2 Control \cite{bib:ros2control}, która zapewnia abstrakcję sprzętową i standaryzowane interfejsy kontrolerów. W projekcie wykorzystano implementację DiffDrive Arduino \cite{bib:diffdrive}, która realizuje sterowanie napędem różnicowym z wykorzystaniem enkoderów do precyzyjnego pozycjonowania. System implementuje odometrię przez zliczanie impulsów enkoderów i estymację pozycji robota na podstawie modelu kinematycznego.
 
-\section{Wybór rozwiązania}
-W projekcie zdecydowano się wykorzystać połączenie SLAM Toolbox do lokalizacji w trakcie mapowania oraz zapisu mapy, oraz AMCL do lokalizacji podczas nawigacji z następujących powodów:
-\begin{itemize}
-\item Dobra integracja z ROS 2 i Nav2
-\item Sprawdzona skuteczność w aplikacjach robotów mobilnych
-\item Aktywne wsparcie społeczności
-\item Dostępność dokumentacji i przykładów
-\end{itemize}
+\subsection{Lokalizacja Monte Carlo}
+Do lokalizacji w znanej mapie wykorzystano algorytm Adaptacyjnej Lokalizacji Monte Carlo (AMCL) \cite{bib:amcl}. Metoda ta używa filtrów cząsteczkowych do probabilistycznej estymacji pozycji robota. Algorytm automatycznie dostosowuje liczbę cząstek w zależności od niepewności lokalizacji, co pozwala na zachowanie dobrej dokładności przy optymalnym wykorzystaniu zasobów obliczeniowych.
 
+\section{Wybór rozwiązań}
+Na podstawie analizy dostępnych narzędzi, w projekcie zdecydowano się na wykorzystanie SLAM Toolbox do mapowania, AMCL do lokalizacji podczas nawigacji, Nav2 do planowania ścieżki i kontroli ruchu oraz ROS2 Control z DiffDrive Arduino do sterowania napędami. Wybór ten podyktowany jest stabilnością rozwiązań, oraz dobrą integracją komponentów w ekosystemie ROS 2 oraz aktywnym wsparciem społeczności i dostępnością dokumentacji.
 
 
 %\begin{Definition}\label{def:1}
@@ -696,7 +632,7 @@ W projekcie zdecydowano się wykorzystać połączenie SLAM Toolbox do lokalizac
 
 
 % TODO
-\chapter{[Podstawy teoretyczne]}
+\chapter{[Właściwy dla kierunku -- np. Specyfikacja zewnętrzna]}
 \label{ch:04}
 
 Jeśli „Specyfikacja zewnętrzna”:
@@ -790,7 +726,7 @@ Jeśli „Specyfikacja zewnętrzna”:
 
 
 % TODO
-\chapter{[Wymagania i specyfikacja użytkowa]}
+\chapter{[Właściwy dla kierunku -- np. Specyfikacja wewnętrzna]}
 \label{ch:05}
 
 
@@ -911,9 +847,8 @@ class test : public basic
 
 %\bibliographystyle{plplain}  % bibtex
 %\bibliography{biblio} % bibtex
-\printbibliography           % biblatex
 \addcontentsline{toc}{chapter}{Bibliografia}
-
+\printbibliography
 \begin{appendices}
 
 % TODO
