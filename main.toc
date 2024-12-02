@@ -18,28 +18,28 @@
 \contentsline {section}{\numberline {2.2}Szczegółowe sformułowanie problemu}{5}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Studia literaturowe}{6}{section.2.3}%
 \contentsline {section}{\numberline {2.4}SLAM Toolbox}{6}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Navigation2 (Nav2)}{7}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}ROS2 Control i sterowanie napędami}{8}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Lokalizacja Monte Carlo}{8}{subsection.2.4.3}%
-\contentsline {section}{\numberline {2.5}Wybór rozwiązań}{8}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Wymagania i narzędzia}{9}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Wymagania funkcjonalne}{9}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Przypadki użycia}{9}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Specyfikacja komponentów}{9}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Jednostki sterujące}{9}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Napęd}{10}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Zasilanie}{10}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}Metodyka i etapy realizacji}{11}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Etap 1: Przygotowanie platformy sprzętowej}{11}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Etap 2: Implementacja sterowania napędem}{11}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Etap 3: Integracja sensorów}{11}{subsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.4.4}Etap 4: Implementacja oprogramowania}{11}{subsection.3.4.4}%
-\contentsline {chapter}{\numberline {4}[Właściwy dla kierunku -- np. Specyfikacja zewnętrzna]}{13}{chapter.4}%
-\contentsline {chapter}{\numberline {5}[Właściwy dla kierunku -- np. Specyfikacja wewnętrzna]}{15}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Weryfikacja i walidacja}{17}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Podsumowanie i wnioski}{19}{chapter.7}%
-\contentsline {chapter}{Bibliografia}{21}{chapter.7}%
-\contentsline {chapter}{Spis skrótów i symboli}{25}{appendix*.13}%
+\contentsline {subsection}{\numberline {2.4.1}Navigation2 (Nav2) i lokalizacja}{7}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}ROS2 Control i sterowanie napędami}{9}{subsection.2.4.2}%
+\contentsline {section}{\numberline {2.5}Wybór rozwiązań}{10}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Wymagania i narzędzia}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Wymagania funkcjonalne}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Przypadki użycia}{12}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Specyfikacja komponentów}{13}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Jednostki sterujące}{13}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Napęd}{13}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Zasilanie}{13}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Sposób połączenia silników z Arduino i L298N}{14}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Metodyka i etapy realizacji}{15}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Etap 1: Przygotowanie platformy sprzętowej}{15}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Etap 2: Implementacja sterowania napędem}{15}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Etap 3: Integracja sensorów}{15}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Etap 4: Implementacja oprogramowania}{15}{subsection.3.5.4}%
+\contentsline {chapter}{\numberline {4}[Właściwy dla kierunku -- np. Specyfikacja zewnętrzna --specyfikacja użytkowa]}{17}{chapter.4}%
+\contentsline {chapter}{\numberline {5}[Właściwy dla kierunku -- np. Specyfikacja wewnętrzna -- specyfikacja techniczna]}{19}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Weryfikacja i walidacja}{21}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Podsumowanie i wnioski}{23}{chapter.7}%
+\contentsline {chapter}{Bibliografia}{25}{chapter.7}%
+\contentsline {chapter}{Spis skrótów i symboli}{29}{appendix*.14}%
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
 \babel@toc {british}{}\relax 
@@ -56,7 +56,7 @@
 \babel@toc {polish}{}\relax 
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
-\contentsline {chapter}{Źródła}{27}{appendix*.14}%
-\contentsline {chapter}{Lista dodatkowych plików, uzupełniających tekst pracy}{29}{appendix*.15}%
-\contentsline {chapter}{Spis rysunków}{31}{appendix*.16}%
-\contentsline {chapter}{Spis tabel}{33}{appendix*.17}%
+\contentsline {chapter}{Źródła}{31}{appendix*.15}%
+\contentsline {chapter}{Lista dodatkowych plików, uzupełniających tekst pracy}{33}{appendix*.16}%
+\contentsline {chapter}{Spis rysunków}{35}{appendix*.17}%
+\contentsline {chapter}{Spis tabel}{37}{appendix*.18}%
