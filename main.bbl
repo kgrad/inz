@@ -17,6 +17,43 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
+  \entry{bib:Agarwal_Ceres_Solver_2022}{software}{}
+    \name{author}{3}{}{%
+      {{hash=AS}{%
+         family={Agarwal},
+         familyi={A\bibinitperiod},
+         given={Sameer},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=MK}{%
+         family={Mierle},
+         familyi={M\bibinitperiod},
+         given={Keir},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=TTCS}{%
+         family={Team},
+         familyi={T\bibinitperiod},
+         given={The Ceres\bibnamedelima Solver},
+         giveni={T\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim
+  S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ASMKTTCS1}
+    \strng{fullhash}{ASMKTTCS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{{Ceres Solver}}
+    \verb{url}
+    \verb https://github.com/ceres-solver/ceres-solver
+    \endverb
+    \field{version}{2.2}
+    \field{month}{10}
+    \field{year}{2023}
+  \endentry
+
   \entry{bib:mediumslam}{online}{}
     \name{author}{1}{}{%
       {{hash=BL}{%
@@ -30,6 +67,8 @@
     \strng{fullhash}{BL1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
     \field{title}{Medium - Overview of SLAM}
     \verb{url}
     \verb https://medium.com/machinevision/overview-of-slam-50b7f49903b7
@@ -38,70 +77,6 @@
     \field{urlday}{17}
     \field{urlmonth}{04}
     \field{urlyear}{2024}
-  \endentry
-
-  \entry{bib:slamtoolbox}{online}{}
-    \name{author}{1}{}{%
-      {{hash=MS}{%
-         family={Macenski},
-         familyi={M\bibinitperiod},
-         given={Steve},
-         giveni={S\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{MS1}
-    \strng{fullhash}{MS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{ROS.org - slamtoolbox}
-    \verb{url}
-    \verb https://wiki.ros.org/slam_toolbox
-    \endverb
-    \field{year}{2021}
-    \field{urlday}{16}
-    \field{urlmonth}{12}
-    \field{urlyear}{2021}
-  \endentry
-
-  \entry{bib:nav2}{online}{}
-    \name{author}{4}{}{%
-      {{hash=MS}{%
-         family={Macenski},
-         familyi={M\bibinitperiod},
-         given={Steve},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=MF}{%
-         family={Martin},
-         familyi={M\bibinitperiod},
-         given={Francisco},
-         giveni={F\bibinitperiod},
-      }}%
-      {{hash=WR}{%
-         family={White},
-         familyi={W\bibinitperiod},
-         given={Ruffin},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=CJG}{%
-         family={Clavero},
-         familyi={C\bibinitperiod},
-         given={Jonatan\bibnamedelima Gines},
-         giveni={J\bibinitperiod\bibinitdelim G\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{MSMFWRCJG1}
-    \strng{fullhash}{MSMFWRCJG1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{The Marathon 2: A Navigation System}
-    \verb{url}
-    \verb http://dx.doi.org/10.1109/IROS45743.2020.9341207
-    \endverb
-    \field{year}{2020}
-    \field{urlday}{03}
-    \field{urlmonth}{10}
-    \field{urlyear}{2020}
   \endentry
 
   \entry{bib:ros2control}{online}{}
@@ -125,6 +100,8 @@
     \strng{fullhash}{CFDSBMKSK1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
     \field{title}{ros2 control}
     \verb{url}
     \verb https://control.ros.org/humble/index.html
@@ -135,27 +112,29 @@
     \field{urlyear}{2024}
   \endentry
 
-  \entry{bib:diffdrive}{online}{}
+  \entry{bib:slamtoolbox}{online}{}
     \name{author}{1}{}{%
-      {{hash=NJ}{%
-         family={Newans},
-         familyi={N\bibinitperiod},
-         given={Josh},
-         giveni={J\bibinitperiod},
+      {{hash=MS}{%
+         family={Macenski},
+         familyi={M\bibinitperiod},
+         given={Steve},
+         giveni={S\bibinitperiod},
       }}%
     }
-    \strng{namehash}{NJ1}
-    \strng{fullhash}{NJ1}
+    \strng{namehash}{MS1}
+    \strng{fullhash}{MS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{ROS.org - diffdrive arduino}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{title}{ROS.org - slam toolbox}
     \verb{url}
-    \verb https://wiki.ros.org/diffdrive_arduino
+    \verb https://wiki.ros.org/slam_toolbox
     \endverb
-    \field{year}{2020}
-    \field{urlday}{08}
+    \field{year}{2021}
+    \field{urlday}{16}
     \field{urlmonth}{12}
-    \field{urlyear}{2020}
+    \field{urlyear}{2021}
   \endentry
 
   \entry{bib:amcl}{online}{}
@@ -185,10 +164,12 @@
          giveni={J\bibinitperiod\bibinitdelim G\bibinitperiod},
       }}%
     }
-    \strng{namehash}{MSMFWRCJG1}
+    \strng{namehash}{MS+1}
     \strng{fullhash}{MSMFWRCJG1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
     \field{title}{The Marathon 2: A Navigation System}
     \verb{url}
     \verb http://dx.doi.org/10.1109/IROS45743.2020.9341207
@@ -196,6 +177,31 @@
     \field{year}{2020}
     \field{urlday}{03}
     \field{urlmonth}{10}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{bib:diffdrive}{online}{}
+    \name{author}{1}{}{%
+      {{hash=NJ}{%
+         family={Newans},
+         familyi={N\bibinitperiod},
+         given={Josh},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NJ1}
+    \strng{fullhash}{NJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{title}{ROS.org - diffdrive arduino}
+    \verb{url}
+    \verb https://wiki.ros.org/diffdrive_arduino
+    \endverb
+    \field{year}{2020}
+    \field{urlday}{08}
+    \field{urlmonth}{12}
     \field{urlyear}{2020}
   \endentry
 \enddatalist
