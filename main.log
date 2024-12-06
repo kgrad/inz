@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.5.29)  2 DEC 2024 23:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.5.29)  6 DEC 2024 12:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1256,7 +1256,7 @@ Rozdzia\l  3.
 [11
 
 ]
-<images/UML.png, id=305, 588.39825pt x 470.35725pt>
+<images/UML.png, id=311, 588.39825pt x 470.35725pt>
 File: images/UML.png Graphic file (type png)
 <use images/UML.png>
 Package pdftex.def Info: images/UML.png  used on input line 786.
@@ -1278,7 +1278,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [13]
-<images/schema_arduino.png, id=318, 969.6225pt x 467.94826pt>
+<images/schema_arduino.png, id=324, 969.6225pt x 467.94826pt>
 File: images/schema_arduino.png Graphic file (type png)
 <use images/schema_arduino.png>
 Package pdftex.def Info: images/schema_arduino.png  used on input line 831.
@@ -1436,17 +1436,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45557 strings out of 474486
- 1006891 string characters out of 5744227
- 1997542 words of memory out of 5000000
- 67021 multiletter control sequences out of 15000+600000
+ 45572 strings out of 474486
+ 1007461 string characters out of 5744227
+ 1998542 words of memory out of 5000000
+ 67033 multiletter control sequences out of 15000+600000
  622810 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,11n,93p,1903b,3492s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (43 pages, 651401 bytes).
+Output written on main.pdf (43 pages, 656541 bytes).
 PDF statistics:
- 553 PDF objects out of 1000 (max. 8388607)
- 120 named destinations out of 1000 (max. 500000)
+ 565 PDF objects out of 1000 (max. 8388607)
+ 123 named destinations out of 1000 (max. 500000)
  332 words of extra memory for PDF output out of 10000 (max. 10000000)
 

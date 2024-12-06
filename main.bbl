@@ -79,6 +79,39 @@
     \field{urlyear}{2024}
   \endentry
 
+  \entry{bib:ros2control}{online}{}
+    \name{author}{2}{}{%
+      {{hash=CFBMDS}{%
+         family={Christoph\bibnamedelima Fröhlich},
+         familyi={C\bibinitperiod\bibinitdelim F\bibinitperiod},
+         suffix={Denis\bibnamedelima Stogl},
+         suffixi={D\bibinitperiod\bibinitdelim S\bibinitperiod},
+         given={Bence\bibnamedelima Magyar},
+         giveni={B\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=KSK}{%
+         family={Kothakota},
+         familyi={K\bibinitperiod},
+         given={Sai\bibnamedelima Kishor},
+         giveni={S\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CFDSBMKSK1}
+    \strng{fullhash}{CFDSBMKSK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{ros2 control}
+    \verb{url}
+    \verb https://control.ros.org/humble/index.html
+    \endverb
+    \field{year}{2024}
+    \field{urlday}{01}
+    \field{urlmonth}{12}
+    \field{urlyear}{2024}
+  \endentry
+
   \entry{bib:teleop}{online}{}
     \name{author}{1}{}{%
       {{hash=JGT}{%
@@ -127,6 +160,74 @@
     \field{urlday}{16}
     \field{urlmonth}{12}
     \field{urlyear}{2021}
+  \endentry
+
+  \entry{bib:nav2}{online}{}
+    \name{author}{4}{}{%
+      {{hash=MS}{%
+         family={Macenski},
+         familyi={M\bibinitperiod},
+         given={Steve},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=MF}{%
+         family={Martin},
+         familyi={M\bibinitperiod},
+         given={Francisco},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=WR}{%
+         family={White},
+         familyi={W\bibinitperiod},
+         given={Ruffin},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=CJG}{%
+         family={Clavero},
+         familyi={C\bibinitperiod},
+         given={Jonatan\bibnamedelima Gines},
+         giveni={J\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MS+1}
+    \strng{fullhash}{MSMFWRCJG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{title}{The Marathon 2: A Navigation System}
+    \verb{url}
+    \verb http://dx.doi.org/10.1109/IROS45743.2020.9341207
+    \endverb
+    \field{year}{2020}
+    \field{urlday}{03}
+    \field{urlmonth}{10}
+    \field{urlyear}{2020}
+  \endentry
+
+  \entry{bib:diffdrive}{online}{}
+    \name{author}{1}{}{%
+      {{hash=NJ}{%
+         family={Newans},
+         familyi={N\bibinitperiod},
+         given={Josh},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NJ1}
+    \strng{fullhash}{NJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{title}{ROS.org - diffdrive arduino}
+    \verb{url}
+    \verb https://wiki.ros.org/diffdrive_arduino
+    \endverb
+    \field{year}{2020}
+    \field{urlday}{08}
+    \field{urlmonth}{12}
+    \field{urlyear}{2020}
   \endentry
 \enddatalist
 \endinput

@@ -651,7 +651,7 @@ Dzięki takiemu podejściu SLAM Toolbox może tworzyć dokładne mapy, nawet gdy
 
 
 \subsection{Navigation2 (Nav2) i lokalizacja}
-System Navigation 2 (Nav2) stanowi kompleksową strukturę do autonomicznej nawigacji robotów w ROS 2, wykorzystującą algorytm Adaptacyjnej Lokalizacji Monte Carlo - AMCL (ang. "Adaptive Monte Carlo localization") do precyzyjnego pozycjonowania. Poniżej opisano kluczowe komponenty i ich zasadę działania:
+System Navigation 2 (Nav2) stanowi kompleksową strukturę do autonomicznej nawigacji robotów w ROS 2, wykorzystującą algorytm Adaptacyjnej Lokalizacji Monte Carlo - AMCL (ang. "Adaptive Monte Carlo localization") do precyzyjnego pozycjonowania.\cite{bib:nav2} Poniżej opisano kluczowe komponenty i ich zasadę działania:
 
 \begin{itemize}
 \item \textbf{Lokalizacja (AMCL)} - system lokalizacji wykorzystujący filtry cząsteczkowe do określania pozycji robota działający w następujący sposób:
@@ -696,7 +696,7 @@ Zasada działania całego systemu opiera się na ciągłej interakcji między ko
 Integracja AMCL z Nav2 zapewnia stabilną nawigację nawet w dynamicznym środowisku, a adaptacyjne mechanizmy obu komponentów pozwalają na optymalne wykorzystanie dostępnych zasobów obliczeniowych.
 
 \subsection{ROS2 Control i sterowanie napędami}
-ROS2 Control dostarcza infrastrukturę do sterowania robotami poprzez standardowy interfejs. Główne komponenty systemu to:
+ROS2 Control dostarcza infrastrukturę do sterowania robotami poprzez standardowy interfejs.\cite{bib:ros2control}  Główne komponenty systemu to:
 
 \begin{itemize}
 \item \textbf{Controller Manager} - zarządza cyklem życia kontrolerów (inicjalizacja, uruchomienie, zatrzymanie)
@@ -704,7 +704,7 @@ ROS2 Control dostarcza infrastrukturę do sterowania robotami poprzez standardow
 \item \textbf{Hardware Interface} - zapewnia interfejs sprzętowy do urządzeń (silniki, enkodery)
 \end{itemize}
 
-Pakiet \texttt{diffdrive\_arduino} implementuje interfejs sprzętowy dla robota z napędem różnicowym sterowanego przez Arduino. Realizuje:
+Pakiet \texttt{diffdrive\_arduino}\cite{bib:diffdrive}  implementuje interfejs sprzętowy dla robota z napędem różnicowym sterowanego przez Arduino. Realizuje:
 
 \begin{itemize}
 \item Obsługę silników poprzez PWM (kontroler silników - L298N)
@@ -832,7 +832,7 @@ Na rysunku \ref{fig:use-case} przedstawiono diagram przypadków użycia systemu.
 	\caption{Schemat połączenia silników z Arduino i L298N}
 	\label{fig:arduino-schema}
 	\end{figure}
-Na zaprezentowanym schemacie (rys. \ref{fig:arduino-schema}) przedstawiono uproszczony sposób połączenia silników z Arduino i sterownikiem L298N. Silniki DC z enkoderami są zasilane z akumulatorów Li-ion, a sterowane przez Arduino Nano za pomocą sterownika L298N. Enkodery są podłączone do Arduino, które odczytuje impulsy i oblicza prędkość i położenie robota. Komunikacja między Arduino a Raspberry Pi odbywa się przez port szeregowy, co umożliwia przesyłanie danych o prędkości i położeniu robota.
+Na zaprezentowanym schemacie (rys. \ref{fig:arduino-schema}) przedstawiono sposób połączenia silników z Arduino i sterownikiem L298N. Silniki DC z enkoderami są zasilane z akumulatorów Li-ion, a sterowane przez Arduino Nano za pomocą sterownika L298N. Enkodery są podłączone do Arduino, które odczytuje impulsy i oblicza prędkość i położenie robota. Komunikacja między Arduino a Raspberry Pi odbywa się przez port szeregowy, co umożliwia przesyłanie danych o prędkości i położeniu robota.
 \newpage
 
 \section{Metodyka i etapy realizacji}
