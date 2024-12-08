@@ -584,6 +584,10 @@ Problem jednoczesnej lokalizacji, mapowania oraz autonomicznej nawigacji robotó
 Problem postawiony w niniejszej pracy obejmuje dwa główne aspekty. Pierwszy z nich to mapowanie otoczenia, które wymaga efektywnej akwizycji danych z czujników, przetwarzania chmur punktów pobranych z czujnika, estymacji pozycji robota oraz łączenia kolejnych skanów w spójną mapę. Drugi aspekt to autonomiczna nawigacja, gdzie system musi zapewniać precyzyjną lokalizację w znanej mapie, planowanie ścieżki z uwzględnieniem przeszkód oraz dokładną kontrolę ruchu robota.
 
 \section{Studia literaturowe}
+\section{ROS 2}
+ROS 2 (Robot Operating System 2) to platforma programistyczna dla robotów, która umożliwia tworzenie zaawansowanych systemów robotycznych. Jest to otwarte oprogramowanie, które oferuje szereg narzędzi i bibliotek do tworzenia, testowania i wdrażania aplikacji robotycznych \cite{bib:ros2-Concise}. ROS 2 jest następcą popularnego ROS, który jest szeroko stosowany w robotyce. ROS 2 oferuje wiele usprawnień i nowych funkcji, takich jak lepsza obsługa czasu rzeczywistego, wsparcie dla wielu platform sprzętowych, czy zwiększona wydajność. Dzięki temu ROS 2 jest idealnym narzędziem do tworzenia zaawansowanych systemów robotycznych, takich jak systemy SLAM i nawigacji.
+ROS (Robot Operating System) to nie system operacyjny zastępujący Linux lub Windows, lecz oprogramowanie posrednie zwiększające możliwości systemu w zakresie tworzenia aplikacji robotycznych. Numer 2 wskazuje, że jest to druga generacja tego middleware. Czytelnik, który zna pierwszą wersję ROS (czasami nazywaną ROS 1), znajdzie wiele podobnych koncepcji, a dla programistów ROS 1, którzy przechodzą na ROS 2, istnieje już kilka zasobów edukacyjnych. W tej pracy zakładamy brak wcześniejszej znajomości ROS. Coraz częściej będzie się zdarzać, że nauka ROS 2 będzie odbywać się bez wcześniejszej znajomości ROS 1, ponieważ istnieje coraz więcej powodów, aby uczyć się ROS 2 bezpośrednio \cite{bib:ros2Concise}.
+
 \section{SLAM Toolbox}
 SLAM Toolbox jest nowoczesnym rozwiązaniem dla ROS 2, umożliwiającym robotom tworzenie i aktualizację map 2D w czasie rzeczywistym \cite{bib:slamtoolbox}. System implementuje zaawansowaną wersję algorytmu Pose Graph SLAM, oferując kilka trybów pracy, z których skupiono się na dwóch głównych:
 
@@ -872,7 +876,7 @@ Na zaprezentowanym schemacie (rys. \ref{fig:arduino-schema}) przedstawiono spos�
 
 
 % TODO
-\chapter{[Właściwy dla kierunku -- np. Specyfikacja zewnętrzna --specyfikacja użytkowa]}
+\chapter{[specyfikacja użytkowa]}
 \label{ch:04}
 
 Jeśli „Specyfikacja zewnętrzna”:
@@ -966,7 +970,7 @@ Jeśli „Specyfikacja zewnętrzna”:
 
 
 % TODO
-\chapter{[Właściwy dla kierunku -- np. Specyfikacja wewnętrzna -- specyfikacja techniczna]}
+\chapter{[Specyfikacja techniczna]}
 \label{ch:05}
 
 

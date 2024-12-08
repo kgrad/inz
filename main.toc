@@ -17,29 +17,30 @@
 \contentsline {section}{\numberline {2.1}Osadzenie tematu w kontekście aktualnego stanu wiedzy}{5}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Szczegółowe sformułowanie problemu}{5}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Studia literaturowe}{6}{section.2.3}%
-\contentsline {section}{\numberline {2.4}SLAM Toolbox}{6}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Navigation2 (Nav2) i lokalizacja}{7}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}ROS2 Control i sterowanie napędami}{9}{subsection.2.4.2}%
-\contentsline {section}{\numberline {2.5}Wybór rozwiązań}{10}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Wymagania i narzędzia}{11}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Wymagania funkcjonalne}{11}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Przypadki użycia}{12}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Specyfikacja komponentów}{13}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Jednostki sterujące}{13}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Napęd}{13}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Zasilanie}{13}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}Sposób połączenia silników z Arduino i L298N}{14}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Metodyka i etapy realizacji}{15}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Etap 1: Przygotowanie platformy sprzętowej}{15}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Etap 2: Implementacja sterowania napędem}{15}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Etap 3: Integracja sensorów}{15}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}Etap 4: Implementacja oprogramowania}{15}{subsection.3.5.4}%
-\contentsline {chapter}{\numberline {4}[Właściwy dla kierunku -- np. Specyfikacja zewnętrzna --specyfikacja użytkowa]}{17}{chapter.4}%
-\contentsline {chapter}{\numberline {5}[Właściwy dla kierunku -- np. Specyfikacja wewnętrzna -- specyfikacja techniczna]}{19}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Weryfikacja i walidacja}{21}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Podsumowanie i wnioski}{23}{chapter.7}%
-\contentsline {chapter}{Bibliografia}{25}{chapter.7}%
-\contentsline {chapter}{Spis skrótów i symboli}{29}{appendix*.14}%
+\contentsline {section}{\numberline {2.4}ROS 2}{6}{section.2.4}%
+\contentsline {section}{\numberline {2.5}SLAM Toolbox}{6}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Navigation2 (Nav2) i lokalizacja}{8}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}ROS2 Control i sterowanie napędami}{10}{subsection.2.5.2}%
+\contentsline {section}{\numberline {2.6}Wybór rozwiązań}{11}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Wymagania i narzędzia}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Wymagania funkcjonalne}{13}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Przypadki użycia}{14}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Specyfikacja komponentów}{15}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Jednostki sterujące}{15}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Napęd}{15}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Zasilanie}{15}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Sposób połączenia silników z Arduino i L298N}{16}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Metodyka i etapy realizacji}{17}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Etap 1: Przygotowanie platformy sprzętowej}{17}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Etap 2: Implementacja sterowania napędem}{17}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Etap 3: Integracja sensorów}{17}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Etap 4: Implementacja oprogramowania}{17}{subsection.3.5.4}%
+\contentsline {chapter}{\numberline {4}[specyfikacja użytkowa]}{19}{chapter.4}%
+\contentsline {chapter}{\numberline {5}[Specyfikacja techniczna]}{21}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Weryfikacja i walidacja}{23}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Podsumowanie i wnioski}{25}{chapter.7}%
+\contentsline {chapter}{Bibliografia}{27}{chapter.7}%
+\contentsline {chapter}{Spis skrótów i symboli}{31}{appendix*.14}%
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
 \babel@toc {british}{}\relax 
@@ -56,7 +57,7 @@
 \babel@toc {polish}{}\relax 
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
-\contentsline {chapter}{Źródła}{31}{appendix*.15}%
-\contentsline {chapter}{Lista dodatkowych plików, uzupełniających tekst pracy}{33}{appendix*.16}%
-\contentsline {chapter}{Spis rysunków}{35}{appendix*.17}%
-\contentsline {chapter}{Spis tabel}{37}{appendix*.18}%
+\contentsline {chapter}{Źródła}{33}{appendix*.15}%
+\contentsline {chapter}{Lista dodatkowych plików, uzupełniających tekst pracy}{35}{appendix*.16}%
+\contentsline {chapter}{Spis rysunków}{37}{appendix*.17}%
+\contentsline {chapter}{Spis tabel}{39}{appendix*.18}%
