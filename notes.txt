@@ -1,0 +1,163 @@
+\section{ROS 2}
+ROS2 (ang. "Robotic operation system 2") to platforma programistyczna dla robotów stanowiąca pośrednik w tworzeniu aplikacji. 
+
+
+
+
+\section{SLAM Toolbox}
+SLAM Toolbox jest nowoczesnym rozwiązaniem dla ROS 2, umożliwiającym robotom tworzenie i aktualizację map 2D w czasie rzeczywistym \cite{bib:slamtoolbox}. System implementuje zaawansowaną wersję algorytmu Pose Graph SLAM, oferując kilka trybów pracy, z których skupiono się na dwóch głównych:
+
+\begin{itemize}
+\item \textbf{Synchroniczny - bieżący} - Przetwarzanie wszystkich otrzymanych skanów w jednym wątku na bieżąco uzyskanych danych (oferuje większą dokładność, ale mniejszą wydajność)
+\item \textbf{Asynchroniczny - bieżący} - Przetwarzanie najnowszego skanu z bieżąco uzyskanych danych w jednym wątku (oferuje mniejszą dokładność, ale większą wydajność)
+\end{itemize}
+
+Proces generowania mapy w trybie synchronicznym realizowany jest w następujących etapach:
+
+\begin{itemize}
+\item \textbf{Inicjalizacja systemu:}
+	\begin{itemize}
+	\item Uruchomienie węzła SLAM Toolbox w trybie synchronicznym
+	\item Konfiguracja subskrypcji tematów skanów laserowych i odometrii
+	\item Przygotowanie publikacji transformacji map--odom i mapy
+	\end{itemize}
+
+\item \textbf{Akwizycja i przetwarzanie danych:}
+	\begin{itemize}
+	\item Odbieranie danych z czujników (LiDAR i enkodery)
+	\item Generowanie obiektów PosedScan zawierających pozycję i dane ze skanowania
+	\item Budowa kolejki obiektów do przetworzenia
+	\end{itemize}
+
+\item \textbf{Konstrukcja i optymalizacja grafu:}
+	\begin{itemize}
+	\item Tworzenie grafu pozycji na podstawie kolejki PosedScan
+	\item Korekta odometrii poprzez dopasowanie skanów laserowych
+	\item Detekcja zamknięć pętli w grafie
+	\item Optymalizacja grafu i aktualizacja pozycji robota
+	\end{itemize}
+
+\item \textbf{Generowanie mapy:}
+	\begin{itemize}
+	\item Integracja skanów laserowych z pozycjami z grafu
+	\item Konstrukcja spójnej mapy otoczenia
+	\item Publikacja mapy w systemie ROS
+	\end{itemize}
+\end{itemize}
+Kluczowym elementem jest optymalizacja z wykorzystaniem biblioteki Ceres Solver \cite{bib:Agarwal_Ceres_Solver_2022}. Jest to narzędzie, które pomaga znaleźć najlepsze dopasowanie między różnymi pomiarami, minimalizując błąd średniokwadratowy. Dzięki temu SLAM Toolbox może tworzyć dokładne mapy, nawet gdy niektóre pomiary są niedokładne lub błędne. 
+\newline
+Działa to na zasadzie iteracyjnego poprawiania oszacowań pozycji robota:
+
+\begin{equation}
+\min_x \frac{1}{2}\sum_{i} \rho_i(\|f_i(x_i)\|^2)
+\end{equation}
+
+
+\begin{itemize}
+\item $x$ to pozycje robota, które chcemy znaleźć 
+\item $f_i(x_i)$ mierzy, jak bardzo nasze oszacowanie pozycji różni się od rzeczywistych pomiarów
+\item $\rho_i$ to funkcja, która pomaga ignorować błędne pomiary (działa jako filtr odrzucający "podejrzane" dane)
+\item Cały proces dąży do znalezienia takich pozycji robota, dla których suma wszystkich błędów jest najmniejsza
+\end{itemize}
+
+Algorytm działa iteracyjnie, wykorzystuje do tego metodę Levenberga-Marquardta, która łączy w sobie:
+
+\begin{itemize}
+\item Szybkość metody Gaussa-Newtona (dobre do precyzyjnych korekt)
+\item Stabilność metody największego spadku (pomocne przy większych korektach)
+\end{itemize}
+
+Dzięki takiemu podejściu SLAM Toolbox może tworzyć dokładne mapy, nawet gdy niektóre pomiary są niedokładne lub błędne.
+
+
+\subsection{Navigation2 (Nav2) i lokalizacja}
+System Navigation 2 (Nav2) stanowi kompleksową strukturę do autonomicznej nawigacji robotów w ROS 2, wykorzystującą algorytm Adaptacyjnej Lokalizacji Monte Carlo - AMCL (ang. "Adaptive Monte Carlo localization") do precyzyjnego pozycjonowania.\cite{bib:nav2} Poniżej opisano kluczowe komponenty i ich zasadę działania:
+
+\begin{itemize}
+\item \textbf{Lokalizacja (AMCL)} - system lokalizacji wykorzystujący filtry cząsteczkowe do określania pozycji robota działający w następujący sposób:
+	\begin{itemize}
+	\item Pozycja robota reprezentowana przez zbiór hipotez (cząstek)
+	\item Każda cząstka reprezentuje możliwą pozycję (x, y, $\theta$)
+	\item Aktualizacja wag cząstek poprzez porównanie skanów z mapą
+	\item Liczba cząstek adaptowana do poziomu niepewności pozycji
+	\end{itemize}
+
+\item \textbf{System nawigacji (Nav2)} - kompleksowy system zapewniający autonomiczną nawigację robotów mobilnych w ROS 2, oparty na drzewie zachowań (ang. "Behavior Tree"). System integruje szereg modułów odpowiedzialnych za planowanie ścieżki, unikanie przeszkód i kontrolę ruchu. Planer globalny wykorzystuje algorytmy takie jak Dijkstra czy A* do wyznaczenia optymalnej trasy do celu, uwzględniając statyczną mapę środowiska i znane przeszkody. Lokalny planer DWB (ang. "Dynamic Window Approach") odpowiada za bezpieczną realizację zaplanowanej ścieżki, dynamicznie reagując na pojawiające się przeszkody poprzez modyfikację prędkości i trajektorii ruchu.
+
+Do reprezentacji przestrzeni roboczej i przeszkód system wykorzystuje dwuwymiarową mapę kosztów (ang. "Costmap 2D"), która jest aktualizowana na podstawie danych z czujników. Moduł kontroli i odzyskiwania (ang. "Recovery") zapewnia reakcję na sytuacje problematyczne, takie jak zaklinowanie czy niemożność znalezienia ścieżki, poprzez wykonanie sekwencji zachowań naprawczych.
+
+
+\end{itemize}
+Zasada działania całego systemu opiera się na ciągłej interakcji między komponentami:
+
+\begin{enumerate}
+\item AMCL aktualizuje pozycję robota na podstawie:
+   \begin{itemize}
+   \item Odometrii z enkoderów (predykcja ruchu)
+   \item Dopasowania skanów LiDAR do mapy (korekcja)
+   \item Adaptacyjnego próbkowania cząstek
+   \end{itemize}
+   
+\item Nav2 wykorzystuje estymowaną pozycję do:
+   \begin{itemize}
+   \item Planowania globalnej ścieżki do celu
+   \item Lokalnej optymalizacji trajektorii
+   \item Unikania przeszkód w czasie rzeczywistym
+   \end{itemize}
+\newpage
+\item System monitoruje wykonanie planu i w razie potrzeby:
+   \begin{itemize}
+   \item Przeplanowuje ścieżkę przy wykryciu przeszkód
+   \item Aktywuje zachowania awaryjne
+   \item Dostosowuje parametry sterowania
+   \end{itemize}
+\end{enumerate}
+
+Integracja AMCL z Nav2 zapewnia stabilną nawigację nawet w dynamicznym środowisku, a adaptacyjne mechanizmy obu komponentów pozwalają na optymalne wykorzystanie dostępnych zasobów obliczeniowych.
+
+\subsection{ROS2 Control i sterowanie napędami}
+ROS2 Control dostarcza infrastrukturę do sterowania robotami poprzez standardowy interfejs.\cite{bib:ros2control}  Główne komponenty systemu to:
+
+\begin{itemize}
+\item \textbf{Controller Manager} - zarządza cyklem życia kontrolerów (inicjalizacja, uruchomienie, zatrzymanie)
+\item \textbf{Controllers} - implementują logikę sterowania (np. diff\_drive\_controller)
+\item \textbf{Hardware Interface} - zapewnia interfejs sprzętowy do urządzeń (silniki, enkodery)
+\end{itemize}
+
+Pakiet \texttt{diffdrive\_arduino}\cite{bib:diffdrive}  implementuje interfejs sprzętowy dla robota z napędem różnicowym sterowanego przez Arduino. Realizuje:
+
+\begin{itemize}
+\item Obsługę silników poprzez PWM (kontroler silników - L298N)
+\item Odczyt enkoderów do obliczania odometrii
+\item Komunikację przez port szeregowy z Raspberry Pi
+\item Transformację odom$\rightarrow$base\_link
+\end{itemize}
+
+Główne węzły systemu:
+\begin{itemize}
+\item \textbf{/controller\_manager} - zarządza kontrolerami
+\item \textbf{/diff\_drive\_controller} - kontroler napędu różnicowego:
+	\begin{itemize}
+	\item Przyjmuje komendy prędkości (cmd\_vel)
+	\item Generuje odometrię (odom)
+	\item Kontroluje silniki poprzez interfejs sprzętowy
+	\end{itemize}
+\item \textbf{/joint\_state\_broadcaster} - publikuje stan przegubów
+\end{itemize}
+
+Interfejs ROS2:
+\begin{itemize}
+\item Wejście: cmd\_vel (geometry\_msgs/Twist)
+\item Wyjście: odom (nav\_msgs/Odometry)
+\item Konfiguracja w pliku .yaml:
+	\begin{itemize}
+	\item Parametry regulatora PID:
+		\begin{itemize}
+		\item Współczynnik proporcjonalny (Kp) - wpływa na szybkość reakcji
+		\item Współczynnik całkowania (Ki) - eliminuje uchyb ustalony
+		\item Współczynnik różniczkowania (Kd) - tłumi oscylacje
+		\end{itemize}
+	\item Limity prędkości
+	\item Właściwości robota (rozstaw kół, promień)
+	\end{itemize}
+\end{itemize}

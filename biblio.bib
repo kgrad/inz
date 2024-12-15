@@ -8,23 +8,17 @@
   ISBN                     = {83-204-3229-9-434}
 }
 
-@Article{bib:ros2intoduction,
-  Title                    = {A short guide to ROS 2 Humble Hawksbill},
-  Author                   = {Matti Kortelainen,},
-  Publisher                = {School of Computing, University of Eastern Finland, Kuopio, Finland},
-  Year                     = {2023},
-  Address                  = {Kuopio, Finland},
-}
 
 
 @Book{bib:ros2Concise,
   Title                    = {A Concise Introduction to Robot Programming with ROS2},
   Author                   = {Francisco Martin Rico},
-  Publisher                = {Taylor & Francis},
+  Publisher                = {Taylor and Francis},
   Year                     = {2022},
-  Address                  = {6000 Broken Sound Parkway NW, Suite 300, Boca Raton, FL 33487-2742},
+  Address                  = {Broken Sound Parkway NW},
   ISBN                     = {1032264659}
 }
+
 
 
 % artykul w czasopismie
@@ -37,7 +31,13 @@
   Pages                    = {1092--1113},
   Volume                   = {157}
 }
-
+@Article{bib:guide,
+  Title                    = {A short guide to ROS 2 Humble Hawksbill},
+  Author                   = {Matti Kortelainen},
+  Journal                  = {School of Computing, University of Eastern Finland, Kuopio, Finland},
+  Year                     = {2023},
+  Pages                    = {5}
+}
 % artykul konferencyjny
 @InProceedings{bib:konferencja,
   Title                    = {Tytuł artykułu konferencyjnego},
@@ -46,7 +46,13 @@
   Year                     = {2006}, 
   Pages                    = {5346--5349}
 }
- 
+@InProceedings{bib:amcl,
+author = {Fox, Dieter},
+year = {2001},
+month = {01},
+pages = {713-720},
+title = {KLD-Sampling: Adaptive Particle Filters.}
+}
 % zrodlo internetowe
 @online{bib:internet,
   author                   = {Imię Nazwisko and Nazwisko, Imię},
@@ -64,22 +70,9 @@
   urldate                  = {2024-04-17}
 }
 % zrodlo internetowe
-@online{bib:slamtoolbox,
-  author                   = {Steve Macenski},
-  title                    = {ROS.org - slam toolbox},
-  year                     = {2021}, 
-  url                      = {https://wiki.ros.org/slam_toolbox},
-  urldate                  = {2021-12-16}
-}
-
+@article{bib:slamtoolbox, doi = {10.21105/joss.02783}, url = {https://doi.org/10.21105/joss.02783}, year = {2021}, publisher = {The Open Journal}, volume = {6}, number = {61}, pages = {2783}, author = {Steve Macenski and Ivona Jambrecic}, title = {SLAM Toolbox: SLAM for the dynamic world}, journal = {Journal of Open Source Software} }
 % zrodlo internetowe
-@online{bib:nav2,
-  author                   = {Macenski, Steve and Martin, Francisco and White, Ruffin and Clavero, Jonatan Gines},
-  title                    = {The Marathon 2: A Navigation System},
-  year                     = {2020}, 
-  url                      = {http://dx.doi.org/10.1109/IROS45743.2020.9341207},
-  urldate                  = {2020-10-03}
-}
+
 
 % zrodlo internetowe
 @online{bib:ros2control,
@@ -106,12 +99,23 @@
   urldate                  = {2015-01-22}
 }
 
-@software{bib:Agarwal_Ceres_Solver_2022,
-  author = {Agarwal, Sameer and Mierle, Keir and The Ceres Solver Team},
-  title = {{Ceres Solver}},
-  license = {Apache-2.0},
-  url = {https://github.com/ceres-solver/ceres-solver},
-  version = {2.2},
-  year = {2023},
-  month = {10}
+
+
+
+@article{bib:abs-2003-00368,
+  author       = {Steve Macenski and
+                  Francisco Mart{\'{\i}}n and
+                  Ruffin White and
+                  Jonatan Gin{\'{e}}s Clavero},
+  title        = {The Marathon 2: {A} Navigation System},
+  journal      = {CoRR},
+  volume       = {abs/2003.00368},
+  year         = {2020},
+  url          = {https://arxiv.org/abs/2003.00368},
+  eprinttype    = {arXiv},
+  eprint       = {2003.00368},
+  timestamp    = {Wed, 11 Mar 2020 09:34:48 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2003-00368.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
+

@@ -7,13 +7,21 @@
 \babel@toc {polish}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Reprezentacja pośrednika w systemie robota}}{6}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Mapa sklepu utworzona za pomocą SLAM Toolbox}}{7}{figure.caption.9}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagram przypadków użycia systemu}}{14}{figure.caption.8}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Schemat połączenia silników z Arduino i L298N}}{16}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagram przypadków użycia systemu}}{10}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Raspberry Pi 4 model B}}{11}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Arduino Nano}}{12}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Silnik DC 12V 240RPM typu L z przekładnią metalową - magnetyczny enkoder Halla - Waveshare 22346}}{12}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces L298N - dwukanałowy sterownik silników - moduł 12V/2A}}{13}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Ogniwa 18650 Li-Ion XTAR - 2600mAh}}{13}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Przetwornica step-down LM2596 3,2V-35V 3A z wyświetlaczem}}{14}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Schemat połączenia silników z Arduino i L298N}}{14}{figure.caption.17}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Podpis rysunku po rysunkiem.}}{20}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Podpis rysunku po rysunkiem.}}{18}{figure.caption.18}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Pseudokod w \texttt {listings}.}}{21}{figure.caption.11}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Pseudokod w \texttt {listings}.}}{19}{figure.caption.19}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

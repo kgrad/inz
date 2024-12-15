@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.3 $
+% $ biblatex bbl format version 3.2 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -16,45 +16,8 @@
   {}
 \endgroup
 
-\datalist[entry]{nty/global//global/global/global}
-  \entry{bib:Agarwal_Ceres_Solver_2022}{software}{}{}
-    \name{author}{3}{}{%
-      {{hash=AS}{%
-         family={Agarwal},
-         familyi={A\bibinitperiod},
-         given={Sameer},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=MK}{%
-         family={Mierle},
-         familyi={M\bibinitperiod},
-         given={Keir},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=TTCS}{%
-         family={Team},
-         familyi={T\bibinitperiod},
-         given={The Ceres\bibnamedelima Solver},
-         giveni={T\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim
-  S\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{ASMKTTCS1}
-    \strng{fullhash}{ASMKTTCS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{A}
-    \field{sortinithash}{A}
-    \field{title}{{Ceres Solver}}
-    \verb{url}
-    \verb https://github.com/ceres-solver/ceres-solver
-    \endverb
-    \field{version}{2.2}
-    \field{month}{10}
-    \field{year}{2023}
-  \endentry
-
-  \entry{bib:mediumslam}{online}{}{}
+\datalist[entry]{nty/global//global/global}
+  \entry{bib:mediumslam}{online}{}
     \name{author}{1}{}{%
       {{hash=BL}{%
          family={Bermudez},
@@ -79,7 +42,7 @@
     \field{urlyear}{2024}
   \endentry
 
-  \entry{bib:ros2control}{online}{}{}
+  \entry{bib:ros2control}{online}{}
     \name{author}{2}{}{%
       {{hash=CFBMDS}{%
          family={Christoph\bibnamedelima Fröhlich},
@@ -112,7 +75,28 @@
     \field{urlyear}{2024}
   \endentry
 
-  \entry{bib:teleop}{online}{}{}
+  \entry{bib:amcl}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=FD}{%
+         family={Fox},
+         familyi={F\bibinitperiod},
+         given={Dieter},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FD1}
+    \strng{fullhash}{FD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{pages}{713\bibrangedash 720}
+    \field{title}{KLD-Sampling: Adaptive Particle Filters.}
+    \field{month}{01}
+    \field{year}{2001}
+  \endentry
+
+  \entry{bib:teleop}{online}{}
     \name{author}{1}{}{%
       {{hash=JGT}{%
          family={Jay},
@@ -137,32 +121,67 @@
     \field{urlyear}{2015}
   \endentry
 
-  \entry{bib:slamtoolbox}{online}{}{}
+  \entry{bib:guide}{article}{}
     \name{author}{1}{}{%
+      {{hash=KM}{%
+         family={Kortelainen},
+         familyi={K\bibinitperiod},
+         given={Matti},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KM1}
+    \strng{fullhash}{KM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{pages}{5}
+    \field{title}{A short guide to ROS 2 Humble Hawksbill}
+    \field{journaltitle}{School of Computing, University of Eastern Finland,
+  Kuopio, Finland}
+    \field{year}{2023}
+  \endentry
+
+  \entry{bib:slamtoolbox}{article}{}
+    \name{author}{2}{}{%
       {{hash=MS}{%
          family={Macenski},
          familyi={M\bibinitperiod},
          given={Steve},
          giveni={S\bibinitperiod},
       }}%
+      {{hash=JI}{%
+         family={Jambrecic},
+         familyi={J\bibinitperiod},
+         given={Ivona},
+         giveni={I\bibinitperiod},
+      }}%
     }
-    \strng{namehash}{MS1}
-    \strng{fullhash}{MS1}
+    \list{publisher}{1}{%
+      {The Open Journal}%
+    }
+    \strng{namehash}{MSJI1}
+    \strng{fullhash}{MSJI1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{sortinit}{M}
     \field{sortinithash}{M}
-    \field{title}{ROS.org - slam toolbox}
-    \verb{url}
-    \verb https://wiki.ros.org/slam_toolbox
+    \verb{doi}
+    \verb 10.21105/joss.02783
     \endverb
+    \field{number}{61}
+    \field{pages}{2783}
+    \field{title}{SLAM Toolbox: SLAM for the dynamic world}
+    \verb{url}
+    \verb https://doi.org/10.21105/joss.02783
+    \endverb
+    \field{volume}{6}
+    \field{journaltitle}{Journal of Open Source Software}
     \field{year}{2021}
-    \field{urlday}{16}
-    \field{urlmonth}{12}
-    \field{urlyear}{2021}
   \endentry
 
-  \entry{bib:nav2}{online}{}{}
+  \entry{bib:abs-2003-00368}{article}{}
     \name{author}{4}{}{%
       {{hash=MS}{%
          family={Macenski},
@@ -171,7 +190,7 @@
          giveni={S\bibinitperiod},
       }}%
       {{hash=MF}{%
-         family={Martin},
+         family={Mart{\'{\i}}n},
          familyi={M\bibinitperiod},
          given={Francisco},
          giveni={F\bibinitperiod},
@@ -185,7 +204,7 @@
       {{hash=CJG}{%
          family={Clavero},
          familyi={C\bibinitperiod},
-         given={Jonatan\bibnamedelima Gines},
+         given={Jonatan\bibnamedelima Gin{\'{e}}s},
          giveni={J\bibinitperiod\bibinitdelim G\bibinitperiod},
       }}%
     }
@@ -195,17 +214,20 @@
     \field{labeltitlesource}{title}
     \field{sortinit}{M}
     \field{sortinithash}{M}
-    \field{title}{The Marathon 2: A Navigation System}
-    \verb{url}
-    \verb http://dx.doi.org/10.1109/IROS45743.2020.9341207
+    \verb{eprint}
+    \verb 2003.00368
     \endverb
+    \field{title}{The Marathon 2: {A} Navigation System}
+    \verb{url}
+    \verb https://arxiv.org/abs/2003.00368
+    \endverb
+    \field{volume}{abs/2003.00368}
+    \field{journaltitle}{CoRR}
+    \field{eprinttype}{arXiv}
     \field{year}{2020}
-    \field{urlday}{03}
-    \field{urlmonth}{10}
-    \field{urlyear}{2020}
   \endentry
 
-  \entry{bib:diffdrive}{online}{}{}
+  \entry{bib:diffdrive}{online}{}
     \name{author}{1}{}{%
       {{hash=NJ}{%
          family={Newans},
@@ -230,7 +252,7 @@
     \field{urlyear}{2020}
   \endentry
 
-  \entry{bib:ros2Concise}{book}{}{}
+  \entry{bib:ros2Concise}{book}{}
     \name{author}{1}{}{%
       {{hash=RFM}{%
          family={Rico},
@@ -239,8 +261,9 @@
          giveni={F\bibinitperiod\bibinitdelim M\bibinitperiod},
       }}%
     }
-    \list{publisher}{1}{%
-      {Taylor & Francis}%
+    \list{publisher}{2}{%
+      {Taylor}%
+      {Francis}%
     }
     \strng{namehash}{RFM1}
     \strng{fullhash}{RFM1}
@@ -251,7 +274,7 @@
     \field{isbn}{1032264659}
     \field{title}{A Concise Introduction to Robot Programming with ROS2}
     \list{location}{1}{%
-      {6000 Broken Sound Parkway NW, Suite 300, Boca Raton, FL 33487-2742}%
+      {Broken Sound Parkway NW}%
     }
     \field{year}{2022}
   \endentry

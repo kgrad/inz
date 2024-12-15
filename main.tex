@@ -521,7 +521,7 @@ Mapping, mobile robot, localization, SLAM, ROS
 
 \chapter{Wstęp}
 \label{ch:wstep}
-Poniższy projekt obejmuje implementację systemu autonomicznej nawigacji robota mobilnego, z naciskiem na dwa kluczowe aspekty: tworzenie mapy otoczenia oraz realizację precyzyjnej nawigacji typu z punktu do punktu w zmapowanej przestrzeni. Tego typu zadania są kluczowe w dziedzinie robotyki mobilnej, umożliwiając robotom samodzielne poruszanie się w nowych nieznanych przestrzeniach.
+Poniższy projekt obejmuje implementację systemu autonomicznej nawigacji robota mobilnego, z naciskiem na dwa kluczowe aspekty: tworzenie mapy otoczenia oraz realizację precyzyjnej nawigacji z punktu do punktu w zmapowanej przestrzeni. Tego typu zadania są kluczowe w dziedzinie robotyki mobilnej, umożliwiając robotom samodzielne poruszanie się w nowych nieznanych przestrzeniach.
 W tym rozdziale przedstawiono cel pracy, jej zakres oraz strukturę.
 
 \section{Wprowadzenie w problem} 
@@ -533,7 +533,7 @@ Realizacja systemu SLAM i autonomicznej nawigacji wymaga integracji wielu zaawan
 \begin{itemize}
 \item Sensorów w tym LiDAR (ang. "Light Detection and Ranging")
 \item Algorytmów SLAM 
-\item Szkieletów programistycznych dla robotów jak ROS 2 (ang. "Robot Operating System 2")
+\item Platform programistycznych dla robotów jak ROS 2 (ang. "Robot Operating System 2")
 \item Systemów nawigacji jak Nav2
 \item Systemów sterowania jak ROS2 Control
 \item Systemów wizualizacji i analizy danych
@@ -552,8 +552,8 @@ Realizacja projektu obejmuje szereg wzajemnie powiązanych zadań. Na pierwszy e
 Praca składa się z sześciu następujących rozdziałów:
 \begin{itemize}
 \item Rozdział pierwszy zawiera wstęp, w którym przedstawiono cel pracy, jej zakres oraz strukturę.
-\item Rozdział drugi zawiera analizę tematu, w której przedstawiono problem SLAM, analizę literatury, stan aktualny dziedziny oraz przegląd istniejących rozwiązań.
-\item Rozdział trzeci zawiera wymagania i narzędzia, w którym przedstawiono wymagania funkcjonalne, przypadki użycia, narzędzia oraz metodykę pracy nad projektem.
+\item Rozdział drugi zawiera analizę tematu, osadzenie go w kontekście aktualnego stanu wiedzy, analizę literatury, stan aktualny dziedziny oraz uzasadnienie wyboru rozwiązania.
+\item Rozdział trzeci zawiera wymagania i narzędzia, w którym opisano wymagania fukncjonalne, przypadki użycia, specyfikację komponentów, sposób połączenia sterowania i metodykę wraz z etapami realizacji projektu.
 \item Rozdział czwarty zawiera specyfikację użytkową, w którym przedstawiono wymagania użytkownika oraz specyfikację funkcjonalną.
 \item Rozdział piąty zawiera specyfikację techniczą, w którym przedstawiono podstawowe pojęcia i definicje z dziedziny robotyki mobilnej, jak i implementację zastosowanego rozwiązania.
 \item Rozdział szósty zawiera weryfikację i walidację, w którym przedstawiono testy i wyniki działania systemu.
@@ -585,166 +585,47 @@ Problem postawiony w niniejszej pracy obejmuje dwa główne aspekty. Pierwszy z 
 
 \section{Studia literaturowe}
 \section{ROS 2}
-ROS 2 (Robot Operating System 2) to platforma programistyczna dla robotów, która umożliwia tworzenie zaawansowanych systemów robotycznych. Jest to otwarte oprogramowanie, które oferuje szereg narzędzi i bibliotek do tworzenia, testowania i wdrażania aplikacji robotycznych \cite{bib:ros2-Concise}. ROS 2 jest następcą popularnego ROS, który jest szeroko stosowany w robotyce. ROS 2 oferuje wiele usprawnień i nowych funkcji, takich jak lepsza obsługa czasu rzeczywistego, wsparcie dla wielu platform sprzętowych, czy zwiększona wydajność. Dzięki temu ROS 2 jest idealnym narzędziem do tworzenia zaawansowanych systemów robotycznych, takich jak systemy SLAM i nawigacji.
-ROS (Robot Operating System) to nie system operacyjny zastępujący Linux lub Windows, lecz oprogramowanie posrednie zwiększające możliwości systemu w zakresie tworzenia aplikacji robotycznych. Numer 2 wskazuje, że jest to druga generacja tego middleware. Czytelnik, który zna pierwszą wersję ROS (czasami nazywaną ROS 1), znajdzie wiele podobnych koncepcji, a dla programistów ROS 1, którzy przechodzą na ROS 2, istnieje już kilka zasobów edukacyjnych. W tej pracy zakładamy brak wcześniejszej znajomości ROS. Coraz częściej będzie się zdarzać, że nauka ROS 2 będzie odbywać się bez wcześniejszej znajomości ROS 1, ponieważ istnieje coraz więcej powodów, aby uczyć się ROS 2 bezpośrednio \cite{bib:ros2Concise}.
-
-\section{SLAM Toolbox}
-SLAM Toolbox jest nowoczesnym rozwiązaniem dla ROS 2, umożliwiającym robotom tworzenie i aktualizację map 2D w czasie rzeczywistym \cite{bib:slamtoolbox}. System implementuje zaawansowaną wersję algorytmu Pose Graph SLAM, oferując kilka trybów pracy, z których skupiono się na dwóch głównych:
-
-\begin{itemize}
-\item \textbf{Synchroniczny - bieżący} - Przetwarzanie wszystkich otrzymanych skanów w jednym wątku na bieżąco uzyskanych danych (oferuje większą dokładność, ale mniejszą wydajność)
-\item \textbf{Asynchroniczny - bieżący} - Przetwarzanie najnowszego skanu z bieżąco uzyskanych danych w jednym wątku (oferuje mniejszą dokładność, ale większą wydajność)
-\end{itemize}
-
-Proces generowania mapy w trybie synchronicznym realizowany jest w następujących etapach:
-
-\begin{itemize}
-\item \textbf{Inicjalizacja systemu:}
-	\begin{itemize}
-	\item Uruchomienie węzła SLAM Toolbox w trybie synchronicznym
-	\item Konfiguracja subskrypcji tematów skanów laserowych i odometrii
-	\item Przygotowanie publikacji transformacji map--odom i mapy
-	\end{itemize}
-
-\item \textbf{Akwizycja i przetwarzanie danych:}
-	\begin{itemize}
-	\item Odbieranie danych z czujników (LiDAR i enkodery)
-	\item Generowanie obiektów PosedScan zawierających pozycję i dane ze skanowania
-	\item Budowa kolejki obiektów do przetworzenia
-	\end{itemize}
-
-\item \textbf{Konstrukcja i optymalizacja grafu:}
-	\begin{itemize}
-	\item Tworzenie grafu pozycji na podstawie kolejki PosedScan
-	\item Korekta odometrii poprzez dopasowanie skanów laserowych
-	\item Detekcja zamknięć pętli w grafie
-	\item Optymalizacja grafu i aktualizacja pozycji robota
-	\end{itemize}
-
-\item \textbf{Generowanie mapy:}
-	\begin{itemize}
-	\item Integracja skanów laserowych z pozycjami z grafu
-	\item Konstrukcja spójnej mapy otoczenia
-	\item Publikacja mapy w systemie ROS
-	\end{itemize}
-\end{itemize}
-Kluczowym elementem jest optymalizacja z wykorzystaniem biblioteki Ceres Solver \cite{bib:Agarwal_Ceres_Solver_2022}. Jest to narzędzie, które pomaga znaleźć najlepsze dopasowanie między różnymi pomiarami, minimalizując błąd średniokwadratowy. Dzięki temu SLAM Toolbox może tworzyć dokładne mapy, nawet gdy niektóre pomiary są niedokładne lub błędne. 
+ROS2 (ang. "Robotic operation system 2") to platforma programistyczna dla robotów będąca oprogramowaniem pośrednim (ang. "middleware"), czyli warstwą programową pomiędzy systemem operacyjnym, a aplikacjami użytkownika do wykonywania oprogramowania aplikacji w domenie robota \cite{bib:ros2Concise}. Na poniższej ilustracji przedstawiono położenie takiego pośrednika.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/middle.png}
+	\caption{Reprezentacja pośrednika w systemie robota}
+	\label{fig:middle}
+	\end{figure}
 \newline
-Działa to na zasadzie iteracyjnego poprawiania oszacowań pozycji robota:
+Zasadniczo ROS 2 to otwartoźródłowe oprogramowanie bazujące na usłudze dystrybucji danych - DDS (ang. "Data Distribution Service"), które dostarcza ustandaryzowane narzędzia do organizacji kodu aplikacji w modularne pakiety, zapewniania współbieżnego wykonania kodu na wiele dostępnych plików wykonywalnych, oraz komunikację między tymi modułami podczas równoległego uruchomienia w systemie robota.\cite{bib:guide}
 
-\begin{equation}
-\min_x \frac{1}{2}\sum_{i} \rho_i(\|f_i(x_i)\|^2)
-\end{equation}
-
-
-\begin{itemize}
-\item $x$ to pozycje robota, które chcemy znaleźć 
-\item $f_i(x_i)$ mierzy, jak bardzo nasze oszacowanie pozycji różni się od rzeczywistych pomiarów
-\item $\rho_i$ to funkcja, która pomaga ignorować błędne pomiary (działa jako filtr odrzucający "podejrzane" dane)
-\item Cały proces dąży do znalezienia takich pozycji robota, dla których suma wszystkich błędów jest najmniejsza
-\end{itemize}
-
-Algorytm działa iteracyjnie, wykorzystuje do tego metodę Levenberga-Marquardta, która łączy w sobie:
-
-\begin{itemize}
-\item Szybkość metody Gaussa-Newtona (dobre do precyzyjnych korekt)
-\item Stabilność metody największego spadku (pomocne przy większych korektach)
-\end{itemize}
-
-Dzięki takiemu podejściu SLAM Toolbox może tworzyć dokładne mapy, nawet gdy niektóre pomiary są niedokładne lub błędne.
-
-
-\subsection{Navigation2 (Nav2) i lokalizacja}
-System Navigation 2 (Nav2) stanowi kompleksową strukturę do autonomicznej nawigacji robotów w ROS 2, wykorzystującą algorytm Adaptacyjnej Lokalizacji Monte Carlo - AMCL (ang. "Adaptive Monte Carlo localization") do precyzyjnego pozycjonowania.\cite{bib:nav2} Poniżej opisano kluczowe komponenty i ich zasadę działania:
-
-\begin{itemize}
-\item \textbf{Lokalizacja (AMCL)} - system lokalizacji wykorzystujący filtry cząsteczkowe do określania pozycji robota działający w następujący sposób:
-	\begin{itemize}
-	\item Pozycja robota reprezentowana przez zbiór hipotez (cząstek)
-	\item Każda cząstka reprezentuje możliwą pozycję (x, y, $\theta$)
-	\item Aktualizacja wag cząstek poprzez porównanie skanów z mapą
-	\item Liczba cząstek adaptowana do poziomu niepewności pozycji
-	\end{itemize}
-
-\item \textbf{System nawigacji (Nav2)} - kompleksowy system zapewniający autonomiczną nawigację robotów mobilnych w ROS 2, oparty na drzewie zachowań (ang. "Behavior Tree"). System integruje szereg modułów odpowiedzialnych za planowanie ścieżki, unikanie przeszkód i kontrolę ruchu. Planer globalny wykorzystuje algorytmy takie jak Dijkstra czy A* do wyznaczenia optymalnej trasy do celu, uwzględniając statyczną mapę środowiska i znane przeszkody. Lokalny planer DWB (ang. "Dynamic Window Approach") odpowiada za bezpieczną realizację zaplanowanej ścieżki, dynamicznie reagując na pojawiające się przeszkody poprzez modyfikację prędkości i trajektorii ruchu.
-
-Do reprezentacji przestrzeni roboczej i przeszkód system wykorzystuje dwuwymiarową mapę kosztów (ang. "Costmap 2D"), która jest aktualizowana na podstawie danych z czujników. Moduł kontroli i odzyskiwania (ang. "Recovery") zapewnia reakcję na sytuacje problematyczne, takie jak zaklinowanie czy niemożność znalezienia ścieżki, poprzez wykonanie sekwencji zachowań naprawczych.
-
-
-\end{itemize}
-Zasada działania całego systemu opiera się na ciągłej interakcji między komponentami:
-
-\begin{enumerate}
-\item AMCL aktualizuje pozycję robota na podstawie:
-   \begin{itemize}
-   \item Odometrii z enkoderów (predykcja ruchu)
-   \item Dopasowania skanów LiDAR do mapy (korekcja)
-   \item Adaptacyjnego próbkowania cząstek
-   \end{itemize}
-   
-\item Nav2 wykorzystuje estymowaną pozycję do:
-   \begin{itemize}
-   \item Planowania globalnej ścieżki do celu
-   \item Lokalnej optymalizacji trajektorii
-   \item Unikania przeszkód w czasie rzeczywistym
-   \end{itemize}
 \newpage
-\item System monitoruje wykonanie planu i w razie potrzeby:
-   \begin{itemize}
-   \item Przeplanowuje ścieżkę przy wykryciu przeszkód
-   \item Aktywuje zachowania awaryjne
-   \item Dostosowuje parametry sterowania
-   \end{itemize}
-\end{enumerate}
+\section{SLAM Toolbox}
+SLAM Toolbox to zestaw narzędzi i rozwiązań do tworzenia map 2D w czasie rzeczywistym, stworzone przez Steve'a Mecenski.
+ Stosowane algorytmy w przeszłości to np. GMapping, Karto, Cartographer oraz Hector, jednakże prawie żaden z nich nie potrafił tworzyć map w czasie rzeczywistym, jedynie Cartographer stworzony przez Google miał takie możliwości, lecz przestał być on wspierany.
+ \cite{bib:slamtoolbox} Zastosowanie SLAM Toolbox pozwala na tworzenie map w czasie rzeczywistym obszarów, do nawet 24 000 m$^2$ przez niewykwalifikowanych użytkowników. Przykład działania SLAM Toolbox przedstawiono na rysunku poniżej.
 
-Integracja AMCL z Nav2 zapewnia stabilną nawigację nawet w dynamicznym środowisku, a adaptacyjne mechanizmy obu komponentów pozwalają na optymalne wykorzystanie dostępnych zasobów obliczeniowych.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/sklep.png}
+	\caption{Mapa sklepu utworzona za pomocą SLAM Toolbox}
+	\label{fig:sklep}
+	\end{figure}
 
+SLAM Toolbox oferuje 3 główne tryby pracy:
+\begin{itemize}
+	\item \textbf{Mapowanie synchroniczne} - Ten tryb pozwala na mapowanie i lokalizację w przestrzeni zachowując dane poprzednich pomiarów. Pozwala to na większą dokładność mapy kosztem szybkości i odporności na przerwania.
+	\item \textbf{Mapowanie asynchroniczne} - W tym trybie mapowanie i lokalizacja odbywają się wyłącznie na podstawie aktualnych pomiarów gdy ostatnie pomiary zakończą się i zostanie spełnione kryterium dokładności. Pozwala to na szybsze i mniej podatne na przerwania mapowanie kosztem jakości.
+	\item \textbf{Lokalizacja} - W tym trybie robot dopasowuje aktualne pomiary do istniejącej mapy w celu określenia swojej pozycji. System tworzy tymczasowe punkty odniesienia z nowych pomiarów, które są używane do precyzyjnej lokalizacji. Po określonym czasie te tymczasowe punkty są usuwane, przywracając oryginalną mapę. Tryb ten może również działać bez wcześniejszej mapy, wykorzystując tylko lokalne pomiary do nawigacji.
+\end{itemize}
+
+\newpage
+\subsection{Navigation2 (Nav2) i lokalizacja}
+Nav2 jest to pakiet narzędzi do nawigacji robotów mobilnych w ROS 2. Zawiera on zestaw algorytmów do tworzenia modeli środowiska z sensorów, dynamicznego planowania ścieżki, obliczania prędkości silników i omijania przeszkód. 
+Pakiet wykorzystuje drzewa zachowań (ang. "Behavior Trees") do definiowania zachowań robota, przez implementację wielu niezależnych zadań. Niektóre z nich odpowiadają za np. obliczanie trasy do celu, inne za naprawę błędów, a jeszcze inne za omijanie przeszkód. Dzięki komunikacji między tymi zadaniami, robot jest w stanie wykonywać skomplikowane zadania nawigacyjne.
+\cite{bib:abs-2003-00368}
+\newline
+\newline
+Do lokalizacji robota na mapie można wykorzystać wcześniej opisany SLAM Toolbox, jednak w pakiecie Nav2 dostępny jest również pakiet AMCL (ang. "Adaptive Monte Carlo Localization"), który pozwala na lokalizację robota na mapie z wykorzystaniem filtru cząsteczkowego. Algorytm ten polega na generowaniu losowych próbek (cząsteczek) reprezentujących możliwe położenia robota, a następnie porównywaniu ich z pomiarami z czujników. Cząsteczki, które najlepiej pasują do pomiarów są wybierane, a reszta jest odrzucana. W ten sposób algorytm estymuje pozycję robota na mapie. \cite{bib:amcl}
 \subsection{ROS2 Control i sterowanie napędami}
-ROS2 Control dostarcza infrastrukturę do sterowania robotami poprzez standardowy interfejs.\cite{bib:ros2control}  Główne komponenty systemu to:
-
-\begin{itemize}
-\item \textbf{Controller Manager} - zarządza cyklem życia kontrolerów (inicjalizacja, uruchomienie, zatrzymanie)
-\item \textbf{Controllers} - implementują logikę sterowania (np. diff\_drive\_controller)
-\item \textbf{Hardware Interface} - zapewnia interfejs sprzętowy do urządzeń (silniki, enkodery)
-\end{itemize}
-
-Pakiet \texttt{diffdrive\_arduino}\cite{bib:diffdrive}  implementuje interfejs sprzętowy dla robota z napędem różnicowym sterowanego przez Arduino. Realizuje:
-
-\begin{itemize}
-\item Obsługę silników poprzez PWM (kontroler silników - L298N)
-\item Odczyt enkoderów do obliczania odometrii
-\item Komunikację przez port szeregowy z Raspberry Pi
-\item Transformację odom$\rightarrow$base\_link
-\end{itemize}
-
-Główne węzły systemu:
-\begin{itemize}
-\item \textbf{/controller\_manager} - zarządza kontrolerami
-\item \textbf{/diff\_drive\_controller} - kontroler napędu różnicowego:
-	\begin{itemize}
-	\item Przyjmuje komendy prędkości (cmd\_vel)
-	\item Generuje odometrię (odom)
-	\item Kontroluje silniki poprzez interfejs sprzętowy
-	\end{itemize}
-\item \textbf{/joint\_state\_broadcaster} - publikuje stan przegubów
-\end{itemize}
-
-Interfejs ROS2:
-\begin{itemize}
-\item Wejście: cmd\_vel (geometry\_msgs/Twist)
-\item Wyjście: odom (nav\_msgs/Odometry)
-\item Konfiguracja w pliku .yaml:
-	\begin{itemize}
-	\item Parametry regulatora PID:
-		\begin{itemize}
-		\item Współczynnik proporcjonalny (Kp) - wpływa na szybkość reakcji
-		\item Współczynnik całkowania (Ki) - eliminuje uchyb ustalony
-		\item Współczynnik różniczkowania (Kd) - tłumi oscylacje
-		\end{itemize}
-	\item Limity prędkości
-	\item Właściwości robota (rozstaw kół, promień)
-	\end{itemize}
-\end{itemize}
+ROS2 Control to platforma do sterowania, zarządzania i komunikacji pomiędzy urządzeniami w robotach z oprogramowaniem. \cite{bib:ros2control}. Dzięki takiemu rozwiązaniu można w łatwy sposób zarządzać silnikami, enkoderami, czy innymi urządzeniami w robocie. Dzięki temu można wykorzystać np. pakiet diffdrive\_arduino, do sterowania robotem z napędem różnicowym za pomocą Arduino. Pakiet ten pozwala również na sterowanie prędkością silników, odczyt enkoderów, obliczanie odometrii oraz transformację między układem odometrii a układem bazowym. \cite{bib:diffdrive}
+ 
 
 \section{Wybór rozwiązań}
 Na podstawie analizy dostępnych narzędzi, w projekcie zdecydowano się na wykorzystanie SLAM Toolbox do mapowania, AMCL do lokalizacji podczas nawigacji, Nav2 do planowania ścieżki i kontroli ruchu oraz ROS2 Control z DiffDrive Arduino do sterowania napędami. Wybór ten podyktowany jest stabilnością rozwiązań, oraz dobrą integracją komponentów w ekosystemie ROS 2 oraz aktywnym wsparciem społeczności i dostępnością dokumentacji.
@@ -777,14 +658,14 @@ W niniejszym rozdziale przedstawiono wymagania funkcjonalne systemu, przypadki u
 System powinien realizować następujące funkcje:
 \begin{itemize}
 \item Zdalne sterowanie robotem poprzez klawiaturę (teleop\_twist\_keyboard \cite{bib:teleop}) w celu eksploracji i mapowania otoczenia
-\item Tworzenie i zapisywanie mapy otoczenia w czasie rzeczywistym przy użyciu algorytmu SLAM
+\item Tworzenie i zapisywanie mapy otoczenia w czasie rzeczywistym 
 \item Lokalizacja robota na zapisanej mapie z wykorzystaniem algorytmu AMCL
 \item Autonomiczna nawigacja do wyznaczonych punktów na mapie z omijaniem przeszkód
-\item Planowanie i optymalizacja ścieżki przejazdu
+
 \end{itemize}
 \newpage
 \section{Przypadki użycia}
-Na rysunku \ref{fig:use-case} przedstawiono diagram przypadków użycia systemu. System umożliwia użytkownikowi zdalne sterowanie robotem, tworzenie mapy otoczenia, lokalizację robota na mapie oraz autonomiczną nawigację do wyznaczonych punktów. Dodatkowo, system pozwala na zapisywanie i odczytywanie mapy oraz konfigurację parametrów sterowania.
+Na rysunku \ref{fig:use-case} przedstawiono diagram przypadków użycia systemu. System umożliwia użytkownikowi zdalne sterowanie robotem, tworzenie mapy otoczenia, lokalizację robota na mapie oraz autonomiczną nawigację do wyznaczonych punktów. 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{images/UML.png}
@@ -799,21 +680,49 @@ Na rysunku \ref{fig:use-case} przedstawiono diagram przypadków użycia systemu.
 	\begin{itemize}
 	\item System operacyjny Ubuntu 22.04
 	\item ROS 2 Humble
-	\item Komunikacja przez SSH
+	\item Komunikacja przez SSH z jednostką sterującą zachowaniem robota
 	\end{itemize}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.4\textwidth]{images/rasp.png}
+		\caption{Raspberry Pi 4 model B}
+		\label{fig:raspberrypi4}
+		\end{figure}
+		\newpage	
+		
 \item Arduino Nano - sterownik silników:
 	\begin{itemize}
 	\item Obsługa enkoderów
 	\item Komunikacja szeregowa z Raspberry Pi
 	\end{itemize}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.4\textwidth]{images/nano.png}
+		\caption{Arduino Nano}
+		\label{fig:ardunano}
+		\end{figure}
 \end{itemize}
 
 \subsection{Napęd}
 \begin{itemize}
 \item 2x silnik DC 12V 240RPM z metalową przekładnią
 \item Wbudowane enkodery magnetyczne Halla
-\item Sterownik L298N - dwukanałowy mostek H
+\begin{figure}
+	\centering
+	\includegraphics[width=0.4\textwidth]{images/sil.png}
+	\caption{Silnik DC 12V 240RPM typu L z przekładnią metalową - magnetyczny enkoder Halla - Waveshare 22346}
+	\label{fig:silnik}
+	\end{figure}
+\item Sterownik L298N - dwukanałowy mostek H \newline
+\begin{figure}
+	\centering
+	\includegraphics[width=0.4\textwidth]{images/ster.png}
+	\caption{L298N - dwukanałowy sterownik silników - moduł 12V/2A}
+	\label{fig:ster}
+	\end{figure}
 \end{itemize}
+
 
 \subsection{Zasilanie}
 \begin{itemize}
@@ -822,17 +731,29 @@ Na rysunku \ref{fig:use-case} przedstawiono diagram przypadków użycia systemu.
 	\item 4 ogniwa (2S2P) dla silników
 	\item 2 ogniwa (2S) dla elektroniki
 	\end{itemize}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.4\textwidth]{images/ogniwo.png}
+		\caption{Ogniwa 18650 Li-Ion XTAR - 2600mAh}
+		\label{fig:ogniwa}
+		\end{figure}
 \item 2x przetwornica step-down:
 	\begin{itemize}
 	\item 12V dla silników
 	\item 5V dla Raspberry Pi
 	\end{itemize}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.4\textwidth]{images/przetwo.png}
+		\caption{Przetwornica step-down LM2596 3,2V-35V 3A z wyświetlaczem}
+		\label{fig:przetwo}
+		\end{figure}
 \end{itemize}
 \newpage
 \section{Sposób połączenia silników z Arduino i L298N}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{images/schema_arduino.png}
+	\includegraphics[width=0.9\textwidth]{images/schema_arduino.png}
 	\caption{Schemat połączenia silników z Arduino i L298N}
 	\label{fig:arduino-schema}
 	\end{figure}
@@ -866,8 +787,7 @@ Na zaprezentowanym schemacie (rys. \ref{fig:arduino-schema}) przedstawiono spos�
 \item Konfiguracja pakietów ROS 2:
 	\begin{itemize}
 	\item SLAM Toolbox do mapowania
-	\item Nav2 do nawigacji
-	\item AMCL do lokalizacji
+	\item Nav2 do nawigacji z AMCL do lokalizacji
 	\item ROS2 Control do sterowania napędem
 	\end{itemize}
 \item Integracja i testy systemu
