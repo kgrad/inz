@@ -796,22 +796,77 @@ Na zaprezentowanym schemacie (rys. \ref{fig:arduino-schema}) przedstawiono spos�
 
 
 % TODO
-\chapter{[specyfikacja użytkowa]}
+\chapter{Specyfikacja użytkowa}
 \label{ch:04}
+W tym rozdziale przedstawiono wymagania użytkownika oraz specyfikację funkcjonalną systemu. Opisano kategorie użytkowników, sposób obsługi, administrację systemem, kwestie bezpieczeństwa oraz przykłady działania systemu.
 
-Jeśli „Specyfikacja zewnętrzna”:
+
+\subsection{Wymagania sprzętowe i programowe}
+Projekt ten stworzony był z myślą o następujących wymaganiach dla robota:
+\newline
+Sprzętowe:
 \begin{itemize}
-\item  wymagania sprzętowe i programowe
-\item  sposób instalacji
-\item  sposób aktywacji
-\item  kategorie użytkowników
-\item  sposób obsługi
-\item  administracja systemem
-\item  kwestie bezpieczeństwa
-\item  przykład działania
-\item  scenariusze korzystania z systemu (ilustrowane zrzutami z ekranu lub generowanymi dokumentami)
+	\item Poruszać się w przestrzeni za pomocą sinlików, czyli np. przemieszczanie się do przodu, do tyłu, skręcanie w lewo i w prawo po korytarzach, czy w pomieszczeniach w równym podłożem.
+	\item Skanować pomieszczenia za pomocą LiDAR-a, czyli zbieranie danych o otoczeniu wokół robota.
+	\end{itemize}
+Programowe:
+\begin{itemize}
+	\item Tworzyć mapę otoczenia, czyli zapisywanie danych z LiDAR-a w formie mapy 2D w czasie rzeczywistym i wizualizację tych danych w programie Rviz.
+	\item Lokalizować się na mapie, czyli określanie pozycji robota na zapisanej mapie.
+	\item Nawigować do wyznaczonych punktów, czyli planowanie trasy do punktów na mapie i omijanie przeszkód.
 \end{itemize}
+%\subsection{Metoda instalacji oprogramiwania i konfiguracji sprzętu}
+%\begin{itemize}
+%	\item Instalacja systemu Ubuntu 22.04 na Raspberry Pi
+%	\item Konfiguracja połączenia SSH
+%	\item Instalacja ROS 2 Humble na Raspberry Pi i komputerze sterującym
+%	\item Podłączenie silników do sterownika L298N
+%	\item Programowanie Arduino - obsługa silników i enkoderów
+%	\item Implementacja komunikacji szeregowej z Raspberry Pi
+%	\item Montaż i konfiguracja LiDAR-a
+%	\item Kalibracja czujników
+%	\item Opracowanie układu mechanicznego i obudowy
+%	\item Konfiguracja pakietów ROS 2:
+%	\begin{itemize}
+%	\item SLAM Toolbox do mapowania
+%	\item Nav2 do nawigacji z AMCL do lokalizacji
+%	\item ROS2 Control do sterowania napędem
+%	\end{itemize}
+%\end{itemize}
+\newpage
+\subsection{Sposób aktywacji i korzystania z robota}
+W tej sekcji wyjaśnione zostaną poszczególne etapy jakie należy podjąć do poprawnego uruchomienia i korzystania z robota.
 
+Na samym początku należy uruchomić Raspberry Pi, przez włączenie zasilania, oraz załączenie silników.
+Następnie należy przygotować terminale na jednostce sterującej (dwa terminale mają być połączone przez protokuł ssh z Raspberry Pi, a 5 terminali ma być przygotowanych na samej jednostce sterującej do uruchomienia późniejszych skryptów ROS). Przygotowanie tych terminali polega na odpowiednim:
+\newline\newline
+Dla jednostki sterującej: wejsciu do katalogu roboczego, uruchomienie komend source /opt/ros/humble/setup.bash, oraz source /install/setup.bash.
+\newline\newline
+Dla Raspberry Pi: wejsciu do katalogu roboczego, uruchomienie komend source /opt/ros/humble/setup.bash, oraz source /install/setup.bash.
+\newline\newline
+Następnie, należy uruchomić 2 skrypty przez ssh na Raspberry Pi, które odpowiadają za uruchomienie odpowiednich węzłów ROS. Pierwszy skrypt odpowiada za uruchomienie węzła odpowiedzialnego za sterowanie silnikami, a drugi za uruchomienie węzła odpowiedzialnego za odczyt danych z LiDAR-a. Odpowiednie komendy to: ros2 launch robot\_slam.launch.py oraz ros2 launch robot\_lidar.launch.py.
+\newline\newline
+Po uruchomieniu tych skryptów, należy uruchomić skrypt odpowiedzialny za sterowanie robotem za pomocą klawiatury. Komenda to: ros2 launch robot\_teleop.launch.py.
+\newline\newline
+Kolejnym krokiem jest uruchomienie skryptu odpowiedzialnego za mapowanie otoczenia. Komenda to: ros2 launch robot\_mapping.launch.py. W tym momencie gdy robot przemieszcza się przez komendy z klawiatury, pomieszczenie zostaje zmapowane.
+\newline\newline
+Gdy wystarczająco dużo pomieszczenia zostanie zmapowane, należy zapisać mapę. Można to wykonać przez komendę ros2 run nav2\_map\_server map\_saver -f map, lub przez dodanie panelu do Rviz z zestawu narzędzi SLAM Toolbox i zapisanie mapy z poziomu tego panelu.
+\newline\newline
+Z taką zapisaną mapą można zamknąć skrypty odpowiedzialne za sterowanie i mapowanie, jak i Rviz.
+\newline\newline
+Następnie, należy uruchomić skrypt odpowiedzialny za lokalizację robota na mapie, oraz skrypt odpowiedzialny za nawigację robota.\newline Komendy to: ros2 launch robot\_localization.launch.py,\newline ros2 launch robot\_navigation.launch.py. 
+W wyniku uruchomienia tych skryptów powinien pojawić się nowy ekran Rviz, na którym będzie widoczna wcześniej zapisana mapa. Należy na niej umieścić robota przez wybranie z górnego zestawu narzędzi 2d-pose-estimate, a następnie kliknięcie na mapie w miejscu gdzie znajduje się robot. W tym momencie algorytm AMCL tworzy chmurę przewidywanych punktów w których może znajdować się robot. Następnie należy wybrać cel do którego robot ma się przemieścić, przez wybranie z górnego zestawu narzędzi 2d-nav-goal, a następnie kliknięcie na mapie w miejscu gdzie ma się znaleźć cel. Robot powinien samodzielnie przemieścić się do tego celu, omijając przeszkody.
+\section{Administracja systemem}
+System nie wymaga specjalnej administracji, jednakże w przypadku problemów z działaniem, można skorzystać z narzędzi diagnostycznych dostępnych w ROS 2, jak i z dokumentacji dostępnej na stronie internetowej ROS 2. W celu modyfikacji np. prędkością poruszania robota, przy korzystaniu z klawiatury, można zmienić prędkość przez naciśnięcie q i w. Do modyfikacji prędkości podczas nawigacji, można zmienić prędkość w pliku konfiguracyjnym Nav2.
+\section{Kwestie bezpieczeństwa}
+Robot opracowany został z myślą o omijaniu przeszkód, nawet tych których nie było na wcześniej stworzonej mapie pozwalając na bezpieczne poruszanie się w przestrzeni.
+Należy jednak pamiętać że robot ten nie został przygotowany do pracy w środowiskach bez równego podłoża, dlatego należy unikać przemieszczania się po nierównym terenie co może prowadzić do przewrócenia się robota.
+\section{Przykład działania i scenariusze korzystania z systemu}
+Na poniższych obrazach zaprezentowano przykładowe działanie systemu na korytarzu uczelni. Na pierwszym obrazie  przedstawiono nawigację robota do wyznaczonego punktu.
+
+Z mapy widać, że robot zmapował cały korytarz, a z nawigacji widać, że robot samodzielnie przemieszcza się do wyznaczonego punktu, omijając przeszkody.
+
+Robot ten pozwala na mapowanie różnego rodzaju pomieszczeń, oraz na nawigację do wyznaczonych punktów, co pozwala na zastosowanie go w różnego rodzaju zastosowaniach, jak np. inspekcja pomieszczeń. Testy przeprowadzane były w małych pomieszczeniach nie przekraczających 40m, jednakże robot ten jest w stanie zmapować pomieszczenia nawet do 24 000m co wynika z dokumentacji Nav2 \cite{bib:abs-2003-00368}.
 %%%%%%%%%%%%%%%%%%%%%
 %% RYSUNEK Z PLIKU
 %
@@ -860,50 +915,52 @@ Jeśli „Specyfikacja zewnętrzna”:
 %%%%%%%%%%%%%%%%%%%%%
 
 
- 
-\begin{figure}
-\centering
-\begin{tikzpicture}
-\begin{axis}[
-    y tick label style={
-        /pgf/number format/.cd,
-            fixed,   % po zakomentowaniu os rzednych jest indeksowana wykladniczo
-            fixed zerofill, % 1.0 zamiast 1
-            precision=1,
-        /tikz/.cd
-    },
-    x tick label style={
-        /pgf/number format/.cd,
-            fixed,
-            fixed zerofill,
-            precision=2,
-        /tikz/.cd
-    }
-]
-\addplot [domain=0.0:0.1] {rnd};
-\end{axis} 
-\end{tikzpicture}
-\caption{Podpis rysunku po rysunkiem.}
-\label{fig:2}
-\end{figure}
-
+%
+%\begin{figure}
+%\centering
+%\begin{tikzpicture}
+%\begin{axis}[
+%    y tick label style={
+%        /pgf/number format/.cd,
+%            fixed,   % po zakomentowaniu os rzednych jest indeksowana wykladniczo
+%            fixed zerofill, % 1.0 zamiast 1
+%            precision=1,
+%        /tikz/.cd
+%    },
+%    x tick label style={
+%        /pgf/number format/.cd,
+%            fixed,
+%            fixed zerofill,
+%            precision=2,
+%        /tikz/.cd
+%    }
+%]
+%\addplot [domain=0.0:0.1] {rnd};
+%\end{axis} 
+%\end{tikzpicture}
+%\caption{Podpis rysunku po rysunkiem.}
+%\label{fig:2}
+%\end{figure}
 
 
 % TODO
-\chapter{[Specyfikacja techniczna]}
+\chapter{Specyfikacja techniczna}
 \label{ch:05}
-
-
-Jeśli „Specyfikacja wewnętrzna”:
+Rozdział ten skupia się na aspektach technicznych projektu. Opisano w nim architekturę systemu, struktury danych, komponenty, moduły, biblioteki, algorytmy, wzorce projektowe, diagramy UML oraz szczegóły implementacji wybranych fragmentów.
+\section{Idea robota autonomicznego mapującego w czasie rzeczywistym} 
+Robot autonomiczny mapujący w czasie rzeczywistym to robot mobilny, który samodzielnie przemieszcza się w przestrzeni, zbierając dane o otoczeniu i tworząc mapę otoczenia w czasie rzeczywistym. Robot ten wykorzystuje różnego rodzaju sensory, jak np. LiDAR, kamery, czy enkodery, do zbierania danych o otoczeniu. Dane te są przetwarzane przez algorytmy SLAM (Simultaneous Localization and Mapping), które pozwalają na określenie pozycji robota na mapie oraz na tworzenie mapy otoczenia. Robot ten może być wykorzystywany w różnego rodzaju zastosowaniach, jak np. inspekcja pomieszczeń, czy przemieszczanie się w trudno dostępnych miejscach.
+\section{Architektura systemu}
+System składa się z kilku modułów, które współpracują ze sobą w celu zapewnienia poprawnego działania robota. Moduły te to:
 \begin{itemize}
-\item przedstawienie idei
-\item architektura systemu
-\item opis struktur danych (i organizacji baz danych)
-\item komponenty, moduły, biblioteki, przegląd ważniejszych klas (jeśli występują)
-\item przegląd ważniejszych algorytmów (jeśli występują)
-\item szczegóły implementacji wybranych fragmentów, zastosowane wzorce projektowe
-\item diagramy UML
+	\item Sterowanie silnikami - moduł odpowiedzialny za sterowanie silnikami robota
+	\item Odczyt danych z LiDAR-a - moduł odpowiedzialny za odczyt danych z LiDAR-a
+	\item Mapowanie - moduł odpowiedzialny za tworzenie mapy otoczenia
+	\item Lokalizacja - moduł odpowiedzialny za lokalizację robota na mapie
+	\item Nawigacja - moduł odpowiedzialny za nawigację robota
 \end{itemize}
+\section{Struktura systemu i objaśnienie działania algorytmów}
+\subsection{Diagramy UML prezentujące działanie konkretnych programów}
+
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 % Pakiet minted wymaga importu: \usepackage{minted}                 %
@@ -964,36 +1021,11 @@ class test : public basic
 \item sposób testowania w ramach pracy (np. odniesienie do modelu V)
 \item organizacja eksperymentów
 \item przypadki testowe zakres testowania (pełny/niepełny)
-\item wykryte i usunięte błędy
+\item wykryte i usunięte błędy - problem z zasilaniem - filmik, problem z kolkami - funkcja w kodzie i jej objasnienie, problem z bledna nawigacją i przemieszczaniem sie mapy - obrazek i ze zle podlaczone silniki
 \item opcjonalnie wyniki badań eksperymentalnych
 \end{itemize}
 
-\begin{table}
-\centering
-\caption{Nagłówek tabeli jest nad tabelą.}
-\label{id:tab:wyniki}
-\begin{tabular}{rrrrrrrr}
-\toprule
-	         &                                     \multicolumn{7}{c}{metoda}                                      \\
-	         \cmidrule{2-8}
-	         &         &         &        \multicolumn{3}{c}{alg. 3}        & \multicolumn{2}{c}{alg. 4, $\gamma = 2$} \\
-	         \cmidrule(r){4-6}\cmidrule(r){7-8}
-	$\zeta$ &     alg. 1 &   alg. 2 & $\alpha= 1.5$ & $\alpha= 2$ & $\alpha= 3$ &   $\beta = 0.1$  &   $\beta = -0.1$ \\
-\midrule
-	       0 &  8.3250 & 1.45305 &       7.5791 &    14.8517 &    20.0028 & 1.16396 &                       1.1365 \\
-	       5 &  0.6111 & 2.27126 &       6.9952 &    13.8560 &    18.6064 & 1.18659 &                       1.1630 \\
-	      10 & 11.6126 & 2.69218 &       6.2520 &    12.5202 &    16.8278 & 1.23180 &                       1.2045 \\
-	      15 &  0.5665 & 2.95046 &       5.7753 &    11.4588 &    15.4837 & 1.25131 &                       1.2614 \\
-	      20 & 15.8728 & 3.07225 &       5.3071 &    10.3935 &    13.8738 & 1.25307 &                       1.2217 \\
-	      25 &  0.9791 & 3.19034 &       5.4575 &     9.9533 &    13.0721 & 1.27104 &                       1.2640 \\
-	      30 &  2.0228 & 3.27474 &       5.7461 &     9.7164 &    12.2637 & 1.33404 &                       1.3209 \\
-	      35 & 13.4210 & 3.36086 &       6.6735 &    10.0442 &    12.0270 & 1.35385 &                       1.3059 \\
-	      40 & 13.2226 & 3.36420 &       7.7248 &    10.4495 &    12.0379 & 1.34919 &                       1.2768 \\
-	      45 & 12.8445 & 3.47436 &       8.5539 &    10.8552 &    12.2773 & 1.42303 &                       1.4362 \\
-	      50 & 12.9245 & 3.58228 &       9.2702 &    11.2183 &    12.3990 & 1.40922 &                       1.3724 \\
-\bottomrule
-\end{tabular}
-\end{table}  
+
 
 
 

@@ -35,12 +35,21 @@
 \contentsline {subsection}{\numberline {3.5.2}Etap 2: Implementacja sterowania napędem}{15}{subsection.3.5.2}%
 \contentsline {subsection}{\numberline {3.5.3}Etap 3: Integracja sensorów}{15}{subsection.3.5.3}%
 \contentsline {subsection}{\numberline {3.5.4}Etap 4: Implementacja oprogramowania}{15}{subsection.3.5.4}%
-\contentsline {chapter}{\numberline {4}[specyfikacja użytkowa]}{17}{chapter.4}%
-\contentsline {chapter}{\numberline {5}[Specyfikacja techniczna]}{19}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Weryfikacja i walidacja}{21}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Podsumowanie i wnioski}{23}{chapter.7}%
-\contentsline {chapter}{Bibliografia}{25}{chapter.7}%
-\contentsline {chapter}{Spis skrótów i symboli}{29}{appendix*.22}%
+\contentsline {chapter}{\numberline {4}Specyfikacja użytkowa}{17}{chapter.4}%
+\contentsline {subsection}{\numberline {4.0.1}Wymagania sprzętowe i programowe}{17}{subsection.4.0.1}%
+\contentsline {subsection}{\numberline {4.0.2}Sposób aktywacji i korzystania z robota}{18}{subsection.4.0.2}%
+\contentsline {section}{\numberline {4.1}Administracja systemem}{19}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Kwestie bezpieczeństwa}{19}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Przykład działania i scenariusze korzystania z systemu}{19}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Specyfikacja techniczna}{21}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Idea robota autonomicznego mapującego w czasie rzeczywistym}{21}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Architektura systemu}{21}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Struktura systemu i objaśnienie działania algorytmów}{22}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Diagramy UML prezentujące działanie konkretnych programów}{22}{subsection.5.3.1}%
+\contentsline {chapter}{\numberline {6}Weryfikacja i walidacja}{23}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Podsumowanie i wnioski}{25}{chapter.7}%
+\contentsline {chapter}{Bibliografia}{27}{chapter.7}%
+\contentsline {chapter}{Spis skrótów i symboli}{31}{appendix*.20}%
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
 \babel@toc {british}{}\relax 
@@ -57,7 +66,7 @@
 \babel@toc {polish}{}\relax 
 \babel@toc {british}{}\relax 
 \babel@toc {polish}{}\relax 
-\contentsline {chapter}{Źródła}{31}{appendix*.23}%
-\contentsline {chapter}{Lista dodatkowych plików, uzupełniających tekst pracy}{33}{appendix*.24}%
-\contentsline {chapter}{Spis rysunków}{35}{appendix*.25}%
-\contentsline {chapter}{Spis tabel}{37}{appendix*.26}%
+\contentsline {chapter}{Źródła}{33}{appendix*.21}%
+\contentsline {chapter}{Lista dodatkowych plików, uzupełniających tekst pracy}{35}{appendix*.22}%
+\contentsline {chapter}{Spis rysunków}{37}{appendix*.23}%
+\contentsline {chapter}{Spis tabel}{39}{appendix*.24}%
