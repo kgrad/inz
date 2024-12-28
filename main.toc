@@ -37,7 +37,7 @@
 \contentsline {subsection}{\numberline {3.5.4}Etap 4: Implementacja oprogramowania}{15}{subsection.3.5.4}%
 \contentsline {chapter}{\numberline {4}Specyfikacja użytkowa}{17}{chapter.4}%
 \contentsline {subsection}{\numberline {4.0.1}Wymagania sprzętowe i programowe}{17}{subsection.4.0.1}%
-\contentsline {subsection}{\numberline {4.0.2}Sposób aktywacji i korzystania z robota}{18}{subsection.4.0.2}%
+\contentsline {subsection}{\numberline {4.0.2}Sposób aktywacji i korzystania z robota z przykadem działania}{18}{subsection.4.0.2}%
 \contentsline {section}{\numberline {4.1}Administracja systemem}{19}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Kwestie bezpieczeństwa}{19}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Przykład działania i scenariusze korzystania z systemu}{19}{section.4.3}%

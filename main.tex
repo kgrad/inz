@@ -589,7 +589,7 @@ ROS2 (ang. "Robotic operation system 2") to platforma programistyczna dla robot�
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{images/middle.png}
-	\caption{Reprezentacja pośrednika w systemie robota}
+	\caption{Reprezentacja pośrednika w systemie robota \cite{bib:ros2Concise}}
 	\label{fig:middle}
 	\end{figure}
 \newline
@@ -604,7 +604,7 @@ SLAM Toolbox to zestaw narzędzi i rozwiązań do tworzenia map 2D w czasie rzec
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{images/sklep.png}
-	\caption{Mapa sklepu utworzona za pomocą SLAM Toolbox}
+	\caption{Mapa sklepu utworzona za pomocą SLAM Toolbox \cite{bib:slamtoolbox}}
 	\label{fig:sklep}
 	\end{figure}
 
@@ -834,7 +834,7 @@ Programowe:
 %	\end{itemize}
 %\end{itemize}
 \newpage
-\subsection{Sposób aktywacji i korzystania z robota}
+\subsection{Sposób aktywacji i korzystania z robota z przykadem działania}
 W tej sekcji wyjaśnione zostaną poszczególne etapy jakie należy podjąć do poprawnego uruchomienia i korzystania z robota.
 
 Na samym początku należy uruchomić Raspberry Pi, przez włączenie zasilania, oraz załączenie silników.
@@ -844,17 +844,17 @@ Dla jednostki sterującej: wejsciu do katalogu roboczego, uruchomienie komend so
 \newline\newline
 Dla Raspberry Pi: wejsciu do katalogu roboczego, uruchomienie komend source /opt/ros/humble/setup.bash, oraz source /install/setup.bash.
 \newline\newline
-Następnie, należy uruchomić 2 skrypty przez ssh na Raspberry Pi, które odpowiadają za uruchomienie odpowiednich węzłów ROS. Pierwszy skrypt odpowiada za uruchomienie węzła odpowiedzialnego za sterowanie silnikami, a drugi za uruchomienie węzła odpowiedzialnego za odczyt danych z LiDAR-a. Odpowiednie komendy to: ros2 launch robot\_slam.launch.py oraz ros2 launch robot\_lidar.launch.py.
+Następnie, należy uruchomić 2 skrypty przez ssh na Raspberry Pi, które odpowiadają za uruchomienie odpowiednich węzłów ROS. Pierwszy skrypt odpowiada za uruchomienie węzła odpowiedzialnego za sterowanie silnikami, a drugi za uruchomienie węzła odpowiedzialnego za odczyt danych z LiDAR-a. Odpowiednie komendy to: ros2 launch robot\_slam model\_controll.launch.py oraz ros2 launch robot\_slam rplidar.launch.py.
 \newline\newline
-Po uruchomieniu tych skryptów, należy uruchomić skrypt odpowiedzialny za sterowanie robotem za pomocą klawiatury. Komenda to: ros2 launch robot\_teleop.launch.py.
+Po uruchomieniu tych skryptów, należy uruchomić skrypt odpowiedzialny za sterowanie robotem za pomocą klawiatury. Komenda to: ros2 launch robot\_teleop.launch.py. W tym momencie należy przejść do terminala na jednostce sterującej, i za pomocą klawiatury sterować robotem. Należy również uruchomić program Rviz, który pozwala na wizualizację mapy i położenia robota. Komenda to: rviz2.
 \newline\newline
-Kolejnym krokiem jest uruchomienie skryptu odpowiedzialnego za mapowanie otoczenia. Komenda to: ros2 launch robot\_mapping.launch.py. W tym momencie gdy robot przemieszcza się przez komendy z klawiatury, pomieszczenie zostaje zmapowane.
+Kolejnym krokiem jest uruchomienie skryptu odpowiedzialnego za mapowanie otoczenia. Komenda to: ros2 launch robot\_slam slam.launch.py. W tym momencie gdy robot przemieszcza się przez komendy z klawiatury, pomieszczenie zostaje zmapowane.
 \newline\newline
 Gdy wystarczająco dużo pomieszczenia zostanie zmapowane, należy zapisać mapę. Można to wykonać przez komendę ros2 run nav2\_map\_server map\_saver -f map, lub przez dodanie panelu do Rviz z zestawu narzędzi SLAM Toolbox i zapisanie mapy z poziomu tego panelu.
 \newline\newline
 Z taką zapisaną mapą można zamknąć skrypty odpowiedzialne za sterowanie i mapowanie, jak i Rviz.
 \newline\newline
-Następnie, należy uruchomić skrypt odpowiedzialny za lokalizację robota na mapie, oraz skrypt odpowiedzialny za nawigację robota.\newline Komendy to: ros2 launch robot\_localization.launch.py,\newline ros2 launch robot\_navigation.launch.py. 
+Następnie, należy uruchomić skrypt odpowiedzialny za lokalizację robota na mapie, oraz skrypt odpowiedzialny za nawigację robota.\newline Komendy to: ros2 launch robot\_slam localization\_launch.py,\newline ros2 launch robot\_slam navigation\_launch.py. 
 W wyniku uruchomienia tych skryptów powinien pojawić się nowy ekran Rviz, na którym będzie widoczna wcześniej zapisana mapa. Należy na niej umieścić robota przez wybranie z górnego zestawu narzędzi 2d-pose-estimate, a następnie kliknięcie na mapie w miejscu gdzie znajduje się robot. W tym momencie algorytm AMCL tworzy chmurę przewidywanych punktów w których może znajdować się robot. Następnie należy wybrać cel do którego robot ma się przemieścić, przez wybranie z górnego zestawu narzędzi 2d-nav-goal, a następnie kliknięcie na mapie w miejscu gdzie ma się znaleźć cel. Robot powinien samodzielnie przemieścić się do tego celu, omijając przeszkody.
 \section{Administracja systemem}
 System nie wymaga specjalnej administracji, jednakże w przypadku problemów z działaniem, można skorzystać z narzędzi diagnostycznych dostępnych w ROS 2, jak i z dokumentacji dostępnej na stronie internetowej ROS 2. W celu modyfikacji np. prędkością poruszania robota, przy korzystaniu z klawiatury, można zmienić prędkość przez naciśnięcie q i w. Do modyfikacji prędkości podczas nawigacji, można zmienić prędkość w pliku konfiguracyjnym Nav2.

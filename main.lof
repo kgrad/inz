@@ -7,8 +7,8 @@
 \babel@toc {polish}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Reprezentacja pośrednika w systemie robota}}{6}{figure.caption.8}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Mapa sklepu utworzona za pomocą SLAM Toolbox}}{7}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Reprezentacja pośrednika w systemie robota \blx@tocontentsinit {0}\cite {bib:ros2Concise}}}{6}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Mapa sklepu utworzona za pomocą SLAM Toolbox \blx@tocontentsinit {0}\cite {bib:slamtoolbox}}}{7}{figure.caption.9}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Diagram przypadków użycia systemu}}{10}{figure.caption.10}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Raspberry Pi 4 model B}}{11}{figure.caption.11}%
