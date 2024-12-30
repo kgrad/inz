@@ -17,10 +17,20 @@
 \contentsline {figure}{\numberline {3.5}{\ignorespaces L298N - dwukanałowy sterownik silników - moduł 12V/2A}}{13}{figure.caption.14}%
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Ogniwa 18650 Li-Ion XTAR - 2600mAh}}{13}{figure.caption.15}%
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Przetwornica step-down LM2596 3,2V-35V 3A z wyświetlaczem}}{14}{figure.caption.16}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Schemat połączenia silników z Arduino i L298N}}{14}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Zdjęcie przedstawiające zbudowanego robota}}{15}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Uproszczony schemat przedstawiający budowę robota}}{16}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Schemat połączenia silników z Arduino i L298N}}{17}{figure.caption.19}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Wizualizacja w Rviz po uruchomieniu skryptów.}}{22}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Wizualizacja zmapowanego pomieszczenia i zapisu mapy.}}{23}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Wizualizacja po uruchomieniu skryptów do lokalizacji i nawigacji.}}{25}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Wizualizacja rosproszonych punktów lokalizacji robota.}}{25}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Wizualizacja po wybraniu celu do którego robot ma się przemieścić.}}{26}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Wizualizacja wyznaczenia trasy.}}{27}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Wizualizacja nawigacji robota i zmniejszania się chmury przewidywanej lokalizacji robota.}}{27}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Wizaualizacja po dotarciu robota do celu.}}{28}{figure.caption.27}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Pseudokod w \texttt {listings}.}}{22}{figure.caption.18}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Wizualizacja połączenia skryptów w systemie}}{32}{figure.caption.28}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

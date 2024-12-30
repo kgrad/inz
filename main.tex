@@ -666,7 +666,7 @@ System powinien realizować następujące funkcje:
 \newpage
 \section{Przypadki użycia}
 Na rysunku \ref{fig:use-case} przedstawiono diagram przypadków użycia systemu. System umożliwia użytkownikowi zdalne sterowanie robotem, tworzenie mapy otoczenia, lokalizację robota na mapie oraz autonomiczną nawigację do wyznaczonych punktów. 
-\begin{figure}[h]
+\begin{figure}[!hb]
 \centering
 \includegraphics[width=0.8\textwidth]{images/UML.png}
 \caption{Diagram przypadków użycia systemu}
@@ -682,7 +682,7 @@ Na rysunku \ref{fig:use-case} przedstawiono diagram przypadków użycia systemu.
 	\item ROS 2 Humble
 	\item Komunikacja przez SSH z jednostką sterującą zachowaniem robota
 	\end{itemize}
-	\begin{figure}[h]
+	\begin{figure}[!hb]
 		\centering
 		\includegraphics[width=0.4\textwidth]{images/rasp.png}
 		\caption{Raspberry Pi 4 model B}
@@ -696,7 +696,7 @@ Na rysunku \ref{fig:use-case} przedstawiono diagram przypadków użycia systemu.
 	\item Komunikacja szeregowa z Raspberry Pi
 	\end{itemize}
 
-	\begin{figure}
+	\begin{figure}[!hb]
 		\centering
 		\includegraphics[width=0.4\textwidth]{images/nano.png}
 		\caption{Arduino Nano}
@@ -708,14 +708,15 @@ Na rysunku \ref{fig:use-case} przedstawiono diagram przypadków użycia systemu.
 \begin{itemize}
 \item 2x silnik DC 12V 240RPM z metalową przekładnią
 \item Wbudowane enkodery magnetyczne Halla
-\begin{figure}
+\begin{figure}[!hb]
 	\centering
 	\includegraphics[width=0.4\textwidth]{images/sil.png}
 	\caption{Silnik DC 12V 240RPM typu L z przekładnią metalową - magnetyczny enkoder Halla - Waveshare 22346}
 	\label{fig:silnik}
 	\end{figure}
+	\newpage
 \item Sterownik L298N - dwukanałowy mostek H \newline
-\begin{figure}
+\begin{figure}[!hb]
 	\centering
 	\includegraphics[width=0.4\textwidth]{images/ster.png}
 	\caption{L298N - dwukanałowy sterownik silników - moduł 12V/2A}
@@ -731,33 +732,63 @@ Na rysunku \ref{fig:use-case} przedstawiono diagram przypadków użycia systemu.
 	\item 4 ogniwa (2S2P) dla silników
 	\item 2 ogniwa (2S) dla elektroniki
 	\end{itemize}
-	\begin{figure}
+	\begin{figure}[!hb]
 		\centering
 		\includegraphics[width=0.4\textwidth]{images/ogniwo.png}
 		\caption{Ogniwa 18650 Li-Ion XTAR - 2600mAh}
 		\label{fig:ogniwa}
 		\end{figure}
+		\newpage
 \item 2x przetwornica step-down:
 	\begin{itemize}
 	\item 12V dla silników
 	\item 5V dla Raspberry Pi
 	\end{itemize}
-	\begin{figure}
+	\begin{figure}[!hb]
 		\centering
 		\includegraphics[width=0.4\textwidth]{images/przetwo.png}
 		\caption{Przetwornica step-down LM2596 3,2V-35V 3A z wyświetlaczem}
-		\label{fig:przetwo}
+		\label{fig:przetwo}\newpage
 		\end{figure}
+		\newpage
+\end{itemize}
+
+
+
+\section{Budowa robota i sposób połączenia silników z kontrolerem}
+
+
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{images/robot.jpg}
+	\caption{Zdjęcie przedstawiające zbudowanego robota}
+	\label{fig:robot-zdj}
+	\end{figure}
+	\newpage
+
+	\begin{figure}[!hb]
+		\centering
+		\includegraphics[width=0.7\textwidth]{images/schemat-robot.png}
+		\caption{Uproszczony schemat przedstawiający budowę robota}
+		\label{fig:robot-schemat}
+		\end{figure}
+Na schemacie z rysunku \ref{fig:robot-schemat} przedstawiono konkretne poziomy robota, takie jak:
+\begin{itemize}
+	\item Poziom I - LiDAR RPLidar A1 (Czarny element)
+	\item Poziom II - Raspberry Pi 4 (Pomarańczowy element)
+	\item Poziom III - Akumulatory (Zielone elementy) i przetwornice (Niebieski element)
+	\item Poziom IV - Arduino Nano (Żółty element) i sterownik L298N (Czerwony element) z silnikami (Szare elementy)
 \end{itemize}
 \newpage
-\section{Sposób połączenia silników z Arduino i L298N}
-\begin{figure}[h]
+
+\begin{figure}[!hb]
 	\centering
-	\includegraphics[width=0.9\textwidth]{images/schema_arduino.png}
+	\includegraphics[width=0.8\textwidth]{images/schema_arduino.png}
 	\caption{Schemat połączenia silników z Arduino i L298N}
 	\label{fig:arduino-schema}
 	\end{figure}
 Na zaprezentowanym schemacie (rys. \ref{fig:arduino-schema}) przedstawiono sposób połączenia silników z Arduino i sterownikiem L298N. Silniki DC z enkoderami są zasilane z akumulatorów Li-ion, a sterowane przez Arduino Nano za pomocą sterownika L298N. Enkodery są podłączone do Arduino, które odczytuje impulsy i oblicza prędkość i położenie robota. Komunikacja między Arduino a Raspberry Pi odbywa się przez port szeregowy, co umożliwia przesyłanie danych o prędkości i położeniu robota.
+\newpage
 \newpage
 
 \section{Metodyka i etapy realizacji}
@@ -815,29 +846,31 @@ Programowe:
 	\item Lokalizować się na mapie, czyli określanie pozycji robota na zapisanej mapie.
 	\item Nawigować do wyznaczonych punktów, czyli planowanie trasy do punktów na mapie i omijanie przeszkód.
 \end{itemize}
-%\subsection{Metoda instalacji oprogramiwania i konfiguracji sprzętu}
-%\begin{itemize}
-%	\item Instalacja systemu Ubuntu 22.04 na Raspberry Pi
-%	\item Konfiguracja połączenia SSH
-%	\item Instalacja ROS 2 Humble na Raspberry Pi i komputerze sterującym
-%	\item Podłączenie silników do sterownika L298N
-%	\item Programowanie Arduino - obsługa silników i enkoderów
-%	\item Implementacja komunikacji szeregowej z Raspberry Pi
-%	\item Montaż i konfiguracja LiDAR-a
-%	\item Kalibracja czujników
-%	\item Opracowanie układu mechanicznego i obudowy
-%	\item Konfiguracja pakietów ROS 2:
-%	\begin{itemize}
-%	\item SLAM Toolbox do mapowania
-%	\item Nav2 do nawigacji z AMCL do lokalizacji
-%	\item ROS2 Control do sterowania napędem
-%	\end{itemize}
-%\end{itemize}
+\newpage
+\subsection{Metoda instalacji oprogramiwania i konfiguracji sprzętu}
+\begin{itemize}
+	\item Instalacja systemu Ubuntu 22.04 na Raspberry Pi
+	\item Konfiguracja połączenia SSH
+	\item Instalacja ROS 2 Humble na Raspberry Pi i komputerze sterującym
+	\item Podłączenie silników do sterownika L298N
+	\item Programowanie Arduino - obsługa silników i enkoderów
+	\item Implementacja komunikacji szeregowej z Raspberry Pi
+	\item Montaż i konfiguracja LiDAR-a
+	\item Kalibracja czujników
+	\item Opracowanie układu mechanicznego i obudowy
+	\item Konfiguracja pakietów ROS 2:
+	\begin{itemize}
+	\item SLAM Toolbox do mapowania
+	\item Nav2 do nawigacji z AMCL do lokalizacji
+	\item ROS2 Control do sterowania napędem
+	\end{itemize}
+\end{itemize}
 \newpage
 \subsection{Sposób aktywacji i korzystania z robota z przykadem działania}
 W tej sekcji wyjaśnione zostaną poszczególne etapy jakie należy podjąć do poprawnego uruchomienia i korzystania z robota.
 
 Na samym początku należy uruchomić Raspberry Pi, przez włączenie zasilania, oraz załączenie silników.
+\newline\newline
 Następnie należy przygotować terminale na jednostce sterującej (dwa terminale mają być połączone przez protokuł ssh z Raspberry Pi, a 5 terminali ma być przygotowanych na samej jednostce sterującej do uruchomienia późniejszych skryptów ROS). Przygotowanie tych terminali polega na odpowiednim:
 \newline\newline
 Dla jednostki sterującej: wejsciu do katalogu roboczego, uruchomienie komend source /opt/ros/humble/setup.bash, oraz source /install/setup.bash.
@@ -846,27 +879,88 @@ Dla Raspberry Pi: wejsciu do katalogu roboczego, uruchomienie komend source /opt
 \newline\newline
 Następnie, należy uruchomić 2 skrypty przez ssh na Raspberry Pi, które odpowiadają za uruchomienie odpowiednich węzłów ROS. Pierwszy skrypt odpowiada za uruchomienie węzła odpowiedzialnego za sterowanie silnikami, a drugi za uruchomienie węzła odpowiedzialnego za odczyt danych z LiDAR-a. Odpowiednie komendy to: ros2 launch robot\_slam model\_controll.launch.py oraz ros2 launch robot\_slam rplidar.launch.py.
 \newline\newline
+\newpage
 Po uruchomieniu tych skryptów, należy uruchomić skrypt odpowiedzialny za sterowanie robotem za pomocą klawiatury. Komenda to: ros2 launch robot\_teleop.launch.py. W tym momencie należy przejść do terminala na jednostce sterującej, i za pomocą klawiatury sterować robotem. Należy również uruchomić program Rviz, który pozwala na wizualizację mapy i położenia robota. Komenda to: rviz2.
-\newline\newline
+\newline
+
 Kolejnym krokiem jest uruchomienie skryptu odpowiedzialnego za mapowanie otoczenia. Komenda to: ros2 launch robot\_slam slam.launch.py. W tym momencie gdy robot przemieszcza się przez komendy z klawiatury, pomieszczenie zostaje zmapowane.
-\newline\newline
+
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=1\textwidth]{images/launch-map.png}
+	\caption{Wizualizacja w Rviz po uruchomieniu skryptów.}
+	\label{fig:launch-map}
+\end{figure}
+
+\newpage
 Gdy wystarczająco dużo pomieszczenia zostanie zmapowane, należy zapisać mapę. Można to wykonać przez komendę ros2 run nav2\_map\_server map\_saver -f map, lub przez dodanie panelu do Rviz z zestawu narzędzi SLAM Toolbox i zapisanie mapy z poziomu tego panelu.
-\newline\newline
+
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=1\textwidth]{images/save-map.png}
+	\caption{Wizualizacja zmapowanego pomieszczenia i zapisu mapy.}
+	\label{fig:save-map}
+\end{figure}
+\newpage
 Z taką zapisaną mapą można zamknąć skrypty odpowiedzialne za sterowanie i mapowanie, jak i Rviz.
 \newline\newline
 Następnie, należy uruchomić skrypt odpowiedzialny za lokalizację robota na mapie, oraz skrypt odpowiedzialny za nawigację robota.\newline Komendy to: ros2 launch robot\_slam localization\_launch.py,\newline ros2 launch robot\_slam navigation\_launch.py. 
-W wyniku uruchomienia tych skryptów powinien pojawić się nowy ekran Rviz, na którym będzie widoczna wcześniej zapisana mapa. Należy na niej umieścić robota przez wybranie z górnego zestawu narzędzi 2d-pose-estimate, a następnie kliknięcie na mapie w miejscu gdzie znajduje się robot. W tym momencie algorytm AMCL tworzy chmurę przewidywanych punktów w których może znajdować się robot. Następnie należy wybrać cel do którego robot ma się przemieścić, przez wybranie z górnego zestawu narzędzi 2d-nav-goal, a następnie kliknięcie na mapie w miejscu gdzie ma się znaleźć cel. Robot powinien samodzielnie przemieścić się do tego celu, omijając przeszkody.
+W wyniku uruchomienia tych skryptów powinien pojawić się nowy ekran Rviz, na którym będzie widoczna wcześniej zapisana mapa.
+
+\newpage
+Należy na niej umieścić robota przez wybranie z górnego zestawu narzędzi 2D Pose Estimate, a następnie kliknięcie na mapie w miejscu gdzie znajduje się robot. W tym momencie algorytm AMCL tworzy chmurę przewidywanych punktów w których może znajdować się robot.
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=1\textwidth]{images/launch-nav.png}
+	\caption{Wizualizacja po uruchomieniu skryptów do lokalizacji i nawigacji.}
+	\label{fig:nav-map}
+\end{figure}
+
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=1\textwidth]{images/launch-nav2.png}
+	\caption{Wizualizacja rosproszonych punktów lokalizacji robota.}
+	\label{fig:nav-map2}
+\end{figure}
+\newpage
+Następnie należy wybrać cel do którego robot ma się przemieścić, przez wybranie z górnego zestawu narzędzi 2D Goal Pose, a następnie kliknięcie na mapie w miejscu gdzie ma się znaleźć cel.
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=1\textwidth]{images/launch-nav3.png}
+	\caption{Wizualizacja po wybraniu celu do którego robot ma się przemieścić.}
+	\label{fig:nav-map3}
+\end{figure}
+\newpage
+Robot powinien samodzielnie przemieścić się do tego celu, omijając przeszkody.
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=1\textwidth]{images/launch-nav4.png}
+	\caption{Wizualizacja wyznaczenia trasy.}
+	\label{fig:nav-map4}
+\end{figure}
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=1\textwidth]{images/launch-nav5.png}
+	\caption{Wizualizacja nawigacji robota i zmniejszania się chmury przewidywanej lokalizacji robota.}
+	\label{fig:nav-map5}
+\end{figure}
+\newpage
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=1\textwidth]{images/launch-nav6.png}
+	\caption{Wizaualizacja po dotarciu robota do celu.}
+	\label{fig:nav-map6}
+\end{figure}
+
 \section{Administracja systemem}
 System nie wymaga specjalnej administracji, jednakże w przypadku problemów z działaniem, można skorzystać z narzędzi diagnostycznych dostępnych w ROS 2, jak i z dokumentacji dostępnej na stronie internetowej ROS 2. W celu modyfikacji np. prędkością poruszania robota, przy korzystaniu z klawiatury, można zmienić prędkość przez naciśnięcie q i w. Do modyfikacji prędkości podczas nawigacji, można zmienić prędkość w pliku konfiguracyjnym Nav2.
 \section{Kwestie bezpieczeństwa}
 Robot opracowany został z myślą o omijaniu przeszkód, nawet tych których nie było na wcześniej stworzonej mapie pozwalając na bezpieczne poruszanie się w przestrzeni.
 Należy jednak pamiętać że robot ten nie został przygotowany do pracy w środowiskach bez równego podłoża, dlatego należy unikać przemieszczania się po nierównym terenie co może prowadzić do przewrócenia się robota.
-\section{Przykład działania i scenariusze korzystania z systemu}
-Na poniższych obrazach zaprezentowano przykładowe działanie systemu na korytarzu uczelni. Na pierwszym obrazie  przedstawiono nawigację robota do wyznaczonego punktu.
+\newpage
+\section{Scenariusze korzystania z systemu}
 
-Z mapy widać, że robot zmapował cały korytarz, a z nawigacji widać, że robot samodzielnie przemieszcza się do wyznaczonego punktu, omijając przeszkody.
-
-Robot ten pozwala na mapowanie różnego rodzaju pomieszczeń, oraz na nawigację do wyznaczonych punktów, co pozwala na zastosowanie go w różnego rodzaju zastosowaniach, jak np. inspekcja pomieszczeń. Testy przeprowadzane były w małych pomieszczeniach nie przekraczających 40m, jednakże robot ten jest w stanie zmapować pomieszczenia nawet do 24 000m co wynika z dokumentacji Nav2 \cite{bib:abs-2003-00368}.
+Robot ten pozwala na mapowanie różnego rodzaju pomieszczeń, oraz na nawigację do wyznaczonych punktów, co pozwala na zastosowanie go w różnego rodzaju zastosowaniach, jak np. inspekcja pomieszczeń. Testy przeprowadzane były w małych pomieszczeniach nie przekraczających 40 m$^2$, jednakże robot ten jest w stanie zmapować pomieszczenia nawet do 24 000 m$^2$ co wynika z dokumentacji Nav2 \cite{bib:abs-2003-00368}.
 %%%%%%%%%%%%%%%%%%%%%
 %% RYSUNEK Z PLIKU
 %
@@ -949,16 +1043,34 @@ Robot ten pozwala na mapowanie różnego rodzaju pomieszczeń, oraz na nawigacj�
 Rozdział ten skupia się na aspektach technicznych projektu. Opisano w nim architekturę systemu, struktury danych, komponenty, moduły, biblioteki, algorytmy, wzorce projektowe, diagramy UML oraz szczegóły implementacji wybranych fragmentów.
 \section{Idea robota autonomicznego mapującego w czasie rzeczywistym} 
 Robot autonomiczny mapujący w czasie rzeczywistym to robot mobilny, który samodzielnie przemieszcza się w przestrzeni, zbierając dane o otoczeniu i tworząc mapę otoczenia w czasie rzeczywistym. Robot ten wykorzystuje różnego rodzaju sensory, jak np. LiDAR, kamery, czy enkodery, do zbierania danych o otoczeniu. Dane te są przetwarzane przez algorytmy SLAM (Simultaneous Localization and Mapping), które pozwalają na określenie pozycji robota na mapie oraz na tworzenie mapy otoczenia. Robot ten może być wykorzystywany w różnego rodzaju zastosowaniach, jak np. inspekcja pomieszczeń, czy przemieszczanie się w trudno dostępnych miejscach.
+\newpage
 \section{Architektura systemu}
-System składa się z kilku modułów, które współpracują ze sobą w celu zapewnienia poprawnego działania robota. Moduły te to:
-\begin{itemize}
-	\item Sterowanie silnikami - moduł odpowiedzialny za sterowanie silnikami robota
-	\item Odczyt danych z LiDAR-a - moduł odpowiedzialny za odczyt danych z LiDAR-a
-	\item Mapowanie - moduł odpowiedzialny za tworzenie mapy otoczenia
-	\item Lokalizacja - moduł odpowiedzialny za lokalizację robota na mapie
-	\item Nawigacja - moduł odpowiedzialny za nawigację robota
-\end{itemize}
+Sposób działania systemu oparty jest na współdziałających ze sobą skryptach, których sposób połączenia zaprezentowano na rysunku \ref{fig:diagram-programy}.
+
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=1\textwidth]{images/diagram-programy.png}
+	\caption{Wizualizacja połączenia skryptów w systemie}
+	\label{fig:diagram-programy}
+\end{figure}
+
+
+\newpage
 \section{Struktura systemu i objaśnienie działania algorytmów}
+W tej sekcji opisano poszczególne komponenty robota z rysunku \ref{fig:diagram-programy}
+
+\subsection{Skrypt Arduino}
+Skrypt Arduino jest odpowiedzialny za sterowanie silnikami i enkoderami. Skrypt ten odczytuje dane z enkoderów, oblicza prędkość i położenie robota, oraz steruje silnikami na podstawie danych o prędkościach otrzymanych od Raspberry Pi. Skrypt ten komunikuje się z Raspberry Pi przez port szeregowy, co umożliwia przesyłanie danych o prędkości i położeniu robota.
+Skrypt ten jest zmodyfikowaną wersją skryptu ros\_arduino\_bridge\cite{bib:rosarduinobridge}, który został dostosowany do potrzeb tego projektu.
+\subsection{Skrypt do obsługi LiDAR-a}
+Skrypt do obsługi LiDAR-a jest odpowiedzialny za odczyt danych z LiDAR-a. Skrypt ten odczytuje dane z LiDAR-a, przetwarza je i przesyła do Raspberry Pi. Skrypt ten jest zmodyfikowaną wersją skryptu rplidar\_ros\cite{bib:rplidarros}, który został dostosowany do potrzeb tego projektu.
+\subsection{Skrypt do obsługi silników i tworzenia modelu robota}
+Skrypt do obsługi silników i tworzenia modelu robota jest odpowiedzialny za sterowanie silnikami i tworzenie modelu robota. Skrypt ten odczytuje dane o prędkościach robota z klawiatury, przetwarza je i przesyła do Arduino. Skrypt ten jest odpowiedzialny również za udostępnienie modelu robota z pliku rsp.launch.py, plik ten tworzy węzeł z pliku konfiguracyjnego model\_main.xacro, gdzie znajduje się model robota w formacie URDF.
+\subsection{Skrypt do tworzenia mapy}
+Skrypt do tworzenia mapy jest odpowiedzialny za tworzenie mapy otoczenia. Skrypt ten odczytuje dane z LiDAR-a, przetwarza je i tworzy mapę otoczenia. Skrypt ten jest odpowiedzialny również za udostępnienie mapy z pliku map\_server.launch.py, plik ten tworzy węzeł z pliku konfiguracyjnego map.yaml, gdzie znajduje się zapisana mapa otoczenia.
+\subsection{Skrypty do nawigacji i lokalizacji}
+Skrypty do nawigacji i lokalizacji są odpowiedzialne za lokalizację robota na mapie oraz za nawigację robota. Skrypty te odczytują dane z mapy i z LiDAR-a, przetwarzają je i określają pozycję robota na mapie oraz planują trasę do wyznaczonego punktu. Skrypty te są odpowiedzialne również za sterowanie robotem, tak aby omijał przeszkody na swojej drodze.
+
 \subsection{Diagramy UML prezentujące działanie konkretnych programów}
 
 
@@ -975,23 +1087,23 @@ Dłuższe fragmenty lepiej jest umieszczać jako rysunek, np. kod na rys \ref{fi
 , a naprawdę długie fragmenty – w załączniku.
 
 
-\begin{figure}
-\centering
-\begin{lstlisting}
-class test : public basic
-{
-    public:
-      test (int a);
-      friend std::ostream operator<<(std::ostream & s, 
-                                     const test & t);
-    protected:
-      int _a;  
-      
-};
-\end{lstlisting}
-\caption{Pseudokod w \texttt{listings}.}
-\label{fig:pseudokod:listings}
-\end{figure}
+%\begin{figure}
+%\centering
+%\begin{lstlisting}
+%class test : public basic
+%{
+%    public:
+%      test (int a);
+%      friend std::ostream operator<<(std::ostream & s, 
+%                                     const test & t);
+%    protected:
+%      int _a;  
+%      
+%};
+%\end{lstlisting}
+%\caption{Pseudokod w \texttt{listings}.}
+%\label{fig:pseudokod:listings}
+%\end{figure}
 
 %\begin{figure}
 %\centering
@@ -1016,14 +1128,49 @@ class test : public basic
 
 % TODO
 \chapter{Weryfikacja i walidacja}
-\label{ch:06}
+W ramach pracy zastosowano model V do testowania systemu. Model V jest popularnym modelem w inżynierii oprogramowania, który przedstawia proces tworzenia oprogramowania w formie litery V. Lewa strona litery V reprezentuje fazy definiowania wymagań i projektowania systemu, natomiast prawa strona litery V reprezentuje fazy testowania i walidacji systemu. 
+
+\section{Model V}
+Model V składa się z następujących etapów:
 \begin{itemize}
-\item sposób testowania w ramach pracy (np. odniesienie do modelu V)
-\item organizacja eksperymentów
-\item przypadki testowe zakres testowania (pełny/niepełny)
-\item wykryte i usunięte błędy - problem z zasilaniem - filmik, problem z kolkami - funkcja w kodzie i jej objasnienie, problem z bledna nawigacją i przemieszczaniem sie mapy - obrazek i ze zle podlaczone silniki
-\item opcjonalnie wyniki badań eksperymentalnych
+	\item \textbf{Definiowanie wymagań:} Określenie wymagań funkcjonalnych i niefunkcjonalnych systemu.
+	\item \textbf{Projektowanie systemu:} Opracowanie architektury systemu oraz szczegółowego projektu poszczególnych komponentów.
+	\item \textbf{Implementacja:} Kodowanie poszczególnych modułów systemu.
+	\item \textbf{Testowanie jednostkowe:} Testowanie poszczególnych modułów w celu weryfikacji ich poprawności.
+	\item \textbf{Integracja i testowanie integracyjne:} Łączenie modułów i testowanie ich współdziałania.
+	\item \textbf{Testowanie systemowe:} Testowanie całego systemu w celu weryfikacji spełnienia wymagań.
+	\item \textbf{Walidacja:} Sprawdzenie, czy system spełnia oczekiwania użytkownika i działa zgodnie z założeniami.
 \end{itemize}
+
+\section{Organizacja eksperymentów}
+Eksperymenty przeprowadzono zgodnie z model V, realizując następujące kroki:
+\begin{itemize}
+	\item \textbf{Testowanie jednostkowe:} Każdy moduł systemu, taki jak sterowanie silnikami, odczyt danych z LiDAR-a, tworzenie mapy, lokalizacja i nawigacja, został przetestowany indywidualnie. Testy jednostkowe obejmowały sprawdzenie poprawności działania poszczególnych funkcji i metod.
+	\item \textbf{Testowanie integracyjne:} Po zakończeniu testów jednostkowych, moduły zostały zintegrowane i przetestowane pod kątem poprawności współdziałania. Testy integracyjne obejmowały sprawdzenie komunikacji między modułami oraz poprawności przesyłania danych.
+	\item \textbf{Testowanie systemowe:} Cały system został przetestowany w warunkach rzeczywistych. Testy systemowe obejmowały sprawdzenie poprawności działania systemu w różnych scenariuszach, takich jak zdalne sterowanie robotem, tworzenie mapy otoczenia, lokalizacja robota na mapie oraz autonomiczna nawigacja do wyznaczonych punktów.
+	\item \textbf{Walidacja:} System został zweryfikowany pod kątem spełnienia wymagań użytkownika. Walidacja obejmowała sprawdzenie, czy system działa zgodnie z założeniami i spełnia oczekiwania użytkownika.
+\end{itemize}
+
+\section{Przypadki testowe}
+Przypadki testowe obejmowały następujące scenariusze:
+\begin{itemize}
+	\item \textbf{Testowanie zdalnego sterowania:} Sprawdzenie, czy robot reaguje poprawnie na polecenia z klawiatury.
+	\item \textbf{Testowanie tworzenia mapy:} Sprawdzenie, czy system poprawnie tworzy mapę otoczenia na podstawie danych z LiDAR-a.
+	\item \textbf{Testowanie lokalizacji:} Sprawdzenie, czy system poprawnie lokalizuje robota na zapisanej mapie.
+	\item \textbf{Testowanie nawigacji:} Sprawdzenie, czy system poprawnie planuje trasę i nawigację robota do wyznaczonych punktów, omijając przeszkody.
+\end{itemize}
+
+\section{Wykryte i usunięte błędy}
+Podczas testowania systemu wykryto i usunięto następujące błędy:
+\begin{itemize}
+	\item \textbf{Problem z zasilaniem:} Występowały problemy z zasilaniem silników, które zostały rozwiązane przez zastosowanie odpowiednich przetwornic step-down.
+	\item \textbf{Problem z kółkami:} Kółka robota miały tendencję do ślizgania się, co zostało rozwiązane przez zastosowanie gumowych opon.
+	\item \textbf{Problem z błędną nawigacją:} Robot czasami poruszał się w nieoczekiwany sposób, co zostało rozwiązane przez poprawne podłączenie silników i kalibrację enkoderów.
+\end{itemize}
+
+\section{Wyniki badań eksperymentalnych}
+Wyniki testów potwierdziły poprawność działania systemu. Robot poprawnie reagował na polecenia z klawiatury, tworzył mapę otoczenia, lokalizował się na zapisanej mapie oraz nawigował do wyznaczonych punktów, omijając przeszkody. System spełniał wszystkie wymagania funkcjonalne i niefunkcjonalne określone na początku projektu.
+
 
 
 
@@ -1031,10 +1178,20 @@ class test : public basic
 
 % TODO
 \chapter{Podsumowanie i wnioski}
+
+
+
+\section{Uzyskane wyniki}
+W wyniku przeprowadzonych prac udało się zrealizować wszystkie założone cele projektu. System autonomicznej nawigacji robota mobilnego został zaprojektowany, zaimplementowany i przetestowany. Robot poprawnie tworzy mapę otoczenia, lokalizuje się na zapisanej mapie oraz nawigował do wyznaczonych punktów, omijając przeszkody. System spełnia wszystkie wymagania funkcjonalne i niefunkcjonalne określone na początku projektu.
+
+\section{Kierunki dalszych prac}
+W przyszłości możliwe jest rozszerzenie funkcjonalności systemu o dodatkowe elementy, takie jak:
 \begin{itemize}
-\item uzyskane wyniki w świetle postawionych celów i zdefiniowanych wyżej wymagań
-\item kierunki ewentualnych danych prac (rozbudowa funkcjonalna …)
-\item problemy napotkane w trakcie pracy
+	\item Integracja z dodatkowymi sensorami, takimi jak kamery RGB-D, aby poprawić dokładność mapowania i lokalizacji.
+	\item Implementacja zaawansowanych algorytmów planowania ścieżki, które uwzględniają dynamiczne przeszkody.
+	\item Rozbudowa systemu o funkcje autonomicznego ładowania baterii.
+	\item Zastosowanie algorytmów uczenia maszynowego do optymalizacji nawigacji i mapowania.
+	\item Integracja z systemami IoT (Internet of Things) w celu zdalnego monitorowania i sterowania robotem.
 \end{itemize}
 
 
