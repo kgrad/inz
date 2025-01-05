@@ -8,29 +8,38 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Reprezentacja pośrednika w systemie robota \blx@tocontentsinit {0}\cite {bib:ros2Concise}}}{6}{figure.caption.8}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Mapa sklepu utworzona za pomocą SLAM Toolbox \blx@tocontentsinit {0}\cite {bib:slamtoolbox}}}{7}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Mapa dwóch pomieszczeń utworzona za pomocą SLAM Toolbox \blx@tocontentsinit {0}\cite {bib:slamtoolbox}}}{7}{figure.caption.9}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagram przypadków użycia systemu}}{10}{figure.caption.10}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Raspberry Pi 4 model B}}{11}{figure.caption.11}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Arduino Nano}}{12}{figure.caption.12}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Silnik DC 12V 240RPM typu L z przekładnią metalową - magnetyczny enkoder Halla - Waveshare 22346}}{12}{figure.caption.13}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces L298N - dwukanałowy sterownik silników - moduł 12V/2A}}{13}{figure.caption.14}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Ogniwa 18650 Li-Ion XTAR - 2600mAh}}{13}{figure.caption.15}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Przetwornica step-down LM2596 3,2V-35V 3A z wyświetlaczem}}{14}{figure.caption.16}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Zdjęcie przedstawiające zbudowanego robota}}{15}{figure.caption.17}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Uproszczony schemat przedstawiający budowę robota}}{16}{figure.caption.18}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Schemat połączenia silników z Arduino i L298N}}{17}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagram przypadków użycia systemu}}{12}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Raspberry Pi 4 model B}}{13}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Arduino Nano}}{14}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Silnik DC 12V 240RPM typu L z przekładnią metalową - magnetyczny enkoder Halla - Waveshare 22346}}{14}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces L298N - dwukanałowy sterownik silników - moduł 12V/2A}}{15}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Ogniwa 18650 Li-Ion XTAR - 2600mAh}}{15}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Przetwornica step-down LM2596 3,2V-35V 3A z wyświetlaczem}}{16}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Zdjęcie przedstawiające zbudowanego robota}}{17}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Uproszczony schemat przedstawiający budowę robota}}{18}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Schemat połączenia silników z Arduino i L298N}}{19}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Schemat elektryczny}}{20}{figure.caption.20}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Wizualizacja w Rviz po uruchomieniu skryptów.}}{22}{figure.caption.20}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Wizualizacja zmapowanego pomieszczenia i zapisu mapy.}}{23}{figure.caption.21}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Wizualizacja po uruchomieniu skryptów do lokalizacji i nawigacji.}}{25}{figure.caption.22}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Wizualizacja rosproszonych punktów lokalizacji robota.}}{25}{figure.caption.23}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Wizualizacja po wybraniu celu do którego robot ma się przemieścić.}}{26}{figure.caption.24}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Wizualizacja wyznaczenia trasy.}}{27}{figure.caption.25}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Wizualizacja nawigacji robota i zmniejszania się chmury przewidywanej lokalizacji robota.}}{27}{figure.caption.26}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Wizaualizacja po dotarciu robota do celu.}}{28}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Wizualizacja w Rviz po uruchomieniu skryptów.}}{25}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Wizualizacja zmapowanego pomieszczenia i zapisu mapy.}}{26}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Wizualizacja po uruchomieniu skryptów do lokalizacji i nawigacji.}}{28}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Wizualizacja rosproszonych punktów lokalizacji robota.}}{28}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Wizualizacja po wybraniu celu do którego robot ma się przemieścić.}}{29}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Wizualizacja wyznaczenia trasy.}}{30}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Wizualizacja nawigacji robota i zmniejszania się chmury przewidywanej lokalizacji robota.}}{30}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Wizaualizacja po dotarciu robota do celu.}}{31}{figure.caption.28}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Wizualizacja połączenia skryptów w systemie}}{32}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Wizualizacja połączenia skryptów w systemie}}{34}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Komendy jakie są wysyłane z Raspberry Pi do Arduino}}{36}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Implementacja głównej funkcji regulatora PID}}{38}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Konfiguracja portów enkoderów z Arduino i sterownikiem L298N}}{39}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Konfiguracja portów silników}}{40}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Diagram UML prezenujący działanie programu model\_controll.launch.py}}{54}{figure.caption.34}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Diagram UML prezenujący działanie programu rplidar.launch.py}}{55}{figure.caption.35}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Diagram UML prezenujący działanie programu navigation\_launch.py}}{55}{figure.caption.36}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Diagram UML prezenujący działanie programu localization\_launch.py}}{56}{figure.caption.37}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
