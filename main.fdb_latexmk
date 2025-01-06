@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1736169690.19703 "main.aux" "main.bbl" "main" 1736169694.76979 0
+["bibtex main"] 1736174402.75513 "main.aux" "main.bbl" "main" 1736174411.53775 0
   "./biblio.bib" 1736166179 5220 627854a7496bb79f7ffe8ba3097fe4e5 ""
-  "./main-blx.bib" 1736169693 343 08ea039808cc40771e895c77a88c27bf ""
+  "./main-blx.bib" 1736174410 343 08ea039808cc40771e895c77a88c27bf ""
   "C:/Users/user/AppData/Local/Programs/MiKTeX/bibtex/bst/biblatex/biblatex.bst" 1679055682 65484 b7949c47a88ed6dca66ebc7a04577312 ""
-  "main.aux" 1736169693 20578 a414043baefb4191b81e0699178b4eb8 "pdflatex"
+  "main.aux" 1736174410 21394 7c83a38a24eb2c8ab44de4788988ad5f "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1736169690.38786 "i:/uczelnia/inzynierka/TRUE/inz/main.tex" "main.pdf" "main" 1736169694.77044 0
+["pdflatex"] 1736174407.14309 "i:/uczelnia/inzynierka/TRUE/inz/main.tex" "main.pdf" "main" 1736174411.53842 0
   "C:/Users/user/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1733138446 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/user/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1717001721 24224574 206cfe82727c5338b0d76041b1014321 ""
   "C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
@@ -284,10 +284,10 @@
   "C:/Users/user/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "C:/Users/user/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
   "C:/Users/user/AppData/Local/Programs/MiKTeX/tex/latex/xurl/xurl.sty" 1641733940 4675 e4b8c405820368c2dfb03526e16d725a ""
-  "i:/uczelnia/inzynierka/TRUE/inz/main.tex" 1736169685 78105 e8b3bcfa353a8e2b6c77a1a2afa6e28b ""
+  "i:/uczelnia/inzynierka/TRUE/inz/main.tex" 1736174378 79066 5ddefe26731dae13748c69ca0c0865ca ""
   "images/UML.png" 1736119762 75542 846d6fad6b25d8ea12c865c85b1f5905 ""
-  "images/circuit.png" 1735926475 47071 155f8343f6db29c918ee70fc4516f1fe ""
-  "images/diagram-programy.png" 1736120095 52880 6ff02f95917e23bdb608a4835fc031aa ""
+  "images/circuit.png" 1736170285 52928 e37701c8339e40957e615e1bb85b85f8 ""
+  "images/diagram-programy.png" 1736170711 50612 d67f92ddffc1eded5f1970bce86dc150 ""
   "images/launch-map.png" 1735349507 784300 653fe0a0611eddee88cef16ece0df028 ""
   "images/launch-nav.png" 1735348760 656071 0046acd25baa6ca25c0935b73a75644a ""
   "images/launch-nav2.png" 1735348803 801448 32d111e9b30e6eee407454b75923bbc2 ""
@@ -296,6 +296,7 @@
   "images/launch-nav5.png" 1735348927 929147 9f2b1b5b2b670531fca74546a04d147a ""
   "images/launch-nav6.png" 1735348956 981874 f8383c1d62b5e6879ebbfcb07086a900 ""
   "images/middle.png" 1735847935 15838 54eb0a5b37cd1fa451814466559d2ac2 ""
+  "images/modelV.png" 1736173753 55998 f2f67094cd9d940c2831d296f0470489 ""
   "images/robot.jpg" 1735479021 267733 64f90553c33f2fc2b44e64c21f5fdd0e ""
   "images/save-map.png" 1735349029 647484 5f2c7da7ed76354c0610d11a2612fd61 ""
   "images/schema_arduino.png" 1733168209 328884 756512d8909ae8e5a3169b2644d4a738 ""
@@ -305,13 +306,13 @@
   "images/uml-local.png" 1736129517 16204 ecc6197430e61e0e4024f8cbff5721d2 ""
   "images/uml-model.png" 1736129483 32196 fb047165b2e558e7178ae47e7f54ae9a ""
   "images/uml-nav.png" 1736129532 18302 caddc8e9de84251f36c428142d945c7f ""
-  "main.aux" 1736169693 20578 a414043baefb4191b81e0699178b4eb8 "pdflatex"
-  "main.bbl" 1736169690 9567 517057e1f1da49bd3d86f41aebfa5950 "bibtex main"
-  "main.lof" 1736169693 4676 56d6e8cf62e252b219bf9bb255c0385f "pdflatex"
-  "main.out" 1736169693 10798 c4349fe98619a663160b72216d8e0c5b "pdflatex"
-  "main.run.xml" 1736169693 2613 b0aada028a7f8702b3b5fdf798159577 "pdflatex"
-  "main.tex" 1736169685 78105 e8b3bcfa353a8e2b6c77a1a2afa6e28b ""
-  "main.toc" 1736169693 5774 4c2607ad98d480cdfb9e4e0ddcc502bb "pdflatex"
+  "main.aux" 1736174410 21394 7c83a38a24eb2c8ab44de4788988ad5f "pdflatex"
+  "main.bbl" 1736174402 9567 517057e1f1da49bd3d86f41aebfa5950 "bibtex main"
+  "main.lof" 1736174410 5078 5dae419da7d6b9977b936e8375b19616 "pdflatex"
+  "main.out" 1736174410 10584 46c9560cc55d4a17d0f93ac7c2f527c4 "pdflatex"
+  "main.run.xml" 1736174410 2613 b0aada028a7f8702b3b5fdf798159577 "pdflatex"
+  "main.tex" 1736174378 79066 5ddefe26731dae13748c69ca0c0865ca ""
+  "main.toc" 1736174410 5682 c6b2314da9db1c784082a558dec9fa04 "pdflatex"
   "politechnika_sl_logo_bw_pion_pl.pdf" 1733139063 22633 c6320640bafa38d406e62eed6fafdfbd ""
   (generated)
   "main-blx.bib"

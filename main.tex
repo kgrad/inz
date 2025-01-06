@@ -622,9 +622,9 @@ Pakiet wykorzystuje drzewa zachowań (ang. "Behavior Trees") do definiowania zac
 \cite{bib:abs-2003-00368}
 \newline
 \newline
-Do lokalizacji robota na mapie można wykorzystać wcześniej opisany SLAM Toolbox, jednak w pakiecie Nav2 dostępny jest również pakiet AMCL (ang. "Adaptive Monte Carlo Localization")\cite{}, który pozwala na lokalizację robota na mapie z wykorzystaniem filtru cząsteczkowego. Algorytm ten polega na generowaniu losowych próbek (cząsteczek) reprezentujących możliwe położenia robota, a następnie porównywaniu ich z pomiarami z czujników. Cząsteczki, które najlepiej pasują do pomiarów są wybierane, a reszta jest odrzucana. W ten sposób algorytm estymuje pozycję robota na mapie. \cite{bib:amcl}
+Do lokalizacji robota na mapie można wykorzystać wcześniej opisany SLAM Toolbox, jednak w pakiecie Nav2 dostępny jest również pakiet AMCL (ang. "Adaptive Monte Carlo Localization")\cite{bib:amcl}, który pozwala na lokalizację robota na mapie z wykorzystaniem filtru cząsteczkowego. Algorytm ten polega na generowaniu losowych próbek (cząsteczek) reprezentujących możliwe położenia robota, a następnie porównywaniu ich z pomiarami z czujników. Cząsteczki, które najlepiej pasują do pomiarów są wybierane, a reszta jest odrzucana. W ten sposób algorytm estymuje pozycję robota na mapie. \cite{bib:amcl}
 \subsection{ROS2 Control i sterowanie napędami}
-ROS2 Control to platforma do sterowania, zarządzania i komunikacji pomiędzy urządzeniami w robotach z oprogramowaniem. \cite{bib:ros2control}. Dzięki takiemu rozwiązaniu można w łatwy sposób zarządzać silnikami, enkoderami, czy innymi urządzeniami w robocie. Dzięki temu można wykorzystać np. pakiet diffdrive\_arduino, do sterowania robotem z napędem różnicowym za pomocą Arduino. Pakiet ten pozwala również na sterowanie prędkością silników, odczyt enkoderów, obliczanie odometrii oraz transformację między układem odometrii a układem bazowym. \cite{bib:diffdrive}
+ROS2 Control to platforma do sterowania, zarządzania i komunikacji pomiędzy urządzeniami w robotach z oprogramowaniem. \cite{bib:ros2control}. Rozwiazanie to umożliwia w łatwy sposób zarządzanie silnikami, enkoderami, czy innymi urządzeniami w robocie. Dzięki zastosowaniu ROS2 Control można wykorzystać np. pakiet diffdrive\_arduino, do sterowania robotem z napędem różnicowym za pomocą Arduino. Pakiet ten pozwala również na sterowanie prędkością silników, odczyt enkoderów, obliczanie odometrii oraz transformację między układem odometrii a układem bazowym. \cite{bib:diffdrive}
  
 
 \section{Wybór rozwiązań}
@@ -831,7 +831,7 @@ Sekcja ta zawiera szczegółowy opis korzystania z robota, od uruchomienia, ster
 Pierwszym krokiem jest uruchomienie robota, w tym celu należy włączyć zasilanie dla Raspberry Pi i silników.
 
 
-Następnie należy przygotować terminale na jednostce sterującej (dwa terminale mają być połączone przez protokuł ssh z Raspberry Pi, a 4 terminale mają być przygotowane na samej jednostce sterującej do uruchomienia późniejszych skryptów ROS). Przygotowanie tych terminali polega na odpowiednim:
+Następnie należy przygotować terminale na jednostce sterującej (dwa terminale mają być połączone przez protokuł ssh z Raspberry Pi, a cztery terminale mają być przygotowane na samej jednostce sterującej do uruchomienia późniejszych skryptów ROS). Przygotowanie tych terminali polega na odpowiednim:
 \newline
 Dla jednostki sterującej: wejsciu do katalogu roboczego, uruchomienie komend source /opt/ros/humble/setup.bash, oraz source /install/setup.bash.
 \newline\newline
@@ -1028,7 +1028,7 @@ Sposób działania systemu oparty jest na współdziałających ze sobą program
 \newpage
 \section{Struktura systemu i objaśnienie działania algorytmów}
 
-W tej sekcji zawarto szczegółowe opisy funkcjonalności każdego ze skryptów\ref{fig:diagram-programy}, które są odpowiedzialne za działanie robota.
+W tej sekcji zawarto szczegółowe opisy funkcjonalności każdego ze skryptów \ref{fig:diagram-programy}, które są odpowiedzialne za działanie robota.
 
 Wszystkie skrypty znajdują się w załączniku Oprogramowanie.
 \subsection{Arduino}
@@ -1037,7 +1037,7 @@ Oprogramowanie to odpowiedzialne jest za sterowanie silnikami i zbieranie danych
 
 Program ten składa się z następujących plików:
 \begin{itemize}
-	\item ROSArduinoBridge.ino -  skrypt obsługuje komunikację szeregową z prędkością 57600 bodów i może kontrolować silniki poprzez różne sterowniki (np. Pololu VNH5019, MC33926 czy L298N). 
+	\item ROSArduinoBridge.ino -  skrypt obsługuje komunikację szeregową z prędkością 57600 bodów (jednostka szybkości transmisji danych) i może kontrolować silniki poprzez różne sterowniki (np. Pololu VNH5019, MC33926 czy L298N). 
 	Główna pętla programu ciągle nasłuchuje komend przychodzących przez port szeregowy, wykonuje obliczenia PID w regularnych odstępach czasu oraz aktualizuje stan serwomechanizmów jeśli są używane. Cały kod znajduje się w pliku ROSArduinoBridge.ino w załączniku Oprogramowanie.
 	\newpage
 	\item motor\_driver.ino - plik ten zawiera różne definicje sterowników silników, gdzie w tym projekcie wykorzystano  L298N, który jest dwukanałowym mostkiem H. Program obsługuje również inne sterowniki jak Pololu VNH5019 czy MC33926.
@@ -1150,7 +1150,7 @@ Program ten składa się z następujących plików:
 				\item Anti-windup poprzez ograniczenie wyjścia i zatrzymanie całkowania gdy wyjście jest nasycone
 			\end{itemize}
 
-			Regulator PID (ang. "Proportional-Integral-Derivative") działa w następujący sposób:
+			Regulator PID (ang. "Proportional-Integral-Derivative"), w którym zastosowane zostały domyślne wartości po testach i zadowalających wynikach.  Działa w następujący sposób:
 			\begin{itemize}
 				\item Człon proporcjonalny (P) - generuje sygnał sterujący proporcjonalny do uchybu
 				\item Człon całkujący (I) - eliminuje błąd w stanie ustalonym poprzez całkowanie uchybu
@@ -1468,20 +1468,90 @@ Do nawigacji i lokalizacji robota wykorzystano pakiet Nav2, który pozwala na wy
 
 % TODO
 \chapter{Weryfikacja i walidacja}
-W ramach pracy zastosowano model V do testowania systemu. Model V jest popularnym modelem w inżynierii oprogramowania, który przedstawia proces tworzenia oprogramowania w formie litery V. Lewa strona litery V reprezentuje fazy definiowania wymagań i projektowania systemu, natomiast prawa strona litery V reprezentuje fazy testowania i walidacji systemu. 
-
+W ramach pracy zastosowano model V do testowania systemu. Jest on popularnym modelem w inżynierii oprogramowania, który przedstawia proces tworzenia oprogramowania w formie litery V. Jej lewa strona reprezentuje fazy definiowania wymagań i projektowania systemu, natomiast prawa strona reprezentuje fazy testowania i walidacji systemu. 
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=1\textwidth]{images/modelV.png}
+	\caption{Model V}
+	\label{fig:modelv}
+\end{figure}
+\newpage
 \section{Model V}
 
 \begin{itemize}
-	\item \textbf{Definiowanie wymagań:} Określenie wymagań funkcjonalnych i niefunkcjonalnych systemu. Na tym etapie określono, że system ma umożliwiać zdalne sterowanie robotem, tworzenie mapy otoczenia, lokalizację robota na mapie oraz nawigację do wyznaczonych punktów.
-	\item \textbf{Projektowanie systemu:} Opracowanie architektury systemu oraz szczegółowego projektu poszczególnych komponentów. Ten etap poświęcony był na wstępne zaprojektowanie systemu przez analizę dostępnych rozwiązań, określenie komponentów oraz ich funkcji.
-	\item \textbf{Implementacja:} Kodowanie poszczególnych modułów systemu. Na tym etapie zaimplementowano sterowanie silnikami, odczyt danych z LiDAR-a, tworzenie mapy, lokalizację i nawigację robota.
-	\item \textbf{Testowanie jednostkowe:} Testowanie poszczególnych modułów w celu weryfikacji ich poprawności. Testy były przeprowadzane na bieżąco podczas implementacji. Na początku testowano sterowanie silnikami, a następnie odczyt danych z LiDAR-a, tworzenie mapy, lokalizację i nawigację robota.
-	\item \textbf{Integracja i testowanie integracyjne:} Łączenie modułów i testowanie ich współdziałania. Na tym etapie zintegrowano poszczególne moduły i przetestowano ich współpracę. W szczególności skupiono się na komunikacji między modułami oraz przesyłaniu danych.
-	\item \textbf{Testowanie systemowe:} Testowanie całego systemu w celu weryfikacji spełnienia wymagań. Ten etap obejmował już mapowanie całych pomieszczeń, lokalizację robota na mapie oraz nawigację do wyznaczonych punktów z omijaniem przeszkód zmapowanych i niezmapowanych.
-	\item \textbf{Walidacja:} Sprawdzenie, czy system spełnia oczekiwania użytkownika i działa zgodnie z założeniami. Po przeprowadzeniu testów stwierdzono że system spełnia wymagania.
-\end{itemize}
+	\item \textbf{Wymagania projektu:} Główne cele i założenia:
+	\begin{itemize}
+		\item Automatyczne tworzenie mapy otoczenia
+		\item Autonomiczna nawigacja robota
+		\item Precyzyjna lokalizacja
+		\item Wykrywanie i omijanie przeszkód
+	\end{itemize}
 
+	\item \textbf{Analiza wymagań i tematu:} Szczegółowe wymagania funkcjonalne:
+	\begin{itemize}
+		\item Zdalne sterowanie robotem
+		\item Zapisywanie i odczyt map
+		\item Autonomiczna nawigacja do zadanych punktów
+		\item Bezpieczne poruszanie się
+	\end{itemize}
+
+	\item \textbf{Architektura projektu:} Ogólna struktura systemu:
+	\begin{itemize}
+		\item Podział na podsystemy (napęd, sensory, sterowanie)
+		\item Przepływ danych między modułami
+		\item Interfejsy komunikacyjne
+		\item Wybór technologii (ROS 2, Nav2, SLAM Toolbox)
+	\end{itemize}
+
+	\item \textbf{Architektura komponentów:} Projektowanie szczegółowe:
+	\begin{itemize}
+		\item Dobór komponentów sprzętowych
+		\item Projekt mechaniczny i elektryczny
+		\item Struktura oprogramowania
+		\item Interfejsy programowe
+	\end{itemize}
+
+	\item \textbf{Implementacja:} Realizacja systemu:
+	\begin{itemize}
+		\item Budowa robota
+		\item Programowanie sterowników
+		\item Integracja sensorów
+		\item Implementacja algorytmów
+	\end{itemize}
+\newpage
+	\item \textbf{Testowanie komponentów:} Testy jednostkowe:
+	\begin{itemize}
+		\item Weryfikacja napędów
+		\item Testy sensorów
+		\item Sprawdzenie sterowników
+		\item Testy algorytmów
+	\end{itemize}
+
+	\item \textbf{Testowanie interfejsów:} Testy integracyjne:
+	\begin{itemize}
+		\item Komunikacja między modułami
+		\item Synchronizacja danych
+		\item Przepływ informacji
+		\item Współpraca komponentów
+	\end{itemize}
+
+	\item \textbf{Testowanie systemu:} Testy całościowe:
+	\begin{itemize}
+		\item Mapowanie otoczenia
+		\item Lokalizacja robota
+		\item Planowanie trasy
+		\item Omijanie przeszkód
+	\end{itemize}
+
+	\item \textbf{Testy końcowe:} Walidacja systemu:
+	\begin{itemize}
+		\item Weryfikacja funkcjonalności
+		\item Testy wydajności
+		\item Testy niezawodności
+		\item Zgodność z wymaganiami
+	\end{itemize}
+\end{itemize}
+\newpage
 \section{Organizacja eksperymentów}
 
 \begin{itemize}
@@ -1499,17 +1569,14 @@ Przypadki testowe obejmowały następujące scenariusze:
 	\item \textbf{Testowanie lokalizacji:} Sprawdzenie, czy system poprawnie lokalizuje robota na zapisanej mapie.
 	\item \textbf{Testowanie nawigacji:} Sprawdzenie, czy system poprawnie planuje trasę i nawigację robota do wyznaczonych punktów, omijając przeszkody.
 \end{itemize}
-
+\newpage
 \section{Wykryte i usunięte błędy}
 Podczas testowania systemu wykryto i usunięto następujące błędy:
 \begin{itemize}
 	\item \textbf{Problem z zasilaniem:} Występowały problemy z zasilaniem Raspberry Pi, co zostało rozwiązane przez wyłączenie zbędnej funkcji szukania monitora. Rozwiązano ten problem przez zastosowanie komendy sudo systemctl set-default multi-user.target.
-	\item \textbf{Problem z kółkami:} Przez rozmiar kół i materiał z jakich zostały wykonane, robot miał problem z ślizganiem się kół co powodowało różnice między rzeczywistą pozycją robota, a tą która była wyznaczana podczas mapowania. Rozwiązano ten problem poprzez zastosowanie funkcji HuberLoss w algorytmie mapowania.
-	\item \textbf{Problem z błędną lokalizacją robota na mapie:} Na wczesnym etapie testów systemu, robot poruszał się w błędny sposób na mapie, gdy np. zbliżał się do ściany na mapie początkowo się oddalał, co powodowało rozjeżdżanie się pomiarów niszcząc mapę. Rozwiązaniem problemu było poprawne podłączenie silników do sterownika i Arduino.
+	\item \textbf{Problem z kołami:} Przez rozmiar kół i materiał z jakich zostały wykonane, robot miał problem z ślizganiem się kół co powodowało różnice między rzeczywistą pozycją robota, a tą która była wyznaczana podczas mapowania. Rozwiązano ten problem poprzez zastosowanie funkcji HuberLoss w algorytmie mapowania.
+	\item \textbf{Problem z błędną lokalizacją robota na mapie:} Na wczesnym etapie testów pojawił się problem z sterowaniem robotem, który również uniemożliwiał nawgiację przy użyciu Nav2. Powodował sytuacje gdy podczas mapowania robot oddalał się od ściany w RVIZ zbliżał się do niej i po chwili model przenosił się na poprawne miejsce, powodowało to zmapowanie 2 ścian - poprawnej i przed przeniesieniem. Rozwiązaniem problemu było poprawne podłączenie silników do sterownika i Arduino.
 \end{itemize}
-
-\section{Wyniki badań eksperymentalnych}
-Wyniki testów potwierdziły poprawność działania systemu. Robot poprawnie reagował na polecenia z klawiatury, tworzył mapę otoczenia, lokalizował się na zapisanej mapie oraz nawigował do wyznaczonych punktów, omijając przeszkody. System spełniał wszystkie wymagania określone na początku projektu.
 
 
 
@@ -1523,7 +1590,27 @@ Wyniki testów potwierdziły poprawność działania systemu. Robot poprawnie re
 
 \section{Uzyskane wyniki}
 W wyniku przeprowadzonych prac udało się zrealizować wszystkie założone cele projektu. System autonomicznej nawigacji robota mobilnego został zaprojektowany, zaimplementowany i przetestowany. Robot poprawnie tworzy mapę otoczenia, lokalizuje się na zapisanej mapie oraz nawigował do wyznaczonych punktów, omijając przeszkody. 
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=1\textwidth]{images/save-map.png}
+	\caption{Wizualizacja mapy otoczenia.}
+	\label{fig:save-map2}
+\end{figure}
+\newpage
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=1\textwidth]{images/launch-nav3.png}
+	\caption{Rozpoczęcie nawigacji.}
+	\label{fig:nav-map34}
+\end{figure}
 
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=1\textwidth]{images/launch-nav6.png}
+	\caption{Dotarcie do celu}
+	\label{fig:nav-map345}
+\end{figure}
+\newpage
 \section{Kierunki dalszych prac}
 W przyszłości możliwe jest rozszerzenie funkcjonalności systemu o dodatkowe elementy, takie jak:
 \begin{itemize}

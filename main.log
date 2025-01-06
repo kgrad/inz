@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.5.29)  6 JAN 2025 14:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.5.29)  6 JAN 2025 15:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1118,7 +1118,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmss on input line 41
  (C:\Users\user\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<politechnika_sl_logo_bw_pion_pl.pdf, id=237, 179.67125pt x 230.8625pt>
+<politechnika_sl_logo_bw_pion_pl.pdf, id=233, 179.67125pt x 230.8625pt>
 File: politechnika_sl_logo_bw_pion_pl.pdf Graphic file (type pdf)
 <use politechnika_sl_logo_bw_pion_pl.pdf>
 Package pdftex.def Info: politechnika_sl_logo_bw_pion_pl.pdf  used on input line 417.
@@ -1204,7 +1204,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 Rozdzia\l  2.
-<images/middle.png, id=357, 558.28575pt x 280.6485pt>
+<images/middle.png, id=352, 558.28575pt x 280.6485pt>
 File: images/middle.png Graphic file (type png)
 <use images/middle.png>
 Package pdftex.def Info: images/middle.png  used on input line 591.
@@ -1221,7 +1221,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [6 <./images/middle.png>]
-<images/sklep.png, id=375, 352.31625pt x 322.20375pt>
+<images/sklep.png, id=370, 352.31625pt x 322.20375pt>
 File: images/sklep.png Graphic file (type png)
 <use images/sklep.png>
 Package pdftex.def Info: images/sklep.png  used on input line 606.
@@ -1243,10 +1243,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [8]
-
-LaTeX Warning: Citation '' on page 9 undefined on input line 625.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 620--626
 
  []
@@ -1271,7 +1267,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 ]
 Rozdzia\l  3.
 [11]
-<images/UML.png, id=414, 640.19176pt x 523.35526pt>
+<images/UML.png, id=410, 640.19176pt x 523.35526pt>
 File: images/UML.png Graphic file (type png)
 <use images/UML.png>
 Package pdftex.def Info: images/UML.png  used on input line 671.
@@ -1297,7 +1293,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [13]
-<images/robot.jpg, id=426, 773.89125pt x 1376.14125pt>
+<images/robot.jpg, id=422, 773.89125pt x 1376.14125pt>
 File: images/robot.jpg Graphic file (type jpg)
 <use images/robot.jpg>
 Package pdftex.def Info: images/robot.jpg  used on input line 732.
@@ -1311,7 +1307,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [14 <./images/robot.jpg>]
-<images/schemat-robot.png, id=432, 682.34924pt x 520.344pt>
+<images/schemat-robot.png, id=428, 682.34924pt x 520.344pt>
 File: images/schemat-robot.png Graphic file (type png)
 <use images/schemat-robot.png>
 Package pdftex.def Info: images/schemat-robot.png  used on input line 740.
@@ -1325,7 +1321,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [15 <./images/schemat-robot.png>]
-<images/schema_arduino.png, id=440, 969.6225pt x 467.94826pt>
+<images/schema_arduino.png, id=436, 969.6225pt x 467.94826pt>
 File: images/schema_arduino.png Graphic file (type png)
 <use images/schema_arduino.png>
 Package pdftex.def Info: images/schema_arduino.png  used on input line 755.
@@ -1339,11 +1335,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [16 <./images/schema_arduino.png>]
-<images/circuit.png, id=448, 1063.975pt x 682.55pt>
+<images/circuit.png, id=444, 1063.975pt x 782.925pt>
 File: images/circuit.png Graphic file (type png)
 <use images/circuit.png>
 Package pdftex.def Info: images/circuit.png  used on input line 764.
-(pdftex.def)             Requested size: 364.19667pt x 233.62616pt.
+(pdftex.def)             Requested size: 364.19667pt x 267.98294pt.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1405,7 +1401,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 843--845
 
  []
 
-<images/launch-map.png, id=468, 1061.76675pt x 592.614pt>
+<images/launch-map.png, id=464, 1061.76675pt x 592.614pt>
 File: images/launch-map.png Graphic file (type png)
 <use images/launch-map.png>
 Package pdftex.def Info: images/launch-map.png  used on input line 850.
@@ -1418,7 +1414,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [21 <./images/launch-map.png>]
-<images/save-map.png, id=475, 890.1255pt x 602.85225pt>
+<images/save-map.png, id=471, 890.1255pt x 602.85225pt>
 File: images/save-map.png Graphic file (type png)
 <use images/save-map.png>
 Package pdftex.def Info: images/save-map.png  used on input line 860.
@@ -1436,7 +1432,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 865--869
 
  []
 
-<images/launch-nav.png, id=482, 1061.76675pt x 604.05675pt>
+<images/launch-nav.png, id=478, 1061.76675pt x 604.05675pt>
 File: images/launch-nav.png Graphic file (type png)
 <use images/launch-nav.png>
 Package pdftex.def Info: images/launch-nav.png  used on input line 875.
@@ -1449,7 +1445,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [23 <./images/launch-nav.png>]
-<images/launch-nav2.png, id=489, 1064.778pt x 605.26125pt>
+<images/launch-nav2.png, id=485, 1064.778pt x 605.26125pt>
 File: images/launch-nav2.png Graphic file (type png)
 <use images/launch-nav2.png>
 Package pdftex.def Info: images/launch-nav2.png  used on input line 882.
@@ -1463,7 +1459,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [24 <./images/launch-nav2.png>]
-<images/launch-nav3.png, id=496, 1064.778pt x 604.659pt>
+<images/launch-nav3.png, id=492, 1064.778pt x 604.659pt>
 File: images/launch-nav3.png Graphic file (type png)
 <use images/launch-nav3.png>
 Package pdftex.def Info: images/launch-nav3.png  used on input line 890.
@@ -1477,12 +1473,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [25 <./images/launch-nav3.png>]
-<images/launch-nav4.png, id=504, 1063.5735pt x 608.87476pt>
+<images/launch-nav4.png, id=500, 1063.5735pt x 608.87476pt>
 File: images/launch-nav4.png Graphic file (type png)
 <use images/launch-nav4.png>
 Package pdftex.def Info: images/launch-nav4.png  used on input line 898.
 (pdftex.def)             Requested size: 455.24411pt x 260.61253pt.
-<images/launch-nav5.png, id=505, 1063.5735pt x 608.87476pt>
+<images/launch-nav5.png, id=501, 1063.5735pt x 608.87476pt>
 File: images/launch-nav5.png Graphic file (type png)
 <use images/launch-nav5.png>
 Package pdftex.def Info: images/launch-nav5.png  used on input line 904.
@@ -1496,7 +1492,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [26 <./images/launch-nav4.png> <./images/launch-nav5.png>]
-<images/launch-nav6.png, id=514, 1062.97125pt x 605.26125pt>
+<images/launch-nav6.png, id=510, 1062.97125pt x 605.26125pt>
 File: images/launch-nav6.png Graphic file (type png)
 <use images/launch-nav6.png>
 Package pdftex.def Info: images/launch-nav6.png  used on input line 911.
@@ -1522,11 +1518,11 @@ Rozdzia\l  5.
 [29
 
 ]
-<images/diagram-programy.png, id=531, 581.17125pt x 484.209pt>
+<images/diagram-programy.png, id=527, 499.8675pt x 470.9595pt>
 File: images/diagram-programy.png Graphic file (type png)
 <use images/diagram-programy.png>
 Package pdftex.def Info: images/diagram-programy.png  used on input line 1022.
-(pdftex.def)             Requested size: 455.24411pt x 379.29956pt.
+(pdftex.def)             Requested size: 455.24411pt x 428.93312pt.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1679,17 +1675,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [43]
-<images/uml-model.png, id=718, 339.06676pt x 491.436pt>
+<images/uml-model.png, id=714, 339.06676pt x 491.436pt>
 File: images/uml-model.png Graphic file (type png)
 <use images/uml-model.png>
 Package pdftex.def Info: images/uml-model.png  used on input line 1391.
 (pdftex.def)             Requested size: 364.19667pt x 527.86348pt.
-<images/uml-lidar.png, id=719, 287.27325pt x 472.164pt>
+<images/uml-lidar.png, id=715, 287.27325pt x 472.164pt>
 File: images/uml-lidar.png Graphic file (type png)
 <use images/uml-lidar.png>
 Package pdftex.def Info: images/uml-lidar.png  used on input line 1398.
 (pdftex.def)             Requested size: 409.71692pt x 673.46028pt.
-<images/uml-local.png, id=720, 275.22826pt x 468.5505pt>
+<images/uml-local.png, id=716, 275.22826pt x 468.5505pt>
 File: images/uml-local.png Graphic file (type png)
 <use images/uml-local.png>
 Package pdftex.def Info: images/uml-local.png  used on input line 1405.
@@ -1698,7 +1694,7 @@ Package pdftex.def Info: images/uml-local.png  used on input line 1405.
 
 LaTeX Warning: Float too large for page by 19.24316pt on input line 1408.
 
-<images/uml-nav.png, id=721, 298.716pt x 466.1415pt>
+<images/uml-nav.png, id=717, 298.716pt x 466.1415pt>
 File: images/uml-nav.png Graphic file (type png)
 <use images/uml-nav.png>
 Package pdftex.def Info: images/uml-nav.png  used on input line 1411.
@@ -1746,7 +1742,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 Rozdzia\l  6.
-[49]
+<images/modelV.png, id=746, 729.927pt x 433.01775pt>
+File: images/modelV.png Graphic file (type png)
+<use images/modelV.png>
+Package pdftex.def Info: images/modelV.png  used on input line 1474.
+(pdftex.def)             Requested size: 455.24411pt x 270.06718pt.
+[49 <./images/modelV.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1770,10 +1771,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[52
+[52]
 
-]
-Rozdzia\l  7.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
 [53]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1785,12 +1790,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [54
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1542.
- (C:\Users\user\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [55
+Rozdzia\l  7.
+File: images/save-map.png Graphic file (type png)
+<use images/save-map.png>
+Package pdftex.def Info: images/save-map.png  used on input line 1595.
+(pdftex.def)             Requested size: 455.24411pt x 308.32446pt.
+[55]
+File: images/launch-nav3.png Graphic file (type png)
+<use images/launch-nav3.png>
+Package pdftex.def Info: images/launch-nav3.png  used on input line 1602.
+(pdftex.def)             Requested size: 455.24411pt x 258.52208pt.
+File: images/launch-nav6.png Graphic file (type png)
+<use images/launch-nav6.png>
+Package pdftex.def Info: images/launch-nav6.png  used on input line 1609.
+(pdftex.def)             Requested size: 455.24411pt x 259.22287pt.
 
-]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1798,9 +1812,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[56
+[56]
 
-] [57] [58] [59
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[57]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[58
+
+]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1629.
+ (C:\Users\user\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [59
 
 ]
 
@@ -1812,7 +1846,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [60
 
-] [61]
+] [61] [62] [63
+
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1820,13 +1856,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[62
+[64
 
-] (main.lof)
+] [65]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[66
+
+] (main.lof [67])
 \tf@lof=\write7
 \openout7 = `main.lof'.
 
- [63]
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1834,29 +1880,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[64] (main.aux)
+[68] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C4349FE98619A663160B72216D8E0C5B;10798.
+(rerunfilecheck)             Checksum: 46C9560CC55D4A17D0F93AC7C2F527C4;10584.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45666 strings out of 474486
- 1004998 string characters out of 5744227
+ 45683 strings out of 474486
+ 1005295 string characters out of 5744227
  2069542 words of memory out of 5000000
- 66973 multiletter control sequences out of 15000+600000
+ 66983 multiletter control sequences out of 15000+600000
  623225 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,11n,93p,1903b,3492s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss12.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (70 pages, 7001519 bytes).
+Output written on main.pdf (74 pages, 7055580 bytes).
 PDF statistics:
- 996 PDF objects out of 1000 (max. 8388607)
- 279 named destinations out of 1000 (max. 500000)
- 582 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1021 PDF objects out of 1200 (max. 8388607)
+ 286 named destinations out of 1000 (max. 500000)
+ 579 words of extra memory for PDF output out of 10000 (max. 10000000)
 
