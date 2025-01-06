@@ -484,7 +484,7 @@ Projekt koncentruje się na implementacji systemu autonomicznej nawigacji robota
 
 
 \subsubsection*{Słowa kluczowe} 
-Mapowanie, robot mobilny, lokalizacja, SLAM, ROS
+mapowanie, robot mobilny, lokalizacja, SLAM, ROS
 \subsubsection*{Thesis title} 
 \begin{otherlanguage}{british}
 \TitleAlt
@@ -497,7 +497,7 @@ The project focuses on implementing an autonomous mobile robot navigation system
 \end{otherlanguage}
 \subsubsection*{Key words}  
 \begin{otherlanguage}{british}
-Mapping, mobile robot, localization, SLAM, ROS
+mapping, mobile robot, localization, SLAM, ROS
 \end{otherlanguage}
 
 
@@ -583,8 +583,8 @@ Problem jednoczesnej lokalizacji, mapowania oraz autonomicznej nawigacji robotó
 \section{Szczegółowe sformułowanie problemu}
 Problem postawiony w niniejszej pracy obejmuje dwa główne aspekty. Pierwszy z nich to mapowanie otoczenia, które wymaga efektywnej akwizycji danych z czujników, przetwarzania chmur punktów pobranych z czujnika, estymacji pozycji robota oraz łączenia kolejnych skanów w spójną mapę. Drugi aspekt to autonomiczna nawigacja, gdzie system musi zapewniać precyzyjną lokalizację w znanej mapie, planowanie ścieżki z uwzględnieniem przeszkód oraz dokładną kontrolę ruchu robota.
 
-\section{Studia literaturowe}
-\section{ROS 2}
+\section{Przegląd narzędzi i literatury}
+\subsection{ROS 2}
 ROS2 (ang. "Robotic operation system 2") to platforma programistyczna dla robotów będąca oprogramowaniem pośrednim (ang. "middleware"), czyli warstwą programową pomiędzy systemem operacyjnym, a aplikacjami użytkownika do wykonywania oprogramowania aplikacji w domenie robota \cite{bib:ros2Concise}. Na poniższej ilustracji przedstawiono położenie takiego pośrednika.
 \begin{figure}[h]
 	\centering
@@ -596,7 +596,7 @@ ROS2 (ang. "Robotic operation system 2") to platforma programistyczna dla robot�
 Zasadniczo ROS 2 to otwartoźródłowe oprogramowanie bazujące na usłudze dystrybucji danych - DDS (ang. "Data Distribution Service"), które dostarcza ustandaryzowane narzędzia do organizacji kodu aplikacji w modularne pakiety, zapewniania współbieżnego wykonania kodu na wiele dostępnych plików wykonywalnych, oraz komunikację między tymi modułami podczas równoległego uruchomienia w systemie robota.\cite{bib:guide}
 
 \newpage
-\section{SLAM Toolbox}
+\subsection{SLAM Toolbox}
 SLAM Toolbox to zestaw narzędzi i rozwiązań do tworzenia map 2D w czasie rzeczywistym, stworzone przez Steve'a Mecenski.
  Stosowane algorytmy w przeszłości to np. GMapping, Karto, Cartographer oraz Hector, jednakże prawie żaden z nich nie potrafił tworzyć map w czasie rzeczywistym, jedynie Cartographer stworzony przez Google miał takie możliwości, lecz przestał być on wspierany.
  \cite{bib:slamtoolbox} Zastosowanie SLAM Toolbox pozwala na tworzenie map w czasie rzeczywistym obszarów, do nawet 24 000 m$^2$ przez niewykwalifikowanych użytkowników. Przykład działania SLAM Toolbox przedstawiono na rysunku poniżej.
@@ -682,13 +682,7 @@ Na rysunku \ref{fig:use-case} przedstawiono diagram przypadków użycia systemu.
 	\item ROS 2 Humble
 	\item Komunikacja przez SSH z jednostką sterującą zachowaniem robota
 	\end{itemize}
-	\begin{figure}[!hb]
-		\centering
-		\includegraphics[width=0.4\textwidth]{images/rasp.png}
-		\caption{Raspberry Pi 4 model B}
-		\label{fig:raspberrypi4}
-		\end{figure}
-		\newpage	
+	
 		
 \item Arduino Nano - sterownik silników:
 	\begin{itemize}
@@ -696,32 +690,17 @@ Na rysunku \ref{fig:use-case} przedstawiono diagram przypadków użycia systemu.
 	\item Komunikacja szeregowa z Raspberry Pi
 	\end{itemize}
 
-	\begin{figure}[!hb]
-		\centering
-		\includegraphics[width=0.4\textwidth]{images/nano.png}
-		\caption{Arduino Nano}
-		\label{fig:ardunano}
-		\end{figure}
+
 \end{itemize}
 
 \subsection{Napęd}
 \begin{itemize}
 \item 2x silnik DC 12V 240RPM z metalową przekładnią
 \item Wbudowane enkodery magnetyczne Halla
-\begin{figure}[!hb]
-	\centering
-	\includegraphics[width=0.4\textwidth]{images/sil.png}
-	\caption{Silnik DC 12V 240RPM typu L z przekładnią metalową - magnetyczny enkoder Halla - Waveshare 22346}
-	\label{fig:silnik}
-	\end{figure}
-	\newpage
+
+
 \item Sterownik L298N - dwukanałowy mostek H \newline
-\begin{figure}[!hb]
-	\centering
-	\includegraphics[width=0.4\textwidth]{images/ster.png}
-	\caption{L298N - dwukanałowy sterownik silników - moduł 12V/2A}
-	\label{fig:ster}
-	\end{figure}
+
 \end{itemize}
 
 
@@ -732,24 +711,14 @@ Na rysunku \ref{fig:use-case} przedstawiono diagram przypadków użycia systemu.
 	\item 4 ogniwa (2S2P) dla silników
 	\item 2 ogniwa (2S) dla elektroniki
 	\end{itemize}
-	\begin{figure}[!hb]
-		\centering
-		\includegraphics[width=0.4\textwidth]{images/ogniwo.png}
-		\caption{Ogniwa 18650 Li-Ion XTAR - 2600mAh}
-		\label{fig:ogniwa}
-		\end{figure}
-		\newpage
+	
+
 \item 2x przetwornica step-down:
 	\begin{itemize}
 	\item 12V dla silników
 	\item 5V dla Raspberry Pi
 	\end{itemize}
-	\begin{figure}[!hb]
-		\centering
-		\includegraphics[width=0.4\textwidth]{images/przetwo.png}
-		\caption{Przetwornica step-down LM2596 3,2V-35V 3A z wyświetlaczem}
-		\label{fig:przetwo}\newpage
-		\end{figure}
+
 		\newpage
 \end{itemize}
 

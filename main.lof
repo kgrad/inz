@@ -11,39 +11,33 @@
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Mapa dwóch pomieszczeń utworzona za pomocą SLAM Toolbox \blx@tocontentsinit {0}\cite {bib:slamtoolbox}}}{7}{figure.caption.9}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Diagram przypadków użycia systemu}}{12}{figure.caption.10}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Raspberry Pi 4 model B}}{13}{figure.caption.11}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Arduino Nano}}{14}{figure.caption.12}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Silnik DC 12V 240RPM typu L z przekładnią metalową - magnetyczny enkoder Halla - Waveshare 22346}}{14}{figure.caption.13}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces L298N - dwukanałowy sterownik silników - moduł 12V/2A}}{15}{figure.caption.14}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Ogniwa 18650 Li-Ion XTAR - 2600mAh}}{15}{figure.caption.15}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Przetwornica step-down LM2596 3,2V-35V 3A z wyświetlaczem}}{16}{figure.caption.16}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Zdjęcie przedstawiające zbudowanego robota}}{17}{figure.caption.17}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Uproszczony schemat przedstawiający budowę robota}}{18}{figure.caption.18}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Schemat połączenia silników z Arduino i L298N}}{19}{figure.caption.19}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Schemat elektryczny}}{20}{figure.caption.20}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Zdjęcie przedstawiające zbudowanego robota}}{14}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Uproszczony schemat przedstawiający budowę robota}}{15}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Schemat połączenia silników z Arduino i L298N}}{16}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Schemat elektryczny}}{17}{figure.caption.14}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Okno RVIZ po uruchomieniu skryptów.}}{25}{figure.caption.21}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Zmapowane pomieszczenie i zapis mapy jako plik my\_map.}}{26}{figure.caption.22}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces RVIZ po uruchomieniu skryptu do lokalizacji i nawigacji i wybraniu pozycji robota.}}{27}{figure.caption.23}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Wizualizacja rozproszonych punktów lokalizacji robota.}}{28}{figure.caption.24}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Wybór celu robota.}}{29}{figure.caption.25}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Wyznaczenie trasy.}}{30}{figure.caption.26}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Nawigacja robota i zmniejszanie się chmury przewidywanej lokalizacji robota.}}{30}{figure.caption.27}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Dotarcie robota do celu.}}{31}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Okno RVIZ po uruchomieniu skryptów.}}{21}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Zmapowane pomieszczenie i zapis mapy jako plik my\_map.}}{22}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces RVIZ po uruchomieniu skryptu do lokalizacji i nawigacji i wybraniu pozycji robota.}}{23}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Wizualizacja rozproszonych punktów lokalizacji robota.}}{24}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Wybór celu robota.}}{25}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Wyznaczenie trasy.}}{26}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Nawigacja robota i zmniejszanie się chmury przewidywanej lokalizacji robota.}}{26}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Dotarcie robota do celu.}}{27}{figure.caption.22}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Wizualizacja połączenia skryptów w systemie}}{34}{figure.caption.29}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Fragment kodu źródłowego z pliku encoder\_driver.ino z obsługą przerwań do precyzyjnego zliczania impulsów z enkoderów}}{36}{figure.caption.30}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Kod źródłowy z pliku motor\_driver.h}}{37}{figure.caption.31}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Kod źródłowy z pliku encoder\_driver.h}}{37}{figure.caption.32}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Kod źródłowy pliku model.urdf.xacro}}{41}{figure.caption.33}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Fragment kodu z pliku my\_controllers.yaml}}{42}{figure.caption.34}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Fragment kodu z pliku mapper\_params\_online\_async.yaml}}{43}{figure.caption.35}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Fragment kodu z pliku mapper\_params\_online\_async.yaml}}{44}{figure.caption.36}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Fragment kodu z pliku mapper\_params\_online\_async.yaml}}{45}{figure.caption.37}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Diagram UML prezenujący działanie programu model\_controll.launch.py}}{48}{figure.caption.38}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Diagram UML prezenujący działanie programu rplidar.launch.py}}{49}{figure.caption.39}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Diagram UML prezenujący działanie programu slam.launch.py}}{50}{figure.caption.40}%
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Diagram UML prezenujący działanie programu nav\_localization.launch.py}}{51}{figure.caption.41}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Wizualizacja połączenia skryptów w systemie}}{30}{figure.caption.23}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Fragment kodu źródłowego z pliku encoder\_driver.ino z obsługą przerwań do precyzyjnego zliczania impulsów z enkoderów}}{32}{figure.caption.24}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Kod źródłowy z pliku motor\_driver.h}}{33}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Kod źródłowy z pliku encoder\_driver.h}}{33}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Kod źródłowy pliku model.urdf.xacro}}{37}{figure.caption.27}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Fragment kodu z pliku my\_controllers.yaml}}{38}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Fragment kodu z pliku mapper\_params\_online\_async.yaml}}{39}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Fragment kodu z pliku mapper\_params\_online\_async.yaml}}{40}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Fragment kodu z pliku mapper\_params\_online\_async.yaml}}{41}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Diagram UML prezenujący działanie programu model\_controll.launch.py}}{44}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Diagram UML prezenujący działanie programu rplidar.launch.py}}{45}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Diagram UML prezenujący działanie programu slam.launch.py}}{46}{figure.caption.34}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Diagram UML prezenujący działanie programu nav\_localization.launch.py}}{47}{figure.caption.35}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
