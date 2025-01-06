@@ -814,7 +814,7 @@ Projekt ten stworzony był z myślą o następujących wymaganiach dla robota:
 \newline\newline
 Sprzętowe:
 \begin{itemize}
-	\item Poruszać się w przestrzeni za pomocą sinlików, czyli np. przemieszczanie się do przodu, do tyłu, skręcanie w lewo i w prawo po korytarzach, czy w pomieszczeniach z równym podłożem.
+	\item Poruszać się w przestrzeni za pomocą silników, czyli np. przemieszczanie się do przodu, do tyłu, skręcanie w lewo i w prawo po korytarzach, czy w pomieszczeniach z równym podłożem.
 	\item Skanować pomieszczenia za pomocą LiDAR-a, czyli zbieranie danych o otoczeniu wokół robota.
 	\end{itemize}
 Programowe:
@@ -831,7 +831,7 @@ Sekcja ta zawiera szczegółowy opis korzystania z robota, od uruchomienia, ster
 Pierwszym krokiem jest uruchomienie robota, w tym celu należy włączyć zasilanie dla Raspberry Pi i silników.
 
 
-Następnie należy przygotować terminale na jednostce sterującej (dwa terminale mają być połączone przez protokuł ssh z Raspberry Pi, a cztery terminale mają być przygotowane na samej jednostce sterującej do uruchomienia późniejszych skryptów ROS). Przygotowanie tych terminali polega na odpowiednim:
+Następnie należy przygotować terminale na jednostce sterującej (dwa terminale mają być połączone przez protokół ssh z Raspberry Pi, a cztery terminale mają być przygotowane na samej jednostce sterującej do uruchomienia późniejszych skryptów ROS). Przygotowanie tych terminali polega na odpowiednim:
 \newline
 Dla jednostki sterującej: wejsciu do katalogu roboczego, uruchomienie komend source /opt/ros/humble/setup.bash, oraz source /install/setup.bash.
 \newline\newline
@@ -840,7 +840,7 @@ Dla Raspberry Pi: wejsciu do katalogu roboczego, uruchomienie komend source /opt
 Następnie, należy uruchomić 2 skrypty na Raspberry Pi, które odpowiadają za uruchomienie odpowiednich węzłów ROS. Pierwszy skrypt odpowiada za uruchomienie węzła odpowiedzialnego za sterowanie silnikami i udostępnienie modelu robota do RVIZ, a drugi za uruchomienie węzła odpowiedzialnego za odczyt danych z LiDAR-a. Odpowiednie komendy to: ros2 launch robot\_slam model\_controll.launch.py oraz ros2 launch robot\_slam rplidar.launch.py.
 \newline\newline
 \newpage
-Po uruchomieniu tych skryptów, należy uruchomić program Rviz, który pozwala na wizualizację mapy i położenia robota. Komenda to: rviz2. Następnym krokiem jest uruchomienie skryptu odpowiedzialny za sterowanie robotem za pomocą klawiatury. Komenda to: ros2 launch robot\_teleop.launch.py. W tym momencie należy przejść do terminala na jednostce sterującej, i za pomocą klawiatury sterować robotem. 
+Po uruchomieniu tych skryptów, należy uruchomić program Rviz, który pozwala na wizualizację mapy i położenia robota. Komenda to: rviz2. Następnym krokiem jest uruchomienie skryptu odpowiedzialnego za sterowanie robotem za pomocą klawiatury. Komenda to: ros2 launch robot\_teleop.launch.py. W tym momencie należy przejść do terminala na jednostce sterującej, i za pomocą klawiatury sterować robotem. 
 \newline
 
 Kolejnym krokiem jest uruchomienie skryptu odpowiedzialnego za mapowanie otoczenia. Komenda to: ros2 launch robot\_slam slam.launch.py. W tym momencie gdy robot przemieszcza się przez komendy z klawiatury, pomieszczenie jest mapowane.
@@ -1038,7 +1038,7 @@ Oprogramowanie to odpowiedzialne jest za sterowanie silnikami i zbieranie danych
 Program ten składa się z następujących plików:
 \begin{itemize}
 	\item ROSArduinoBridge.ino -  skrypt obsługuje komunikację szeregową z prędkością 57600 bodów (jednostka szybkości transmisji danych) i może kontrolować silniki poprzez różne sterowniki (np. Pololu VNH5019, MC33926 czy L298N). 
-	Główna pętla programu ciągle nasłuchuje komend przychodzących przez port szeregowy, wykonuje obliczenia PID w regularnych odstępach czasu oraz aktualizuje stan serwomechanizmów jeśli są używane. Cały kod znajduje się w pliku ROSArduinoBridge.ino w załączniku Oprogramowanie.
+	Główna pętla programu ciągle nasłuchuje komend przez port szeregowy, wykonuje obliczenia PID w regularnych odstępach czasu oraz aktualizuje stan serwomechanizmów jeśli są używane. Cały kod znajduje się w pliku ROSArduinoBridge.ino w załączniku Oprogramowanie.
 	\newpage
 	\item motor\_driver.ino - plik ten zawiera różne definicje sterowników silników, gdzie w tym projekcie wykorzystano  L298N, który jest dwukanałowym mostkiem H. Program obsługuje również inne sterowniki jak Pololu VNH5019 czy MC33926.
 
@@ -1230,7 +1230,7 @@ Za sterowanie silnikami odpowiadają następujące pliki:
 		Model ten umożliwia wizualizację robota w RVIZ oraz symulację jego dynamiki w środowisku ROS.
 \newpage
 	
-	\item model.urdf.xacro - Jest to plik spajający definicję modelu z pliku model\_main.xacro z konfiguracją kontrolerów z pliku ros2\_control.xacro.
+	\item model.urdf.xacro - jest to plik spajający definicję modelu z pliku model\_main.xacro z konfiguracją kontrolerów z pliku ros2\_control.xacro.
 	
 	\begin{figure}[!hb]
 		\centering
@@ -1313,7 +1313,7 @@ Działa to na zasadzie iteracyjnego poprawiania oszacowań pozycji robota:
 \item Cały proces dąży do znalezienia takich pozycji robota, dla których suma wszystkich błędów jest najmniejsza
 \end{itemize}
 
-Algorytm działa iteracyjnie, wykorzystuje do tego metodę Levenberga-Marquardta, która łączy w sobie:
+Algorytm działa iteracyjnie wykorzystując do tego metodę Levenberga-Marquardta, która łączy w sobie:
 
 \begin{itemize}
 \item Szybkość metody Gaussa-Newtona (dobre do precyzyjnych korekt)
@@ -1575,7 +1575,7 @@ Podczas testowania systemu wykryto i usunięto następujące błędy:
 \begin{itemize}
 	\item \textbf{Problem z zasilaniem:} Występowały problemy z zasilaniem Raspberry Pi, co zostało rozwiązane przez wyłączenie zbędnej funkcji szukania monitora. Rozwiązano ten problem przez zastosowanie komendy sudo systemctl set-default multi-user.target.
 	\item \textbf{Problem z kołami:} Przez rozmiar kół i materiał z jakich zostały wykonane, robot miał problem z ślizganiem się kół co powodowało różnice między rzeczywistą pozycją robota, a tą która była wyznaczana podczas mapowania. Rozwiązano ten problem poprzez zastosowanie funkcji HuberLoss w algorytmie mapowania.
-	\item \textbf{Problem z błędną lokalizacją robota na mapie:} Na wczesnym etapie testów pojawił się problem z sterowaniem robotem, który również uniemożliwiał nawgiację przy użyciu Nav2. Powodował sytuacje gdy podczas mapowania robot oddalał się od ściany w RVIZ zbliżał się do niej i po chwili model przenosił się na poprawne miejsce, powodowało to zmapowanie 2 ścian - poprawnej i przed przeniesieniem. Rozwiązaniem problemu było poprawne podłączenie silników do sterownika i Arduino.
+	\item \textbf{Problem z błędną lokalizacją robota na mapie:} Na wczesnym etapie testów pojawił się problem ze sterowaniem robotem, który również uniemożliwiał nawgiację przy użyciu Nav2. Powodował sytuacje gdy podczas mapowania robot oddalał się od ściany w RVIZ zbliżał się do niej i po chwili model przenosił się na poprawne miejsce, powodowało to zmapowanie 2 ścian - poprawnej i przed przeniesieniem. Rozwiązaniem problemu było poprawne podłączenie silników do sterownika i Arduino.
 \end{itemize}
 
 
