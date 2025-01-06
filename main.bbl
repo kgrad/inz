@@ -17,6 +17,43 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
+  \entry{bib:Agarwal_Ceres_Solver_2022}{software}{}
+    \name{author}{3}{}{%
+      {{hash=AS}{%
+         family={Agarwal},
+         familyi={A\bibinitperiod},
+         given={Sameer},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=MK}{%
+         family={Mierle},
+         familyi={M\bibinitperiod},
+         given={Keir},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=TTCS}{%
+         family={Team},
+         familyi={T\bibinitperiod},
+         given={The Ceres\bibnamedelima Solver},
+         giveni={T\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim
+  S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ASMKTTCS1}
+    \strng{fullhash}{ASMKTTCS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{{Ceres Solver}}
+    \verb{url}
+    \verb https://github.com/ceres-solver/ceres-solver
+    \endverb
+    \field{version}{2.2}
+    \field{month}{10}
+    \field{year}{2023}
+  \endentry
+
   \entry{bib:mediumslam}{online}{}
     \name{author}{1}{}{%
       {{hash=BL}{%

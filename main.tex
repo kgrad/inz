@@ -549,7 +549,7 @@ Realizacja projektu obejmuje szereg wzajemnie powiązanych zadań. Na pierwszy e
 
 
 \section{Struktura pracy}
-Praca składa się z sześciu następujących rozdziałów:
+Praca składa się z siedmiu następujących rozdziałów:
 \begin{itemize}
 \item Rozdział pierwszy zawiera wstęp, w którym przedstawiono cel pracy, jej zakres oraz strukturę.
 \item Rozdział drugi zawiera analizę tematu, osadzenie go w kontekście aktualnego stanu wiedzy, analizę literatury, stan aktualny dziedziny oraz uzasadnienie wyboru rozwiązania.
@@ -622,7 +622,7 @@ Pakiet wykorzystuje drzewa zachowań (ang. "Behavior Trees") do definiowania zac
 \cite{bib:abs-2003-00368}
 \newline
 \newline
-Do lokalizacji robota na mapie można wykorzystać wcześniej opisany SLAM Toolbox, jednak w pakiecie Nav2 dostępny jest również pakiet AMCL (ang. "Adaptive Monte Carlo Localization"), który pozwala na lokalizację robota na mapie z wykorzystaniem filtru cząsteczkowego. Algorytm ten polega na generowaniu losowych próbek (cząsteczek) reprezentujących możliwe położenia robota, a następnie porównywaniu ich z pomiarami z czujników. Cząsteczki, które najlepiej pasują do pomiarów są wybierane, a reszta jest odrzucana. W ten sposób algorytm estymuje pozycję robota na mapie. \cite{bib:amcl}
+Do lokalizacji robota na mapie można wykorzystać wcześniej opisany SLAM Toolbox, jednak w pakiecie Nav2 dostępny jest również pakiet AMCL (ang. "Adaptive Monte Carlo Localization")\cite{}, który pozwala na lokalizację robota na mapie z wykorzystaniem filtru cząsteczkowego. Algorytm ten polega na generowaniu losowych próbek (cząsteczek) reprezentujących możliwe położenia robota, a następnie porównywaniu ich z pomiarami z czujników. Cząsteczki, które najlepiej pasują do pomiarów są wybierane, a reszta jest odrzucana. W ten sposób algorytm estymuje pozycję robota na mapie. \cite{bib:amcl}
 \subsection{ROS2 Control i sterowanie napędami}
 ROS2 Control to platforma do sterowania, zarządzania i komunikacji pomiędzy urządzeniami w robotach z oprogramowaniem. \cite{bib:ros2control}. Dzięki takiemu rozwiązaniu można w łatwy sposób zarządzać silnikami, enkoderami, czy innymi urządzeniami w robocie. Dzięki temu można wykorzystać np. pakiet diffdrive\_arduino, do sterowania robotem z napędem różnicowym za pomocą Arduino. Pakiet ten pozwala również na sterowanie prędkością silników, odczyt enkoderów, obliczanie odometrii oraz transformację między układem odometrii a układem bazowym. \cite{bib:diffdrive}
  
@@ -842,7 +842,7 @@ W tym rozdziale przedstawiono wymagania użytkownika oraz specyfikację funkcjon
 
 \subsection{Wymagania sprzętowe i programowe}
 Projekt ten stworzony był z myślą o następujących wymaganiach dla robota:
-\newline
+\newline\newline
 Sprzętowe:
 \begin{itemize}
 	\item Poruszać się w przestrzeni za pomocą sinlików, czyli np. przemieszczanie się do przodu, do tyłu, skręcanie w lewo i w prawo po korytarzach, czy w pomieszczeniach z równym podłożem.
@@ -857,20 +857,21 @@ Programowe:
 \newpage
 
 \subsection{Sposób aktywacji i korzystania z robota z przykadem działania}
-W tej sekcji wyjaśnione zostaną poszczególne etapy jakie należy podjąć do poprawnego uruchomienia i korzystania z robota.
+Sekcja ta zawiera szczegółowy opis korzystania z robota, od uruchomienia, sterowanie, mapowanie, zapis mapy, lokalizację i nawigację.
 
-Na samym początku należy uruchomić Raspberry Pi, przez włączenie zasilania, oraz załączenie silników.
-\newline\newline
-Następnie należy przygotować terminale na jednostce sterującej (dwa terminale mają być połączone przez protokuł ssh z Raspberry Pi, a 5 terminali ma być przygotowanych na samej jednostce sterującej do uruchomienia późniejszych skryptów ROS). Przygotowanie tych terminali polega na odpowiednim:
-\newline\newline
+Pierwszym krokiem jest uruchomienie robota, w tym celu należy włączyć zasilanie dla Raspberry Pi i silników.
+
+
+Następnie należy przygotować terminale na jednostce sterującej (dwa terminale mają być połączone przez protokuł ssh z Raspberry Pi, a 4 terminale mają być przygotowane na samej jednostce sterującej do uruchomienia późniejszych skryptów ROS). Przygotowanie tych terminali polega na odpowiednim:
+\newline
 Dla jednostki sterującej: wejsciu do katalogu roboczego, uruchomienie komend source /opt/ros/humble/setup.bash, oraz source /install/setup.bash.
 \newline\newline
 Dla Raspberry Pi: wejsciu do katalogu roboczego, uruchomienie komend source /opt/ros/humble/setup.bash, oraz source /install/setup.bash.
 \newline\newline
-Następnie, należy uruchomić 2 skrypty przez ssh na Raspberry Pi, które odpowiadają za uruchomienie odpowiednich węzłów ROS. Pierwszy skrypt odpowiada za uruchomienie węzła odpowiedzialnego za sterowanie silnikami, a drugi za uruchomienie węzła odpowiedzialnego za odczyt danych z LiDAR-a. Odpowiednie komendy to: ros2 launch robot\_slam model\_controll.launch.py oraz ros2 launch robot\_slam rplidar.launch.py.
+Następnie, należy uruchomić 2 skrypty na Raspberry Pi, które odpowiadają za uruchomienie odpowiednich węzłów ROS. Pierwszy skrypt odpowiada za uruchomienie węzła odpowiedzialnego za sterowanie silnikami i udostępnienie modelu robota do RVIZ, a drugi za uruchomienie węzła odpowiedzialnego za odczyt danych z LiDAR-a. Odpowiednie komendy to: ros2 launch robot\_slam model\_controll.launch.py oraz ros2 launch robot\_slam rplidar.launch.py.
 \newline\newline
 \newpage
-Po uruchomieniu tych skryptów, należy uruchomić skrypt odpowiedzialny za sterowanie robotem za pomocą klawiatury. Komenda to: ros2 launch robot\_teleop.launch.py. W tym momencie należy przejść do terminala na jednostce sterującej, i za pomocą klawiatury sterować robotem. Należy również uruchomić program Rviz, który pozwala na wizualizację mapy i położenia robota. Komenda to: rviz2.
+Po uruchomieniu tych skryptów, należy uruchomić program Rviz, który pozwala na wizualizację mapy i położenia robota. Komenda to: rviz2. Następnym krokiem jest uruchomienie skryptu odpowiedzialny za sterowanie robotem za pomocą klawiatury. Komenda to: ros2 launch robot\_teleop.launch.py. W tym momencie należy przejść do terminala na jednostce sterującej, i za pomocą klawiatury sterować robotem. 
 \newline
 
 Kolejnym krokiem jest uruchomienie skryptu odpowiedzialnego za mapowanie otoczenia. Komenda to: ros2 launch robot\_slam slam.launch.py. W tym momencie gdy robot przemieszcza się przez komendy z klawiatury, pomieszczenie zostaje zmapowane.
@@ -878,7 +879,7 @@ Kolejnym krokiem jest uruchomienie skryptu odpowiedzialnego za mapowanie otoczen
 \begin{figure}[!hb]
 	\centering
 	\includegraphics[width=1\textwidth]{images/launch-map.png}
-	\caption{Wizualizacja w Rviz po uruchomieniu skryptów.}
+	\caption{Okno RVIZ po uruchomieniu skryptów.}
 	\label{fig:launch-map}
 \end{figure}
 
@@ -888,57 +889,58 @@ Gdy wystarczająco dużo pomieszczenia zostanie zmapowane, należy zapisać map�
 \begin{figure}[!hb]
 	\centering
 	\includegraphics[width=1\textwidth]{images/save-map.png}
-	\caption{Wizualizacja zmapowanego pomieszczenia i zapisu mapy.}
+	\caption{Zmapowane pomieszczenie i zapis mapy jako plik my\_map.}
 	\label{fig:save-map}
 \end{figure}
 \newpage
-Z taką zapisaną mapą można zamknąć skrypty odpowiedzialne za sterowanie i mapowanie, jak i Rviz.
+Z tak zapisaną mapą można zamknąć skrypty odpowiedzialne za sterowanie, mapowanie i RVIZ.
 \newline\newline
-Następnie, należy uruchomić skrypt odpowiedzialny za lokalizację robota na mapie, oraz skrypt odpowiedzialny za nawigację robota.\newline Komendy to: ros2 launch robot\_slam localization\_launch.py,\newline ros2 launch robot\_slam navigation\_launch.py. 
-W wyniku uruchomienia tych skryptów powinien pojawić się nowy ekran Rviz, na którym będzie widoczna wcześniej zapisana mapa.
+Następnie, należy uruchomić skrypt odpowiedzialny za lokalizację robota na mapie, oraz nawigację robota.\newline Komenda to: ros2 launch robot\_slam nav\_localization.launch.py. 
+W wyniku uruchomienia tego programu uruchomiony zostaje nowy ekran RVIZ z widoczną wcześniej zapisaną mapą.
 
-\newpage
-Należy na niej umieścić robota przez wybranie z górnego zestawu narzędzi 2D Pose Estimate, a następnie kliknięcie na mapie w miejscu gdzie znajduje się robot. W tym momencie algorytm AMCL tworzy chmurę przewidywanych punktów w których może znajdować się robot.
+
+Należy na niej umieścić robota przez wybranie z górnego zestawu narzędzi 2D Pose Estimate, a następnie kliknięcie na mapie w miejscu gdzie znajduje się robot, należy w tym momencie przez obrócenie w odpowiednim kierunku zielonej strzałki ustalić kierunek w jakim znajduje się robot,
+ w wyniku czego algorytm AMCL tworzy chmurę przewidywanych punktów w których może znajdować się robot.
 \begin{figure}[!hb]
 	\centering
 	\includegraphics[width=1\textwidth]{images/launch-nav.png}
-	\caption{Wizualizacja po uruchomieniu skryptów do lokalizacji i nawigacji.}
+	\caption{RVIZ po uruchomieniu skryptu do lokalizacji i nawigacji i wybraniu pozycji robota.}
 	\label{fig:nav-map}
 \end{figure}
-
+\newpage
 \begin{figure}[!hb]
 	\centering
 	\includegraphics[width=1\textwidth]{images/launch-nav2.png}
-	\caption{Wizualizacja rosproszonych punktów lokalizacji robota.}
+	\caption{Wizualizacja rozproszonych punktów lokalizacji robota.}
 	\label{fig:nav-map2}
 \end{figure}
 \newpage
-Następnie należy wybrać cel do którego robot ma się przemieścić, przez wybranie z górnego zestawu narzędzi 2D Goal Pose, a następnie kliknięcie na mapie w miejscu gdzie ma się znaleźć cel.
+Następnie należy wybrać cel do którego robot ma się przemieścić, przez wybranie z górnego zestawu narzędzi Nav2 Goal, a następnie kliknięcie na mapie w miejscu gdzie ma się znaleźć cel z ustawieniem zielonej strzałki w kierunku w jaki ma się ustawić.
 \begin{figure}[!hb]
 	\centering
 	\includegraphics[width=1\textwidth]{images/launch-nav3.png}
-	\caption{Wizualizacja po wybraniu celu do którego robot ma się przemieścić.}
+	\caption{Wybór celu robota.}
 	\label{fig:nav-map3}
 \end{figure}
 \newpage
-Robot powinien samodzielnie przemieścić się do tego celu, omijając przeszkody.
+Robot po wybraniu celu zaczyna poruszać się w kierunku celu, omijając przeszkody na swojej drodze.
 \begin{figure}[!hb]
 	\centering
 	\includegraphics[width=1\textwidth]{images/launch-nav4.png}
-	\caption{Wizualizacja wyznaczenia trasy.}
+	\caption{Wyznaczenie trasy.}
 	\label{fig:nav-map4}
 \end{figure}
 \begin{figure}[!hb]
 	\centering
 	\includegraphics[width=1\textwidth]{images/launch-nav5.png}
-	\caption{Wizualizacja nawigacji robota i zmniejszania się chmury przewidywanej lokalizacji robota.}
+	\caption{Nawigacja robota i zmniejszanie się chmury przewidywanej lokalizacji robota.}
 	\label{fig:nav-map5}
 \end{figure}
 \newpage
 \begin{figure}[!hb]
 	\centering
 	\includegraphics[width=1\textwidth]{images/launch-nav6.png}
-	\caption{Wizaualizacja po dotarciu robota do celu.}
+	\caption{Dotarcie robota do celu.}
 	\label{fig:nav-map6}
 \end{figure}
 
@@ -950,7 +952,7 @@ Należy jednak pamiętać że robot ten nie został przygotowany do pracy w śro
 \newpage
 \section{Scenariusze korzystania z systemu}
 
-Robot ten pozwala na mapowanie różnego rodzaju pomieszczeń, oraz na nawigację do wyznaczonych punktów, co pozwala na zastosowanie go w różnego rodzaju zastosowaniach, jak np. inspekcja pomieszczeń. Testy przeprowadzane były w małych pomieszczeniach nie przekraczających 40 m$^2$, jednakże robot ten jest w stanie zmapować pomieszczenia nawet do 24 000 m$^2$ co wynika z dokumentacji Nav2 \cite{bib:abs-2003-00368}.
+Robot ten pozwala na mapowanie różnego rodzaju pomieszczeń, oraz na nawigację do wyznaczonych punktów, co pozwala na zastosowanie go w różnego rodzaju zastosowaniach, jak np. inspekcja pomieszczeń. Testy przeprowadzane były w małych pomieszczeniach nie przekraczających 40 m$^2$, jednakże robot ten jest w stanie mapować pomieszczenia nawet do 24 000 m$^2$ co wynika z dokumentacji Nav2 \cite{bib:abs-2003-00368}.
 %%%%%%%%%%%%%%%%%%%%%
 %% RYSUNEK Z PLIKU
 %
@@ -1030,12 +1032,21 @@ Robot ten pozwala na mapowanie różnego rodzaju pomieszczeń, oraz na nawigacj�
 % TODO
 \chapter{Specyfikacja techniczna}
 \label{ch:05}
-Rozdział ten zawiera specyfikację techniczną systemu, w tym opis wykorzystanych technologii, architekturę systemu, strukturę systemu, opis działania algorytmów oraz sposób połączenia skryptów w systemie.
-\section{Idea robota autonomicznego mapującego w czasie rzeczywistym} 
-Robot autonomiczny mapujący w czasie rzeczywistym to robot mobilny, który samodzielnie przemieszcza się w przestrzeni, zbierając dane o otoczeniu i tworząc mapę otoczenia w czasie rzeczywistym. Robot ten wykorzystuje różnego rodzaju sensory, jak np. LiDAR, kamery, czy enkodery, do zbierania danych o otoczeniu. Dane te są przetwarzane przez algorytmy SLAM (Simultaneous Localization and Mapping), które pozwalają na określenie pozycji robota na mapie oraz na tworzenie mapy otoczenia. Robot ten może być wykorzystywany w różnego rodzaju zastosowaniach, jak np. inspekcja pomieszczeń, czy przemieszczanie się w trudno dostępnych miejscach.
+Rozdział ten zawiera specyfikację techniczną systemu, w tym opis wykorzystanych technologii, architekturę systemu, 
+strukturę systemu, opis działania algorytmów oraz diagramy UML wyjaśniające działanie poszczególnych programów.
+\section{Wykorzystane technologie} 
+Projekt wykorzystuje następujące technologie:
+\begin{itemize}
+	\item ROS 2 Humble - platforma do tworzenia oprogramowania dla robotów
+	\item SLAM Toolbox - pakiet do mapowania otoczenia
+	\item Nav2 - pakiet do nawigacji robota wraz z algorytmem AMCL do lokalizacji
+	\item ROS2 Control - platforma do sterowania robotem
+	\item DiffDrive Arduino - pakiet zapewniający interfejs między ROS2 Control a Arduino
+	\item ROS arduino bridge - pakiet zapewniający oprogramowanie do sterowania silnikami i zbierania danych z enkoderów
+\end{itemize}
 \newpage
 \section{Architektura systemu}
-Sposób działania systemu oparty jest na współdziałających ze sobą skryptach, których sposób połączenia zaprezentowano na rysunku \ref{fig:diagram-programy}.
+Sposób działania systemu oparty jest na współdziałających ze sobą programach, których sposób połączenia zaprezentowano na rysunku \ref{fig:diagram-programy}.
 
 \begin{figure}[!hb]
 	\centering
@@ -1047,740 +1058,393 @@ Sposób działania systemu oparty jest na współdziałających ze sobą skrypta
 
 \newpage
 \section{Struktura systemu i objaśnienie działania algorytmów}
-W tej sekcji opisano poszczególne skrypty robota z rysunku \ref{fig:diagram-programy}
 
-\subsection{Skrypt Arduino}
-Skrypt Arduino jest odpowiedzialny za sterowanie silnikami i enkoderami. Odczytuje dane z enkoderów, oblicza prędkość i położenie robota, oraz steruje silnikami na podstawie danych o prędkościach otrzymanych od Raspberry Pi. Komunikuje się on z Raspberry Pi przez port szeregowy, co umożliwia przesyłanie danych o prędkości i położeniu robota.
-Skrypt ten jest zmodyfikowaną wersją skryptu ros\_arduino\_bridge\cite{bib:rosarduinobridge}, który został dostosowany do potrzeb tego projektu.
+W tej sekcji zawarto szczegółowe opisy funkcjonalności każdego ze skryptów\ref{fig:diagram-programy}, które są odpowiedzialne za działanie robota.
 
-Najważniejsze funckje tego programu znajdują się w plikach:
+Wszystkie skrypty znajdują się w załączniku Oprogramowanie.
+\subsection{Arduino}
+Oprogramowanie to odpowiedzialne jest za sterowanie silnikami i zbieranie danych z enkoderów. Opiera się na pakiecie ROS arduino bridge\cite{bib:rosarduinobridge}, który zapewnia interfejs między ROS 2 a Arduino. 
+
+
+Program ten składa się z następujących plików:
 \begin{itemize}
-	\item ROSArduinoBridge.ino
-
-	Jest to główny program, gdzie znajdują się:
-	\begin{itemize}
-		\item Funkcja \texttt{setup()} - inicjalizująca kontroler silników, enkodery i piny wejścia/wyjścia
-		\item Funkcja \texttt{loop()} - główna pętla programu, która:
-		\begin{itemize}
-			\item Odczytuje i przetwarza komendy z portu szeregowego
-			\item Wykonuje obliczenia PID dla kontroli silników
-			\item Aktualizuje stan enkoderów
-			\item Sprawdza warunki automatycznego zatrzymania
-		\end{itemize}
-		\item Funkcja \texttt{runCommand()} - interpretuje i wykonuje otrzymane komendy:
-		\begin{itemize}
-			\item Odczyt enkoderów
-			\item Sterowanie silnikami
-			\item Reset enkoderów
-			\item Aktualizacja parametrów PID
-			\item Operacje na pinach cyfrowych i analogowych
-		\end{itemize}
-		\item Zmienne kontrolujące:
-		\begin{itemize}
-			\item Parametry komunikacji szeregowej
-			\item Timery kontrolne PID
-			\item Bufory komend i argumentów
-		\end{itemize}
-	\end{itemize}
+	\item ROSArduinoBridge.ino -  skrypt obsługuje komunikację szeregową z prędkością 57600 bodów i może kontrolować silniki poprzez różne sterowniki (np. Pololu VNH5019, MC33926 czy L298N). 
+	Główna pętla programu ciągle nasłuchuje komend przychodzących przez port szeregowy, wykonuje obliczenia PID w regularnych odstępach czasu oraz aktualizuje stan serwomechanizmów jeśli są używane. Cały kod znajduje się w pliku ROSArduinoBridge.ino w załączniku Oprogramowanie.
 	\newpage
-	\item commands.h
-Zawiera definicje komend, które są wysyłane z Raspberry Pi do Arduino.
+	\item motor\_driver.ino - plik ten zawiera różne definicje sterowników silników, gdzie w tym projekcie wykorzystano  L298N, który jest dwukanałowym mostkiem H. Program obsługuje również inne sterowniki jak Pololu VNH5019 czy MC33926.
 
-\begin{figure}[!hb]
-	\centering
+	W kodzie zaimplementowano trzy podstawowe funkcje:
+	\begin{itemize}
+	\item initMotorController() - inicjalizacja sterownika silników
+	\item setMotorSpeed(int i, int spd) - ustawienie prędkości pojedynczego silnika 
+	\item setMotorSpeeds(int leftSpeed, int rightSpeed) - funkcja do ustawiania prędkości obu silników
+	\end{itemize}
+
+	Dla sterownika L298N prędkość silników jest kontrolowana przez sygnały PWM wysyłane na odpowiednie piny. Ujemne wartości prędkości powodują obrót silnika w przeciwnym kierunku. Program zapewnia też ograniczenie maksymalnej prędkości do 255 (8-bit PWM).
+	\item encoder\_driver.ino - Ten plik zawiera definicje obsługi enkoderów do odczytu pozycji kół robota. W implementacji wykorzystano przerwania do dokładnego zliczania impulsów z enkoderów.
+
+	Plik zawiera między innymi:
+	\begin{itemize}
+	\item Definicje pinów dla enkoderów lewego i prawego koła
+	\item Wykorzystanie przerwań PCINT (ang. "Pin Change Interrupt") do zliczania impulsów
+	\item Funkcje do odczytu i resetowania liczników enkoderów
+	\end{itemize}
+
+	
+
+	\begin{figure}[!hb]
+		\centering
 	\begin{lstlisting}
-
-		#ifndef COMMANDS_H
-		#define COMMANDS_H
-		
-		#define ANALOG_READ    'a'
-		#define GET_BAUDRATE   'b'
-		#define PIN_MODE       'c'
-		#define DIGITAL_READ   'd'
-		#define READ_ENCODERS  'e'
-		#define MOTOR_SPEEDS   'm'
-		#define MOTOR_RAW_PWM  'o'
-		#define PING           'p'
-		#define RESET_ENCODERS 'r'
-		#define SERVO_WRITE    's'
-		#define SERVO_READ     't'
-		#define UPDATE_PID     'u'
-		#define DIGITAL_WRITE  'w'
-		#define ANALOG_WRITE   'x'
-		#define LEFT            0
-		#define RIGHT           1
-		
-		#endif
-	\end{lstlisting}
-	\caption{Komendy jakie są wysyłane z Raspberry Pi do Arduino}
-	\label{fig:Komendy jakie są wysyłane z Raspberry Pi do Arduino}
-	\end{figure}
-
-Plik zawiera definicje komend używanych do komunikacji między Raspberry Pi a Arduino. W tworzeniu projektu korzystano między innymi z komend e do dostosowania enkoderów silników i średnicy koła do rzeczywistych wartości.
-
-\newpage
-	\item diff\_controller.h
-	W tym pliku znajduje się implementacja regulatora PID (Proporcjonalno-Całkująco-Różniczkującego) do sterowania silnikami. Jest to element krytyczny dla precyzyjnego sterowania robotem mobilnym.
-
-	Regulator wykorzystuje strukturę SetPointInfo do przechowywania danych:
-	\begin{itemize}
-		\item TargetTicksPerFrame - zadana prędkość w impulsach na ramkę
-		\item Encoder - aktualna wartość enkodera
-		\item PrevEnc - poprzednia wartość enkodera
-		\item PrevInput - poprzednie wejście (zamiast poprzedniego błędu)
-		\item ITerm - człon całkujący
-		\item output - wyjście regulatora (sterowanie silnikiem)
-	\end{itemize}
-
-	Zdefiniowano następujące współczynniki regulatora:
-	\begin{itemize}
-		\item Kp = 20 - wzmocnienie członu proporcjonalnego
-		\item Kd = 12 - wzmocnienie członu różniczkującego
-		\item Ki = 0 - wzmocnienie członu całkującego
-		\item Ko = 50 - współczynnik skalujący wyjście
-	\end{itemize}
-
-	Regulator zawiera trzy główne funkcje:
-	\begin{itemize}
-		\item resetPID() - inicjalizacja zmiennych regulatora
-		\item doPID() - obliczanie nowego sygnału sterującego
-		\item updatePID() - aktualizacja regulatorów obu silników
-	\end{itemize}
-
-	Algorytm działa poprzez obliczanie błędu między zadaną a aktualną prędkością, następnie wykorzystuje człony proporcjonalny, całkujący i różniczkujący do generowania sygnału sterującego silnikami.
-
-	\begin{figure}
-		\centering
-		\begin{lstlisting}
-	/* PID routine to compute the next motor commands */
-	void doPID(SetPointInfo * p) {
-	  long Perror;
-	  long output;
-	  int input;
-
-	  input = p->Encoder - p->PrevEnc;
-	  Perror = p->TargetTicksPerFrame - input;
-
-	  output = (Kp * Perror - Kd * (input - p->PrevInput) + p->ITerm) / Ko;
-	  p->PrevEnc = p->Encoder;
-
-	  output += p->output;
-	  if (output >= MAX_PWM)
-		output = MAX_PWM;
-	  else if (output <= -MAX_PWM)
-		output = -MAX_PWM;
-	  else
-		p->ITerm += Ki * Perror;
-
-	  p->output = output;
-	  p->PrevInput = input;
+	/* Interrupt routine for LEFT encoder */
+	ISR (PCINT2_vect){
+		static uint8_t enc_last=0;	
+		enc_last <<=2; //shift previous state
+		enc_last |= (PIND & (3 << 2)) >> 2; //read current state
+		left_enc_pos += ENC_STATES[(enc_last & 0x0f)];
 	}
-		\end{lstlisting}
-		\caption{Implementacja głównej funkcji regulatora PID}
-		\label{fig:pid-implementation}
+	/* Interrupt routine for RIGHT encoder */
+	ISR (PCINT1_vect){
+		static uint8_t enc_last=0;
+		enc_last <<=2; //shift previous state
+		enc_last |= (PINC & (3 << 4)) >> 4; //read current state
+		right_enc_pos += ENC_STATES[(enc_last & 0x0f)];
+	}
+	\end{lstlisting}
+	\caption{Fragment kodu źródłowego z pliku encoder\_driver.ino z obsługą przerwań do precyzyjnego zliczania impulsów z enkoderów}
+	\label{fig:encoder-driver2}
 	\end{figure}
-
-	\newpage
-
-
-	\item encoder\_driver.h
-	W tym pliku znajdują się definicje portów enkoderów i funkcje do ich obsługi.
-	\begin{figure}[!hb]
-		\centering
-		\begin{lstlisting}
-	
-	   
-		#ifdef ARDUINO_ENC_COUNTER
-		#define LEFT_ENC_PIN_A PD2  //pin 2
-		#define LEFT_ENC_PIN_B PD3  //pin 3
-
-		#define RIGHT_ENC_PIN_A PC4  //pin A4
-		#define RIGHT_ENC_PIN_B PC5   //pin A5
-		#endif
-		
-		long readEncoder(int i);
-		void resetEncoder(int i);
-		void resetEncoders();
-
-		\end{lstlisting}
-		\caption{Konfiguracja portów enkoderów z Arduino i sterownikiem L298N}
-		\label{fig:Konfiguracja portów enkoderów}
-		\end{figure}
-		
-		
-
 \newpage
-	\item motor\_driver.h
-	W tym pliku znajdują się definicje portów silników i funkcje do ich obsługi.
+	\item encoder\_driver.h, oraz motor\_driver.h - pliki zawierające deklaracje funkcji i zmiennych, definiując porty i piny dla enkoderów i sterowników silników. 
+	\newline
+
 	
 	\begin{figure}[!hb]
 		\centering
-		\begin{lstlisting}
+	\begin{lstlisting}
+		/*************************************************
+		Motor driver function definitions - by James Nugen
+		*************************************************/
+	 
+	 #ifdef L298_MOTOR_DRIVER
+	   #define RIGHT_MOTOR_BACKWARD 5
+	   #define LEFT_MOTOR_BACKWARD  6
+	   #define RIGHT_MOTOR_FORWARD  9
+	   #define LEFT_MOTOR_FORWARD   10
+	   #define RIGHT_MOTOR_ENABLE 12
+	   #define LEFT_MOTOR_ENABLE 13
+	 #endif
+	 
+	 void initMotorController();
+	 void setMotorSpeed(int i, int spd);
+	 void setMotorSpeeds(int leftSpeed, int rightSpeed);
+	 
+		\end{lstlisting}
+		\caption{Kod źródłowy z pliku motor\_driver.h}
+		\label{fig:motor-driver}
+		\end{figure}
 
-		#ifdef L298_MOTOR_DRIVER
-		#define RIGHT_MOTOR_BACKWARD 5
-		#define LEFT_MOTOR_BACKWARD  6
-		#define RIGHT_MOTOR_FORWARD  9
-		#define LEFT_MOTOR_FORWARD   10
-		#define RIGHT_MOTOR_ENABLE 12
-		#define LEFT_MOTOR_ENABLE 13	
+	
+
+	\begin{figure}[!hb]
+		\begin{lstlisting}
+			/* *************************************************************
+			Encoder driver function definitions - by James Nugen
+			************************************************************ */
+			
+			
+		 #ifdef ARDUINO_ENC_COUNTER
+		   //below can be changed, but should be PORTD pins; 
+		   //otherwise additional changes in the code are required
+		   #define LEFT_ENC_PIN_A PD2  //pin 2
+		   #define LEFT_ENC_PIN_B PD3  //pin 3
+		   
+		   //below can be changed, but should be PORTC pins
+		   #define RIGHT_ENC_PIN_A PC4  //pin A4
+		   #define RIGHT_ENC_PIN_B PC5   //pin A5
 		 #endif
-		  
-		  void initMotorController();
-		  void setMotorSpeed(int i, int spd);
-		  void setMotorSpeeds(int leftSpeed, int rightSpeed);
+			
+		 long readEncoder(int i);
+		 void resetEncoder(int i);
+		 void resetEncoders();
+			\end{lstlisting}
+			\caption{Kod źródłowy z pliku encoder\_driver.h}
+			\label{fig:encoder-driver}
+			\end{figure}
+			
+			\item commands.h - zawiera definicje komend wysyłanych z Raspberry Pi do Arduino. W pliku zdefiniowano między innymi komendy do sterowania silnikami, odczytu enkoderów i resetowania enkoderów.
+			\item diff\_controller.h - plik zawierający implementację regulatora PID dla sterowania prędkością kół robota. Regulator wykorzystuje zaawansowane techniki sterowania, w tym:
+
+			\begin{itemize}
+				\item Unikanie skoku pochodnej (ang. "derivative kick") poprzez wykorzystanie poprzedniego wejścia zamiast poprzedniego błędu
+				\item Płynne dostrajanie parametrów dzięki użyciu członu całkującego ITerm zamiast scałkowanego błędu
+				\item Inicjalizację zapobiegającą skokom przy uruchomieniu
+				\item Anti-windup poprzez ograniczenie wyjścia i zatrzymanie całkowania gdy wyjście jest nasycone
+			\end{itemize}
+
+			Regulator PID (ang. "Proportional-Integral-Derivative") działa w następujący sposób:
+			\begin{itemize}
+				\item Człon proporcjonalny (P) - generuje sygnał sterujący proporcjonalny do uchybu
+				\item Człon całkujący (I) - eliminuje błąd w stanie ustalonym poprzez całkowanie uchybu
+				\item Człon różniczkujący (D) - poprawia odpowiedź przejściową poprzez przewidywanie zmian uchybu
+			\end{itemize}
+
+			Plik zawiera struktury danych i funkcje do:
+			\begin{itemize}
+				\item Przechowywania stanu regulatora dla każdego koła
+				\item Resetowania stanu regulatorów
+				\item Obliczania nowych wartości sterujących
+				\item Aktualizacji regulatorów na podstawie odczytów z enkoderów
+			\end{itemize}
+			
+\end{itemize}
+ 
+\newpage
+\subsection{LiDAR}
+Skrypt ten odpowiada za odczyt danych z LiDAR-a i przesyłanie ich do Raspberry Pi. Program ten wykorzystuje pakiet rplidar\_ros udostępniony przez producenta SLAMTEC. 
+Do obsługi LiDAR-a stworzono plik wykonawczy rplidar.launch.py. Ten plik odpowiedzialny jest za konfigurację i uruchomienie węzła obsługującego czujnik RPLidar A1. 
+
+
+Plik definiuje parametry pracy czujnika, takie jak:
+\begin{itemize}
+\item Port szeregowy do komunikacji z czujnikiem
+\item Prędkość transmisji (115200 bodów)
+\item Tryb skanowania (standardowy)
+\item Częstotliwość publikowania danych (2,5 Hz)
+\item Zakres pomiarowy (od 0,15 m do 12 m wynikający z parametrów czujnika)
+\item Zakres kątowy skanowania (pełny obrót 360 stopni)
+\end{itemize}
+
+Program sprawdza również dostępność portu szeregowego i zgłasza odpowiedni komunikat w przypadku braku połączenia z czujnikiem. Dane z czujnika są publikowane do systemu ROS 2 i mogą być wykorzystywane przez inne węzły, na przykład do tworzenia mapy otoczenia czy nawigacji.
+
+\subsection{Sterowanie silnikami i model robota}
+Za sterowanie silnikami odpowiadają następujące pliki:
+\begin{itemize}
+
+	\item model\_controll.launch.py - główny plik wykonawczy sterujący robotem. Odpowiada za:
+		\begin{itemize}
+			\item Uruchomienie i konfigurację podstawowych komponentów sterowania:
+			\begin{itemize}
+				\item robot\_state\_publisher - publikuje transformacje robota na podstawie modelu URDF (ang. "Unified Robot Description Format")
+				\item twist\_mux - zarządza priorytetyzacją komend prędkości, czyli przypisuje odpowiednie komendy do poprawnego korzystania z Ros2 Control i np. sterowania za pomocą klawiatury.
+				\item controller\_manager - zarządza kontrolerami ROS2 Control
+				\item diff\_cont - kontroler napędu różnicowego
+				\item joint\_broad - nadawca stanu połączeń
+			\end{itemize}
+			\newpage
+			\item Obsługę parametrów:
+			\begin{itemize}
+				\item use\_sim\_time (domyślnie: fałszywe) - przełącznik trybu symulacji
+				\item use\_ros2\_control (domyślnie: prawdziwe) - włączanie/wyłączanie ROS2 Control
+			\end{itemize}
+			\item Sekwencyjne uruchamianie komponentów z opóźnieniami
+			\item Ładowanie plików konfiguracyjnych (URDF, YAML)
+		\end{itemize}
+
+	\item model\_main.xacro - plik definiujący model kinematyczny i wizualny robota w formacie URDF/XACRO. Zawiera:
+		\begin{itemize}
+			\item Definicje materiałów do wizualizacji (biały - walec stanowiący korpus robota, pomarańczowy - LiDAR, niebieski - koła, czarny - koła podporowe)
+			\item Strukturę robota:
+			\begin{itemize}
+				\item base\_link - podstawowy punkt odniesienia
+				\item container - główny korpus w kształcie walca
+				\item LiDAR - czujnik laserowy na górze konstrukcji
+				\item Koła napędowe (lewe i prawe) - połączenia ciągłe (ang. "continuous joints"), zależne od prędkości (ang. "velocity dependent")
+				\item Koła podporowe (przód i tył) - połączenia stałe (fixed joints)
+			\end{itemize}
+			\item Właściwości fizyczne elementów:
+			\begin{itemize}
+				\item Masy
+				\item Momenty bezwładności
+				\item Parametry kolizji
+			\end{itemize}
+		\end{itemize}
+		Model ten umożliwia wizualizację robota w RVIZ oraz symulację jego dynamiki w środowisku ROS.
+\newpage
+	
+	\item model.urdf.xacro - Jest to plik spajający definicję modelu z pliku model\_main.xacro z konfiguracją kontrolerów z pliku ros2\_control.xacro.
+	
+	\begin{figure}[!hb]
+		\centering
+	\begin{lstlisting}
+		<?xml version="1.0"?>
+		<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_slam">
+			<xacro:arg name="use_ros2_control" default="true"/>
+			<xacro:arg name="sim_mode" default="false"/>
+			<xacro:include filename="model_main.xacro"/>
+			<xacro:include filename="ros2_control.xacro"/>
+			<xacro:ros2_control_robot use_ros2_control="$(arg use_ros2_control)" sim_mode="$(arg sim_mode)"/>
+		</robot>
 		\end{lstlisting}
-		\caption{Konfiguracja portów silników}
-		\label{fig:Konfiguracja portów silników}
-		\end{figure}
-		
+		\caption{Kod źródłowy pliku model.urdf.xacro}
+		\label{fig:model.urdf.xacro}
+	\end{figure}
+	\item internal\_macros.xacro - plik zawiera momenty bezwładności dla poszczególnych elementów robota.
 
+	\item ros2\_control.xacro - w tym pliku zawarto konfigurację silników dla Ros2 Control, zdefiniowano w nim nazwy dla poszczególnych kół, częstotliwość odświeżania zgodną z skryptem ROSArduinoBridge, czyli 57600 bodów, zliczenia enkoderów na obrót koła - 2194 wyznaczone przez testy, oraz ustawienie maksymalnej i minimalnej prędkości dla każdego silnika.
+	\item twist\_mux.yaml - plik konfiguracyjny, wykorzystywany do udostępnienia cmd\_vel do sterowania robotem. Jest to potrzebne przy sterowaniu z klawiatury.
+	\newpage \item my\_controllers.yaml - jest to plik konfiguracyjny potrzebny do integracji systemu z pakietem diffdrive arduino. Zdeiniowano w nim nazwy kół zgodne z poprzednimi plikami konfiguracyjnymi, częstotliwość aktualizacji, szerokość kół i ich rozstaw.
+	\begin{figure}[!hb]
+		\centering
+	\begin{lstlisting}
+		ros__parameters:
 
-
-
-
-	\item motor\_driver.ino
-	Przedstawiony kod zawiera definicje i implementacje dla różnych sterowników silnika.
-
-	\begin{itemize}
-		\item \textbf{Struktura kodu:} Wykorzystuje dyrektywy preprocesora (\texttt{\#ifdef}, \texttt{\#elif}) do wyboru odpowiedniego sterownika silnika.
-		
-		\item \textbf{Główne funkcje:}
-		\begin{itemize}
-			\item \texttt{initMotorController()} -- inicjalizuje sterownik silnika
-			\item \texttt{setMotorSpeed(int i, int spd)} -- ustawia prędkość pojedynczego silnika
-			\item \texttt{setMotorSpeeds(int leftSpeed, int rightSpeed)} -- ustawia prędkości obu silników
-		\end{itemize}
-		
-		\item \textbf{Szczegóły implementacji L298:}
-		\begin{itemize}
-			\item Obsługuje kierunek obrotów poprzez zmianę polaryzacji
-			\item Prędkość kontrolowana jest za pomocą PWM (0-255)
-			\item Wykorzystuje piny cyfrowe do sterowania kierunkiem i prędkością
-		\end{itemize}
-	\end{itemize}
+		publish_rate: 50.0  # Increased for better velocity updates
 	
-	Kod zapewnia jednolity interfejs dla różnych sterowników silnika, co ułatwia wymienność komponentów sprzętowych bez konieczności modyfikacji głównego kodu aplikacji.
+		base_frame_id: base_footprint  # Reverted frame
 	
-
-
-\newpage
-	\item encoder\_driver.ino
-	Ten plik zawiera logikę obsługi enkoderów. Główne komponenty to:
-
-	\begin{itemize}
-	\item \textbf{Definicje enkoderów:} Plik wspiera różne typy enkoderów, wybierane przez dyrektywy preprocesora.
-
-	\item \textbf{Obsługa przerwań:} Zaimplementowano dwie procedury przerwań:
-		\begin{itemize}
-		\item ISR (PCINT2\_vect) - dla lewego enkodera
-		\item ISR (PCINT1\_vect) - dla prawego enkodera
-		\end{itemize}
-
-	\item \textbf{Liczniki pozycji:} 
-		\begin{itemize}
-		\item left\_enc\_pos - pozycja lewego enkodera
-		\item right\_enc\_pos - pozycja prawego enkodera
-		\end{itemize}
-
-	\item \textbf{Główne funkcje:}
-		\begin{itemize}
-		\item readEncoder() - odczyt pozycji enkodera
-		\item resetEncoder() - reset pojedynczego enkodera
-		\item resetEncoders() - reset obu enkoderów jednocześnie
-		\end{itemize}
-
-	\item \textbf{Tablica stanów:} ENC\_STATES przechowuje mapowanie stanów enkodera na kierunek obrotu.
-
-	\end{itemize}
-
-	Algorytm wykorzystuje technikę tablicy przeglądowej (lookup table) do dekodowania sygnałów z enkoderów, co pozwala na efektywne określanie kierunku i wielkości obrotu kół robota. System jest zoptymalizowany pod kątem szybkiej odpowiedzi na przerwania sprzętowe.
-
+		left_wheel_names: ['left_wheel_joint']
+		right_wheel_names: ['right_wheel_joint']
+		wheel_separation: 0.14  
+		wheel_radius: 0.035     
+	
+		use_stamped_vel: false
+	
+		\end{lstlisting}
+		\caption{Fragment kodu z pliku my\_controllers.yaml}
+		\label{fig:my-controllers}
+	\end{figure}
 \end{itemize}
-
-
-
-
 \newpage
-\subsection{Skrypt do obsługi LiDAR-a}
+\subsection{Mapowanie}
+W celu mapowania otoczenia robota wykorzystano pakiet SLAM Toolbox, który pozwala na tworzenie mapy otoczenia na podstawie danych z LiDAR-a. Utworzony program składa się z następujących plików:
+\begin{itemize}
+	\item slam.launch.py - plik ten odpowiada za konfigurację i uruchomienie węzła odpowiedzialnego za mapowanie otoczenia. 
+	Program ten publikuje mapę otoczenia w systemie ROS 2, która może być wykorzystywana do nawigacji robota.
+	\item mapper\_params\_online\_async.yaml - plik konfiguracyjny zawarty w pakiecie SLAM Toolbox, wybrana została wersja online async, zamiast online sync, ze względu na lepszą wydajność. W pliku zdefiniowano parametry pracy algorytmu, takie jak:
+	
+	\begin{figure}[!hb]
+		\centering
+	\begin{lstlisting}
+    solver_plugin: solver_plugins::CeresSolver
+    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
+    ceres_preconditioner: SCHUR_JACOBI
+    ceres_trust_strategy: LEVENBERG_MARQUARDT
+    ceres_dogleg_type: TRADITIONAL_DOGLEG
+    ceres_loss_function: HUBERLOSS  # Changed from None
+    ceres_huber_loss_delta: 2.0  
+\end{lstlisting}
+\caption{Fragment kodu z pliku mapper\_params\_online\_async.yaml}
+\label{fig:mapper-params1}
+\end{figure}
+Wprowadzono tutaj zmianę w funkcji straty z None na HuberLoss, co pozwala na lepsze radzenie sobie z błędami wynikającymi z ślizgania się kół robota.
 
-Do projektu wykorzystano zestaw narzędzi udostępnionych przez firmę Slamtec, które pozwalają na odczyt danych z LiDAR-a, jak i na tworzenie mapy otoczenia. Skrypt ten jest odpowiedzialny również za udostępnienie danych z LiDAR-a z pliku rplidar.launch.py, plik ten tworzy węzeł z pliku konfiguracyjnego rplidar.yaml, gdzie znajduje się konfiguracja LiDAR-a.
+Kluczowym elementem jaki należy tutaj opisać jest wykorzystanie biblioteki Ceres Solver \cite{bib:Agarwal_Ceres_Solver_2022}. Jest to narzędzie, które pomaga znaleźć najlepsze dopasowanie między różnymi pomiarami, minimalizując błąd średniokwadratowy. Dzięki temu SLAM Toolbox może tworzyć dokładne mapy, nawet gdy niektóre pomiary są niedokładne lub błędne. 
+\newline
+Działa to na zasadzie iteracyjnego poprawiania oszacowań pozycji robota:
 
-
-
-Ten kod reprezentuje plik konfiguracyjny systemu ROS2 (Robot Operating System 2) służący do uruchomienia sterownika dla skanera laserowego RPLidar. Poniżej przedstawiono szczegółową analizę jego działania.
+\begin{equation}
+\min_x \frac{1}{2}\sum_{i} \rho_i(\|f_i(x_i)\|^2)
+\end{equation}
 
 
 \begin{itemize}
-\item \textbf{Struktura pliku:}
-	\begin{itemize}
-	\item Import niezbędnych modułów z ROS2 Launch System
-	\item Definicja funkcji generate\_launch\_description()
-	\item Konfiguracja parametrów dla węzła RPLidar
-	\end{itemize}
-
-\item \textbf{Kluczowe elementy:}
-	\begin{itemize}
-	\item Sprawdzenie dostępności portu szeregowego
-	\item Deklaracja argumentu serial\_port
-	\item Konfiguracja węzła rplidar\_node
-	\end{itemize}
-
-\item \textbf{Parametry LiDAR-a:}
-	\begin{itemize}
-	\item Prędkość transmisji: 115200 baud
-	\item Częstotliwość publikowania: 2.5 Hz
-	\item Rozmiar kolejki: 500
-	\item Minimalny zasięg: 0.15m
-	\item Maksymalny zasięg: 12.0m
-	\item Zakres kątowy: -pi do pi (-3.14159 do 3.14159)
-	\end{itemize}
-
-\item \textbf{Optymalizacje:}
-	\begin{itemize}
-	\item Zredukowana częstotliwość publikowania z 5.0 do 2.5 Hz
-	\item Zmniejszony rozmiar kolejki z 1000 do 500
-	\item Włączona kompensacja kątowa
-	\item Włączona filtracja próbek
-	\end{itemize}
+\item $x$ to pozycje robota, które chcemy znaleźć 
+\item $f_i(x_i)$ mierzy, jak bardzo nasze oszacowanie pozycji różni się od rzeczywistych pomiarów
+\item $\rho_i$ to funkcja, która pomaga ignorować błędne pomiary (działa jako filtr odrzucający "podejrzane" dane)
+\item Cały proces dąży do znalezienia takich pozycji robota, dla których suma wszystkich błędów jest najmniejsza
 \end{itemize}
 
-Skrypt ten jest odpowiedzialny za prawidłową inicjalizację i konfigurację skanera laserowego RPLidar, który jest kluczowym elementem w systemie mapowania i nawigacji robota.
-\newpage
-\subsection{Skrypt do obsługi silników i tworzenia modelu robota}
-Skrypt do obsługi silników i tworzenia modelu robota jest odpowiedzialny za sterowanie silnikami i tworzenie modelu robota. Skrypt ten odczytuje dane o prędkościach robota z klawiatury, przetwarza je i przesyła do Arduino. Skrypt ten jest odpowiedzialny również za udostępnienie modelu robota z pliku rsp.launch.py, plik ten tworzy węzeł z pliku konfiguracyjnego model\_main.xacro, gdzie znajduje się model robota w formacie URDF.
+Algorytm działa iteracyjnie, wykorzystuje do tego metodę Levenberga-Marquardta, która łączy w sobie:
 
-Najważniejsze funkcje tego programu znajdują się w plikach:
 \begin{itemize}
-	\item model\_controll.launch.py
-	Jest to główny plik wykonawczy, który spaja wszystkie funkcje w całość do użytku robota z ROS.
-	Ten plik jest odpowiedzialny za uruchomienie wszystkich potrzebnych węzłów ROS 2 do obsługi robota:
-
-	\begin{itemize}
-		\item RSP (Robot State Publisher) - publikuje stan robota w przestrzeni TF2
-		\item Twist Mux - multiplekser wiadomości twist do sterowania robotem
-		\item Controller Manager - zarządza kontrolerami robota:
-			\begin{itemize}
-				\item Differential Drive Controller - kontroler napędu różnicowego
-				\item Joint State Broadcaster - publikuje stan przegubów robota
-			\end{itemize}
-	\end{itemize}
-
-	Skrypt wykorzystuje:
-	\begin{itemize}
-		\item Parametry w plikach konfiguracyjnych:
-			\begin{itemize}
-				\item twist\_mux.yaml - konfiguracja multipleksera
-				\item my\_controllers.yaml - konfiguracja kontrolerów
-				\item robot\_description - opis robota w formacie URDF
-			\end{itemize}
-		\item Zdarzenia i timery do:
-			\begin{itemize}
-				\item Opóźnionego uruchamiania kontrolerów
-				\item Uruchamiania węzłów w odpowiedniej kolejności
-			\end{itemize}
-	\end{itemize}
-
-	Po uruchomieniu skryptu robot jest gotowy do:
-	\begin{itemize}
-		\item Odbierania poleceń ruchu (cmd\_vel)
-		\item Publikowania swojego stanu w systemie TF2
-		\item Kontrolowania silników przez interfejs ROS2 Control
-	\end{itemize}
-	\newpage
-	\item rsp.launch.py
-	Jest to plik wykonawczy, który tworzy węzeł z pliku konfiguracyjnego model\_main.xacro, gdzie znajduje się model robota w formacie URDF.
-	Ten plik uruchamia proces tworzenia modelu robota w ROS 2. Oto główne komponenty:
-
-	\begin{itemize}
-		\item \textbf{Parametry konfiguracyjne:}
-			\begin{itemize}
-				\item use\_sim\_time - kontroluje użycie czasu symulacji
-				\item use\_ros2\_control - włącza/wyłącza system ROS2 Control
-			\end{itemize}
-		
-		\item \textbf{Przetwarzanie pliku URDF:}
-			\begin{itemize}
-				\item Lokalizacja pliku XACRO w pakiecie robot\_slam
-				\item Konwersja XACRO do URDF z parametrami symulacji
-			\end{itemize}
-		
-		\item \textbf{Węzeł robot\_state\_publisher:}
-			\begin{itemize}
-				\item Publikuje stan robota w systemie TF2
-				\item Wykorzystuje wygenerowany opis URDF
-				\item Konfigurowany przez parametry symulacji
-			\end{itemize}
-	\end{itemize}
-
-	Skrypt tworzy strukturę LaunchDescription, która uruchamia system w odpowiedniej konfiguracji, zapewniając publikowanie stanu robota w systemie ROS 2.
-	\newpage
-	\item model\_main.xacro
-	Plik ten łączy w jeden plik xacro model robota i plik xacro do ros2\_control(odpowiedzialne za parametry silnikow i ustawienia dla paczki diff\_drive\_arduino).
-	Ten plik URDF (Unified Robot Description Format) opisuje strukturę fizyczną robota mobilnego. Zawiera on następujące główne elementy:
-
-	\begin{itemize}
-	\item \textbf{Definicje materiałów:}
-		\begin{itemize}
-		\item Biały - dla głównego korpusu
-		\item Pomarańczowy - dla LiDAR-a
-		\item Niebieski - dla kół
-		\item Czarny - dla kół podporowych
-		\end{itemize}
-
-	\item \textbf{Struktura robota:}
-		\begin{itemize}
-		\item base\_link - podstawowy punkt odniesienia robota
-		\item base\_footprint - punkt odniesienia na poziomie podłoża
-		\item container - główny korpus robota (cylinder o promieniu 8.5cm i wysokości 22.5cm)
-		\item lidar - czujnik LiDAR (cylinder o promieniu 3.5cm i wysokości 5.8cm)
-		\item left\_wheel i right\_wheel - koła napędowe (cylindry o promieniu 3.5cm i szerokości 2.7cm)
-		\item support\_wheels - przednie i tylne koła podporowe (sfery o promieniu 1.8cm)
-		\end{itemize}
-
-	\item \textbf{Połączenia (joints):}
-		\begin{itemize}
-		\item Stałe (fixed) dla korpusu, LiDAR-a i kół podporowych
-		\item Ciągłe (continuous) dla kół napędowych, umożliwiające nieskończony obrót
-		\end{itemize}
-
-	\item \textbf{Właściwości fizyczne:}
-		\begin{itemize}
-		\item Zdefiniowane masy dla wszystkich elementów
-		\item Momenty bezwładności dla kół i elementów obrotowych
-		\item Punkty kolizji dla wykrywania zderzeń
-		\end{itemize}
-	\end{itemize}
-
-	Model uwzględnia wszystkie niezbędne elementy do symulacji fizycznej i wizualizacji robota w środowisku ROS 2.
-	\newpage
-	\item model.urdf.xacro
-	Znajduje się tutaj model robota w formacie URDF.
-	Ten plik XACRO (XML Macros) definiuje konfigurację robota dla systemu ROS2. Zawiera następujące główne elementy:
-
-	\begin{itemize}
-	\item \textbf{Deklaracja robota:}
-		\begin{itemize}
-		\item Nazwa: robot\_slam
-		\item Używa przestrzeni nazw xacro dla makr XML
-		\end{itemize}
-
-	\item \textbf{Argumenty konfiguracyjne:}
-		\begin{itemize}
-		\item use\_ros2\_control - kontroluje użycie systemu ROS2 Control (domyślnie true)
-		\item sim\_mode - określa tryb symulacji (domyślnie false)
-		\end{itemize}
-
-	\item \textbf{Dołączone pliki:}
-		\begin{itemize}
-		\item model\_main.xacro - zawiera główny opis modelu robota
-		\item ros2\_control.xacro - zawiera konfigurację systemu ROS2 Control
-		\end{itemize}
-
-	\item \textbf{Konfiguracja ROS2 Control:}
-		\begin{itemize}
-		\item Wykorzystuje zdefiniowane wcześniej argumenty
-		\item Pozwala na elastyczne przełączanie między trybem rzeczywistym a symulacją
-		\end{itemize}
-	\end{itemize}
-
-	Plik ten służy jako główny punkt wejścia dla opisu robota, łącząc model fizyczny z konfiguracją kontrolerów.
-	\newpage
-	\item my\_controllers.yaml
-	
-	Ten plik zawiera konfigurację kontrolera ROS2 Control dla robota różnicowego. 
-	
-	System zarządzania kontrolerami działa z częstotliwością 30 Hz i obsługuje dwa główne komponenty: kontroler napędu różnicowego (diff\_cont) oraz nadajnik stanu przegubów (joint\_broad).
-
-	Kontroler napędu różnicowego pracuje z częstotliwością 50 Hz i wykorzystuje ramkę bazową base\_footprint. Parametry fizyczne robota obejmują rozstaw kół 0.14 m oraz promień koła 0.035 m, z oddzielną konfiguracją dla każdego koła.
-
-	Odometria wykorzystuje ramkę "odom" i zawiera macierze kowariancji dla pozycji oraz prędkości, z włączonym publikowaniem transformacji TF.
-
-	Limity ruchu zdefiniowane są następująco:
-	\begin{itemize}
-		\item Ruch liniowy (oś x): prędkość ±0.3 m/s, przyspieszenie ±0.5 m/s², zryw 1.0 m/s³
-		\item Ruch kątowy (oś z): prędkość ±1.0 rad/s, przyspieszenie ±0.8 rad/s², zryw 1.5 rad/s³
-	\end{itemize}
-
-	System zawiera również sprzężenie zwrotne pozycji z krokiem czasowym 0.1s oraz wygładzanie prędkości ze stałą czasową 0.1s.
-
-	Ta konfiguracja zapewnia precyzyjną kontrolę ruchu robota z uwzględnieniem ograniczeń fizycznych i bezpieczeństwa.
-	\newpage
-	\item twist\_mux.yaml
-	Opisane zostały tutaj parametry do obsługi paczki twist\_mux. Ten plik konfiguracyjny zawiera:
-	\begin{itemize}
-	\item \textbf{Parametry multipleksera:}
-		\begin{itemize}
-		\item Temat wejściowy: cmd\_vel (temat do sterowania robotem)
-		\item Timeout: 0.5s (maksymalny czas oczekiwania na nowe polecenia)
-		\item Priorytet: 10 (priorytet poleceń nawigacyjnych)
-		\end{itemize}
-	\end{itemize}
-
-	Te ustawienia pozwalają na zarządzanie wieloma źródłami poleceń ruchu dla robota, gdzie polecenia nawigacyjne mają wysoki priorytet i są automatycznie przerywane po przekroczeniu limitu czasowego.
+\item Szybkość metody Gaussa-Newtona (dobre do precyzyjnych korekt)
+\item Stabilność metody największego spadku (pomocne przy większych korektach)
 \end{itemize}
 
+Dzięki takiemu podejściu SLAM Toolbox może tworzyć dokładne mapy, nawet gdy niektóre pomiary są niedokładne.
 
-\newpage
-\subsection{Skrypt do tworzenia mapy}
-Skrypt do tworzenia mapy jest odpowiedzialny za tworzenie mapy otoczenia. Skrypt ten odczytuje dane z LiDAR-a, przetwarza je i tworzy mapę otoczenia. Skrypt ten jest odpowiedzialny również za udostępnienie mapy z pliku map\_server.launch.py, plik ten tworzy węzeł z pliku konfiguracyjnego map.yaml, gdzie znajduje się zapisana mapa otoczenia.
-
-Pliki odpowiedzialne za działanie tego skryptu to:
-\begin{itemize}
-	\item slam.launch.py
-	Jest to główny plik wykonawczy, który spaja wszystkie funkcje w całość do użytku robota z ROS.
-	Ten plik uruchamia proces mapowania SLAM w ROS 2. Oto główne komponenty:
-
-	\begin{itemize}
-	\item \textbf{Konfiguracja parametrów:}
-		\begin{itemize}
-		\item use\_sim\_time - kontroluje użycie czasu symulacji
-		\item mapper\_params\_online\_async.yaml - plik z parametrami SLAM Toolbox
-		\end{itemize}
-
-	\item \textbf{Węzeł SLAM Toolbox:}
-		\begin{itemize}
-		\item Typ: async\_slam\_toolbox\_node
-		\item Nazwa: slam\_toolbox
-		\item Wyjście: wyświetlane na ekranie
-		\item Korzysta z asynchronicznego trybu mapowania
-		\end{itemize}
-
-	\item \textbf{Proces uruchomienia:}
-		\begin{itemize}
-		\item Deklaracja argumentu use\_sim\_time
-		\item Utworzenie węzła SLAM Toolbox z odpowiednimi parametrami
-		\item Zwrócenie struktury LaunchDescription z zadeklarowanymi komponentami
-		\end{itemize}
-	\end{itemize}
-
-	Skrypt konfiguruje i uruchamia system SLAM w trybie asynchronicznym, co pozwala na wydajne tworzenie mapy w czasie rzeczywistym.
-	\newpage
-	\item mapper\_params\_online\_async.yaml
-	Opisane zostały tutaj parametry do obsługi paczki SLAM Toolbox.
-	Ten plik konfiguracyjny zawiera parametry dla SLAM Toolbox. Główne sekcje to:
-
-	\begin{itemize}
-	\item \textbf{Parametry wtyczki Ceres Solver:}
-		\begin{itemize}
-		\item Typ solvera: SPARSE\_NORMAL\_CHOLESKY
-		\item Strategia optymalizacji: LEVENBERG\_MARQUARDT
-		\item Funkcja straty: HUBERLOSS z deltą 2.0
-		\end{itemize}
-
-	\item \textbf{Parametry ROS:}
-		\begin{itemize}
-		\item Układ współrzędnych: odom, map, base\_footprint
-		\item Temat skanowania: /scan
-		\item Tryb: mapowanie
-		\item Częstotliwość publikacji transformacji: 0.05s
-		\item Interwał aktualizacji mapy: 2.0s
-		\item Rozdzielczość: 0.05m
-		\end{itemize}
-
-	\item \textbf{Parametry ogólne:}
-		\begin{itemize}
-		\item Minimalna odległość przejazdu: 0.05m
-		\item Minimalny kąt obrotu: 0.1rad
-		\item Rozmiar bufora skanów: 10
-		\item Maksymalny zasięg skanowania: 12.0m
-		\end{itemize}
-
-	\item \textbf{Parametry dopasowania pętli:}
-		\begin{itemize}
-		\item Maksymalna odległość wyszukiwania: 3.0m
-		\item Minimalna wielkość łańcucha: 10
-		\item Maksymalna wariancja: 3.0
-		\item Minimalna odpowiedź: 0.45
-		\end{itemize}
-
-	\item \textbf{Parametry korelacji:}
-		\begin{itemize}
-		\item Wymiar przestrzeni wyszukiwania: 0.5m
-		\item Rozdzielczość: 0.01m
-		\item Odchylenie rozmycia: 0.1m
-		\end{itemize}
-
-	\item \textbf{Filtry prędkości:}
-		\begin{itemize}
-		\item Rozmiar bufora: 10
-		\item Próg prędkości: 0.1m/s
-		\end{itemize}
-	\end{itemize}
-
-	Parametry te zostały zoptymalizowane pod kątem wydajności i dokładności mapowania w czasie rzeczywistym dla robota mobilnego.
-
-\end{itemize}
-
-
-\newpage
-\subsection{Skrypty do nawigacji i lokalizacji}
-Skrypty do nawigacji i lokalizacji są odpowiedzialne za lokalizację robota na mapie oraz za nawigację robota. Skrypty te odczytują dane z mapy i z LiDAR-a, przetwarzają je i określają pozycję robota na mapie oraz planują trasę do wyznaczonego punktu. Skrypty te są odpowiedzialne również za sterowanie robotem, tak aby omijał przeszkody na swojej drodze.
-
-Funkcjonalność nawigacji i lokalizacji została zaimplementowana przy użyciu pakietów Nav2 i AMCL, które pozwalają na lokalizację robota na mapie oraz na nawigację robota do wyznaczonego punktu.
-Podzielone zostały na dwa pliki wykonawcze:
-\begin{itemize}
-	\item localization\_launch.py
-	Jest to główny plik wykonawczy, który spaja wszystkie funkcje w całość do użytku robota z ROS.
-	Ten plik uruchamia system lokalizacji w ROS 2. Główne komponenty to:
-
-	\begin{itemize}
-	\item \textbf{Parametry konfiguracyjne:}
-		\begin{itemize}
-		\item namespace - przestrzeń nazw dla węzłów
-		\item map - ścieżka do pliku z mapą
-		\item use\_sim\_time - kontrola użycia czasu symulacji 
-		\item autostart - automatyczne uruchamianie systemu
-		\end{itemize}
-
-	\item \textbf{Węzły:}
-		\begin{itemize}
-		\item map\_server - odpowiada za wczytanie i udostępnienie mapy
-		\item amcl - algorytm lokalizacji Monte Carlo
-		\item lifecycle\_manager - zarządza cyklem życia węzłów
-		\item rviz2 - wizualizacja w czasie rzeczywistym
-		\end{itemize}
-
-	\item \textbf{Parametry AMCL:}
-		\begin{itemize}
-		\item Filtr cząsteczkowy: 3000-10000 cząstek
-		\item Model ruchu: współczynniki alpha1-5 = 0.2
-		\item Aktualizacja: min\_d = 0.1m, min\_a = 0.1rad
-		\item Odzyskiwanie: alpha\_slow = 0.001, alpha\_fast = 0.1
-		\end{itemize}
-
-	\item \textbf{Proces uruchomienia:}
-		\begin{itemize}
-		\item Wczytanie parametrów z plików konfiguracyjnych
-		\item Uruchomienie węzłów w odpowiedniej kolejności
-		\item Konfiguracja transformacji (tf) i remapowania
-		\end{itemize}
-	\end{itemize}
-
-	System zapewnia lokalizację robota na wcześniej stworzonej mapie poprzez porównywanie aktualnych odczytów z czujników z danymi z mapy.
-	\newpage
-	\item navigation\_launch.py
-	Jest to główny plik wykonawczy, który spaja wszystkie funkcje w całość do użytku robota z ROS.
-	Ten plik uruchamia system nawigacji w ROS 2. Główne komponenty to:
-
-	\begin{itemize}
-	\item \textbf{Parametry konfiguracyjne:}
-		\begin{itemize}
-		\item namespace - przestrzeń nazw dla węzłów
-		\item use\_sim\_time - kontrola użycia czasu symulacji
-		\item params\_file - ścieżka do pliku parametrów
-		\item autostart - automatyczne uruchamianie systemu
-		\item use\_composition - użycie kompozycji węzłów
-		\item use\_respawn - ponowne uruchamianie węzłów po awarii
-		\end{itemize}
-
-	\item \textbf{Główne węzły:}
-		\begin{itemize}
-		\item controller\_server - kontroler ruchu robota
-		\item planner\_server - planowanie ścieżki
-		\item behavior\_server - zarządzanie zachowaniami
-		\item bt\_navigator - nawigacja oparta o drzewa zachowań
-		\item waypoint\_follower - podążanie za punktami
-		\item velocity\_smoother - wygładzanie prędkości
-		\item lifecycle\_manager - zarządzanie cyklem życia węzłów
-		\end{itemize}
-
-	\item \textbf{Proces uruchomienia:}
-		\begin{itemize}
-		\item Deklaracja parametrów konfiguracyjnych
-		\item Konfiguracja przekierowań tematów ROS
-		\item Uruchomienie węzłów nawigacyjnych
-		\item Zarządzanie cyklem życia węzłów
-		\end{itemize}
-	\end{itemize}
-
-	System zapewnia kompleksową nawigację autonomiczną, od planowania ścieżki po kontrolę ruchu robota, z możliwością dostosowania parametrów i zachowań.
-	Plik ten posiada również plik konfiguracyjny nav2\_params.yaml, gdzie znajdują się parametry do nawigacji robota:
-
-	\begin{itemize}
-	\item \textbf{AMCL (Adaptive Monte Carlo Localization):}
-		\begin{itemize}
-		\item Parametry modelu ruchu (alpha1-5: 0.2)
-		\item Parametry przetwarzania skanów laserowych
-		\item Parametry filtra cząsteczkowego (500-2000 cząstek)
-		\end{itemize}
-
-	\item \textbf{Nawigator BT (Behavior Tree):}
-		\begin{itemize}
-		\item Konfiguracja ramek odniesienia
-		\item Lista dostępnych wtyczek do drzew zachowań
-		\item Parametry kontroli wykonania
-		\end{itemize}
-
-	\item \textbf{Kontroler ruchu:}
-		\begin{itemize}
-		\item Częstotliwość kontroli: 20.0 Hz
-		\item Progi prędkości minimalnej
-		\item Parametry kontrolera DWB (Dynamic Window Approach)
-		\end{itemize}
-
-	\item \textbf{Mapy kosztów:}
-		\begin{itemize}
-		\item Lokalna: aktualizacja 5.0 Hz, okno 3x3m
-		\item Globalna: aktualizacja 1.0 Hz, rozdzielczość 0.05m
-		\item Konfiguracja warstw: przeszkody, inflacja, statyczna
-		\end{itemize}
-
-	\item \textbf{Planowanie ścieżki:}
-		\begin{itemize}
-		\item Algorytm NavfnPlanner
-		\item Tolerancja celu: 0.5m
-		\item Parametry optymalizacji
-		\end{itemize}
-
-	\item \textbf{Zachowania robota:}
-		\begin{itemize}
-		\item Obrót, cofanie, jazda po kierunku
-		\item Parametry asystenta teleoperacji
-		\item Limity prędkości i przyspieszenia
-		\end{itemize}
-
-	\item \textbf{Wygładzanie prędkości:}
-		\begin{itemize}
-		\item Częstotliwość: 20.0 Hz
-		\item Maksymalne prędkości: [0.26, 0.0, 1.0] m/s
-		\item Maksymalne przyspieszenia: [2.5, 0.0, 3.2] m/s²
-		\end{itemize}
-	\end{itemize}
-
-	Te parametry zostały zoptymalizowane dla zapewnienia stabilnej i bezpiecznej nawigacji robota w różnych warunkach.
-
-\end{itemize}
-
-\newpage
-\subsection{Diagramy UML prezentujące działanie konkretnych programów}
 \begin{figure}[!hb]
 	\centering
-	\includegraphics[width=0.3\textwidth]{images/uml-model.png}
+\begin{lstlisting}
+	# ROS Parameters
+    odom_frame: "odom"
+    map_frame: "map"
+    base_frame: "base_footprint"
+    scan_topic: "/scan"
+    use_map_saver: true
+    use_sim_time: false
+    mode: "mapping" #localization
+\end{lstlisting}
+\caption{Fragment kodu z pliku mapper\_params\_online\_async.yaml}
+\label{fig:mapper-params2}
+\end{figure}
+Ustawiono tutaj tryb mapowania, oraz nazwy ramek, z których korzysta program.
+\newline
+\newpage
+\begin{figure}[!hb]
+	\centering
+\begin{lstlisting}
+	debug_logging: false
+    throttle_scans: 2
+    transform_publish_period: 0.05 #if 0 never publishes odometry
+    map_update_interval: 2.0
+    resolution: 0.05
+    max_laser_range: 12.0 #RP Lidar A1
+    minimum_time_interval: 0.2
+    transform_timeout: 0.5
+    tf_buffer_duration: 30.
+    stack_size_to_use: 60000000 #// program needs a larger stack size
+    enable_interactive_mode: true
+\end{lstlisting}
+\caption{Fragment kodu z pliku mapper\_params\_online\_async.yaml}
+\label{fig:mapper-params3}
+\end{figure}
+Dostosowano parametry po przeprowadzeniu testów i analizie wyników. Zmniejszono odstęp czasowy między aktualizacjami mapy, zwiększono rozdzielczość mapy oraz zwiększono czas oczekiwania na transformację. Dostosowano również rozmiar stosu, aby zapobiec przepełnieniu pamięci. Zmieniony został też maksymalny dystans na jaki pozwala zamontowany model LiDAR-a.
+\end{itemize}
+\newpage
+\subsection{Nawigacja i lokalizacja}
+Do nawigacji i lokalizacji robota wykorzystano pakiet Nav2, który pozwala na wyznaczanie trasy i lokalizację robota na mapie. Program ten składa się z następujących plików:
+\begin{itemize}
+	\item nav\_localization.launch.py - plik ten odpowiada za konfigurację i uruchomienie węzłów odpowiedzialnych za nawigację i lokalizację robota. 
+	 Podstawowym elementem jest serwer mapy, który przechowuje i udostępnia mapę otoczenia. Za lokalizację odpowiada algorytm AMCL (adaptacyjna lokalizacja Monte Carlo), który wykorzystuje chmurę cząstek do określenia pozycji robota na mapie. System kontroli ruchu składa się z kontrolera ruchu, który steruje silnikami, planera ścieżki wyznaczającego trasę oraz modułu zachowań awaryjnych, który pozwala na reagowanie w sytuacjach nieoczekiwanych. Całością zarządza nawigator oparty na drzewach zachowań.
+
+	Program konfiguruje się poprzez zestaw parametrów, z których najważniejsze to praca w czasie rzeczywistym (zamiast symulacji), automatyczne uruchomienie systemu oraz ścieżki do plików z mapą i konfiguracją. 
+
+	Szczególną uwagę poświęcono konfiguracji modułu AMCL, gdzie określono liczbę wykorzystywanych cząstek (od 3000 do 10000), parametry modelu ruchu (wszystkie ustawione na 0.2) oraz warunki aktualizacji lokalizacji (minimalny przesuw 0.1m i obrót 0.1 radiana). Dodatkowo włączono funkcję globalnej lokalizacji przy starcie systemu, co pozwala na określenie pozycji bez znajomości stanu początkowego.
+
+	Do nawigacji tworzone są dodatkowe mapy kosztów (ang. "costmap") lokalna i globalna. Lokalna mapa kosztów odpowiada za omijanie obiektów które nie były na mapie podczas jej tworzenia, natomiast globalna mapa kosztów tworzy strefy wokół obiektów już zmapowanych, czyli np. ściany, co pozwala na tworzenie tras wokół przeszkód.
+	\newpage
+	\item amcl.yaml - plik konfiguracyjny algorytmu AMCL odpowiedzialnego 
+	za precyzyjną lokalizację robota na mapie. Zawiera parametry takie jak:
+	\begin{itemize}
+		\item Współczynniki szumu odometrii (alpha1-5) ustawione na 0.2 dla zoptymalizowanej dokładności
+		\item Parametry filtracji wiązki lasera dla lepszej jakości skanów
+		\item Liczba cząstek (500-3000) dobrana dla optymalnej równowagi między dokładnością a wydajnością
+		\item Częstotliwość aktualizacji pozycji i orientacji (co 0.1m/rad) zapewniająca płynne śledzenie
+		\item Parametry adaptacji (szybkiej i wolnej) dla stabilnej lokalizacji
+		\item Konfiguracja ramek odniesienia i transformacji dla poprawnej integracji z systemem ROS
+	\end{itemize}
+	\end{itemize}
+\newpage
+\section{Diagramy UML prezentujące działanie konkretnych programów}
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/uml-model.png}
 	\caption{Diagram UML prezenujący działanie programu model\_controll.launch.py}
 	\label{fig:diagram-model}
 \end{figure}
 
 \begin{figure}[!hb]
 	\centering
-	\includegraphics[width=0.3\textwidth]{images/uml-lidar.png}
+	\includegraphics[width=0.9\textwidth]{images/uml-lidar.png}
 	\caption{Diagram UML prezenujący działanie programu rplidar.launch.py}
 	\label{fig:diagram-lidar}
 \end{figure}
 
 \begin{figure}[!hb]
 	\centering
-	\includegraphics[width=0.3\textwidth]{images/uml-nav.png}
-	\caption{Diagram UML prezenujący działanie programu navigation\_launch.py}
+	\includegraphics[width=0.9\textwidth]{images/uml-local.png}
+	\caption{Diagram UML prezenujący działanie programu slam.launch.py}
+	\label{fig:diagram-loc}
+\end{figure}
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=0.9\textwidth]{images/uml-nav.png}
+	\caption{Diagram UML prezenujący działanie programu nav\_localization.launch.py}
 	\label{fig:diagram-nav}
 \end{figure}
 
-\begin{figure}[!hb]
-	\centering
-	\includegraphics[width=0.3\textwidth]{images/uml-lidar.png}
-	\caption{Diagram UML prezenujący działanie programu localization\_launch.py}
-	\label{fig:diagram-loc}
-\end{figure}
+
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 % Pakiet minted wymaga importu: \usepackage{minted}                 %
 % i specjalnego kompilowania:                                       %
@@ -1788,10 +1452,10 @@ Podzielone zostały na dwa pliki wykonawcze:
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 
 
-Krótka wstawka kodu w linii tekstu jest możliwa, np.  \lstinline|int a;| (biblioteka \texttt{listings})% lub  \mintinline{C++}|int a;| (biblioteka \texttt{minted})
-. 
-Dłuższe fragmenty lepiej jest umieszczać jako rysunek, np. kod na rys \ref{fig:pseudokod:listings}% i rys. \ref{fig:pseudokod:minted}
-, a naprawdę długie fragmenty – w załączniku.
+%Krótka wstawka kodu w linii tekstu jest możliwa, np.  \lstinline|int a;| (biblioteka \texttt{listings})% lub  \mintinline{C++}|int a;| (biblioteka \texttt{minted})
+ 
+%Dłuższe fragmenty lepiej jest umieszczać jako rysunek, np. kod na rys \ref{fig:pseudokod:listings}% i rys. \ref{fig:pseudokod:minted}
+%, a naprawdę długie fragmenty – w załączniku.
 
 
 %\begin{figure}
@@ -1838,22 +1502,22 @@ Dłuższe fragmenty lepiej jest umieszczać jako rysunek, np. kod na rys \ref{fi
 W ramach pracy zastosowano model V do testowania systemu. Model V jest popularnym modelem w inżynierii oprogramowania, który przedstawia proces tworzenia oprogramowania w formie litery V. Lewa strona litery V reprezentuje fazy definiowania wymagań i projektowania systemu, natomiast prawa strona litery V reprezentuje fazy testowania i walidacji systemu. 
 
 \section{Model V}
-Model V składa się z następujących etapów:
+
 \begin{itemize}
-	\item \textbf{Definiowanie wymagań:} Określenie wymagań funkcjonalnych i niefunkcjonalnych systemu.
-	\item \textbf{Projektowanie systemu:} Opracowanie architektury systemu oraz szczegółowego projektu poszczególnych komponentów.
-	\item \textbf{Implementacja:} Kodowanie poszczególnych modułów systemu.
-	\item \textbf{Testowanie jednostkowe:} Testowanie poszczególnych modułów w celu weryfikacji ich poprawności.
-	\item \textbf{Integracja i testowanie integracyjne:} Łączenie modułów i testowanie ich współdziałania.
-	\item \textbf{Testowanie systemowe:} Testowanie całego systemu w celu weryfikacji spełnienia wymagań.
-	\item \textbf{Walidacja:} Sprawdzenie, czy system spełnia oczekiwania użytkownika i działa zgodnie z założeniami.
+	\item \textbf{Definiowanie wymagań:} Określenie wymagań funkcjonalnych i niefunkcjonalnych systemu. Na tym etapie określono, że system ma umożliwiać zdalne sterowanie robotem, tworzenie mapy otoczenia, lokalizację robota na mapie oraz nawigację do wyznaczonych punktów.
+	\item \textbf{Projektowanie systemu:} Opracowanie architektury systemu oraz szczegółowego projektu poszczególnych komponentów. Ten etap poświęcony był na wstępne zaprojektowanie systemu przez analizę dostępnych rozwiązań, określenie komponentów oraz ich funkcji.
+	\item \textbf{Implementacja:} Kodowanie poszczególnych modułów systemu. Na tym etapie zaimplementowano sterowanie silnikami, odczyt danych z LiDAR-a, tworzenie mapy, lokalizację i nawigację robota.
+	\item \textbf{Testowanie jednostkowe:} Testowanie poszczególnych modułów w celu weryfikacji ich poprawności. Testy były przeprowadzane na bieżąco podczas implementacji. Na początku testowano sterowanie silnikami, a następnie odczyt danych z LiDAR-a, tworzenie mapy, lokalizację i nawigację robota.
+	\item \textbf{Integracja i testowanie integracyjne:} Łączenie modułów i testowanie ich współdziałania. Na tym etapie zintegrowano poszczególne moduły i przetestowano ich współpracę. W szczególności skupiono się na komunikacji między modułami oraz przesyłaniu danych.
+	\item \textbf{Testowanie systemowe:} Testowanie całego systemu w celu weryfikacji spełnienia wymagań. Ten etap obejmował już mapowanie całych pomieszczeń, lokalizację robota na mapie oraz nawigację do wyznaczonych punktów z omijaniem przeszkód zmapowanych i niezmapowanych.
+	\item \textbf{Walidacja:} Sprawdzenie, czy system spełnia oczekiwania użytkownika i działa zgodnie z założeniami. Po przeprowadzeniu testów stwierdzono że system spełnia wymagania.
 \end{itemize}
 
 \section{Organizacja eksperymentów}
-Eksperymenty przeprowadzono zgodnie z model V, realizując następujące kroki:
+
 \begin{itemize}
 	\item \textbf{Testowanie jednostkowe:} Każdy moduł systemu, taki jak sterowanie silnikami, odczyt danych z LiDAR-a, tworzenie mapy, lokalizacja i nawigacja, został przetestowany indywidualnie. Testy jednostkowe obejmowały sprawdzenie poprawności działania poszczególnych funkcji i metod.
-	\item \textbf{Testowanie integracyjne:} Po zakończeniu testów jednostkowych, moduły zostały zintegrowane i przetestowane pod kątem poprawności współdziałania. Testy integracyjne obejmowały sprawdzenie komunikacji między modułami oraz poprawności przesyłania danych.
+	\item \textbf{Testowanie integracyjne:} Po zakończeniu testów jednostkowych, moduły zostały zintegrowane i przetestowane pod kątem poprawności współdziałania. Testy integracyjne obejmowały sprawdzenie komunikacji między modułami oraz poprawności przesyłania danych, jak i ewentualnych błędów.
 	\item \textbf{Testowanie systemowe:} Cały system został przetestowany w warunkach rzeczywistych. Testy systemowe obejmowały sprawdzenie poprawności działania systemu w różnych scenariuszach, takich jak zdalne sterowanie robotem, tworzenie mapy otoczenia, lokalizacja robota na mapie oraz autonomiczna nawigacja do wyznaczonych punktów.
 	\item \textbf{Walidacja:} System został zweryfikowany pod kątem spełnienia wymagań użytkownika. Walidacja obejmowała sprawdzenie, czy system działa zgodnie z założeniami i spełnia oczekiwania użytkownika.
 \end{itemize}
@@ -1870,13 +1534,13 @@ Przypadki testowe obejmowały następujące scenariusze:
 \section{Wykryte i usunięte błędy}
 Podczas testowania systemu wykryto i usunięto następujące błędy:
 \begin{itemize}
-	\item \textbf{Problem z zasilaniem:} Występowały problemy z zasilaniem silników, które zostały rozwiązane przez zastosowanie odpowiednich przetwornic step-down.
-	\item \textbf{Problem z kółkami:} Kółka robota miały tendencję do ślizgania się, co zostało rozwiązane przez zastosowanie gumowych opon.
-	\item \textbf{Problem z błędną nawigacją:} Robot czasami poruszał się w nieoczekiwany sposób, co zostało rozwiązane przez poprawne podłączenie silników i kalibrację enkoderów.
+	\item \textbf{Problem z zasilaniem:} Występowały problemy z zasilaniem Raspberry Pi, co zostało rozwiązane przez wyłączenie zbędnej funkcji szukania monitora. Rozwiązano ten problem przez zastosowanie komendy sudo systemctl set-default multi-user.target.
+	\item \textbf{Problem z kółkami:} Przez rozmiar kół i materiał z jakich zostały wykonane, robot miał problem z ślizganiem się kół co powodowało różnice między rzeczywistą pozycją robota, a tą która była wyznaczana podczas mapowania. Rozwiązano ten problem poprzez zastosowanie funkcji HuberLoss w algorytmie mapowania.
+	\item \textbf{Problem z błędną lokalizacją robota na mapie:} Na wczesnym etapie testów systemu, robot poruszał się w błędny sposób na mapie, gdy np. zbliżał się do ściany na mapie początkowo się oddalał, co powodowało rozjeżdżanie się pomiarów niszcząc mapę. Rozwiązaniem problemu było poprawne podłączenie silników do sterownika i Arduino.
 \end{itemize}
 
 \section{Wyniki badań eksperymentalnych}
-Wyniki testów potwierdziły poprawność działania systemu. Robot poprawnie reagował na polecenia z klawiatury, tworzył mapę otoczenia, lokalizował się na zapisanej mapie oraz nawigował do wyznaczonych punktów, omijając przeszkody. System spełniał wszystkie wymagania funkcjonalne i niefunkcjonalne określone na początku projektu.
+Wyniki testów potwierdziły poprawność działania systemu. Robot poprawnie reagował na polecenia z klawiatury, tworzył mapę otoczenia, lokalizował się na zapisanej mapie oraz nawigował do wyznaczonych punktów, omijając przeszkody. System spełniał wszystkie wymagania określone na początku projektu.
 
 
 
@@ -1889,16 +1553,14 @@ Wyniki testów potwierdziły poprawność działania systemu. Robot poprawnie re
 
 
 \section{Uzyskane wyniki}
-W wyniku przeprowadzonych prac udało się zrealizować wszystkie założone cele projektu. System autonomicznej nawigacji robota mobilnego został zaprojektowany, zaimplementowany i przetestowany. Robot poprawnie tworzy mapę otoczenia, lokalizuje się na zapisanej mapie oraz nawigował do wyznaczonych punktów, omijając przeszkody. System spełnia wszystkie wymagania funkcjonalne i niefunkcjonalne określone na początku projektu.
+W wyniku przeprowadzonych prac udało się zrealizować wszystkie założone cele projektu. System autonomicznej nawigacji robota mobilnego został zaprojektowany, zaimplementowany i przetestowany. Robot poprawnie tworzy mapę otoczenia, lokalizuje się na zapisanej mapie oraz nawigował do wyznaczonych punktów, omijając przeszkody. 
 
 \section{Kierunki dalszych prac}
 W przyszłości możliwe jest rozszerzenie funkcjonalności systemu o dodatkowe elementy, takie jak:
 \begin{itemize}
 	\item Integracja z dodatkowymi sensorami, takimi jak kamery RGB-D, aby poprawić dokładność mapowania i lokalizacji.
-	\item Implementacja zaawansowanych algorytmów planowania ścieżki, które uwzględniają dynamiczne przeszkody.
-	\item Rozbudowa systemu o funkcje autonomicznego ładowania baterii.
-	\item Zastosowanie algorytmów uczenia maszynowego do optymalizacji nawigacji i mapowania.
-	\item Integracja z systemami IoT (Internet of Things) w celu zdalnego monitorowania i sterowania robotem.
+	\item Rozbudowa systemu o możliwość ładowania akumulatorów bez potrzeby wyciągania ich z robota i zamontowanie modułu BMS.
+	\item Stworzenie obudowy dla robota, aby zabezpieczyć go przed uszkodzeniami mechanicznymi.
 \end{itemize}
 
 
@@ -1927,18 +1589,18 @@ W przyszłości możliwe jest rozszerzenie funkcjonalności systemu o dodatkowe 
 
 
 % TODO
-\chapter{Źródła}
+%\chapter{Źródła}
 
-Jeżeli w pracy konieczne jest umieszczenie długich fragmentów kodu źródłowego, należy je przenieść w to miejsce.
+%Jeżeli w pracy konieczne jest umieszczenie długich fragmentów kodu źródłowego, należy je przenieść w to miejsce.
 
-\begin{lstlisting}
-if (_nClusters < 1)
-	throw std::string ("unknown number of clusters");
-if (_nIterations < 1 and _epsilon < 0)
-	throw std::string ("You should set a maximal number of iteration or minimal difference -- epsilon.");
-if (_nIterations > 0 and _epsilon > 0)
-	throw std::string ("Both number of iterations and minimal epsilon set -- you should set either number of iterations or minimal epsilon.");
-\end{lstlisting}
+%\begin{lstlisting}
+%if (_nClusters < 1)
+%	throw std::string ("unknown number of clusters");
+%if (_nIterations < 1 and _epsilon < 0)
+%	throw std::string ("You should set a maximal number of iteration or minimal difference -- epsilon.");
+%if (_nIterations > 0 and _epsilon > 0)
+%	throw std::string ("Both number of iterations and minimal epsilon set -- you should set either number of iterations or minimal epsilon.");
+%\end{lstlisting}
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
@@ -1961,20 +1623,18 @@ if (_nIterations > 0 and _epsilon > 0)
 % TODO
 \chapter{Lista dodatkowych plików, uzupełniających tekst pracy} 
 
-
-W systemie do pracy dołączono dodatkowe pliki zawierające:
+Do pracy załączono następujące dodatkowe pliki:
 \begin{itemize}
-\item źródła programu,
-\item dane testowe,
-\item film pokazujący działanie opracowanego oprogramowania lub zaprojektowanego i~wykonanego urządzenia,
-\item itp.
-\end{itemize}
+	\item Pliki źródłowe programu w folderze \texttt{Oprogramowanie}
+	\item Film pokazujący działanie robota w pliku \texttt{Robot.mp4}
+	\end{itemize}
+
 
 
 \listoffigures
 \addcontentsline{toc}{chapter}{Spis rysunków}
-\listoftables
-\addcontentsline{toc}{chapter}{Spis tabel}
+%\listoftables
+%\addcontentsline{toc}{chapter}{Spis tabel}
 
 \end{appendices}
 

@@ -210,3 +210,257 @@ Pakiet robot\_slam składa się z 6 plików wykonawczych, które odpowiadają za
 \item opcjonalnie wyniki badań eksperymentalnych
 \end{itemize}
 
+\
+
+
+
+
+
+
+
+Skrypt ten jest zmodyfikowaną wersją skryptu ros\_arduino\_bridge\cite{bib:rosarduinobridge}, który został dostosowany do potrzeb tego projektu.
+
+Najważniejsze funkcje tego programu znajdują się w plikach:
+\begin{itemize}
+	\item ROSArduinoBridge.ino
+
+	Jest to główny program, gdzie znajdują się:
+	\begin{itemize}
+		\item Funkcja \texttt{setup()} - inicjalizująca kontroler silników, enkodery i piny wejścia/wyjścia
+		\item Funkcja \texttt{loop()} - główna pętla programu, która:
+		\begin{itemize}
+			\item Odczytuje i przetwarza komendy z portu szeregowego
+			\item Wykonuje obliczenia PID dla kontroli silników
+			\item Aktualizuje stan enkoderów
+			\item Sprawdza warunki automatycznego zatrzymania
+		\end{itemize}
+		\item Funkcja \texttt{runCommand()} - interpretuje i wykonuje otrzymane komendy:
+		\begin{itemize}
+			\item Odczyt enkoderów
+			\item Sterowanie silnikami
+			\item Reset enkoderów
+			\item Aktualizacja parametrów PID
+			\item Operacje na pinach cyfrowych i analogowych
+		\end{itemize}
+		\item Zmienne kontrolujące:
+		\begin{itemize}
+			\item Parametry komunikacji szeregowej
+			\item Timery kontrolne PID
+			\item Bufory komend i argumentów
+		\end{itemize}
+	\end{itemize}
+	\newpage
+	\item commands.h
+Zawiera definicje komend, które są wysyłane z Raspberry Pi do Arduino.
+
+\begin{figure}[!hb]
+	\centering
+	\begin{lstlisting}
+
+		#ifndef COMMANDS_H
+		#define COMMANDS_H
+		
+		#define ANALOG_READ    'a'
+		#define GET_BAUDRATE   'b'
+		#define PIN_MODE       'c'
+		#define DIGITAL_READ   'd'
+		#define READ_ENCODERS  'e'
+		#define MOTOR_SPEEDS   'm'
+		#define MOTOR_RAW_PWM  'o'
+		#define PING           'p'
+		#define RESET_ENCODERS 'r'
+		#define SERVO_WRITE    's'
+		#define SERVO_READ     't'
+		#define UPDATE_PID     'u'
+		#define DIGITAL_WRITE  'w'
+		#define ANALOG_WRITE   'x'
+		#define LEFT            0
+		#define RIGHT           1
+		
+		#endif
+	\end{lstlisting}
+	\caption{Komendy jakie są wysyłane z Raspberry Pi do Arduino}
+	\label{fig:Komendy jakie są wysyłane z Raspberry Pi do Arduino}
+	\end{figure}
+
+Plik zawiera definicje komend używanych do komunikacji między Raspberry Pi a Arduino. W tworzeniu projektu korzystano między innymi z komend e do dostosowania enkoderów silników i średnicy koła do rzeczywistych wartości.
+
+\newpage
+	\item diff\_controller.h
+	W tym pliku znajduje się implementacja regulatora PID (Proporcjonalno-Całkująco-Różniczkującego) do sterowania silnikami. Jest to element krytyczny dla precyzyjnego sterowania robotem mobilnym.
+
+	Regulator wykorzystuje strukturę SetPointInfo do przechowywania danych:
+	\begin{itemize}
+		\item TargetTicksPerFrame - zadana prędkość w impulsach na ramkę
+		\item Encoder - aktualna wartość enkodera
+		\item PrevEnc - poprzednia wartość enkodera
+		\item PrevInput - poprzednie wejście (zamiast poprzedniego błędu)
+		\item ITerm - człon całkujący
+		\item output - wyjście regulatora (sterowanie silnikiem)
+	\end{itemize}
+
+	Zdefiniowano następujące współczynniki regulatora:
+	\begin{itemize}
+		\item Kp = 20 - wzmocnienie członu proporcjonalnego
+		\item Kd = 12 - wzmocnienie członu różniczkującego
+		\item Ki = 0 - wzmocnienie członu całkującego
+		\item Ko = 50 - współczynnik skalujący wyjście
+	\end{itemize}
+
+	Regulator zawiera trzy główne funkcje:
+	\begin{itemize}
+		\item resetPID() - inicjalizacja zmiennych regulatora
+		\item doPID() - obliczanie nowego sygnału sterującego
+		\item updatePID() - aktualizacja regulatorów obu silników
+	\end{itemize}
+
+	Algorytm działa poprzez obliczanie błędu między zadaną a aktualną prędkością, następnie wykorzystuje człony proporcjonalny, całkujący i różniczkujący do generowania sygnału sterującego silnikami.
+
+	\begin{figure}
+		\centering
+		\begin{lstlisting}
+	/* PID routine to compute the next motor commands */
+	void doPID(SetPointInfo * p) {
+	  long Perror;
+	  long output;
+	  int input;
+
+	  input = p->Encoder - p->PrevEnc;
+	  Perror = p->TargetTicksPerFrame - input;
+
+	  output = (Kp * Perror - Kd * (input - p->PrevInput) + p->ITerm) / Ko;
+	  p->PrevEnc = p->Encoder;
+
+	  output += p->output;
+	  if (output >= MAX_PWM)
+		output = MAX_PWM;
+	  else if (output <= -MAX_PWM)
+		output = -MAX_PWM;
+	  else
+		p->ITerm += Ki * Perror;
+
+	  p->output = output;
+	  p->PrevInput = input;
+	}
+		\end{lstlisting}
+		\caption{Implementacja głównej funkcji regulatora PID}
+		\label{fig:pid-implementation}
+	\end{figure}
+
+	\newpage
+
+
+	\item encoder\_driver.h
+	W tym pliku znajdują się definicje portów enkoderów i funkcje do ich obsługi.
+	\begin{figure}[!hb]
+		\centering
+		\begin{lstlisting}
+	
+	   
+		#ifdef ARDUINO_ENC_COUNTER
+		#define LEFT_ENC_PIN_A PD2  //pin 2
+		#define LEFT_ENC_PIN_B PD3  //pin 3
+
+		#define RIGHT_ENC_PIN_A PC4  //pin A4
+		#define RIGHT_ENC_PIN_B PC5   //pin A5
+		#endif
+		
+		long readEncoder(int i);
+		void resetEncoder(int i);
+		void resetEncoders();
+
+		\end{lstlisting}
+		\caption{Konfiguracja portów enkoderów z Arduino i sterownikiem L298N}
+		\label{fig:Konfiguracja portów enkoderów}
+		\end{figure}
+		
+		
+
+\newpage
+	\item motor\_driver.h
+	W tym pliku znajdują się definicje portów silników i funkcje do ich obsługi.
+	
+	\begin{figure}[!hb]
+		\centering
+		\begin{lstlisting}
+
+		#ifdef L298_MOTOR_DRIVER
+		#define RIGHT_MOTOR_BACKWARD 5
+		#define LEFT_MOTOR_BACKWARD  6
+		#define RIGHT_MOTOR_FORWARD  9
+		#define LEFT_MOTOR_FORWARD   10
+		#define RIGHT_MOTOR_ENABLE 12
+		#define LEFT_MOTOR_ENABLE 13	
+		 #endif
+		  
+		  void initMotorController();
+		  void setMotorSpeed(int i, int spd);
+		  void setMotorSpeeds(int leftSpeed, int rightSpeed);
+		\end{lstlisting}
+		\caption{Konfiguracja portów silników}
+		\label{fig:Konfiguracja portów silników}
+		\end{figure}
+		
+
+
+
+
+
+	\item motor\_driver.ino
+	Przedstawiony kod zawiera definicje i implementacje dla różnych sterowników silnika.
+
+	\begin{itemize}
+		\item \textbf{Struktura kodu:} Wykorzystuje dyrektywy preprocesora (\texttt{\#ifdef}, \texttt{\#elif}) do wyboru odpowiedniego sterownika silnika.
+		
+		\item \textbf{Główne funkcje:}
+		\begin{itemize}
+			\item \texttt{initMotorController()} -- inicjalizuje sterownik silnika
+			\item \texttt{setMotorSpeed(int i, int spd)} -- ustawia prędkość pojedynczego silnika
+			\item \texttt{setMotorSpeeds(int leftSpeed, int rightSpeed)} -- ustawia prędkości obu silników
+		\end{itemize}
+		
+		\item \textbf{Szczegóły implementacji L298:}
+		\begin{itemize}
+			\item Obsługuje kierunek obrotów poprzez zmianę polaryzacji
+			\item Prędkość kontrolowana jest za pomocą PWM (0-255)
+			\item Wykorzystuje piny cyfrowe do sterowania kierunkiem i prędkością
+		\end{itemize}
+	\end{itemize}
+	
+	Kod zapewnia jednolity interfejs dla różnych sterowników silnika, co ułatwia wymienność komponentów sprzętowych bez konieczności modyfikacji głównego kodu aplikacji.
+	
+
+
+\newpage
+	\item encoder\_driver.ino
+	Ten plik zawiera logikę obsługi enkoderów. Główne komponenty to:
+
+	\begin{itemize}
+	\item \textbf{Definicje enkoderów:} Plik wspiera różne typy enkoderów, wybierane przez dyrektywy preprocesora.
+
+	\item \textbf{Obsługa przerwań:} Zaimplementowano dwie procedury przerwań:
+		\begin{itemize}
+		\item ISR (PCINT2\_vect) - dla lewego enkodera
+		\item ISR (PCINT1\_vect) - dla prawego enkodera
+		\end{itemize}
+
+	\item \textbf{Liczniki pozycji:} 
+		\begin{itemize}
+		\item left\_enc\_pos - pozycja lewego enkodera
+		\item right\_enc\_pos - pozycja prawego enkodera
+		\end{itemize}
+
+	\item \textbf{Główne funkcje:}
+		\begin{itemize}
+		\item readEncoder() - odczyt pozycji enkodera
+		\item resetEncoder() - reset pojedynczego enkodera
+		\item resetEncoders() - reset obu enkoderów jednocześnie
+		\end{itemize}
+
+	\item \textbf{Tablica stanów:} ENC\_STATES przechowuje mapowanie stanów enkodera na kierunek obrotu.
+
+	\end{itemize}
+
+	Algorytm wykorzystuje technikę tablicy przeglądowej (lookup table) do dekodowania sygnałów z enkoderów, co pozwala na efektywne określanie kierunku i wielkości obrotu kół robota. System jest zoptymalizowany pod kątem szybkiej odpowiedzi na przerwania sprzętowe.
+
+\end{itemize}
