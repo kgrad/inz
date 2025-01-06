@@ -553,7 +553,7 @@ Praca składa się z siedmiu następujących rozdziałów:
 \begin{itemize}
 \item Rozdział pierwszy zawiera wstęp, w którym przedstawiono cel pracy, jej zakres oraz strukturę.
 \item Rozdział drugi zawiera analizę tematu, osadzenie go w kontekście aktualnego stanu wiedzy, analizę literatury, stan aktualny dziedziny oraz uzasadnienie wyboru rozwiązania.
-\item Rozdział trzeci zawiera wymagania i narzędzia, w którym opisano wymagania fukncjonalne, przypadki użycia, specyfikację komponentów, sposób połączenia sterowania i metodykę wraz z etapami realizacji projektu.
+\item Rozdział trzeci zawiera wymagania i narzędzia, w którym opisano wymagania funkcjonalne, przypadki użycia, specyfikację komponentów, sposób połączenia sterowania i metodykę wraz z etapami realizacji projektu.
 \item Rozdział czwarty zawiera specyfikację użytkową, w którym przedstawiono wymagania użytkownika oraz specyfikację funkcjonalną.
 \item Rozdział piąty zawiera specyfikację techniczą, w którym przedstawiono podstawowe pojęcia i definicje z dziedziny robotyki mobilnej, jak i implementację zastosowanego rozwiązania.
 \item Rozdział szósty zawiera weryfikację i walidację, w którym przedstawiono testy i wyniki działania systemu.
@@ -843,7 +843,7 @@ Następnie, należy uruchomić 2 skrypty na Raspberry Pi, które odpowiadają za
 Po uruchomieniu tych skryptów, należy uruchomić program Rviz, który pozwala na wizualizację mapy i położenia robota. Komenda to: rviz2. Następnym krokiem jest uruchomienie skryptu odpowiedzialny za sterowanie robotem za pomocą klawiatury. Komenda to: ros2 launch robot\_teleop.launch.py. W tym momencie należy przejść do terminala na jednostce sterującej, i za pomocą klawiatury sterować robotem. 
 \newline
 
-Kolejnym krokiem jest uruchomienie skryptu odpowiedzialnego za mapowanie otoczenia. Komenda to: ros2 launch robot\_slam slam.launch.py. W tym momencie gdy robot przemieszcza się przez komendy z klawiatury, pomieszczenie zostaje zmapowane.
+Kolejnym krokiem jest uruchomienie skryptu odpowiedzialnego za mapowanie otoczenia. Komenda to: ros2 launch robot\_slam slam.launch.py. W tym momencie gdy robot przemieszcza się przez komendy z klawiatury, pomieszczenie jest mapowane.
 
 \begin{figure}[!hb]
 	\centering
@@ -853,7 +853,7 @@ Kolejnym krokiem jest uruchomienie skryptu odpowiedzialnego za mapowanie otoczen
 \end{figure}
 
 \newpage
-Gdy wystarczająco dużo pomieszczenia zostanie zmapowane, należy zapisać mapę. Można to wykonać przez komendę ros2 run nav2\_map\_server map\_saver -f map, lub przez dodanie panelu do Rviz z zestawu narzędzi SLAM Toolbox i zapisanie mapy z poziomu tego panelu.
+Gdy wystarczająco dużo pomieszczenia zostanie zmapowane, należy zapisać mapę. Można to wykonać przez komendę ros2 run nav2\_map\_server map\_saver -f map, lub przez dodanie panelu do RVIZ z zestawu narzędzi SLAM Toolbox i zapisanie mapy z poziomu tego panelu.
 
 \begin{figure}[!hb]
 	\centering
@@ -1251,7 +1251,7 @@ Za sterowanie silnikami odpowiadają następujące pliki:
 
 	\item ros2\_control.xacro - w tym pliku zawarto konfigurację silników dla Ros2 Control, zdefiniowano w nim nazwy dla poszczególnych kół, częstotliwość odświeżania zgodną z skryptem ROSArduinoBridge, czyli 57600 bodów, zliczenia enkoderów na obrót koła - 2194 wyznaczone przez testy, oraz ustawienie maksymalnej i minimalnej prędkości dla każdego silnika.
 	\item twist\_mux.yaml - plik konfiguracyjny, wykorzystywany do udostępnienia cmd\_vel do sterowania robotem. Jest to potrzebne przy sterowaniu z klawiatury.
-	\newpage \item my\_controllers.yaml - jest to plik konfiguracyjny potrzebny do integracji systemu z pakietem diffdrive arduino. Zdeiniowano w nim nazwy kół zgodne z poprzednimi plikami konfiguracyjnymi, częstotliwość aktualizacji, szerokość kół i ich rozstaw.
+	\newpage \item my\_controllers.yaml - jest to plik konfiguracyjny potrzebny do integracji systemu z pakietem diffdrive arduino. Zdefiniowano w nim nazwy kół zgodne z poprzednimi plikami konfiguracyjnymi, częstotliwość aktualizacji, szerokość kół i ich rozstaw.
 	\begin{figure}[!hb]
 		\centering
 	\begin{lstlisting}
@@ -1389,7 +1389,7 @@ Do nawigacji i lokalizacji robota wykorzystano pakiet Nav2, który pozwala na wy
 \begin{figure}[!hb]
 	\centering
 	\includegraphics[width=0.8\textwidth]{images/uml-model.png}
-	\caption{Diagram UML prezenujący działanie programu model\_controll.launch.py}
+	\caption{Diagram UML prezentujący działanie programu model\_controll.launch.py}
 	\label{fig:diagram-model}
 \end{figure}
 
