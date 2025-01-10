@@ -88,7 +88,7 @@
 \newcommand{\TitleAlt}{Construction of an Environment Map Using a Mobile Robot}                     % thesis title in English
 \newcommand{\Program}{Automatyka i Robotyka}            % kierunek studiów  (bez $\langle$ i $\rangle$)
 \newcommand{\Specialisation}{Technologie Informacyjne}     % specjalność  (bez $\langle$ i $\rangle$)
-\newcommand{\Departament}{Katedra Automatyki i Robotyki}        % katedra promotora  (bez $\langle$ i $\rangle$)
+\newcommand{\Departament}{Automatyki i Robotyki}        % katedra promotora  (bez $\langle$ i $\rangle$)
 
 % Jeżeli został wyznaczony promotor pomocniczy lub opiekun, proszę go/ją wpisać ...
 %\newcommand{\Consultant}{$\langle$stopień naukowy imię i nazwisko$\rangle$} % dane promotora pomocniczego, opiekuna (bez $\langle$ i $\rangle$)
@@ -303,7 +303,7 @@
 \newcommand{\LeftProgram}{Kierunek}
 \newcommand{\LeftSpecialisation}{Specjalność}
 \newcommand{\LeftSUPERVISOR}{PROWADZĄCY PRACĘ}
-\newcommand{\LeftDEPARTMENT}{KATEDRA}
+\newcommand{\LeftDEPARTMENT}{Katedra}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -480,11 +480,11 @@ escapeinside={@*}{*@},%
 \subsubsection*{Tytuł pracy} 
 \Title
 \subsubsection*{Streszczenie}  
-Projekt koncentruje się na implementacji systemu autonomicznej nawigacji robota mobilnego, z naciskiem na dwa kluczowe aspekty: tworzenie mapy otoczenia oraz realizację precyzyjnej nawigacji z punktu do punktu w zmapowanej przestrzeni wykorzystując rozwiązanie typu SLAM. Rozwiązanie opiera się na dwóch współpracujących ze sobą mikrokontrolerach - Raspberry Pi 4, który odpowiada za obsługę czujnika RPLidar A1 oraz wykonywanie algorytmów mapowania i nawigacji, oraz Arduino Nano zarządzającym silnikami z enkoderami, zapewniającymi precyzyjne sterowanie ruchem robota. Wykonana konfiguracja zrealizowana została w językach C++ oraz Python, z wykorzystaniem narzędzi z ekosystemu ROS 2 (ang. "Robot Operating System 2"), takich jak Nav2 (ang. "Navigation 2"), SLAM Toolbox (ang. "Simultaneous Localization and Mapping Toolbox") oraz ROS2 Control (ang. "Robot Operating System 2 Control").
+Projekt koncentruje się na implementacji systemu autonomicznej nawigacji robota mobilnego, z naciskiem na dwa kluczowe aspekty: tworzenie mapy otoczenia oraz realizację precyzyjnej nawigacji z punktu do punktu w zmapowanej przestrzeni wykorzystując rozwiązanie typu SLAM. Rozwiązanie opiera się na dwóch współpracujących ze sobą mikrokontrolerach - Raspberry Pi 4, który odpowiada za obsługę czujnika RPLidar A1 oraz wykonywanie algorytmów mapowania i nawigacji, oraz Arduino Nano zarządzającym silnikami z enkoderami, zapewniającymi precyzyjne sterowanie ruchem robota. Wykonana konfiguracja zrealizowana została w językach C++ oraz Python, z wykorzystaniem narzędzi z ekosystemu ROS 2 (ang. "Robot Operating System 2"), takich jak Nav2 (ang. "Navigation 2") i SLAM Toolbox (ang. "Simultaneous Localization and Mapping Toolbox").
 
 
 \subsubsection*{Słowa kluczowe} 
-mapowanie, robot mobilny, lokalizacja, SLAM, ROS
+mapowanie, robot mobilny, lokalizacja, SLAM, \textbf{ROS 2}
 \subsubsection*{Thesis title} 
 \begin{otherlanguage}{british}
 \TitleAlt
@@ -492,12 +492,12 @@ mapowanie, robot mobilny, lokalizacja, SLAM, ROS
 
 \subsubsection*{Abstract} 
 \begin{otherlanguage}{british}
-The project focuses on implementing an autonomous mobile robot navigation system, emphasizing two key aspects: environment mapping and precise point-to-point navigation in the mapped space using SLAM type solution. The solution is based on two cooperating microcontrollers - Raspberry Pi 4, which handles the RPLidar A1 sensor and executes mapping and navigation algorithms, and Arduino Nano managing motors with encoders, providing precise robot motion control. The implemented configuration was realized using C++ and Python languages, utilizing tools from the ROS 2 (Robot Operating System 2) ecosystem, such as Nav2 (Navigation 2), SLAM Toolbox (Simultaneous Localization and Mapping Toolbox) and ROS2 Control (Robot Operating System 2 Control).
+The project focuses on implementing an autonomous mobile robot navigation system, emphasizing two key aspects: environment mapping and precise point-to-point navigation in the mapped space using SLAM type solution. The solution is based on two cooperating microcontrollers - Raspberry Pi 4, which handles the RPLidar A1 sensor and executes mapping and navigation algorithms, and Arduino Nano managing motors with encoders, providing precise robot motion control. The implemented configuration was realized using C++ and Python languages, utilizing tools from the ROS 2 (Robot Operating System 2) ecosystem, such as Nav2 (Navigation 2) and SLAM Toolbox (Simultaneous Localization and Mapping Toolbox).
 
 \end{otherlanguage}
 \subsubsection*{Key words}  
 \begin{otherlanguage}{british}
-mapping, mobile robot, localization, SLAM, ROS
+mapping, mobile robot, localization, SLAM, \textbf{ROS 2}
 \end{otherlanguage}
 
 
@@ -533,9 +533,9 @@ Realizacja systemu SLAM i autonomicznej nawigacji wymaga integracji wielu zaawan
 \begin{itemize}
 \item Sensorów w tym LiDAR (ang. "Light Detection and Ranging")
 \item Algorytmów SLAM 
-\item Platform programistycznych dla robotów jak ROS 2 (ang. "Robot Operating System 2")
-\item Systemów nawigacji jak Nav2
-\item Systemów sterowania jak ROS2 Control
+\item Platform programistycznych dla robotów jak \textbf{ROS 2} (ang. "Robot Operating System 2")
+\item Systemów nawigacji jak \textbf{Nav2}
+\item Systemów sterowania jak \textbf{ROS 2 Control} 
 \item Systemów wizualizacji i analizy danych
 \item Systemów komunikacji i zarządzania danymi
 \end{itemize}
@@ -552,12 +552,12 @@ Realizacja projektu obejmuje szereg wzajemnie powiązanych zadań. Na pierwszy e
 Praca składa się z siedmiu następujących rozdziałów:
 \begin{itemize}
 \item Rozdział pierwszy zawiera wstęp, w którym przedstawiono cel pracy, jej zakres oraz strukturę.
-\item Rozdział drugi zawiera analizę tematu, osadzenie go w kontekście aktualnego stanu wiedzy, analizę literatury, stan aktualny dziedziny oraz uzasadnienie wyboru rozwiązania.
-\item Rozdział trzeci zawiera wymagania i narzędzia, w którym opisano wymagania funkcjonalne, przypadki użycia, specyfikację komponentów, sposób połączenia sterowania i metodykę wraz z etapami realizacji projektu.
-\item Rozdział czwarty zawiera specyfikację użytkową, w którym przedstawiono wymagania użytkownika oraz specyfikację funkcjonalną.
-\item Rozdział piąty zawiera specyfikację techniczą, w którym przedstawiono podstawowe pojęcia i definicje z dziedziny robotyki mobilnej, jak i implementację zastosowanego rozwiązania.
-\item Rozdział szósty zawiera weryfikację i walidację, w którym przedstawiono testy i wyniki działania systemu.
-\item Rozdział siódmy zawiera podsumowanie, w którym przedstawiono wnioski z pracy oraz możliwości dalszego rozwoju projektu.
+\item Rozdział drugi zawiera analizę tematu, szczegółowe sformułowanie problemu, osadzenie go w kontekście aktualnego stanu wiedzy i badań, przegląd narzędzi i literatury oraz uzasadnienie wyboru rozwiązania.
+\item Rozdział trzeci zawiera wymagania i narzędzia, w którym opisano wymagania funkcjonalne, przypadki użycia, specyfikację komponentów, budowę robota, metodykę i etapy realizacji projektu.
+\item Rozdział czwarty zawiera specyfikację użytkową, w którym przedstawiono wymagania sprzętowe i programowe, sposób aktywacji i korzystania z robota z przykładem działania, administrację systemem, kwestie bezpieczeństwa, oraz scenariusze korzystania z systemu.
+\item Rozdział piąty zawiera specyfikację techniczną, w którym przedstawiono wykorzystane technologie, architekturę systemu, strukturę systemu z objaśnieniem działania algorytmów, oraz diagramy UML prezentujące działanie konkretnych programów.
+\item Rozdział szósty zawiera weryfikację i walidację, w którym opisano model v jaki został zastosowany do testowania systemu. Opisano tu również organizację eksperymentów, przypadki testowe oraz wykryte i usunięte błędy.
+\item Rozdział siódmy zawiera podsumowanie, w którym przedstawiono uzyskane wyniki, oraz kierunki dalszych prac.
 \end{itemize}
 
 \section{Wkład własny autora}
@@ -577,29 +577,40 @@ W ramach pracy autor samodzielnie:
 \label{ch:Analiza-Tematu}
 W niniejszym rozdziale przedstawiono analizę problemu jednoczesnej lokalizacji i mapowania (SLAM) oraz autonomicznej nawigacji robotów mobilnych. Omówiono aktualny stan wiedzy w tej dziedzinie, sformułowano szczegółowo problem badawczy oraz dokonano przeglądu dostępnych rozwiązań i algorytmów. Na podstawie tej analizy wybrano optymalne narzędzia i metody do realizacji projektu.
 
-\section{Osadzenie tematu w kontekście aktualnego stanu wiedzy}
-Problem jednoczesnej lokalizacji, mapowania oraz autonomicznej nawigacji robotów mobilnych stanowi jeden z kluczowych obszarów badań w dziedzinie robotyki. W ostatnich latach obserwuje się znaczący postęp w tej dziedzinie, głównie dzięki rozwojowi wydajnych algorytmów optymalizacji, poprawie jakości i dostępności czujników jak LiDAR, wzrostowi mocy obliczeniowej komputerów oraz powstaniu zaawansowanych platform programistycznych jak ROS 2.
+\section{Osadzenie tematu w kontekście aktualnego stanu wiedzy i badań}
+Historię rozwoju algorytmów SLAM, można podzielić na trzy epoki, jak zrobiono to w artykule "Przegląd SLAM: od pojedynczego czujnika do heterogenicznej fuzji" (ang. "SLAM Overview: From Single Sensor to Heterogeneous Fusion") \cite{bib:rs14236033}: 1986-2005 jako epokę klasyczną, podczas której powstały pierwsze algorytmy SLAM, 2006-2015 jako epokę uczenia maszynowego i optymalizacji, która poświęcona była rozszerzaniu i ulepszaniu algorytmów SLAM, oraz 2016-obecnie jako epokę łączenia algorytmów SLAM z głębokim uczeniem. Pierwsze wizje probabilistycznego systemu SLAM zostały przedstawione na konferencji ICRA w 1986. Od tego momentu zaczęto uznawać problem mapowania jako jeden z głównych problemów w robotyce.
+Początkowymi algorytmami były EKF (ang. "Extended Kalman Filter") oraz FastSLAM, które były stosunkowo proste i miały wiele ograniczeń. Z rozpoczęciem drugiej epoki czujniki LiDAR stały się coraz bardziej popularne, co pozwoliło na uzyskanie dokładniejszych map. W 2016 roku nastąpił przełom w dziedzinie SLAM, kiedy to pojawiły się pierwsze algorytmy łączące SLAM z głębokim uczeniem. Zastosowanie takich algorytmów w dużym stopniu poprawiło jakość map w wysoce dynamicznych środowiskach.
+\newpage
+Stosowanie algorytmów SLAM opisano w pracy  "Analiza porównawcza nawigacji wewnętrznej opartej na technologii LiDAR SLAM dla pojazdów autonomicznych" (ang. "A Comparative Analysis of LiDAR SLAM-Based Indoor Navigation for Autonomous Vehicles")\cite{bib:9381521}, gdzie przedstawiono zastosowanie algorytmów SLAM jako fundamentalną technologię do nawigacji robotów mobilnych wewnątrz budynków.
+ Opisano w niej rozwój tej technologii i jej wady przy zastosowaniu w środowiskach z brakiem znacznych cech charakterystycznych z wykorzystaniem technik wizualnych. Z tego powodu coraz częściej stosuje się sensory LiDAR, które pozwalają na uzyskanie dokładnych map bez wcześniej wspomnianych ograniczeń. Dlatego też SLAM na bazie LiDAR jest często wykorzystywane w rozwiązaniach przemysłowych, jak np. AGV (ang. "Automated Guided Vehicle") czy roboty magazynowe.
+ \newline
+ Artykuł "LiDAR i jego zastosowanie w niesamowitych odkryciach w Gwatemali" (ang. "LiDAR and Its Applications to Incredible Discoveries in Guatemala") \cite{bib:kangreal} przedstawia zastosowanie mapowania z użyciem LiDAR-a do tworzenia map 3D grobli znalezionych w Gwatemali. Ukazuje to szerokie zastosowanie technologii LiDAR w różnych dziedzinach, od robotyki po archeologię.
+ 
+ 
+ Podsumowując SLAM to jedno z kluczowych zagadnień w dziedzinie robotyki mobilnej. W literaturze przedmiotu można znaleźć wiele prac naukowych, które zajmują się analizą i porównaniem różnych algorytmów SLAM, jak i ich zastosowań w praktyce. W ostatnich latach obserwuje się znaczny rozwój technologii związanych z mapowaniem i nawigacją robotów mobilnych, co pozwala na tworzenie coraz bardziej zaawansowanych systemów autonomicznych.
+
+
 
 \section{Szczegółowe sformułowanie problemu}
 Problem postawiony w niniejszej pracy obejmuje dwa główne aspekty. Pierwszy z nich to mapowanie otoczenia, które wymaga efektywnej akwizycji danych z czujników, przetwarzania chmur punktów pobranych z czujnika, estymacji pozycji robota oraz łączenia kolejnych skanów w spójną mapę. Drugi aspekt to autonomiczna nawigacja, gdzie system musi zapewniać precyzyjną lokalizację w znanej mapie, planowanie ścieżki z uwzględnieniem przeszkód oraz dokładną kontrolę ruchu robota.
-
+\newpage
 \section{Przegląd narzędzi i literatury}
 \subsection{ROS 2}
-ROS2 (ang. "Robotic operation system 2") to platforma programistyczna dla robotów będąca oprogramowaniem pośrednim (ang. "middleware"), czyli warstwą programową pomiędzy systemem operacyjnym, a aplikacjami użytkownika do wykonywania oprogramowania aplikacji w domenie robota \cite{bib:ros2Concise}. Na poniższej ilustracji przedstawiono położenie takiego pośrednika.
-\begin{figure}[h]
+\textbf{ROS 2} (ang. "Robotic operation system 2") to platforma programistyczna dla robotów będąca oprogramowaniem pośrednim (ang. "middleware"), czyli warstwą programową pomiędzy systemem operacyjnym, a aplikacjami użytkownika do wykonywania oprogramowania aplikacji w domenie robota \cite{bib:ros2Concise}. Na poniższej ilustracji przedstawiono położenie takiego pośrednika.
+\begin{figure}[!hb]
 	\centering
 	\includegraphics[width=0.8\textwidth]{images/middle.png}
 	\caption{Reprezentacja pośrednika w systemie robota \cite{bib:ros2Concise}}
 	\label{fig:middle}
 	\end{figure}
 \newline
-Zasadniczo ROS 2 to otwartoźródłowe oprogramowanie bazujące na usłudze dystrybucji danych - DDS (ang. "Data Distribution Service"), które dostarcza ustandaryzowane narzędzia do organizacji kodu aplikacji w modularne pakiety, zapewniania współbieżnego wykonania kodu na wiele dostępnych plików wykonywalnych, oraz komunikację między tymi modułami podczas równoległego uruchomienia w systemie robota.\cite{bib:guide}
+Zasadniczo \textbf{ROS 2} to otwartoźródłowe oprogramowanie bazujące na usłudze dystrybucji danych - DDS (ang. "Data Distribution Service"), które dostarcza ustandaryzowane narzędzia do organizacji kodu aplikacji w modularne pakiety, zapewniania współbieżnego wykonania kodu na wiele dostępnych plików wykonywalnych, oraz komunikację między tymi modułami podczas równoległego uruchomienia w systemie robota\cite{bib:guide}.
 
 \newpage
 \subsection{SLAM Toolbox}
-SLAM Toolbox to zestaw narzędzi i rozwiązań do tworzenia map 2D w czasie rzeczywistym, stworzone przez Steve'a Mecenski.
- Stosowane algorytmy w przeszłości to np. GMapping, Karto, Cartographer oraz Hector, jednakże prawie żaden z nich nie potrafił tworzyć map w czasie rzeczywistym, jedynie Cartographer stworzony przez Google miał takie możliwości, lecz przestał być on wspierany.
- \cite{bib:slamtoolbox} Zastosowanie SLAM Toolbox pozwala na tworzenie map w czasie rzeczywistym obszarów, do nawet 24 000 m$^2$ przez niewykwalifikowanych użytkowników. Przykład działania SLAM Toolbox przedstawiono na rysunku poniżej.
+\textbf{SLAM Toolbox} to zestaw narzędzi i rozwiązań do tworzenia map 2D w czasie rzeczywistym, stworzony przez Steve'a Mecenski.
+W historii rozwoju algorytmów SLAM i \textbf{ROS 2} stosowano różne rozwiązania, takie jak GMapping, Karto, Cartographer oraz Hector. Spośród nich tylko Cartographer, opracowany przez Google, oferował możliwość tworzenia map w czasie rzeczywistym \cite{bib:slamtoolbox}.
+Zastosowanie \textbf{SLAM Toolbox} pozwala na tworzenie map w czasie rzeczywistym obszarów, do nawet 24 000 m$^2$ przez niewykwalifikowanych użytkowników. Przykład działania \textbf{SLAM Toolbox} przedstawiono na rysunku poniżej.
 
 \begin{figure}[h]
 	\centering
@@ -608,27 +619,27 @@ SLAM Toolbox to zestaw narzędzi i rozwiązań do tworzenia map 2D w czasie rzec
 	\label{fig:sklep}
 	\end{figure}
 \newpage
-SLAM Toolbox oferuje 3 główne tryby pracy:
+\textbf{SLAM Toolbox} oferuje 3 główne tryby pracy:
 \begin{itemize}
 	\item \textbf{Mapowanie synchroniczne} - Ten tryb pozwala na mapowanie i lokalizację w przestrzeni zachowując dane poprzednich pomiarów. Pozwala to na większą dokładność mapy kosztem szybkości i odporności na przerwania.
 	\item \textbf{Mapowanie asynchroniczne} - W tym trybie mapowanie i lokalizacja odbywają się wyłącznie na podstawie aktualnych pomiarów gdy ostatnie pomiary zakończą się i zostanie spełnione kryterium dokładności. Pozwala to na szybsze i mniej podatne na przerwania mapowanie kosztem jakości.
 	\item \textbf{Lokalizacja} - W tym trybie robot dopasowuje aktualne pomiary do istniejącej mapy w celu określenia swojej pozycji. System tworzy tymczasowe punkty odniesienia z nowych pomiarów, które są używane do precyzyjnej lokalizacji. Po określonym czasie te tymczasowe punkty są usuwane, przywracając oryginalną mapę. Tryb ten może również działać bez wcześniejszej mapy, wykorzystując tylko lokalne pomiary do nawigacji.
 \end{itemize}
 
-\newpage
 \subsection{Navigation2 (Nav2) i lokalizacja}
-Nav2 jest to pakiet narzędzi do nawigacji robotów mobilnych w ROS 2. Zawiera on zestaw algorytmów do tworzenia modeli środowiska z sensorów, dynamicznego planowania ścieżki, obliczania prędkości silników i omijania przeszkód. 
-Pakiet wykorzystuje drzewa zachowań (ang. "Behavior Trees") do definiowania zachowań robota, przez implementację wielu niezależnych zadań. Niektóre z nich odpowiadają za np. obliczanie trasy do celu, inne za naprawę błędów, a jeszcze inne za omijanie przeszkód. Dzięki komunikacji między tymi zadaniami, robot jest w stanie wykonywać skomplikowane zadania nawigacyjne.
-\cite{bib:abs-2003-00368}
+\textbf{Nav2} jest to pakiet narzędzi do nawigacji robotów mobilnych w \textbf{ROS 2}. Zawiera on zestaw algorytmów do tworzenia modeli środowiska z sensorów, dynamicznego planowania ścieżki, obliczania prędkości silników i omijania przeszkód. 
+Pakiet wykorzystuje drzewa zachowań (ang. "Behavior Trees") do definiowania zachowań robota, przez implementację wielu niezależnych zadań. Niektóre z nich odpowiadają za np. obliczanie trasy do celu, inne za naprawę błędów, a jeszcze inne za omijanie przeszkód. Dzięki komunikacji między tymi zadaniami, robot jest w stanie wykonywać skomplikowane zadania nawigacyjne 
+\cite{bib:abs-2003-00368}.
 \newline
 \newline
-Do lokalizacji robota na mapie można wykorzystać wcześniej opisany SLAM Toolbox, jednak w pakiecie Nav2 dostępny jest również pakiet AMCL (ang. "Adaptive Monte Carlo Localization")\cite{bib:amcl}, który pozwala na lokalizację robota na mapie z wykorzystaniem filtru cząsteczkowego. Algorytm ten polega na generowaniu losowych próbek (cząsteczek) reprezentujących możliwe położenia robota, a następnie porównywaniu ich z pomiarami z czujników. Cząsteczki, które najlepiej pasują do pomiarów są wybierane, a reszta jest odrzucana. W ten sposób algorytm estymuje pozycję robota na mapie. \cite{bib:amcl}
-\subsection{ROS2 Control i sterowanie napędami}
-ROS2 Control to platforma do sterowania, zarządzania i komunikacji pomiędzy urządzeniami w robotach z oprogramowaniem. \cite{bib:ros2control}. Rozwiazanie to umożliwia w łatwy sposób zarządzanie silnikami, enkoderami, czy innymi urządzeniami w robocie. Dzięki zastosowaniu ROS2 Control można wykorzystać np. pakiet diffdrive\_arduino, do sterowania robotem z napędem różnicowym za pomocą Arduino. Pakiet ten pozwala również na sterowanie prędkością silników, odczyt enkoderów, obliczanie odometrii oraz transformację między układem odometrii a układem bazowym. \cite{bib:diffdrive}
+Do lokalizacji robota na mapie można wykorzystać wcześniej opisany \textbf{SLAM Toolbox}, jednak w pakiecie \textbf{Nav2} dostępny jest również algorytm \textbf{AMCL} (ang. "Adaptive Monte Carlo Localization")\cite{bib:amcl}, który pozwala na lokalizację robota na mapie z wykorzystaniem filtru cząsteczkowego. Algorytm ten polega na generowaniu losowych próbek (cząsteczek) reprezentujących możliwe położenia robota, a następnie porównywaniu ich z pomiarami z czujników. Cząsteczki, które najlepiej pasują do pomiarów są wybierane, a reszta jest odrzucana. W ten sposób algorytm estymuje pozycję robota na mapie \cite{bib:amcl}.
+\newpage
+\subsection{ROS 2 Control i sterowanie napędami}
+ROS 2 Control to platforma do sterowania, zarządzania i komunikacji pomiędzy urządzeniami w robotach z oprogramowaniem \textbf{ROS 2} \cite{bib:ros2control}. Rozwiazanie to umożliwia w łatwy sposób zarządzanie silnikami, enkoderami, czy innymi urządzeniami w robocie. Pakiet \textbf{Diffdrive Arduino} stanowi rozszerzenie tej platformy o interfejs pomiędzy \textbf{ROS 2 Control} a Arduino. Pakiet ten pozwala również na sterowanie prędkością silników, odczyt enkoderów, obliczanie odometrii oraz transformację między układem odometrii a układem bazowym \cite{bib:diffdrive}.
  
 
 \section{Wybór rozwiązań}
-Na podstawie analizy dostępnych narzędzi, w projekcie zdecydowano się na wykorzystanie SLAM Toolbox do mapowania, AMCL do lokalizacji podczas nawigacji, Nav2 do planowania ścieżki i kontroli ruchu oraz ROS2 Control z DiffDrive Arduino do sterowania napędami. Wybór ten podyktowany jest stabilnością rozwiązań, oraz dobrą integracją komponentów w ekosystemie ROS 2 oraz aktywnym wsparciem społeczności i dostępnością dokumentacji.
+Na podstawie analizy dostępnych narzędzi, w projekcie zdecydowano się na wykorzystanie \textbf{SLAM Toolbox} do mapowania, \textbf{AMCL} do lokalizacji podczas nawigacji, \textbf{Nav2} do planowania ścieżki i kontroli ruchu oraz \textbf{ROS 2 Control} z  \textbf{DiffDrive Arduino} do sterowania napędami. Wybór ten podyktowany jest stabilnością rozwiązań, oraz dobrą integracją komponentów w ekosystemie \textbf{ROS 2} oraz aktywnym wsparciem społeczności i dostępnością dokumentacji.
 
 
 %\begin{Definition}\label{def:1}
@@ -657,10 +668,10 @@ W niniejszym rozdziale przedstawiono wymagania funkcjonalne systemu, przypadki u
 \section{Wymagania funkcjonalne}
 System powinien realizować następujące funkcje:
 \begin{itemize}
-\item Zdalne sterowanie robotem poprzez klawiaturę (teleop\_twist\_keyboard \cite{bib:teleop}) w celu eksploracji i mapowania otoczenia
-\item Tworzenie i zapisywanie mapy otoczenia w czasie rzeczywistym 
-\item Lokalizacja robota na zapisanej mapie z wykorzystaniem algorytmu AMCL
-\item Autonomiczna nawigacja do wyznaczonych punktów na mapie z omijaniem przeszkód
+\item Zdalne sterowanie robotem poprzez klawiaturę (\textbf{ros2 run teleop\_twist\_keyboard teleop\_twist\_keyboard -r /cmd\_vel:=/diff\_cont/cmd\_vel\_unstamped}) w celu eksploracji i mapowania otoczenia \cite{bib:teleop}.
+\item Tworzenie i zapisywanie mapy otoczenia w czasie rzeczywistym .
+\item Lokalizacja robota na zapisanej mapie z wykorzystaniem algorytmu \textbf{AMCL}.
+\item Autonomiczna nawigacja do wyznaczonych punktów na mapie z omijaniem przeszkód.
 
 \end{itemize}
 \newpage
@@ -678,8 +689,8 @@ Na rysunku \ref{fig:use-case} przedstawiono diagram przypadków użycia systemu.
 \begin{itemize}
 \item Raspberry Pi 4 - główny komputer zarządzający robotem:
 	\begin{itemize}
-	\item System operacyjny Ubuntu 22.04
-	\item ROS 2 Humble
+	\item System operacyjny \textbf{Ubuntu 22.04}
+	\item \textbf{ROS 2 Humble}  
 	\item Komunikacja przez SSH z jednostką sterującą zachowaniem robota
 	\end{itemize}
 	
@@ -725,16 +736,31 @@ Na rysunku \ref{fig:use-case} przedstawiono diagram przypadków użycia systemu.
 
 
 \section{Budowa robota i sposób połączenia silników z kontrolerem}
-
+Sekcja ta zawiera zdjęcie zbudowanego robota, wizualizację w \textbf{RVIZ}, uproszczony schemat wyjaśniający budowę, oraz schematy połączeń elektrycznych.
 
 \begin{figure}[!hb]
 	\centering
-	\includegraphics[width=0.7\textwidth]{images/robot.jpg}
+	\includegraphics[width=0.6\textwidth]{images/robot.jpg}
 	\caption{Zdjęcie przedstawiające zbudowanego robota}
 	\label{fig:robot-zdj}
 	\end{figure}
 	\newpage
 
+	\begin{figure}[!hb]
+		\centering
+		\includegraphics[width=0.7\textwidth]{images/robot-rviz.png}
+		\caption{Wizualizacja robota w RVIZ}
+		\label{fig:robot-rviz}
+		\end{figure}
+		
+		\begin{figure}[!hb]
+			\centering
+			\includegraphics[width=0.7\textwidth]{images/robot-rviz2.png}
+			\caption{Wizualizacja robota w RVIZ z osiami}
+			\label{fig:robot-rviz2}
+			\end{figure}
+	
+			\newpage
 	\begin{figure}[!hb]
 		\centering
 		\includegraphics[width=0.7\textwidth]{images/schemat-robot.png}
@@ -743,10 +769,10 @@ Na rysunku \ref{fig:use-case} przedstawiono diagram przypadków użycia systemu.
 		\end{figure}
 Na schemacie z rysunku \ref{fig:robot-schemat} przedstawiono konkretne poziomy robota, takie jak:
 \begin{itemize}
-	\item Poziom I - LiDAR RPLidar A1 (Czarny element)
-	\item Poziom II - Raspberry Pi 4 (Pomarańczowy element)
-	\item Poziom III - Akumulatory (Zielone elementy) i przetwornice (Niebieski element)
-	\item Poziom IV - Arduino Nano (Żółty element) i sterownik L298N (Czerwony element) z silnikami (Szare elementy)
+	\item Poziom I - LiDAR RPLidar A1 (czarny element)
+	\item Poziom II - Raspberry Pi 4 (pomarańczowy element)
+	\item Poziom III - Akumulatory (zielone elementy) i przetwornice (niebieski element)
+	\item Poziom IV - Arduino Nano (jasnozielony element), sterownik L298N (czerwony element) i koła (jasnoszare elementy są kołami podporowymi, a ciemnoszare to koła napędowe)
 \end{itemize}
 \newpage
 
@@ -756,7 +782,7 @@ Na schemacie z rysunku \ref{fig:robot-schemat} przedstawiono konkretne poziomy r
 	\caption{Schemat połączenia silników z Arduino i L298N}
 	\label{fig:arduino-schema}
 	\end{figure}
-Na zaprezentowanym schemacie rys. \ref{fig:arduino-schema} przedstawiono sposób połączenia silników z Arduino i sterownikiem L298N. Silniki DC z enkoderami są zasilane z akumulatorów Li-ion, a sterowane przez Arduino Nano za pomocą sterownika L298N. Enkodery są podłączone do Arduino, które odczytuje impulsy i oblicza prędkość i położenie robota. Komunikacja między Arduino a Raspberry Pi odbywa się przez port szeregowy, co umożliwia przesyłanie danych o prędkości i położeniu robota.
+Na zaprezentowanym schemacie rys \ref{fig:arduino-schema} przedstawiono sposób połączenia silników z Arduino i sterownikiem L298N. Silniki DC z enkoderami są zasilane z akumulatorów Li-ion, a sterowane przez Arduino Nano za pomocą sterownika L298N. Enkodery są podłączone do Arduino, które odczytuje impulsy i oblicza prędkość i położenie robota. Komunikacja między Arduino a Raspberry Pi odbywa się przez port szeregowy, co umożliwia przesyłanie danych o prędkości i położeniu robota.
 
 \newpage
 \begin{figure}[!hb]
@@ -769,11 +795,13 @@ Na schemacie \ref{fig:schemat-elektryczny} przedstawiono sposób połączenia ws
 \newpage
 
 \section{Metodyka i etapy realizacji}
+Realizacja projektu podzielona jest na 4 etapy, które obejmują przygotowanie platformy sprzętowej, implementację sterowania napędem, integrację sensorów oraz implementację oprogramowania. Każdy etap składa się z kilku zadań, które muszą zostać wykonane w celu osiągnięcia zamierzonego celu. Poniżej przedstawiono szczegółowy opis poszczególnych etapów.
+
 \subsection{Etap 1: Przygotowanie platformy sprzętowej}
 \begin{itemize}
-\item Instalacja systemu Ubuntu 22.04 na Raspberry Pi
+\item Instalacja systemu \textbf{Ubuntu 22.04} na Raspberry Pi i komputerze sterującym.
 \item Konfiguracja połączenia SSH
-\item Instalacja ROS 2 Humble
+\item Instalacja \textbf{ROS 2 Humble} na Raspberry Pi i komputerze sterującym
 \end{itemize}
 
 \subsection{Etap 2: Implementacja sterowania napędem}
@@ -792,11 +820,11 @@ Na schemacie \ref{fig:schemat-elektryczny} przedstawiono sposób połączenia ws
 
 \subsection{Etap 4: Implementacja oprogramowania}
 \begin{itemize}
-\item Konfiguracja pakietów ROS 2:
+\item Konfiguracja pakietów \textbf{ROS 2}:
 	\begin{itemize}
-	\item SLAM Toolbox do mapowania
-	\item Nav2 do nawigacji z AMCL do lokalizacji
-	\item ROS2 Control do sterowania napędem
+	\item \textbf{SLAM Toolbox} do mapowania
+	\item \textbf{Nav2} do nawigacji z \textbf{AMCL} do lokalizacji
+	\item \textbf{Diffdrive Arduino}  do sterowania napędem
 	\end{itemize}
 \item Integracja i testy systemu
 \end{itemize}
@@ -806,7 +834,7 @@ Na schemacie \ref{fig:schemat-elektryczny} przedstawiono sposób połączenia ws
 % TODO
 \chapter{Specyfikacja użytkowa}
 \label{ch:04}
-W tym rozdziale przedstawiono wymagania użytkownika oraz specyfikację funkcjonalną systemu. Opisano kategorie użytkowników, sposób obsługi, administrację systemem, kwestie bezpieczeństwa oraz przykłady działania systemu.
+W tym rozdziale przedstawiono wymagania użytkownika oraz specyfikację funkcjonalną systemu. Opisano wymagania sprzętowe i programowe, sposób aktywacji i korzystania z robota z przykładem działania, administrację systemem, kwestie bezpieczeństwa, oraz scenariusze korzystania z systemu.
 
 
 \subsection{Wymagania sprzętowe i programowe}
@@ -819,31 +847,60 @@ Sprzętowe:
 	\end{itemize}
 Programowe:
 \begin{itemize}
-	\item Tworzyć mapę otoczenia, czyli zapisywanie danych z LiDAR-a w formie mapy 2D w czasie rzeczywistym i wizualizację tych danych w programie Rviz.
+	\item Tworzyć mapę otoczenia, czyli zapisywanie danych z LiDAR-a w formie mapy 2D w czasie rzeczywistym i wizualizację tych danych w programie \textbf{RVIZ}.
 	\item Lokalizować się na mapie, czyli określanie pozycji robota na zapisanej mapie.
 	\item Nawigować do wyznaczonych punktów, czyli planowanie trasy do punktów na mapie i omijanie przeszkód.
 \end{itemize}
 \newpage
 
 \subsection{Sposób aktywacji i korzystania z robota z przykadem działania}
-Sekcja ta zawiera szczegółowy opis korzystania z robota, od uruchomienia, sterowanie, mapowanie, zapis mapy, lokalizację i nawigację.
+Sekcja ta zawiera szczegółowy opis korzystania z robota, od uruchomienia, sterowanie, mapowanie, zapis mapy, po lokalizację i nawigację.
 
-Pierwszym krokiem jest uruchomienie robota, w tym celu należy włączyć zasilanie dla Raspberry Pi i silników.
-
-
-Następnie należy przygotować terminale na jednostce sterującej (dwa terminale mają być połączone przez protokół ssh z Raspberry Pi, a cztery terminale mają być przygotowane na samej jednostce sterującej do uruchomienia późniejszych skryptów ROS). Przygotowanie tych terminali polega na odpowiednim:
-\newline
-Dla jednostki sterującej: wejsciu do katalogu roboczego, uruchomienie komend source /opt/ros/humble/setup.bash, oraz source /install/setup.bash.
-\newline\newline
-Dla Raspberry Pi: wejsciu do katalogu roboczego, uruchomienie komend source /opt/ros/humble/setup.bash, oraz source /install/setup.bash.
-\newline\newline
-Następnie, należy uruchomić 2 skrypty na Raspberry Pi, które odpowiadają za uruchomienie odpowiednich węzłów ROS. Pierwszy skrypt odpowiada za uruchomienie węzła odpowiedzialnego za sterowanie silnikami i udostępnienie modelu robota do RVIZ, a drugi za uruchomienie węzła odpowiedzialnego za odczyt danych z LiDAR-a. Odpowiednie komendy to: ros2 launch robot\_slam model\_controll.launch.py oraz ros2 launch robot\_slam rplidar.launch.py.
-\newline\newline
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=1\textwidth]{images/tor.png}
+	\caption{Zdjęcie środowiska testowego.}
+	\label{fig:test}
+	\end{figure}
+Procesy te przeprowadzane były na korytarzu widocznym na zdjęciu \ref{fig:test}. Takie środowisko dostarczyło wystarczająco dużo miejsca do nawigacji i mapowania dla robota. Zapewniono również równe podłoże, co pozwoliło na stabilne i bezpieczne poruszanie się robota.
+\newline \newline
+Pierwszym krokiem w procesie eksploatacji robota jest uruchomienie go, w tym celu należy włączyć zasilanie dla Raspberry Pi i silników załączając przełączniki przy Raspberry Pi i u podstawy robota.
 \newpage
-Po uruchomieniu tych skryptów, należy uruchomić program Rviz, który pozwala na wizualizację mapy i położenia robota. Komenda to: rviz2. Następnym krokiem jest uruchomienie skryptu odpowiedzialnego za sterowanie robotem za pomocą klawiatury. Komenda to: ros2 launch robot\_teleop.launch.py. W tym momencie należy przejść do terminala na jednostce sterującej, i za pomocą klawiatury sterować robotem. 
-\newline
 
-Kolejnym krokiem jest uruchomienie skryptu odpowiedzialnego za mapowanie otoczenia. Komenda to: ros2 launch robot\_slam slam.launch.py. W tym momencie gdy robot przemieszcza się przez komendy z klawiatury, pomieszczenie jest mapowane.
+Następnie należy przygotować terminale na jednostce sterującej (dwa terminale mają być połączone przez protokół SSH z Raspberry Pi, a cztery terminale mają być przygotowane na samej jednostce sterującej do uruchomienia późniejszych skryptów \textbf{ROS 2}).
+
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=0.9\textwidth]{images/diagram-cogdzie.png}
+	\caption{Schemat przedstawiający na jakim urządzeniu należy uruchomić poszczególne skrypty.}
+	\label{fig:schematerminali}
+	\end{figure}
+	
+
+Rysunek \ref{fig:schematerminali} przedstawia na jakim urządzeniu należy uruchomić poszczególne skrypty. Dla jednostki sterującej są to \textbf{RVIZ} do wizualizacji mapowania, skrypt\newline \textbf{teleop\_twist\_keyboard} do manualnego sterowania, \textbf{slam.launch.py} do tworzenia mapy, oraz \textbf{nav\_localization.launch.py} do lokalizacji i nawigacji. Dla Raspberry Pi są to skrypty: \textbf{model\_controll.launch.py} - odpowiedzialne za sterowanie silnikami i udostępnienie modelu robota do RVIZ, oraz \textbf{rplidar.launch.py} odpowiedzialny za odczyt danych z LiDAR-a i udostępnianie tych informacji innym skryptom.
+
+\newpage
+Przygotowanie terminali polega na odpowiednim:
+Dla jednostki sterującej: wejsciu do katalogu roboczego, uruchomienie komend \textbf{source /opt/ros/humble/setup.bash}, oraz \textbf{source /install/setup.bash}.
+\newline\newline
+Dla Raspberry Pi: wejsciu do katalogu roboczego, uruchomienie komend \textbf{source /opt/ros/humble/setup.bash}, oraz \textbf{source /install/setup.bash}.
+\newline\newline
+Następnie, należy uruchomić 2 skrypty na Raspberry Pi, które odpowiadają za uruchomienie odpowiednich węzłów \textbf{ROS 2}. Pierwszy skrypt odpowiada za uruchomienie węzła odpowiedzialnego za sterowanie silnikami i udostępnienie modelu robota do RVIZ, a drugi za uruchomienie węzła odpowiedzialnego za odczyt danych z LiDAR-a. Odpowiednie komendy to: \textbf{ros2 launch robot\_slam model\_controll.launch.py} oraz \textbf{ros2 launch robot\_slam rplidar.launch.py}.
+\newline\newline
+
+
+Po uruchomieniu tych skryptów, należy uruchomić program \textbf{RVIZ}, który pozwala na wizualizację 
+mapy i położenia robota. Komenda to: \textbf{rviz2}. 
+
+Następnym krokiem jest uruchomienie skryptu odpowiedzialnego za sterowanie robotem za pomocą 
+klawiatury. Komenda to: \textbf{ros2 run teleop\_twist\_keyboard teleop\_twist\_keyboard 
+-r /cmd\_vel:=/diff\_cont/cmd\_vel\_unstamped}. 
+
+
+
+
+\newpage
+Kolejnym krokiem jest uruchomienie skryptu odpowiedzialnego za mapowanie otoczenia. Komenda to: \textbf{ros2 launch robot\_slam slam.launch.py}. W tym momencie gdy robot przemieszcza się przez ręczne sterowanie za pomocą \textbf{teleop\_twist\_keyboard}, pomieszczenie jest mapowane.
 
 \begin{figure}[!hb]
 	\centering
@@ -851,9 +908,9 @@ Kolejnym krokiem jest uruchomienie skryptu odpowiedzialnego za mapowanie otoczen
 	\caption{Okno RVIZ po uruchomieniu skryptów.}
 	\label{fig:launch-map}
 \end{figure}
-
+Na rysunku \ref{fig:launch-map} przedstawiono okno \textbf{RVIZ} po uruchomieniu skryptów. Na tym etapie można zauważyć, że robot jest widoczny na środku ekranu, a także widoczne są dane z LiDAR-a (w formie fioletowych i czerwonych punktów), które są wykorzystywane do mapowania pomieszczenia. Jaśniejsze pola to pusta przestrzeń, natomiast czarne to przeszkody i ściany. 
 \newpage
-Gdy wystarczająco dużo pomieszczenia zostanie zmapowane, należy zapisać mapę. Można to wykonać przez komendę ros2 run nav2\_map\_server map\_saver -f map, lub przez dodanie panelu do RVIZ z zestawu narzędzi SLAM Toolbox i zapisanie mapy z poziomu tego panelu.
+Gdy utworzona zostanie zadowalająca mapa, należy ją zapisać. Można to wykonać przez komendę \textbf{ros2 run nav2\_map\_server map\_saver -f map}, lub przez dodanie panelu do \textbf{RVIZ} z zestawu narzędzi \textbf{SLAM Toolbox} i zapisanie mapy z poziomu tego panelu.
 
 \begin{figure}[!hb]
 	\centering
@@ -861,21 +918,24 @@ Gdy wystarczająco dużo pomieszczenia zostanie zmapowane, należy zapisać map�
 	\caption{Zmapowane pomieszczenie i zapis mapy jako plik my\_map.}
 	\label{fig:save-map}
 \end{figure}
+Rysunek \ref{fig:save-map} przedstawia mapę korytarza. Na mapie widoczne są ściany, oraz pojedyncze czarne punkty, jakimi są nogi od stołu. Po lewej stronie rysunku widoczny jest panel \textbf{Slam Toolbox}, gdzie wypełniona jest nazwa pliku mapy. Należy kliknąć przycisk \textbf{Save Map}, aby zapisać mapę jako pliki pgm i yaml.
 \newpage
-Z tak zapisaną mapą można zamknąć skrypty odpowiedzialne za sterowanie, mapowanie i RVIZ.
+Z tak zapisaną mapą można zamknąć skrypty odpowiedzialne za \textbf{sterowanie}, \textbf{mapowanie} i \textbf{RVIZ}.
 \newline\newline
-Następnie, należy uruchomić skrypt odpowiedzialny za lokalizację robota na mapie, oraz nawigację robota.\newline Komenda to: ros2 launch robot\_slam nav\_localization.launch.py. 
-W wyniku uruchomienia tego programu uruchomiony zostaje nowy ekran RVIZ z widoczną wcześniej zapisaną mapą.
+Następnie, należy uruchomić skrypt odpowiedzialny za lokalizację robota na mapie, oraz nawigację robota.\newline Komenda to: \textbf{ros2 launch robot\_slam nav\_localization.launch.py}. 
+W wyniku uruchomienia tego programu uruchomiony zostaje nowy ekran \textbf{RVIZ} z widoczną wcześniej zapisaną mapą.
 
 
-Należy na niej umieścić robota przez wybranie z górnego zestawu narzędzi 2D Pose Estimate, a następnie kliknięcie na mapie w miejscu gdzie znajduje się robot, należy w tym momencie przez obrócenie w odpowiednim kierunku zielonej strzałki ustalić kierunek w jakim znajduje się robot,
- w wyniku czego algorytm AMCL tworzy chmurę przewidywanych punktów w których może znajdować się robot.
+Należy na niej umieścić robota przez wybranie z górnego zestawu narzędzi \textbf{2D Pose Estimate}, a następnie kliknięcie na mapie w miejscu gdzie znajduje się robot, należy w tym momencie przez obrócenie w odpowiednim kierunku zielonej strzałki ustalić kierunek w jakim znajduje się robot,
+ w wyniku czego algorytm \textbf{AMCL} tworzy chmurę przewidywanych punktów w których może znajdować się robot.
 \begin{figure}[!hb]
 	\centering
 	\includegraphics[width=1\textwidth]{images/launch-nav.png}
 	\caption{RVIZ po uruchomieniu skryptu do lokalizacji i nawigacji i wybraniu pozycji robota.}
 	\label{fig:nav-map}
 \end{figure}
+\newline
+Na rysunku \ref{fig:nav-map} przedstawiono okno \textbf{RVIZ} po uruchomieniu skryptu do lokalizacji i nawigacji. Widoczna jest wcześniej zapisana mapa, gdzie puste przestrzenie teraz widoczne są jako białe pola, a przeszkody jako czarne. Na mapie zaznaczono zieloną strzałką pozycję robota.
 \newpage
 \begin{figure}[!hb]
 	\centering
@@ -883,14 +943,16 @@ Należy na niej umieścić robota przez wybranie z górnego zestawu narzędzi 2D
 	\caption{Wizualizacja rozproszonych punktów lokalizacji robota.}
 	\label{fig:nav-map2}
 \end{figure}
+Rysunek \ref{fig:nav-map2} ukazuje chmurę przewidywanych punktów lokalizacji robota wyznaczanych przez algorytm \textbf{AMCL}, model robota, który pojawił się w miejscu gdzie wcześniej zaznaczono pozycję robota. Widoczna jest również lokalna mapa kosztów w postaci jasnoniebieskich i jasnofioletowych pól. Niebieskie pola oznaczają strefę niebezpieczną wokół przeszkód, natomiast fioletowe pola pola oznaczają wykrywane w czasie rzeczywistym przeszkody. Na podstawie tej mapy robot koryguje trasę o nowo napotkane przeszkody, które nie były wcześniej na mapie.
 \newpage
-Następnie należy wybrać cel do którego robot ma się przemieścić, przez wybranie z górnego zestawu narzędzi Nav2 Goal, a następnie kliknięcie na mapie w miejscu gdzie ma się znaleźć cel z ustawieniem zielonej strzałki w kierunku w jaki ma się ustawić.
+Następnie należy wybrać cel do którego robot ma się przemieścić, przez wybranie z górnego zestawu narzędzi \textbf{Nav2 Goal} , a następnie kliknięcie na mapie w miejscu gdzie ma się znaleźć cel z ustawieniem zielonej strzałki w kierunku w jaki ma się ustawić.
 \begin{figure}[!hb]
 	\centering
 	\includegraphics[width=1\textwidth]{images/launch-nav3.png}
 	\caption{Wybór celu robota.}
 	\label{fig:nav-map3}
 \end{figure}
+Na rysunku \ref{fig:nav-map3} widoczne jest okno \textbf{RVIZ}, po wybraniu celu do którego robot ma się przemieścić. Na mapie widoczna jest zielona strzałka wskazująca cel i kierunek w jakim ma się ustawić robot. Pojawia się również globalna mapa kosztów w postaci niebieskich obramowań. Widoczne wcześniej na mapie ściany i przeszkody zostały zmienione z czarnych na ciemnofioletowe i pojawiło się wokół nich niebieskie obramowanie jako globalna mapa kosztów. Globalna mapa kosztów wykorzystywana jest do wyznaczenia trasy w oparciu o dane z lokalizacji i mapy.
 \newpage
 Robot po wybraniu celu zaczyna poruszać się w kierunku celu, omijając przeszkody na swojej drodze.
 \begin{figure}[!hb]
@@ -899,29 +961,70 @@ Robot po wybraniu celu zaczyna poruszać się w kierunku celu, omijając przeszk
 	\caption{Wyznaczenie trasy.}
 	\label{fig:nav-map4}
 \end{figure}
+\newline
+Rysunek \ref{fig:nav-map4} przedstawia jak wyznaczona zostaje trasa robota jako różowa linia na podstawie globalnej mapy kosztów. Linia ta zmienia się w przypadku wykrycia przeszkody na lokalnej mapie kosztów.
+\newpage
 \begin{figure}[!hb]
 	\centering
 	\includegraphics[width=1\textwidth]{images/launch-nav5.png}
 	\caption{Nawigacja robota i zmniejszanie się chmury przewidywanej lokalizacji robota.}
 	\label{fig:nav-map5}
 \end{figure}
-\newpage
+
+
+Na rysunku \ref{fig:nav-map5} ukazane jest jak robot porusza się w kierunku celu, omijając przeszkody na swojej drodze. Widać jak chmura przewidywanej lokalizacji robota zmniejsza się w miarę poruszania się robota.
+
 \begin{figure}[!hb]
 	\centering
 	\includegraphics[width=1\textwidth]{images/launch-nav6.png}
 	\caption{Dotarcie robota do celu.}
 	\label{fig:nav-map6}
 \end{figure}
-
+\newpage
+Rysunek \ref{fig:nav-map6} pokazuje stan gdy robot dotarł do celu. Chmura przewidywanej lokalizacji robota znacząco zmniejszyła się, co wynika z utwierdzenia pozycji robota. Po lewej stronie widoczny jest panel \textbf{Nav2} gdzie pole informacji zwrotnej (ang. "Feedback") zwraca wiadomość o dotarciu robota do celu.
 \section{Administracja systemem}
-System nie wymaga specjalnej administracji, jednakże w przypadku problemów z działaniem, można skorzystać z narzędzi diagnostycznych dostępnych w ROS 2, jak i z dokumentacji dostępnej na stronie internetowej ROS 2. W celu modyfikacji np. prędkością poruszania robota, przy korzystaniu z klawiatury, można zmienić prędkość przez naciśnięcie q i w. Do modyfikacji prędkości podczas nawigacji, można zmienić prędkość w pliku konfiguracyjnym Nav2 (nav2\_params.yaml).
+System nie wymaga specjalnej administracji, jednakże w przypadku problemów z działaniem, można skorzystać z narzędzi diagnostycznych dostępnych w \textbf{ROS 2}, jak i z dokumentacji dostępnej na stronie internetowej \textbf{ROS 2}. W celu modyfikacji np. prędkością poruszania robota, przy ręcznym sterowaniu, można zmienić prędkość za pomocą klawiszy q i z, które kolejno zwiększają i zmniejszają maksymalną prędkość, jak jest to widoczne na rysunku poniżej \ref{fig:tele}. 
+\begin{figure}[!hb]
+	\centering
+	\includegraphics[width=1\textwidth]{images/tele.png}
+	\caption{Terminal z uruchomionym skryptem teleop\_twist\_keyboard.}
+	\label{fig:tele}
+\end{figure}
+\newpage
+Do modyfikacji prędkości podczas nawigacji, można zmienić prędkość w pliku konfiguracyjnym \textbf{Nav2} (\textbf{nav2\_params.yaml}).
+Odpowiadają za to następujące parametry:
+
+
+\begin{figure}[!hb]
+	\centering
+\begin{lstlisting}
+	velocity_smoother:
+  ros__parameters:
+    use_sim_time: True
+    smoothing_frequency: 20.0
+    scale_velocities: False
+    feedback: "OPEN_LOOP"
+    max_velocity: [0.26, 0.0, 1.0]
+    min_velocity: [-0.26, 0.0, -1.0]
+    max_accel: [2.5, 0.0, 3.2]
+    max_decel: [-2.5, 0.0, -3.2]
+    odom_topic: "odom"
+    odom_duration: 0.1
+    deadband_velocity: [0.0, 0.0, 0.0]
+    velocity_timeout: 1.0
+\end{lstlisting}
+\caption{Fragment kodu z pliku nav2\_params.yaml}
+\label{fig:nav-predkosc}
+\end{figure}
+Można tutaj dostosować parametry, takie jak maksymalna prędkość aplikowana dla każdej z osi [x, y, theta], maksymalne przyspieszenie dla każdej z osi [x, y, theta], oraz maksymalne hamowanie dla każdej z osi [x, y, theta].
+\newpage
 \section{Kwestie bezpieczeństwa}
 Robot opracowany został z myślą o omijaniu przeszkód, nawet tych których nie było na wcześniej stworzonej mapie pozwalając na bezpieczne poruszanie się w przestrzeni.
 Należy jednak pamiętać że robot ten nie został przygotowany do pracy w środowiskach bez równego podłoża, dlatego należy unikać przemieszczania się po nierównym terenie co może prowadzić do przewrócenia się robota.
-\newpage
+
 \section{Scenariusze korzystania z systemu}
 
-Robot ten pozwala na mapowanie różnego rodzaju pomieszczeń, oraz na nawigację do wyznaczonych punktów, co pozwala na zastosowanie go w różnego rodzaju zastosowaniach, jak np. inspekcja pomieszczeń. Testy przeprowadzane były w małych pomieszczeniach nie przekraczających 40 m$^2$, jednakże robot ten jest w stanie mapować pomieszczenia nawet do 24 000 m$^2$ co wynika z dokumentacji Nav2 \cite{bib:abs-2003-00368}.
+Robot ten pozwala na mapowanie różnego rodzaju pomieszczeń, oraz na nawigację do wyznaczonych punktów, co pozwala na zastosowanie go w różnego rodzaju zastosowaniach, jak np. inspekcja pomieszczeń. Testy przeprowadzane były w małych pomieszczeniach nie przekraczających 40 m$^2$, jednakże robot ten jest w stanie mapować pomieszczenia nawet do 24 000 m$^2$ co wynika z dokumentacji \textbf{Nav2} \cite{bib:abs-2003-00368}.
 %%%%%%%%%%%%%%%%%%%%%
 %% RYSUNEK Z PLIKU
 %
@@ -1006,12 +1109,11 @@ strukturę systemu, opis działania algorytmów oraz diagramy UML wyjaśniające
 \section{Wykorzystane technologie} 
 Projekt wykorzystuje następujące technologie:
 \begin{itemize}
-	\item ROS 2 Humble - platforma do tworzenia oprogramowania dla robotów
-	\item SLAM Toolbox - pakiet do mapowania otoczenia
-	\item Nav2 - pakiet do nawigacji robota wraz z algorytmem AMCL do lokalizacji
-	\item ROS2 Control - platforma do sterowania robotem
-	\item DiffDrive Arduino - pakiet zapewniający interfejs między ROS2 Control a Arduino
-	\item ROS arduino bridge - pakiet zapewniający oprogramowanie do sterowania silnikami i zbierania danych z enkoderów
+	\item  \textbf{ROS 2 Humble} - platforma do tworzenia oprogramowania dla robotów zainstalowana na Raspberry Pi i komputerze sterującym.
+	\item  \textbf{SLAM Toolbox} - pakiet do mapowania otoczenia, zainstalowany za pomocą komendy \textbf{sudo apt install ros-humble-slam-toolbox}
+	\item  \textbf{Nav2} - pakiet do nawigacji robota wraz z algorytmem \textbf{AMCL} do lokalizacji, zainstalowany za pomocą komendy \textbf{sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup}
+	\item   \textbf{DiffDrive Arduino} - pakiet będący rozszerzeniem zestawu narzędzi \textbf{ROS 2  Control} , zapewniający jego funkcjonalność, jaką jest zarządzanie różnego rodzaju kontrolerami, wraz z połączeniem między \textbf{ROS 2} i \textbf{ROS 2 Arduino Bridge} \cite{bib:diffdrive}. 
+	\item  \textbf{ROS Arduino Bridge} - pakiet zapewniający interfejs między \textbf{ROS 2} i Arduino, umożliwiający dostęp do sensorów analogowych i cyfrowych, serwomechanizmów PWM oraz danych odometrycznych z enkoderów. Jest to kompletne rozwiązanie do sterowania robotem kontrolowanym przez Arduino w środowisku \textbf{ROS 2} \cite{bib:rosarduinobridge}.
 \end{itemize}
 \newpage
 \section{Architektura systemu}
@@ -1030,31 +1132,31 @@ Sposób działania systemu oparty jest na współdziałających ze sobą program
 
 W tej sekcji zawarto szczegółowe opisy funkcjonalności każdego ze skryptów \ref{fig:diagram-programy}, które są odpowiedzialne za działanie robota.
 
-Wszystkie skrypty znajdują się w załączniku Oprogramowanie.
+Wszystkie skrypty znajdują się w załączniku  \textbf{Oprogramowanie}.
 \subsection{Arduino}
-Oprogramowanie to odpowiedzialne jest za sterowanie silnikami i zbieranie danych z enkoderów. Opiera się na pakiecie ROS arduino bridge\cite{bib:rosarduinobridge}, który zapewnia interfejs między ROS 2 a Arduino. 
+Oprogramowanie to odpowiedzialne jest za sterowanie silnikami i zbieranie danych z enkoderów. Opiera się na pakiecie \textbf{ROS Arduino Bridge}, który zapewnia interfejs między \textbf{ROS 2} i Arduino. 
 
-
-Program ten składa się z następujących plików:
+Po przetestowaniu skryptów stwierdzono brak potrzeby modyfikacji kodu źródłowego, więc nie wprowadzono żadnych zmian. Główne komponenty tego oprogramowania to:
 \begin{itemize}
-	\item ROSArduinoBridge.ino -  skrypt obsługuje komunikację szeregową z prędkością 57600 bodów (jednostka szybkości transmisji danych) i może kontrolować silniki poprzez różne sterowniki (np. Pololu VNH5019, MC33926 czy L298N). 
-	Główna pętla programu ciągle nasłuchuje komend przez port szeregowy, wykonuje obliczenia PID w regularnych odstępach czasu oraz aktualizuje stan serwomechanizmów jeśli są używane. Cały kod znajduje się w pliku ROSArduinoBridge.ino w załączniku Oprogramowanie.
-	\newpage
-	\item motor\_driver.ino - plik ten zawiera różne definicje sterowników silników, gdzie w tym projekcie wykorzystano  L298N, który jest dwukanałowym mostkiem H. Program obsługuje również inne sterowniki jak Pololu VNH5019 czy MC33926.
+	\item \textbf{ROSArduinoBridge.ino} -  skrypt obsługuje komunikację szeregową z prędkością 57600 bodów (jednostka szybkości transmisji danych) i może kontrolować silniki poprzez różne sterowniki (np. Pololu VNH5019, MC33926 czy \textbf{L298N}). 
+	Główna pętla programu ciągle nasłuchuje komend przez port szeregowy, wykonuje obliczenia PID w regularnych odstępach czasu oraz aktualizuje stan serwomechanizmów jeśli są używane. 
+	
+	\item \textbf{motor\_driver.ino} - plik ten zawiera różne definicje sterowników silników, gdzie w tym projekcie wykorzystano  \textbf{L298N}, który jest dwukanałowym mostkiem H. Program obsługuje również inne sterowniki jak Pololu VNH5019 czy MC33926.
 
 	W kodzie zaimplementowano trzy podstawowe funkcje:
 	\begin{itemize}
-	\item initMotorController() - inicjalizacja sterownika silników
-	\item setMotorSpeed(int i, int spd) - ustawienie prędkości pojedynczego silnika 
-	\item setMotorSpeeds(int leftSpeed, int rightSpeed) - funkcja do ustawiania prędkości obu silników
+	\item \textbf{initMotorController()} - inicjalizacja sterownika silników
+	\item \textbf{setMotorSpeed(int i, int spd)} - ustawienie prędkości pojedynczego silnika 
+	\item \textbf{setMotorSpeeds(int leftSpeed, int rightSpeed)} - funkcja do ustawiania prędkości obu silników
 	\end{itemize}
 
-	Dla sterownika L298N prędkość silników jest kontrolowana przez sygnały PWM wysyłane na odpowiednie piny. Ujemne wartości prędkości powodują obrót silnika w przeciwnym kierunku. Program zapewnia też ograniczenie maksymalnej prędkości do 255 (8-bit PWM).
-	\item encoder\_driver.ino - Ten plik zawiera definicje obsługi enkoderów do odczytu pozycji kół robota. W implementacji wykorzystano przerwania do dokładnego zliczania impulsów z enkoderów.
+	Dla sterownika \textbf{L298N} prędkość silników jest kontrolowana przez sygnały PWM wysyłane na odpowiednie piny. Ujemne wartości prędkości powodują obrót silnika w przeciwnym kierunku. Program zapewnia też ograniczenie maksymalnej prędkości do 255 (\textbf{8-bit PWM}).
+	\newpage
+	\item \textbf{encoder\_driver.ino} - Ten plik zawiera definicje obsługi enkoderów do odczytu pozycji kół robota. W implementacji wykorzystano przerwania do dokładnego zliczania impulsów z enkoderów.
 
 	Plik zawiera między innymi:
 	\begin{itemize}
-	\item Definicje pinów dla enkoderów lewego i prawego koła
+	\item Definicje wejść/wyjść dla enkoderów lewego i prawego koła
 	\item Wykorzystanie przerwań PCINT (ang. "Pin Change Interrupt") do zliczania impulsów
 	\item Funkcje do odczytu i resetowania liczników enkoderów
 	\end{itemize}
@@ -1083,7 +1185,7 @@ Program ten składa się z następujących plików:
 	\label{fig:encoder-driver2}
 	\end{figure}
 \newpage
-	\item encoder\_driver.h, oraz motor\_driver.h - pliki zawierające deklaracje funkcji i zmiennych, definiując porty i piny dla enkoderów i sterowników silników. 
+	\item \textbf{encoder\_driver.h}, oraz \textbf{motor\_driver.h} - pliki zawierające deklaracje funkcji i zmiennych, definicje wejść/wyjść dla enkoderów i sterowników silników. 
 	\newline
 
 	
@@ -1140,8 +1242,8 @@ Program ten składa się z następujących plików:
 			\label{fig:encoder-driver}
 			\end{figure}
 			
-			\item commands.h - zawiera definicje komend wysyłanych z Raspberry Pi do Arduino. W pliku zdefiniowano między innymi komendy do sterowania silnikami, odczytu enkoderów i resetowania enkoderów.
-			\item diff\_controller.h - plik zawierający implementację regulatora PID dla sterowania prędkością kół robota. Regulator wykorzystuje zaawansowane techniki sterowania, w tym:
+			\item \textbf{commands.h} - zawiera definicje komend wysyłanych z Raspberry Pi do Arduino. W pliku zdefiniowano między innymi komendy do sterowania silnikami, odczytu enkoderów i resetowania enkoderów.
+			\item \textbf{diff\_controller.h} - plik zawierający implementację regulatora PID dla sterowania prędkością kół robota. Regulator wykorzystuje zaawansowane techniki sterowania, w tym:
 
 			\begin{itemize}
 				\item Unikanie skoku pochodnej (ang. "derivative kick") poprzez wykorzystanie poprzedniego wejścia zamiast poprzedniego błędu
@@ -1169,8 +1271,8 @@ Program ten składa się z następujących plików:
  
 \newpage
 \subsection{LiDAR}
-Skrypt ten odpowiada za odczyt danych z LiDAR-a i przesyłanie ich do Raspberry Pi. Program ten wykorzystuje pakiet rplidar\_ros udostępniony przez producenta SLAMTEC. 
-Do obsługi LiDAR-a stworzono plik wykonawczy rplidar.launch.py. Ten plik odpowiedzialny jest za konfigurację i uruchomienie węzła obsługującego czujnik RPLidar A1. 
+Skrypt ten odpowiada za odczyt danych z LiDAR-a i przesyłanie ich do Raspberry Pi. Program ten wykorzystuje pakiet  \textbf{rplidar\_ros} udostępniony przez producenta SLAMTEC. 
+Do obsługi LiDAR-a stworzono plik wykonawczy  \textbf{rplidar.launch.py}. Ten plik odpowiedzialny jest za konfigurację i uruchomienie węzła obsługującego czujnik RPLidar A1. 
 
 
 Plik definiuje parametry pracy czujnika, takie jak:
@@ -1183,33 +1285,37 @@ Plik definiuje parametry pracy czujnika, takie jak:
 \item Zakres kątowy skanowania (pełny obrót 360 stopni)
 \end{itemize}
 
-Program sprawdza również dostępność portu szeregowego i zgłasza odpowiedni komunikat w przypadku braku połączenia z czujnikiem. Dane z czujnika są publikowane do systemu ROS 2 i mogą być wykorzystywane przez inne węzły, na przykład do tworzenia mapy otoczenia czy nawigacji.
+Program sprawdza również dostępność portu szeregowego i zgłasza odpowiedni komunikat w przypadku braku połączenia z czujnikiem. Dane z czujnika są publikowane do systemu \textbf{ROS 2} w systemie tematów (ang. "topic"), wiadomości z węzła LiDAR-a przesyłane są do tematu  \textbf{"scan"} i mogą być wykorzystywane przez inne węzły na zasadzie subskrypcji, na przykład do tworzenia mapy otoczenia czy nawigacji.
 
 \subsection{Sterowanie silnikami i model robota}
-Za sterowanie silnikami odpowiadają następujące pliki:
+W celu sterowania robotem wykorzystano pakiet  \textbf{DiffDrive Arduino}, który jest rozszerzeniem zestawu narzędzi \textbf{ROS 2 Control}. \newline
+Utworzono następujące pliki:
+\textbf{model\_controll.launch.py}, który odpowiada za uruchomienie i konfigurację podstawowych komponentów sterowania robota. 
+Pliki konfiguracyjne \textbf{model\_main.xacro}, \textbf{model.urdf.xacro}, \textbf{internal\_macros.xacro}, \textbf{ros2\_control.xacro} definiują model kinematyczny i wizualny robota w formacie URDF/XACRO, a także konfigurację kontrolerów \textbf{ROS 2 Control}.
+\newpage
 \begin{itemize}
 
-	\item model\_controll.launch.py - główny plik wykonawczy sterujący robotem. Odpowiada za:
+	\item \textbf{model\_controll.launch.py} - główny plik wykonawczy sterujący robotem. Odpowiada za:
 		\begin{itemize}
 			\item Uruchomienie i konfigurację podstawowych komponentów sterowania:
 			\begin{itemize}
 				\item robot\_state\_publisher - publikuje transformacje robota na podstawie modelu URDF (ang. "Unified Robot Description Format")
-				\item twist\_mux - zarządza priorytetyzacją komend prędkości, czyli przypisuje odpowiednie komendy do poprawnego korzystania z Ros2 Control i np. sterowania za pomocą klawiatury.
-				\item controller\_manager - zarządza kontrolerami ROS2 Control
+				\item twist\_mux - zarządza priorytetyzacją komend prędkości, czyli przypisuje odpowiednie komendy do poprawnego korzystania z \textbf{ROS2 Control} i np. sterowania za pomocą klawiatury.
+				\item controller\_manager - zarządza kontrolerami \textbf{ROS 2 Control} 
 				\item diff\_cont - kontroler napędu różnicowego
 				\item joint\_broad - nadawca stanu połączeń
 			\end{itemize}
-			\newpage
+		
 			\item Obsługę parametrów:
 			\begin{itemize}
 				\item use\_sim\_time (domyślnie: fałszywe) - przełącznik trybu symulacji
-				\item use\_ros2\_control (domyślnie: prawdziwe) - włączanie/wyłączanie ROS2 Control
+				\item use\_ros2\_control (domyślnie: prawdziwe) - włączanie/wyłączanie \textbf{ROS 2 Control} 
 			\end{itemize}
 			\item Sekwencyjne uruchamianie komponentów z opóźnieniami
 			\item Ładowanie plików konfiguracyjnych (URDF, YAML)
 		\end{itemize}
 
-	\item model\_main.xacro - plik definiujący model kinematyczny i wizualny robota w formacie URDF/XACRO. Zawiera:
+	\item \textbf{model\_main.xacro} - plik definiujący model kinematyczny i wizualny robota w formacie URDF/XACRO. Zawiera:
 		\begin{itemize}
 			\item Definicje materiałów do wizualizacji (biały - walec stanowiący korpus robota, pomarańczowy - LiDAR, niebieski - koła, czarny - koła podporowe)
 			\item Strukturę robota:
@@ -1218,7 +1324,7 @@ Za sterowanie silnikami odpowiadają następujące pliki:
 				\item container - główny korpus w kształcie walca
 				\item LiDAR - czujnik laserowy na górze konstrukcji
 				\item Koła napędowe (lewe i prawe) - połączenia ciągłe (ang. "continuous joints"), zależne od prędkości (ang. "velocity dependent")
-				\item Koła podporowe (przód i tył) - połączenia stałe (fixed joints)
+				\item Koła podporowe (przód i tył) - połączenia stałe (ang. "fixed joints")
 			\end{itemize}
 			\item Właściwości fizyczne elementów:
 			\begin{itemize}
@@ -1227,10 +1333,10 @@ Za sterowanie silnikami odpowiadają następujące pliki:
 				\item Parametry kolizji
 			\end{itemize}
 		\end{itemize}
-		Model ten umożliwia wizualizację robota w RVIZ oraz symulację jego dynamiki w środowisku ROS.
+		Model ten umożliwia wizualizację robota w \textbf{RVIZ} oraz symulację jego dynamiki w środowisku \textbf{ROS 2}.
 \newpage
 	
-	\item model.urdf.xacro - jest to plik spajający definicję modelu z pliku model\_main.xacro z konfiguracją kontrolerów z pliku ros2\_control.xacro.
+	\item \textbf{model.urdf.xacro} - jest to plik spajający definicję modelu z pliku model\_main.xacro z konfiguracją kontrolerów z pliku \textbf{ros2\_control.xacro}.
 	
 	\begin{figure}[!hb]
 		\centering
@@ -1247,11 +1353,11 @@ Za sterowanie silnikami odpowiadają następujące pliki:
 		\caption{Kod źródłowy pliku model.urdf.xacro}
 		\label{fig:model.urdf.xacro}
 	\end{figure}
-	\item internal\_macros.xacro - plik zawiera momenty bezwładności dla poszczególnych elementów robota.
+	\item \textbf{internal\_macros.xacro} - plik zawiera momenty bezwładności dla poszczególnych elementów robota.
 
-	\item ros2\_control.xacro - w tym pliku zawarto konfigurację silników dla Ros2 Control, zdefiniowano w nim nazwy dla poszczególnych kół, częstotliwość odświeżania zgodną z skryptem ROSArduinoBridge, czyli 57600 bodów, zliczenia enkoderów na obrót koła - 2194 wyznaczone przez testy, oraz ustawienie maksymalnej i minimalnej prędkości dla każdego silnika.
-	\item twist\_mux.yaml - plik konfiguracyjny, wykorzystywany do udostępnienia cmd\_vel do sterowania robotem. Jest to potrzebne przy sterowaniu z klawiatury.
-	\newpage \item my\_controllers.yaml - jest to plik konfiguracyjny potrzebny do integracji systemu z pakietem diffdrive arduino. Zdefiniowano w nim nazwy kół zgodne z poprzednimi plikami konfiguracyjnymi, częstotliwość aktualizacji, szerokość kół i ich rozstaw.
+	\item \textbf{ros2\_control.xacro} - w tym pliku zawarto konfigurację silników dla Ros2 Control, zdefiniowano w nim nazwy dla poszczególnych kół, częstotliwość odświeżania zgodną z skryptem \textbf{ROS Arduino Bridge}, czyli 57600 bodów, zliczenia enkoderów na obrót koła - 2194 wyznaczone przez testy, oraz ustawienie maksymalnej i minimalnej prędkości dla każdego silnika co w przypadku tego projektu wynosi -5 dla minimalnej i 5 dla maksymalnej.
+	\item \textbf{twist\_mux.yaml} - plik konfiguracyjny, wykorzystywany do udostępnienia cmd\_vel do sterowania robotem. Jest to potrzebne przy sterowaniu z klawiatury.
+	\newpage \item \textbf{my\_controllers.yaml} - jest to plik konfiguracyjny potrzebny do integracji systemu z pakietem \textbf{Diffdrive Arduino}. Zdefiniowano w nim nazwy kół zgodne z poprzednimi plikami konfiguracyjnymi, częstotliwość aktualizacji, szerokość kół i ich rozstaw.
 	\begin{figure}[!hb]
 		\centering
 	\begin{lstlisting}
@@ -1259,12 +1365,12 @@ Za sterowanie silnikami odpowiadają następujące pliki:
 
 		publish_rate: 50.0  # Increased for better velocity updates
 	
-		base_frame_id: base_footprint  # Reverted frame
+		base_frame_id: base_footprint 
 	
 		left_wheel_names: ['left_wheel_joint']
 		right_wheel_names: ['right_wheel_joint']
-		wheel_separation: 0.14  
-		wheel_radius: 0.035     
+		wheel_separation: 0.14  # set to 14 cm
+		wheel_radius: 0.035     # set to 3.5 cm
 	
 		use_stamped_vel: false
 	
@@ -1275,11 +1381,11 @@ Za sterowanie silnikami odpowiadają następujące pliki:
 \end{itemize}
 \newpage
 \subsection{Mapowanie}
-W celu mapowania otoczenia robota wykorzystano pakiet SLAM Toolbox, który pozwala na tworzenie mapy otoczenia na podstawie danych z LiDAR-a. Utworzony program składa się z następujących plików:
+W celu mapowania otoczenia robota wykorzystano pakiet SLAM Toolbox, który pozwala na tworzenie mapy otoczenia na podstawie danych z LiDAR-a. Utworzono plik \textbf{slam.launch.py}, który odpowiada za konfigurację i uruchomienie węzła odpowiedzialnego za mapowanie otoczenia. Wykorzystano również i przystosowano plik konfiguracyjny \textbf{mapper\_params\_online\_async.yaml} z pakietu \textbf{SLAM Toolbox}, w którym zdefiniowano parametry pracy algorytmu.
 \begin{itemize}
-	\item slam.launch.py - plik ten odpowiada za konfigurację i uruchomienie węzła odpowiedzialnego za mapowanie otoczenia. 
-	Program ten publikuje mapę otoczenia w systemie ROS 2, która może być wykorzystywana do nawigacji robota.
-	\item mapper\_params\_online\_async.yaml - plik konfiguracyjny zawarty w pakiecie SLAM Toolbox, wybrana została wersja online async, zamiast online sync, ze względu na lepszą wydajność. W pliku zdefiniowano parametry pracy algorytmu, takie jak:
+	\item \textbf{slam.launch.py} - plik ten odpowiada za konfigurację i uruchomienie węzła odpowiedzialnego za mapowanie otoczenia. 
+	Program ten publikuje mapę otoczenia w systemie \textbf{ROS 2}, która może być wykorzystywana do nawigacji robota.
+	\item \textbf{mapper\_params\_online\_async.yaml} - plik konfiguracyjny zawarty w pakiecie \textbf{SLAM Toolbox}, wybrana została wersja online async, zamiast online sync, ze względu na lepszą wydajność. W pliku zdefiniowano parametry pracy algorytmu, takie jak:
 	
 	\begin{figure}[!hb]
 		\centering
@@ -1295,9 +1401,46 @@ W celu mapowania otoczenia robota wykorzystano pakiet SLAM Toolbox, który pozwa
 \caption{Fragment kodu z pliku mapper\_params\_online\_async.yaml}
 \label{fig:mapper-params1}
 \end{figure}
-Wprowadzono tutaj zmianę w funkcji straty z None na HuberLoss, co pozwala na lepsze radzenie sobie z błędami wynikającymi z ślizgania się kół robota.
-
-Kluczowym elementem jaki należy tutaj opisać jest wykorzystanie biblioteki Ceres Solver \cite{bib:Agarwal_Ceres_Solver_2022}. Jest to narzędzie, które pomaga znaleźć najlepsze dopasowanie między różnymi pomiarami, minimalizując błąd średniokwadratowy. Dzięki temu SLAM Toolbox może tworzyć dokładne mapy, nawet gdy niektóre pomiary są niedokładne lub błędne. 
+Wprowadzono tutaj zmianę w funkcji straty z None na \textbf{HuberLoss}, co pozwala na lepsze radzenie sobie z błędami wynikającymi z ślizgania się kół robota. Dodano również parametr \textbf{ceres\_huber\_loss\_delta}, który określa jak duże błędy są ignorowane przez algorytm.
+\newpage
+\begin{figure}[!hb]
+	\centering
+\begin{lstlisting}
+	# \textbf{ROS 2} Parameters
+    odom_frame: "odom"
+    map_frame: "map"
+    base_frame: "base_footprint"
+    scan_topic: "/scan"
+    use_map_saver: true
+    use_sim_time: false
+    mode: "mapping" #localization
+\end{lstlisting}
+\caption{Fragment kodu z pliku mapper\_params\_online\_async.yaml}
+\label{fig:mapper-params2}
+\end{figure}
+Ustawiono parametry \textbf{ROS 2}, tak by odpowiadały tym jakie zastosowano w robocie, w tym nazwa tematu \textbf{/scan} z LiDAR-a, nazwy ramek oraz tryb mapowania.
+\begin{figure}[!hb]
+	\centering
+\begin{lstlisting}
+	debug_logging: false
+    throttle_scans: 2
+    transform_publish_period: 0.05 #if 0 never publishes odometry
+    map_update_interval: 2.0
+    resolution: 0.05
+    max_laser_range: 12.0 #RP Lidar A1
+    minimum_time_interval: 0.2
+    transform_timeout: 0.5
+    tf_buffer_duration: 30.
+    stack_size_to_use: 60000000 #// program needs a larger stack size
+    enable_interactive_mode: true
+	minimum_travel_distance: 0.05  # Reduced from 0.1
+\end{lstlisting}
+\caption{Fragment kodu z pliku mapper\_params\_online\_async.yaml}
+\label{fig:mapper-params3}
+\end{figure}
+\newline Zmodyfikowano również parametry takie jak okres publikacji transformacji dla lepszej synchronizacji, maksymalny zakres pomiarowy zainstalowanego LiDAR-a, rozmiar stosu (ze względu na dużą ilość danych przetwarzanych przez algorytm). Zmodyfikowano również ogólne parametry takie jak minimalny dystans, tak by częściej aktualizować mapę.
+\newpage
+Ważnym aspektem SLAM Toolbox jest to że wykorzystuje bibliotekę \textbf{Ceres Solver} \cite{bib:Agarwal_Ceres_Solver_2022}. Jest to narzędzie, które pomaga znaleźć najlepsze dopasowanie między różnymi pomiarami, minimalizując błąd średniokwadratowy. Dzięki temu SLAM Toolbox może tworzyć dokładne mapy, nawet gdy niektóre pomiary są niedokładne lub błędne. 
 \newline
 Działa to na zasadzie iteracyjnego poprawiania oszacowań pozycji robota:
 
@@ -1313,79 +1456,40 @@ Działa to na zasadzie iteracyjnego poprawiania oszacowań pozycji robota:
 \item Cały proces dąży do znalezienia takich pozycji robota, dla których suma wszystkich błędów jest najmniejsza
 \end{itemize}
 
-Algorytm działa iteracyjnie wykorzystując do tego metodę Levenberga-Marquardta, która łączy w sobie:
-
-\begin{itemize}
-\item Szybkość metody Gaussa-Newtona (dobre do precyzyjnych korekt)
-\item Stabilność metody największego spadku (pomocne przy większych korektach)
 \end{itemize}
 
-Dzięki takiemu podejściu SLAM Toolbox może tworzyć dokładne mapy, nawet gdy niektóre pomiary są niedokładne.
-
-\begin{figure}[!hb]
-	\centering
-\begin{lstlisting}
-	# ROS Parameters
-    odom_frame: "odom"
-    map_frame: "map"
-    base_frame: "base_footprint"
-    scan_topic: "/scan"
-    use_map_saver: true
-    use_sim_time: false
-    mode: "mapping" #localization
-\end{lstlisting}
-\caption{Fragment kodu z pliku mapper\_params\_online\_async.yaml}
-\label{fig:mapper-params2}
-\end{figure}
-Ustawiono tutaj tryb mapowania, oraz nazwy ramek, z których korzysta program.
-\newline
-\newpage
-\begin{figure}[!hb]
-	\centering
-\begin{lstlisting}
-	debug_logging: false
-    throttle_scans: 2
-    transform_publish_period: 0.05 #if 0 never publishes odometry
-    map_update_interval: 2.0
-    resolution: 0.05
-    max_laser_range: 12.0 #RP Lidar A1
-    minimum_time_interval: 0.2
-    transform_timeout: 0.5
-    tf_buffer_duration: 30.
-    stack_size_to_use: 60000000 #// program needs a larger stack size
-    enable_interactive_mode: true
-\end{lstlisting}
-\caption{Fragment kodu z pliku mapper\_params\_online\_async.yaml}
-\label{fig:mapper-params3}
-\end{figure}
-Dostosowano parametry po przeprowadzeniu testów i analizie wyników. Zmniejszono odstęp czasowy między aktualizacjami mapy, zwiększono rozdzielczość mapy oraz zwiększono czas oczekiwania na transformację. Dostosowano również rozmiar stosu, aby zapobiec przepełnieniu pamięci. Zmieniony został też maksymalny dystans na jaki pozwala zamontowany model LiDAR-a.
-\end{itemize}
-\newpage
 \subsection{Nawigacja i lokalizacja}
-Do nawigacji i lokalizacji robota wykorzystano pakiet Nav2, który pozwala na wyznaczanie trasy i lokalizację robota na mapie. Program ten składa się z następujących plików:
+Do nawigacji i lokalizacji robota wykorzystano pakiet \textbf{Nav2}, który pozwala na wyznaczanie trasy i lokalizację robota na mapie.\newline W tym celu utworzono plik \textbf{nav\_localization.launch.py}, oraz dwa pliki konfiguracyjne \textbf{amcl.yaml} - plik zawierający wyłącznie konfigurację \textbf{AMCL} i \textbf{nav2\_params.yaml} - plik bazujący na pliku konfiguracyjnym z \textbf{Nav2}.
 \begin{itemize}
-	\item nav\_localization.launch.py - plik ten odpowiada za konfigurację i uruchomienie węzłów odpowiedzialnych za nawigację i lokalizację robota. 
-	 Podstawowym elementem jest serwer mapy, który przechowuje i udostępnia mapę otoczenia. Za lokalizację odpowiada algorytm AMCL (adaptacyjna lokalizacja Monte Carlo), który wykorzystuje chmurę cząstek do określenia pozycji robota na mapie. System kontroli ruchu składa się z kontrolera ruchu, który steruje silnikami, planera ścieżki wyznaczającego trasę oraz modułu zachowań awaryjnych, który pozwala na reagowanie w sytuacjach nieoczekiwanych. Całością zarządza nawigator oparty na drzewach zachowań.
+	\item \textbf{nav\_localization.launch.py} - program ten tworzy środowisko nawigacyjne poprzez uruchomienie zestawu węzłów \textbf{ROS 2}, które realizują poszczególne funkcje nawigacyjne.
 
-	Program konfiguruje się poprzez zestaw parametrów, z których najważniejsze to praca w czasie rzeczywistym (zamiast symulacji), automatyczne uruchomienie systemu oraz ścieżki do plików z mapą i konfiguracją. 
+	Kluczowe komponenty systemu to serwer mapy (ang. "\textbf{map\_server}"), który zarządza zapisaną wcześniej mapą otoczenia, oraz węzeł \textbf{AMCL} realizujący lokalizację robota. Za ruch robota odpowiada zestaw węzłów nawigacyjnych: kontroler ruchu (ang. "\textbf{controller\_server}") wykonujący zaplanowane trajektorie, projektant ścieżki (ang. "\textbf{planner\_server}") wyznaczający optymalną trasę, moduł zachowań awaryjnych (ang. "\textbf{behavior\_server}") reagujący w sytuacjach nietypowych, np. napotkanie nowej przeszkody, oraz nawigator oparty na drzewach zachowań (ang. "\textbf{bt\_navigator}") koordynujący całość.
+\newpage
+	 Dodatkowo uruchamiany jest węzeł RVIZ zapewniający wizualizację mapy, robota i trasy.
 
-	Szczególną uwagę poświęcono konfiguracji modułu AMCL, gdzie określono liczbę wykorzystywanych cząstek (od 3000 do 10000), parametry modelu ruchu (wszystkie ustawione na 0.2) oraz warunki aktualizacji lokalizacji (minimalny przesuw 0.1m i obrót 0.1 radiana). Dodatkowo włączono funkcję globalnej lokalizacji przy starcie systemu, co pozwala na określenie pozycji bez znajomości stanu początkowego.
+	Wszystkie węzły są skonfigurowane do pracy z przekształceniami układów współrzędnych (ang. "\textbf{transforms}") poprzez odpowiednie mapowanie tematów \newline \textbf{/tf} i \textbf{/tf\_static}. Parametry węzłów są dynamicznie konfigurowane z użyciem plików YAML, które mogą być modyfikowane w zależności od potrzeb konkretnej aplikacji.
 
-	Do nawigacji tworzone są dodatkowe mapy kosztów (ang. "costmap") lokalna i globalna. Lokalna mapa kosztów odpowiada za omijanie obiektów które nie były na mapie podczas jej tworzenia, natomiast globalna mapa kosztów tworzy strefy wokół obiektów już zmapowanych, czyli np. ściany, co pozwala na tworzenie tras wokół przeszkód.
-	\newpage
-	\item amcl.yaml - plik konfiguracyjny algorytmu AMCL odpowiedzialnego 
-	za precyzyjną lokalizację robota na mapie. Zawiera parametry takie jak:
-	\begin{itemize}
-		\item Współczynniki szumu odometrii (alpha1-5) ustawione na 0.2 dla zoptymalizowanej dokładności
-		\item Parametry filtracji wiązki lasera dla lepszej jakości skanów
-		\item Liczba cząstek (500-3000) dobrana dla optymalnej równowagi między dokładnością a wydajnością
-		\item Częstotliwość aktualizacji pozycji i orientacji (co 0.1m/rad) zapewniająca płynne śledzenie
-		\item Parametry adaptacji (szybkiej i wolnej) dla stabilnej lokalizacji
-		\item Konfiguracja ramek odniesienia i transformacji dla poprawnej integracji z systemem ROS
-	\end{itemize}
+	Do nawigacji tworzone są dodatkowe mapy kosztów (ang. "\textbf{costmap}") lokalna i globalna. Globalna mapa odpowiada za wyznaczanie trasy w oparciu o wczesniej zapisane na mapie przeszkody, natomiast lokalna mapa kosztów jest używana do unikania kolizji z przeszkodami wykrywanymi w czasie rzeczywistym które nie były wcześniej zapisane na mapie.	
+	
+	\item \textbf{amcl.yaml} - plik konfiguracyjny algorytmu \textbf{AMCL} odpowiedzialnego za precyzyjną lokalizację robota na mapie.
+	Wykorzystano tutaj podstawowe parametry \textbf{AMCL} które wcześniej znajdowały się w pliku nav2\_params.yaml i zmieniono je na potrzeby systemu. 
+	 Zmieniono parametry takie jak: 
+	\newline \textbf{do\_beamskip} na prawdziwe co poprawiło prędkość działania programu,
+	\newline \textbf{laser\_max\_range} i \textbf{laser\_min\_range} zostały dostosowane do zainstalowanego LiDAR-a, 
+	\newline \textbf{max\_particles} i \textbf{min\_particles} zostały zmienione kolejno na 10000 i 3000 z 2000 i 500 dla lepszej jakości lokalizacji przez zwiększenie ilości przewidywanych punktów, 
+	\newline \textbf{recovery\_alpha\_fast} i \textbf{recovery\_alpha\_slow} zostały kolejno zmienione z 0 na 0.1 i 0 na 0.001, co pozwala na lepszą naprawę lokalizacji przez dodawanie losowych punktów, 
+	\newline \textbf{update\_min\_a} i \textbf{update\_min\_d} zostały zmienione z 0.2 i 0.25 na 0.1 i 0.1 co pozwala na częstsze aktualizacje filtra przy mniejszym przejechanym dystansie, 
+	\newline \textbf{scan\_topic} ustawiono na \textbf{/scan} zgodny z tym jaki wysyłany jest z rplidar.launch.py. 
+	\newline Dodano również \textbf{use\_sim\_time: false} ze względu na to że program jest na rzeczywistym modelu a nie w symulacji.
+
+
+
+
+	\item \textbf{nav2\_params.yaml} - jest to główny plik konfiguracyjny \textbf{Nav2}, w którym zdefiniowano parametry pracy systemu nawigacyjnego. Główną zmianą było wyciągnięcie parametrów \textbf{AMCL} z tego pliku. Dostosowano również parametry takie jak obszary w mapach kosztów - globalnej \textbf{cost\_scaling\_factor} i \textbf{inflation\_radius} z 3 na 2 i 0.7 na 0.3 oraz lokalnej \textbf{cost\_scaling\_factor} i \textbf{inflation\_radius} z 3 na 2 i 0.7 na 0.3. Zmiana ta została zastosowana aby łatwiej nawigować w małych pomieszczeniach przez zmniejszenie obszarów niebezpieczeństwa w tych mapach.
 	\end{itemize}
 \newpage
 \section{Diagramy UML prezentujące działanie konkretnych programów}
+Sekcja ta zawiera diagramy UML prezentujące działanie poszczególnych programów, które składają się na system sterowania robotem. 
 \begin{figure}[!hb]
 	\centering
 	\includegraphics[width=0.8\textwidth]{images/uml-model.png}
@@ -1468,115 +1572,54 @@ Do nawigacji i lokalizacji robota wykorzystano pakiet Nav2, który pozwala na wy
 
 % TODO
 \chapter{Weryfikacja i walidacja}
+W tym rozdziale przedstawiono proces weryfikacji i walidacji systemu. Wykonano to z wykorzystaniem modelu V, który pozwolił na przetestowanie poszczególnych komponentów systemu, integrację modułów oraz weryfikację zgodności z wymaganiami projektu. Opisano tu również organizację eksperymentów, przypadki testowe oraz wykryte i usunięte błędy.
+
+\section{Model V}
 W ramach pracy zastosowano model V do testowania systemu. Jest on popularnym modelem w inżynierii oprogramowania, który przedstawia proces tworzenia oprogramowania w formie litery V. Jej lewa strona reprezentuje fazy definiowania wymagań i projektowania systemu, natomiast prawa strona reprezentuje fazy testowania i walidacji systemu. 
+
+
+ Na początku zdefiniowano wymagania projektu, które obejmowały automatyczne tworzenie mapy otoczenia, autonomiczną nawigację robota, precyzyjną lokalizację oraz wykrywanie i omijanie przeszkód.
+  Na tej podstawie przeprowadzono szczegółową analizę wymagań funkcjonalnych, określając potrzebę zdalnego sterowania robotem, możliwość zapisywania i odczytu map, autonomicznej nawigacji do zadanych punktów oraz bezpiecznego poruszania się.
+
+Następnie zaprojektowano architekturę systemu, dzieląc go na podsystemy odpowiedzialne za napęd, sensory i sterowanie.
+ Określono przepływ danych między modułami oraz interfejsy komunikacyjne. Na tym etapie wybrano również kluczowe technologie, takie jak \textbf{ROS 2}, \textbf{Nav2} i \textbf{SLAM Toolbox}.
+  W ramach projektowania szczegółowego dobrano komponenty sprzętowe, opracowano projekt mechaniczny i elektryczny oraz zaplanowano strukturę oprogramowania wraz z interfejsami programowymi.
+
+Implementacja systemu objęła fizyczną budowę robota, programowanie sterowników, integrację sensorów oraz implementację algorytmów.
+\newpage
+ Następnie rozpoczęto procesy testowania, zaczynając od testów jednostkowych poszczególnych komponentów. Weryfikowano działanie napędów, sprawdzano sensory, testowano sterowniki oraz algorytmy.
+
+Kolejnym etapem było testowanie interfejsów, gdzie skupiono się na komunikacji między modułami, synchronizacji danych i ogólnym przepływie informacji w systemie.
+ Następnie przeprowadzono testy całego systemu, weryfikując funkcjonalności mapowania otoczenia, lokalizacji robota, planowania trasy i omijania przeszkód.
+
+Końcowym etapem były testy walidacyjne, podczas których sprawdzono zgodność systemu z pierwotnymi wymaganiami. Przeprowadzono testy wydajności i niezawodności, potwierdzając że zrealizowany system spełnia wszystkie założone cele. 
+
 \begin{figure}[!hb]
 	\centering
 	\includegraphics[width=1\textwidth]{images/modelV.png}
 	\caption{Model V}
 	\label{fig:modelv}
 \end{figure}
-\newpage
-\section{Model V}
-
-\begin{itemize}
-	\item \textbf{Wymagania projektu:} Główne cele i założenia:
-	\begin{itemize}
-		\item Automatyczne tworzenie mapy otoczenia
-		\item Autonomiczna nawigacja robota
-		\item Precyzyjna lokalizacja
-		\item Wykrywanie i omijanie przeszkód
-	\end{itemize}
-
-	\item \textbf{Analiza wymagań i tematu:} Szczegółowe wymagania funkcjonalne:
-	\begin{itemize}
-		\item Zdalne sterowanie robotem
-		\item Zapisywanie i odczyt map
-		\item Autonomiczna nawigacja do zadanych punktów
-		\item Bezpieczne poruszanie się
-	\end{itemize}
-
-	\item \textbf{Architektura projektu:} Ogólna struktura systemu:
-	\begin{itemize}
-		\item Podział na podsystemy (napęd, sensory, sterowanie)
-		\item Przepływ danych między modułami
-		\item Interfejsy komunikacyjne
-		\item Wybór technologii (ROS 2, Nav2, SLAM Toolbox)
-	\end{itemize}
-
-	\item \textbf{Architektura komponentów:} Projektowanie szczegółowe:
-	\begin{itemize}
-		\item Dobór komponentów sprzętowych
-		\item Projekt mechaniczny i elektryczny
-		\item Struktura oprogramowania
-		\item Interfejsy programowe
-	\end{itemize}
-
-	\item \textbf{Implementacja:} Realizacja systemu:
-	\begin{itemize}
-		\item Budowa robota
-		\item Programowanie sterowników
-		\item Integracja sensorów
-		\item Implementacja algorytmów
-	\end{itemize}
-\newpage
-	\item \textbf{Testowanie komponentów:} Testy jednostkowe:
-	\begin{itemize}
-		\item Weryfikacja napędów
-		\item Testy sensorów
-		\item Sprawdzenie sterowników
-		\item Testy algorytmów
-	\end{itemize}
-
-	\item \textbf{Testowanie interfejsów:} Testy integracyjne:
-	\begin{itemize}
-		\item Komunikacja między modułami
-		\item Synchronizacja danych
-		\item Przepływ informacji
-		\item Współpraca komponentów
-	\end{itemize}
-
-	\item \textbf{Testowanie systemu:} Testy całościowe:
-	\begin{itemize}
-		\item Mapowanie otoczenia
-		\item Lokalizacja robota
-		\item Planowanie trasy
-		\item Omijanie przeszkód
-	\end{itemize}
-
-	\item \textbf{Testy końcowe:} Walidacja systemu:
-	\begin{itemize}
-		\item Weryfikacja funkcjonalności
-		\item Testy wydajności
-		\item Testy niezawodności
-		\item Zgodność z wymaganiami
-	\end{itemize}
-\end{itemize}
+Na rysunku \ref{fig:modelv} przedstawiono model V, który pokazuje proces tworzenia systemu sterowania robotem mobilnym. Na lewej stronie znajdują się fazy definiowania wymagań i projektowania systemu, natomiast na prawej stronie znajdują się fazy testowania i walidacji systemu.
 \newpage
 \section{Organizacja eksperymentów}
 
-\begin{itemize}
-	\item \textbf{Testowanie jednostkowe:} Każdy moduł systemu, taki jak sterowanie silnikami, odczyt danych z LiDAR-a, tworzenie mapy, lokalizacja i nawigacja, został przetestowany indywidualnie. Testy jednostkowe obejmowały sprawdzenie poprawności działania poszczególnych funkcji i metod.
-	\item \textbf{Testowanie integracyjne:} Po zakończeniu testów jednostkowych, moduły zostały zintegrowane i przetestowane pod kątem poprawności współdziałania. Testy integracyjne obejmowały sprawdzenie komunikacji między modułami oraz poprawności przesyłania danych, jak i ewentualnych błędów.
-	\item \textbf{Testowanie systemowe:} Cały system został przetestowany w warunkach rzeczywistych. Testy systemowe obejmowały sprawdzenie poprawności działania systemu w różnych scenariuszach, takich jak zdalne sterowanie robotem, tworzenie mapy otoczenia, lokalizacja robota na mapie oraz autonomiczna nawigacja do wyznaczonych punktów.
-	\item \textbf{Walidacja:} System został zweryfikowany pod kątem spełnienia wymagań użytkownika. Walidacja obejmowała sprawdzenie, czy system działa zgodnie z założeniami i spełnia oczekiwania użytkownika.
-\end{itemize}
+W ramach organizacji eksperymentów przeprowadzono testowanie jednostkowe, gdzie każdy moduł systemu, taki jak sterowanie silnikami, odczyt danych z LiDAR-a, tworzenie mapy, lokalizacja i nawigacja, został przetestowany indywidualnie. 
+Następnie przeprowadzono testy integracyjne, gdzie sprawdzano współdziałanie poszczególnych modułów. Obejmowało to testy sterowania manualnego podczas mapowania, lokalizacji robota na zapisanej mapie oraz automatycznej nawigacji do wyznaczonych punktów.
+Na końcu przeprowadzono walidację, gdzie system został zweryfikowany pod kątem spełnienia wymagań projektu.
 
 \section{Przypadki testowe}
-Przypadki testowe obejmowały następujące scenariusze:
-\begin{itemize}
-	\item \textbf{Testowanie zdalnego sterowania:} Sprawdzenie, czy robot reaguje poprawnie na polecenia z klawiatury.
-	\item \textbf{Testowanie tworzenia mapy:} Sprawdzenie, czy system poprawnie tworzy mapę otoczenia na podstawie danych z LiDAR-a.
-	\item \textbf{Testowanie lokalizacji:} Sprawdzenie, czy system poprawnie lokalizuje robota na zapisanej mapie.
-	\item \textbf{Testowanie nawigacji:} Sprawdzenie, czy system poprawnie planuje trasę i nawigację robota do wyznaczonych punktów, omijając przeszkody.
-\end{itemize}
-\newpage
+
+Przypadki testowe obejmowały różne scenariusze. Pierwszym było testowanie zdalnego sterowania, gdzie sprawdzono czy robot reaguje poprawnie na polecenia z klawiatury. Drugim było testowanie tworzenia mapy, gdzie sprawdzono czy system poprawnie tworzy mapę otoczenia na podstawie danych z LiDAR-a. Kolejnym było testowanie lokalizacji, gdzie sprawdzono czy system poprawnie lokalizuje robota na zapisanej mapie. Ostatnim było testowanie nawigacji, gdzie sprawdzono czy system poprawnie planuje trasę i nawigację robota do wyznaczonych punktów, omijając przeszkody.
+
+
 \section{Wykryte i usunięte błędy}
-Podczas testowania systemu wykryto i usunięto następujące błędy:
-\begin{itemize}
-	\item \textbf{Problem z zasilaniem:} Występowały problemy z zasilaniem Raspberry Pi, co zostało rozwiązane przez wyłączenie zbędnej funkcji szukania monitora. Rozwiązano ten problem przez zastosowanie komendy sudo systemctl set-default multi-user.target.
-	\item \textbf{Problem z kołami:} Przez rozmiar kół i materiał z jakich zostały wykonane, robot miał problem z ślizganiem się kół co powodowało różnice między rzeczywistą pozycją robota, a tą która była wyznaczana podczas mapowania. Rozwiązano ten problem poprzez zastosowanie funkcji HuberLoss w algorytmie mapowania.
-	\item \textbf{Problem z błędną lokalizacją robota na mapie:} Na wczesnym etapie testów pojawił się problem ze sterowaniem robotem, który również uniemożliwiał nawgiację przy użyciu Nav2. Powodował sytuacje gdy podczas mapowania robot oddalał się od ściany w RVIZ zbliżał się do niej i po chwili model przenosił się na poprawne miejsce, powodowało to zmapowanie 2 ścian - poprawnej i przed przeniesieniem. Rozwiązaniem problemu było poprawne podłączenie silników do sterownika i Arduino.
-\end{itemize}
+
+Podczas testowania systemu wykryto i usunięto kilka istotnych błędów. Pierwszym był \textbf{problem z zasilaniem Raspberry Pi}, co zostało rozwiązane przez wyłączenie zbędnej funkcji szukania monitora. Rozwiązano ten problem przez zastosowanie komendy sudo systemctl set-default multi-user.target.
+
+Drugim \textbf{problemem był związany z kołami} - przez rozmiar kół i materiał z jakich zostały wykonane, robot miał problem z ślizganiem się kół co powodowało różnice między rzeczywistą pozycją robota, a tą która była wyznaczana podczas mapowania. Rozwiązano ten problem poprzez zastosowanie funkcji \textbf{HuberLoss} w algorytmie mapowania.
+
+Na wczesnym etapie testów pojawił się również \textbf{problem z błędną lokalizacją robota na mapie}, który również uniemożliwiał nawigację przy użyciu \textbf{Nav2}. Powodował sytuacje gdy podczas mapowania robot oddalał się od ściany w \textbf{RVIZ} zbliżał się do niej i po chwili model przenosił się na poprawne miejsce, powodowało to zmapowanie dwóch ścian - poprawnej i przed przeniesieniem. Rozwiązaniem problemu było poprawne podłączenie silników do sterownika i Arduino.
 
 
 
@@ -1585,10 +1628,10 @@ Podczas testowania systemu wykryto i usunięto następujące błędy:
 
 % TODO
 \chapter{Podsumowanie i wnioski}
+Ten rozdział zawiera uzyskane wyniki z wnioskami oraz kierunki dalszych prac.
 
 
-
-\section{Uzyskane wyniki}
+\section{Uzyskane wyniki i wnioski}
 W wyniku przeprowadzonych prac udało się zrealizować wszystkie założone cele projektu. System autonomicznej nawigacji robota mobilnego został zaprojektowany, zaimplementowany i przetestowany. Robot poprawnie tworzy mapę otoczenia, lokalizuje się na zapisanej mapie oraz nawigował do wyznaczonych punktów, omijając przeszkody. 
 \begin{figure}[!hb]
 	\centering
@@ -1637,9 +1680,9 @@ W przyszłości możliwe jest rozszerzenie funkcjonalności systemu o dodatkowe 
 \item[LiDAR] urządzenie wykonujące wykrywanie światła i określanie odległości (ang. \english{Light Detection and Ranging})
 \item[IMU] inercyjna jednostka pomiarowa (ang. \english{Inertial Measurement Unit})
 \item[RGB-D] kamera rejestrująca obraz RGB oraz informację o głębi (ang. \english{RGB-Depth})
-\item[Nav2] system nawigacji dla ROS 2 (ang. \english{Navigation 2})
+\item[Nav2] system nawigacji dla \textbf{ROS 2} (ang. \english{Navigation 2})
 \item[ROS] system operacyjny dla robotów (ang. \english{Robot Operating System})
-\item[ROS2 Control] system kontroli robotów dla ROS 2 (ang. \english{Robot Operating System 2 Control})
+\item[ROS 2 Control] system kontroli robotów dla \textbf{ROS 2}  (ang. \english{Robot Operating System 2 Control})
 \item[SLAM Toolbox] zestaw narzędzi do jednoczesnej lokalizacji i mapowania (ang. \english{Simultaneous Localization and Mapping Toolbox})
 \end{itemize}
 
